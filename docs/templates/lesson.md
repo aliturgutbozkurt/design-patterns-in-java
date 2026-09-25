@@ -13,6 +13,7 @@
 -->
 
 > **Week N** · Prerequisites: … · Estimated study time: … h
+>
 > Run every example without a build: `java <path>/<Demo>.java` (JDK 27)
 
 ## Learning outcomes

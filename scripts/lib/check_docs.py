@@ -148,7 +148,8 @@ def check_code(md: Path):
             errors.append(f"{rel(md)}:{start}: '// file:' used outside a Maven module")
             continue
         suffix = "/" + m.group(1).lstrip("/")
-        matches = [p for p in (root / "src").rglob("*.java") if str(p).endswith(suffix)]
+        matches = [p for p in root.rglob("*.java")
+                   if str(p).endswith(suffix) and "target" not in p.relative_to(root).parts]
         if len(matches) != 1:
             errors.append(f"{rel(md)}:{start}: '// file: {m.group(1)}' matches {len(matches)} files in {rel(root)}")
             continue
