@@ -6,7 +6,7 @@ Legend: size S = 1–2 units, M = 3–5 units · `Verify` must pass before ticki
 
 ## Phase 1 · Foundation
 
-- [ ] **F01** (#1) — Maven multi-module skeleton on JDK 27 · `M`
+- [x] **F01** (#1) — Maven multi-module skeleton on JDK 27 · `M`
   - Acceptance: `./mvnw -q verify` passes on JDK 27 and fails fast with a clear message on older JDKs
   - Acceptance: Dependency/plugin versions pinned in parent POM
   - Acceptance: JaCoCo + ArchUnit compatibility result recorded in `docs/java27-features.md`
