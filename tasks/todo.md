@@ -34,7 +34,7 @@ Legend: size S = 1–2 units, M = 3–5 units · `Verify` must pass before ticki
   - Verify: `scripts/build-pdf.sh modules/_sample` produces 2 PDFs; open and inspect; `scripts/check-docs.sh` exit 0
   - Depends on: F01 (#1)
   - Files: `docs/templates/*`, `docs/glossary.md`, `docs/pdf/*`, `scripts/*.sh`
-- [ ] **F05** (#5) — GitHub Actions CI · `S`
+- [x] **F05** (#5) — GitHub Actions CI · `S`
   - Acceptance: CI green on main for all OSes
   - Acceptance: PDF artifacts downloadable from the run
   - Acceptance: Badge in README

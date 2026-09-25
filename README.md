@@ -1,5 +1,7 @@
 # Design Patterns in Java (Java 27) · Java ile Tasarım Kalıpları
 
+[![CI](https://github.com/aliturgutbozkurt/design-patterns-in-java/actions/workflows/ci.yml/badge.svg)](https://github.com/aliturgutbozkurt/design-patterns-in-java/actions/workflows/ci.yml)
+
 > 🚧 **Work in progress — spec-driven development.** Fall 2026 (Eylül 2026) curriculum.
 
 **EN** — An open, bilingual course on design patterns in modern Java (JDK 27): 12 modules + a capstone project,

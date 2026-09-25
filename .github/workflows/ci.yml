@@ -1,0 +1,79 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+env:
+  JAVA_VERSION: "27"
+  JAVA_DISTRIBUTION: temurin
+  MAVEN_ARGS: -B -ntp
+
+jobs:
+  build:
+    name: Build & test (${{ matrix.os }})
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-java@v6
+        with:
+          distribution: ${{ env.JAVA_DISTRIBUTION }}
+          java-version: ${{ env.JAVA_VERSION }}
+          cache: maven
+      - name: Build, examples & solution tests
+        shell: bash
+        run: ./mvnw verify
+
+  starters:
+    name: Starters compile and fail their contracts
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-java@v6
+        with:
+          distribution: ${{ env.JAVA_DISTRIBUTION }}
+          java-version: ${{ env.JAVA_VERSION }}
+          cache: maven
+      - run: scripts/check-starters.sh
+
+  docs:
+    name: Docs check & PDFs
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - name: EN/TR parity, links, lesson code == source
+        run: scripts/check-docs.sh
+      - uses: pandoc/actions/setup@v1
+        with:
+          version: "3.8"
+      - uses: typst-community/setup-typst@v5
+        with:
+          typst-version: "0.15.1"
+      - uses: actions/setup-node@v7
+        with:
+          node-version: "22"
+      - name: Build all PDFs
+        env:
+          # GitHub's Ubuntu runners block Chromium's sandbox (AppArmor), so mermaid-cli runs it without one.
+          MMDC: npx -y @mermaid-js/mermaid-cli@12.0.0 -p docs/pdf/puppeteer-ci.json
+        run: scripts/build-pdf.sh --all
+      - uses: actions/upload-artifact@v7
+        with:
+          name: lesson-pdfs
+          path: |
+            modules/*/lesson/*.pdf
+            capstone/*.pdf
+          if-no-files-found: error
