@@ -69,7 +69,7 @@ export JAVA_HOME=$(/usr/libexec/java_home -v 27)          # macOS (Linux/Windows
 ./mvnw -q verify                                           # full build: examples + solutions tests
 ./mvnw -q -pl modules/<module-id> verify                   # one module
 ./mvnw -q -pl modules/<module-id> test -Pexercises         # student: run exercise tests
-./mvnw -q -Pexercises-compile verify                       # CI: starters compile
+scripts/check-starters.sh [modules/<module-id>]             # CI: starters compile and still fail their contracts
 java modules/<module-id>/src/main/java/.../<Demo>.java     # run any example, no build needed (JEP 458)
 scripts/build-pdf.sh modules/<module-id> | --all            # Markdown → PDF (EN + TR)
 scripts/check-docs.sh                                      # EN/TR parity + broken links
@@ -107,7 +107,7 @@ deterministic demo output; English identifiers; `-Xlint:all -Werror`; Javadoc on
 | Contract tests | Abstract spec of an assignment | `src/test/.../exNN/*Contract` | — (abstract) |
 | Solution tests | Contract bound to reference solution | `*SolutionTest` | default build / CI |
 | Exercise tests | Contract bound to starter code (`@Tag("exercise")`) | `*ExerciseTest` | `-Pexercises` (student) |
-| Starter check | Starters compile; exercise tests fail on starters | profile `exercises-compile` | CI |
+| Starter check | Starters compile; every `*ExerciseTest` fails on starters | `scripts/check-starters.sh` | CI |
 | Architecture | ArchUnit rules (layering, no cycles) | m11, capstone | default build / CI |
 | Docs | EN/TR heading parity, links, PDF build | `scripts/check-docs.sh`, `build-pdf.sh` | CI |
 
