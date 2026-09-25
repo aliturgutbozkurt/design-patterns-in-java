@@ -1,0 +1,33 @@
+name: Content error · İçerik hatası
+description: A mistake in a lesson, example, assignment or translation · Ders, örnek, ödev veya çeviride bir hata
+labels: ["type:bug"]
+body:
+  - type: input
+    id: module
+    attributes:
+      label: Module / file · Modül / dosya
+      placeholder: modules/m03-creational-construction/lesson/lesson.tr.md
+    validations:
+      required: true
+  - type: dropdown
+    id: kind
+    attributes:
+      label: Kind · Tür
+      options:
+        - Code does not compile / test fails · Kod derlenmiyor / test başarısız
+        - Wrong or misleading explanation · Yanlış ya da yanıltıcı açıklama
+        - EN/TR mismatch or translation · EN/TR uyumsuzluğu ya da çeviri
+        - PDF rendering · PDF görünümü
+        - Other · Diğer
+    validations:
+      required: true
+  - type: textarea
+    id: what
+    attributes:
+      label: What is wrong, and what should it be? · Ne yanlış, doğrusu ne olmalı?
+    validations:
+      required: true
+  - type: input
+    id: java
+    attributes:
+      label: Output of `java -version` (for code problems) · Kod sorunları için `java -version` çıktısı

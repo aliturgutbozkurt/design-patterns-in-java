@@ -41,7 +41,7 @@ Legend: size S = 1–2 units, M = 3–5 units · `Verify` must pass before ticki
   - Verify: Open a PR that breaks a solution → CI red; revert → green
   - Depends on: F03 (#3), F04 (#4)
   - Files: `.github/workflows/ci.yml`
-- [ ] **F06** (#6) — README (EN/TR), LICENSE, CONTRIBUTING, templates, syllabus · `M`
+- [x] **F06** (#6) — README (EN/TR), LICENSE, CONTRIBUTING, templates, syllabus · `M`
   - Acceptance: A new student can go from clone to running an example following README only
   - Acceptance: Syllabus maps weeks → modules as in SPEC §2
   - Acceptance: License confirmed by owner

@@ -1,0 +1,17 @@
+name: Suggestion · Öneri
+description: Ideas for new examples, exercises or better explanations · Yeni örnek, alıştırma ya da daha iyi anlatım önerileri
+labels: ["type:suggestion"]
+body:
+  - type: input
+    id: module
+    attributes:
+      label: Module · Modül
+    validations:
+      required: true
+  - type: textarea
+    id: idea
+    attributes:
+      label: Suggestion · Öneri
+      description: What would help students learn this better? · Öğrencilerin bunu daha iyi öğrenmesine ne yardımcı olur?
+    validations:
+      required: true
