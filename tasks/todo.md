@@ -27,7 +27,7 @@ Legend: size S = 1–2 units, M = 3–5 units · `Verify` must pass before ticki
   - Verify: `./mvnw -q verify` green; `./mvnw -pl modules/_sample test -Pexercises` fails as expected
   - Depends on: F01 (#1)
   - Files: `pom.xml`, `modules/_sample/src/**`, `CONTRIBUTING.md`
-- [ ] **F04** (#4) — Docs & PDF pipeline (pandoc → Typst, Mermaid, EN/TR parity) · `M`
+- [x] **F04** (#4) — Docs & PDF pipeline (pandoc → Typst, Mermaid, EN/TR parity) · `M`
   - Acceptance: Sample lesson with Mermaid diagram and Turkish text renders to PDF correctly (ç ğ ı İ ö ş ü)
   - Acceptance: `check-docs.sh` flags a deliberately mismatched heading
   - Acceptance: `new-module.sh` scaffolds a module that builds

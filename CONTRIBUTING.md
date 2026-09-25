@@ -58,5 +58,21 @@ The `modules/_sample` module contains a complete working example of this layout.
 
 ## Lessons & translations
 
+Tools for PDFs (only needed if you edit lessons): **pandoc ≥ 3.1**, **typst ≥ 0.12**, **Node.js** (runs
+`@mermaid-js/mermaid-cli` via `npx`). macOS: `brew install pandoc typst node`. Fonts are Typst's bundled
+Libertinus Serif / DejaVu Sans Mono, so output is identical on every machine.
+
+```bash
+scripts/new-module.sh m03-creational-construction   # scaffold a module from docs/templates
+scripts/build-pdf.sh modules/m03-creational-construction
+scripts/check-docs.sh                               # EN/TR parity, links, lesson code == source
+```
+
+- Templates: `docs/templates/lesson.md`, `docs/templates/assignment.md`; terminology: `docs/glossary.md`.
+- In lessons, every ```java block starts with `// file: <path suffix>` and must match that file (use `// ...` to skip
+  lines). Deliberately non-compiling fragments start with `// snippet`.
+- `docs/pdf/` holds the pandoc defaults, filters (Mermaid → PNG, relative links → GitHub URLs, `<details>` → label)
+  and a vendored copy of pandoc's Typst template with one bug fix (links were hidden).
+
 Follow `CLAUDE.md §7`: EN and TR lessons have identical structure, use `docs/glossary.md`, and code blocks are copied from
 compiled files. Regenerate PDFs in the same PR (`scripts/build-pdf.sh`).

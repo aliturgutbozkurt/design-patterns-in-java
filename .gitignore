@@ -7,3 +7,4 @@ target/
 *.log
 .mvn/wrapper/maven-wrapper.jar
 node_modules/
+build/

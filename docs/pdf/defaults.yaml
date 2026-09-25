@@ -1,0 +1,21 @@
+# pandoc defaults for lesson PDFs (scripts/build-pdf.sh adds input, output, lang).
+from: gfm+yaml_metadata_block
+to: typst
+pdf-engine: typst
+template: docs/pdf/course.typst   # pandoc's default + patched partial template.typst
+shift-heading-level-by: -1      # first "# Title" becomes the document title
+filters:
+  - docs/pdf/filters.lua
+include-in-header:
+  - docs/pdf/header.typ
+variables:
+  papersize: a4
+  mainfont: Libertinus Serif
+  codefont: DejaVu Sans Mono
+  fontsize: 11pt
+  margin:
+    x: 2.2cm
+    y: 2.4cm
+  section-numbering: "1.1"
+  toc: true
+  toc-depth: 2

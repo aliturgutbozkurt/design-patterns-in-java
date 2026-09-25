@@ -9,4 +9,4 @@ each with lesson notes (Markdown + PDF, English + Turkish), many runnable exampl
 her modülde ders notları (Markdown + PDF, İngilizce + Türkçe), çok sayıda çalıştırılabilir örnek, ödevler ve çözümler.
 
 - Spec: [`SPEC.md`](SPEC.md) · Plan: [`tasks/plan.md`](tasks/plan.md) · Tasks: [`tasks/todo.md`](tasks/todo.md) · Agent guide: [`CLAUDE.md`](CLAUDE.md)
-- Progress: [Issues](../../issues) · [Milestones](../../milestones)
+- Progress: [Issues](https://github.com/aliturgutbozkurt/design-patterns-in-java/issues) · [Milestones](https://github.com/aliturgutbozkurt/design-patterns-in-java/milestones)
