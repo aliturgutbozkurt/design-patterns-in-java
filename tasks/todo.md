@@ -6,47 +6,47 @@ Legend: size S = 1–2 units, M = 3–5 units · `Verify` must pass before ticki
 
 ## Phase 1 · Foundation
 
-- [ ] **F01** — Maven multi-module skeleton on JDK 27 · `M`
+- [ ] **F01** (#1) — Maven multi-module skeleton on JDK 27 · `M`
   - Acceptance: `./mvnw -q verify` passes on JDK 27 and fails fast with a clear message on older JDKs
   - Acceptance: Dependency/plugin versions pinned in parent POM
   - Acceptance: JaCoCo + ArchUnit compatibility result recorded in `docs/java27-features.md`
   - Verify: `export JAVA_HOME=$(/usr/libexec/java_home -v 27) && ./mvnw -q verify`; `JAVA_HOME=<jdk23> ./mvnw verify` fails with enforcer message
   - Depends on: none
   - Files: `pom.xml`, `mvnw, .mvn/`, `.gitignore, .editorconfig`, `modules/_sample/`
-- [ ] **F02** — Java 27 feature audit (final vs preview) · `S`
+- [ ] **F02** (#2) — Java 27 feature audit (final vs preview) · `S`
   - Acceptance: `docs/java27-features.md` lists each feature with JEP #, status in JDK 27, module(s) using it
   - Acceptance: Preview features have an explicit decision (use behind profile / avoid)
   - Acceptance: Every claim links to an official source
   - Verify: Each listed feature compiled in a scratch file with `javac --release 27` (preview ones with `--enable-preview`)
-  - Depends on: F01
+  - Depends on: F01 (#1)
   - Files: `docs/java27-features.md`
-- [ ] **F03** — Test harness: exercise tag, profiles, contract-test pattern · `M`
+- [ ] **F03** (#3) — Test harness: exercise tag, profiles, contract-test pattern · `M`
   - Acceptance: Default build ignores exercise tests and passes
   - Acceptance: `-Pexercises` runs exercise tests and fails on the unfinished starter
   - Acceptance: Pattern documented in `CONTRIBUTING.md`
   - Verify: `./mvnw -q verify` green; `./mvnw -pl modules/_sample test -Pexercises` fails as expected
-  - Depends on: F01
+  - Depends on: F01 (#1)
   - Files: `pom.xml`, `modules/_sample/src/**`, `CONTRIBUTING.md`
-- [ ] **F04** — Docs & PDF pipeline (pandoc → Typst, Mermaid, EN/TR parity) · `M`
+- [ ] **F04** (#4) — Docs & PDF pipeline (pandoc → Typst, Mermaid, EN/TR parity) · `M`
   - Acceptance: Sample lesson with Mermaid diagram and Turkish text renders to PDF correctly (ç ğ ı İ ö ş ü)
   - Acceptance: `check-docs.sh` flags a deliberately mismatched heading
   - Acceptance: `new-module.sh` scaffolds a module that builds
   - Verify: `scripts/build-pdf.sh modules/_sample` produces 2 PDFs; open and inspect; `scripts/check-docs.sh` exit 0
-  - Depends on: F01
+  - Depends on: F01 (#1)
   - Files: `docs/templates/*`, `docs/glossary.md`, `docs/pdf/*`, `scripts/*.sh`
-- [ ] **F05** — GitHub Actions CI · `S`
+- [ ] **F05** (#5) — GitHub Actions CI · `S`
   - Acceptance: CI green on main for all OSes
   - Acceptance: PDF artifacts downloadable from the run
   - Acceptance: Badge in README
   - Verify: Open a PR that breaks a solution → CI red; revert → green
-  - Depends on: F03, F04
+  - Depends on: F03 (#3), F04 (#4)
   - Files: `.github/workflows/ci.yml`
-- [ ] **F06** — README (EN/TR), LICENSE, CONTRIBUTING, templates, syllabus · `M`
+- [ ] **F06** (#6) — README (EN/TR), LICENSE, CONTRIBUTING, templates, syllabus · `M`
   - Acceptance: A new student can go from clone to running an example following README only
   - Acceptance: Syllabus maps weeks → modules as in SPEC §2
   - Acceptance: License confirmed by owner
   - Verify: Fresh clone on another machine, follow README step by step
-  - Depends on: F05
+  - Depends on: F05 (#5)
   - Files: `README.md`, `README.tr.md`, `LICENSE`, `.github/ISSUE_TEMPLATE/*`, `docs/syllabus.*.md`
 
 ### ✅ Checkpoint: Foundation — CI green on 3 OSes; sample PDF renders Turkish; exercise profiles behave as specified
@@ -54,33 +54,33 @@ Legend: size S = 1–2 units, M = 3–5 units · `Verify` must pass before ticki
 
 ## Phase 2 · Pilot · M00 Setup & Modern Java
 
-- [ ] **M00-1** — [m00-setup-and-modern-java] Module spec · `S`
+- [ ] **M00-1** (#7) — [m00-setup-and-modern-java] Module spec · `S`
   - Acceptance: Spec follows the module-spec template and SPEC §2 scope
   - Acceptance: Every example and assignment has testable acceptance criteria
   - Acceptance: Approved by owner (comment on this issue)
   - Verify: Owner review
-  - Depends on: F06
+  - Depends on: F06 (#6)
   - Files: `specs/SPEC-m00-setup-and-modern-java.md`
-- [ ] **M00-2** — [m00-setup-and-modern-java] Modern Java 27 refresher examples · `M`
+- [ ] **M00-2** (#8) — [m00-setup-and-modern-java] Modern Java 27 refresher examples · `M`
   - Acceptance: Each example has a `main` with deterministic output and runs with `java <File>.java` (no build)
   - Acceptance: Each example has JUnit/AssertJ tests of its behaviour
   - Acceptance: Modern Java 27 idioms per CLAUDE.md §5; Javadoc on public types
   - Verify: `./mvnw -q -pl modules/m00-setup-and-modern-java verify`; Run every demo with the source launcher
-  - Depends on: M00-1
+  - Depends on: M00-1 (#7)
   - Files: `modules/m00-setup-and-modern-java/pom.xml`, `modules/m00-setup-and-modern-java/src/main/java/.../examples/**`, `modules/m00-setup-and-modern-java/src/test/java/.../examples/**`
-- [ ] **M00-3** — [m00-setup-and-modern-java] Lesson EN + TR + PDF + module README · `M`
+- [ ] **M00-3** (#9) — [m00-setup-and-modern-java] Lesson EN + TR + PDF + module README · `M`
   - Acceptance: Code blocks come from compiled example files (path cited)
   - Acceptance: EN/TR heading parity; Turkish characters correct
   - Acceptance: Both PDFs generated and committed; README links lesson, examples, assignments
   - Verify: `scripts/check-docs.sh` exit 0; `scripts/build-pdf.sh modules/m00-setup-and-modern-java` and inspect PDFs
-  - Depends on: M00-2
+  - Depends on: M00-2 (#8)
   - Files: `modules/m00-setup-and-modern-java/lesson/lesson.en.md`, `modules/m00-setup-and-modern-java/lesson/lesson.tr.md`, `modules/m00-setup-and-modern-java/lesson/*.pdf`, `modules/m00-setup-and-modern-java/README.md`
-- [ ] **M00-4** — [m00-setup-and-modern-java] Assignments + starters + solutions · `M`
+- [ ] **M00-4** (#10) — [m00-setup-and-modern-java] Assignments + starters + solutions · `M`
   - Acceptance: Starters compile and fail their contract tests
   - Acceptance: Solutions pass the same contract tests
   - Acceptance: Briefs (EN/TR) state goal, steps, hints, and how to run the tests
   - Verify: `./mvnw -q -pl modules/m00-setup-and-modern-java verify` (solutions green); `./mvnw -pl modules/m00-setup-and-modern-java test -Pexercises` (fails on starters)
-  - Depends on: M00-2
+  - Depends on: M00-2 (#8)
   - Files: `modules/m00-setup-and-modern-java/assignments/*.md`, `modules/m00-setup-and-modern-java/src/main/java/.../{exercises,solutions}/**`, `modules/m00-setup-and-modern-java/src/test/java/.../{exercises,solutions}/**`
 
 ### ✅ Checkpoint: Pilot — m00 meets Definition of Done; templates adjusted; **human review before scaling out**
@@ -88,188 +88,188 @@ Legend: size S = 1–2 units, M = 3–5 units · `Verify` must pass before ticki
 
 ## Phase 3 · M01 OOP, SOLID & UML
 
-- [ ] **M01-1** — [m01-oop-solid-uml] Module spec · `S`
+- [ ] **M01-1** (#11) — [m01-oop-solid-uml] Module spec · `S`
   - Acceptance: Spec follows the module-spec template and SPEC §2 scope
   - Acceptance: Every example and assignment has testable acceptance criteria
   - Acceptance: Approved by owner (comment on this issue)
   - Verify: Owner review
-  - Depends on: M00-2
+  - Depends on: M00-2 (#8)
   - Files: `specs/SPEC-m01-oop-solid-uml.md`
-- [ ] **M01-2a** — [m01-oop-solid-uml] SRP, OCP, LSP examples (before/after refactors) · `M`
+- [ ] **M01-2a** (#12) — [m01-oop-solid-uml] SRP, OCP, LSP examples (before/after refactors) · `M`
   - Acceptance: Each example has a `main` with deterministic output and runs with `java <File>.java` (no build)
   - Acceptance: Each example has JUnit/AssertJ tests of its behaviour
   - Acceptance: Modern Java 27 idioms per CLAUDE.md §5; Javadoc on public types
   - Verify: `./mvnw -q -pl modules/m01-oop-solid-uml verify`; Run every demo with the source launcher
-  - Depends on: M01-1
+  - Depends on: M01-1 (#11)
   - Files: `modules/m01-oop-solid-uml/pom.xml`, `modules/m01-oop-solid-uml/src/main/java/.../examples/**`, `modules/m01-oop-solid-uml/src/test/java/.../examples/**`
-- [ ] **M01-2b** — [m01-oop-solid-uml] ISP, DIP, composition-over-inheritance examples · `M`
+- [ ] **M01-2b** (#13) — [m01-oop-solid-uml] ISP, DIP, composition-over-inheritance examples · `M`
   - Acceptance: Each example has a `main` with deterministic output and runs with `java <File>.java` (no build)
   - Acceptance: Each example has JUnit/AssertJ tests of its behaviour
   - Acceptance: Modern Java 27 idioms per CLAUDE.md §5; Javadoc on public types
   - Verify: `./mvnw -q -pl modules/m01-oop-solid-uml verify`; Run every demo with the source launcher
-  - Depends on: M01-1, M01-2a
+  - Depends on: M01-1 (#11), M01-2a (#12)
   - Files: `modules/m01-oop-solid-uml/pom.xml`, `modules/m01-oop-solid-uml/src/main/java/.../examples/**`, `modules/m01-oop-solid-uml/src/test/java/.../examples/**`
-- [ ] **M01-3** — [m01-oop-solid-uml] Lesson EN + TR + PDF + module README · `M`
+- [ ] **M01-3** (#14) — [m01-oop-solid-uml] Lesson EN + TR + PDF + module README · `M`
   - Acceptance: Code blocks come from compiled example files (path cited)
   - Acceptance: EN/TR heading parity; Turkish characters correct
   - Acceptance: Both PDFs generated and committed; README links lesson, examples, assignments
   - Verify: `scripts/check-docs.sh` exit 0; `scripts/build-pdf.sh modules/m01-oop-solid-uml` and inspect PDFs
-  - Depends on: M01-2a, M01-2b
+  - Depends on: M01-2a (#12), M01-2b (#13)
   - Files: `modules/m01-oop-solid-uml/lesson/lesson.en.md`, `modules/m01-oop-solid-uml/lesson/lesson.tr.md`, `modules/m01-oop-solid-uml/lesson/*.pdf`, `modules/m01-oop-solid-uml/README.md`
-- [ ] **M01-4** — [m01-oop-solid-uml] Assignments + starters + solutions · `M`
+- [ ] **M01-4** (#15) — [m01-oop-solid-uml] Assignments + starters + solutions · `M`
   - Acceptance: Starters compile and fail their contract tests
   - Acceptance: Solutions pass the same contract tests
   - Acceptance: Briefs (EN/TR) state goal, steps, hints, and how to run the tests
   - Verify: `./mvnw -q -pl modules/m01-oop-solid-uml verify` (solutions green); `./mvnw -pl modules/m01-oop-solid-uml test -Pexercises` (fails on starters)
-  - Depends on: M01-2a, M01-2b
+  - Depends on: M01-2a (#12), M01-2b (#13)
   - Files: `modules/m01-oop-solid-uml/assignments/*.md`, `modules/m01-oop-solid-uml/src/main/java/.../{exercises,solutions}/**`, `modules/m01-oop-solid-uml/src/test/java/.../{exercises,solutions}/**`
 ## Phase 3 · M02 Creational I: Factories
 
-- [ ] **M02-1** — [m02-creational-factories] Module spec · `S`
+- [ ] **M02-1** (#16) — [m02-creational-factories] Module spec · `S`
   - Acceptance: Spec follows the module-spec template and SPEC §2 scope
   - Acceptance: Every example and assignment has testable acceptance criteria
   - Acceptance: Approved by owner (comment on this issue)
   - Verify: Owner review
-  - Depends on: M01-2b
+  - Depends on: M01-2b (#13)
   - Files: `specs/SPEC-m02-creational-factories.md`
-- [ ] **M02-2a** — [m02-creational-factories] Singleton & Static Factory Method examples · `M`
+- [ ] **M02-2a** (#17) — [m02-creational-factories] Singleton & Static Factory Method examples · `M`
   - Acceptance: Each example has a `main` with deterministic output and runs with `java <File>.java` (no build)
   - Acceptance: Each example has JUnit/AssertJ tests of its behaviour
   - Acceptance: Modern Java 27 idioms per CLAUDE.md §5; Javadoc on public types
   - Verify: `./mvnw -q -pl modules/m02-creational-factories verify`; Run every demo with the source launcher
-  - Depends on: M02-1
+  - Depends on: M02-1 (#16)
   - Files: `modules/m02-creational-factories/pom.xml`, `modules/m02-creational-factories/src/main/java/.../examples/**`, `modules/m02-creational-factories/src/test/java/.../examples/**`
-- [ ] **M02-2b** — [m02-creational-factories] Factory Method, Abstract Factory & ServiceLoader examples · `M`
+- [ ] **M02-2b** (#18) — [m02-creational-factories] Factory Method, Abstract Factory & ServiceLoader examples · `M`
   - Acceptance: Each example has a `main` with deterministic output and runs with `java <File>.java` (no build)
   - Acceptance: Each example has JUnit/AssertJ tests of its behaviour
   - Acceptance: Modern Java 27 idioms per CLAUDE.md §5; Javadoc on public types
   - Verify: `./mvnw -q -pl modules/m02-creational-factories verify`; Run every demo with the source launcher
-  - Depends on: M02-1, M02-2a
+  - Depends on: M02-1 (#16), M02-2a (#17)
   - Files: `modules/m02-creational-factories/pom.xml`, `modules/m02-creational-factories/src/main/java/.../examples/**`, `modules/m02-creational-factories/src/test/java/.../examples/**`
-- [ ] **M02-3** — [m02-creational-factories] Lesson EN + TR + PDF + module README · `M`
+- [ ] **M02-3** (#19) — [m02-creational-factories] Lesson EN + TR + PDF + module README · `M`
   - Acceptance: Code blocks come from compiled example files (path cited)
   - Acceptance: EN/TR heading parity; Turkish characters correct
   - Acceptance: Both PDFs generated and committed; README links lesson, examples, assignments
   - Verify: `scripts/check-docs.sh` exit 0; `scripts/build-pdf.sh modules/m02-creational-factories` and inspect PDFs
-  - Depends on: M02-2a, M02-2b
+  - Depends on: M02-2a (#17), M02-2b (#18)
   - Files: `modules/m02-creational-factories/lesson/lesson.en.md`, `modules/m02-creational-factories/lesson/lesson.tr.md`, `modules/m02-creational-factories/lesson/*.pdf`, `modules/m02-creational-factories/README.md`
-- [ ] **M02-4** — [m02-creational-factories] Assignments + starters + solutions · `M`
+- [ ] **M02-4** (#20) — [m02-creational-factories] Assignments + starters + solutions · `M`
   - Acceptance: Starters compile and fail their contract tests
   - Acceptance: Solutions pass the same contract tests
   - Acceptance: Briefs (EN/TR) state goal, steps, hints, and how to run the tests
   - Verify: `./mvnw -q -pl modules/m02-creational-factories verify` (solutions green); `./mvnw -pl modules/m02-creational-factories test -Pexercises` (fails on starters)
-  - Depends on: M02-2a, M02-2b
+  - Depends on: M02-2a (#17), M02-2b (#18)
   - Files: `modules/m02-creational-factories/assignments/*.md`, `modules/m02-creational-factories/src/main/java/.../{exercises,solutions}/**`, `modules/m02-creational-factories/src/test/java/.../{exercises,solutions}/**`
 ## Phase 3 · M03 Creational II: Construction
 
-- [ ] **M03-1** — [m03-creational-construction] Module spec · `S`
+- [ ] **M03-1** (#21) — [m03-creational-construction] Module spec · `S`
   - Acceptance: Spec follows the module-spec template and SPEC §2 scope
   - Acceptance: Every example and assignment has testable acceptance criteria
   - Acceptance: Approved by owner (comment on this issue)
   - Verify: Owner review
-  - Depends on: M02-2b
+  - Depends on: M02-2b (#18)
   - Files: `specs/SPEC-m03-creational-construction.md`
-- [ ] **M03-2a** — [m03-creational-construction] Builder examples (classic, record+builder, step builder) · `M`
+- [ ] **M03-2a** (#22) — [m03-creational-construction] Builder examples (classic, record+builder, step builder) · `M`
   - Acceptance: Each example has a `main` with deterministic output and runs with `java <File>.java` (no build)
   - Acceptance: Each example has JUnit/AssertJ tests of its behaviour
   - Acceptance: Modern Java 27 idioms per CLAUDE.md §5; Javadoc on public types
   - Verify: `./mvnw -q -pl modules/m03-creational-construction verify`; Run every demo with the source launcher
-  - Depends on: M03-1
+  - Depends on: M03-1 (#21)
   - Files: `modules/m03-creational-construction/pom.xml`, `modules/m03-creational-construction/src/main/java/.../examples/**`, `modules/m03-creational-construction/src/test/java/.../examples/**`
-- [ ] **M03-2b** — [m03-creational-construction] Prototype, Object Pool & composition-root examples · `M`
+- [ ] **M03-2b** (#23) — [m03-creational-construction] Prototype, Object Pool & composition-root examples · `M`
   - Acceptance: Each example has a `main` with deterministic output and runs with `java <File>.java` (no build)
   - Acceptance: Each example has JUnit/AssertJ tests of its behaviour
   - Acceptance: Modern Java 27 idioms per CLAUDE.md §5; Javadoc on public types
   - Verify: `./mvnw -q -pl modules/m03-creational-construction verify`; Run every demo with the source launcher
-  - Depends on: M03-1, M03-2a
+  - Depends on: M03-1 (#21), M03-2a (#22)
   - Files: `modules/m03-creational-construction/pom.xml`, `modules/m03-creational-construction/src/main/java/.../examples/**`, `modules/m03-creational-construction/src/test/java/.../examples/**`
-- [ ] **M03-3** — [m03-creational-construction] Lesson EN + TR + PDF + module README · `M`
+- [ ] **M03-3** (#24) — [m03-creational-construction] Lesson EN + TR + PDF + module README · `M`
   - Acceptance: Code blocks come from compiled example files (path cited)
   - Acceptance: EN/TR heading parity; Turkish characters correct
   - Acceptance: Both PDFs generated and committed; README links lesson, examples, assignments
   - Verify: `scripts/check-docs.sh` exit 0; `scripts/build-pdf.sh modules/m03-creational-construction` and inspect PDFs
-  - Depends on: M03-2a, M03-2b
+  - Depends on: M03-2a (#22), M03-2b (#23)
   - Files: `modules/m03-creational-construction/lesson/lesson.en.md`, `modules/m03-creational-construction/lesson/lesson.tr.md`, `modules/m03-creational-construction/lesson/*.pdf`, `modules/m03-creational-construction/README.md`
-- [ ] **M03-4** — [m03-creational-construction] Assignments + starters + solutions · `M`
+- [ ] **M03-4** (#25) — [m03-creational-construction] Assignments + starters + solutions · `M`
   - Acceptance: Starters compile and fail their contract tests
   - Acceptance: Solutions pass the same contract tests
   - Acceptance: Briefs (EN/TR) state goal, steps, hints, and how to run the tests
   - Verify: `./mvnw -q -pl modules/m03-creational-construction verify` (solutions green); `./mvnw -pl modules/m03-creational-construction test -Pexercises` (fails on starters)
-  - Depends on: M03-2a, M03-2b
+  - Depends on: M03-2a (#22), M03-2b (#23)
   - Files: `modules/m03-creational-construction/assignments/*.md`, `modules/m03-creational-construction/src/main/java/.../{exercises,solutions}/**`, `modules/m03-creational-construction/src/test/java/.../{exercises,solutions}/**`
 ## Phase 3 · M04 Structural I: Wrappers
 
-- [ ] **M04-1** — [m04-structural-wrappers] Module spec · `S`
+- [ ] **M04-1** (#26) — [m04-structural-wrappers] Module spec · `S`
   - Acceptance: Spec follows the module-spec template and SPEC §2 scope
   - Acceptance: Every example and assignment has testable acceptance criteria
   - Acceptance: Approved by owner (comment on this issue)
   - Verify: Owner review
-  - Depends on: M03-2b
+  - Depends on: M03-2b (#23)
   - Files: `specs/SPEC-m04-structural-wrappers.md`
-- [ ] **M04-2a** — [m04-structural-wrappers] Adapter & Decorator examples · `M`
+- [ ] **M04-2a** (#27) — [m04-structural-wrappers] Adapter & Decorator examples · `M`
   - Acceptance: Each example has a `main` with deterministic output and runs with `java <File>.java` (no build)
   - Acceptance: Each example has JUnit/AssertJ tests of its behaviour
   - Acceptance: Modern Java 27 idioms per CLAUDE.md §5; Javadoc on public types
   - Verify: `./mvnw -q -pl modules/m04-structural-wrappers verify`; Run every demo with the source launcher
-  - Depends on: M04-1
+  - Depends on: M04-1 (#26)
   - Files: `modules/m04-structural-wrappers/pom.xml`, `modules/m04-structural-wrappers/src/main/java/.../examples/**`, `modules/m04-structural-wrappers/src/test/java/.../examples/**`
-- [ ] **M04-2b** — [m04-structural-wrappers] Proxy examples (virtual, protection, caching, dynamic) · `M`
+- [ ] **M04-2b** (#28) — [m04-structural-wrappers] Proxy examples (virtual, protection, caching, dynamic) · `M`
   - Acceptance: Each example has a `main` with deterministic output and runs with `java <File>.java` (no build)
   - Acceptance: Each example has JUnit/AssertJ tests of its behaviour
   - Acceptance: Modern Java 27 idioms per CLAUDE.md §5; Javadoc on public types
   - Verify: `./mvnw -q -pl modules/m04-structural-wrappers verify`; Run every demo with the source launcher
-  - Depends on: M04-1, M04-2a
+  - Depends on: M04-1 (#26), M04-2a (#27)
   - Files: `modules/m04-structural-wrappers/pom.xml`, `modules/m04-structural-wrappers/src/main/java/.../examples/**`, `modules/m04-structural-wrappers/src/test/java/.../examples/**`
-- [ ] **M04-3** — [m04-structural-wrappers] Lesson EN + TR + PDF + module README · `M`
+- [ ] **M04-3** (#29) — [m04-structural-wrappers] Lesson EN + TR + PDF + module README · `M`
   - Acceptance: Code blocks come from compiled example files (path cited)
   - Acceptance: EN/TR heading parity; Turkish characters correct
   - Acceptance: Both PDFs generated and committed; README links lesson, examples, assignments
   - Verify: `scripts/check-docs.sh` exit 0; `scripts/build-pdf.sh modules/m04-structural-wrappers` and inspect PDFs
-  - Depends on: M04-2a, M04-2b
+  - Depends on: M04-2a (#27), M04-2b (#28)
   - Files: `modules/m04-structural-wrappers/lesson/lesson.en.md`, `modules/m04-structural-wrappers/lesson/lesson.tr.md`, `modules/m04-structural-wrappers/lesson/*.pdf`, `modules/m04-structural-wrappers/README.md`
-- [ ] **M04-4** — [m04-structural-wrappers] Assignments + starters + solutions · `M`
+- [ ] **M04-4** (#30) — [m04-structural-wrappers] Assignments + starters + solutions · `M`
   - Acceptance: Starters compile and fail their contract tests
   - Acceptance: Solutions pass the same contract tests
   - Acceptance: Briefs (EN/TR) state goal, steps, hints, and how to run the tests
   - Verify: `./mvnw -q -pl modules/m04-structural-wrappers verify` (solutions green); `./mvnw -pl modules/m04-structural-wrappers test -Pexercises` (fails on starters)
-  - Depends on: M04-2a, M04-2b
+  - Depends on: M04-2a (#27), M04-2b (#28)
   - Files: `modules/m04-structural-wrappers/assignments/*.md`, `modules/m04-structural-wrappers/src/main/java/.../{exercises,solutions}/**`, `modules/m04-structural-wrappers/src/test/java/.../{exercises,solutions}/**`
 ## Phase 3 · M05 Structural II: Composition
 
-- [ ] **M05-1** — [m05-structural-composition] Module spec · `S`
+- [ ] **M05-1** (#31) — [m05-structural-composition] Module spec · `S`
   - Acceptance: Spec follows the module-spec template and SPEC §2 scope
   - Acceptance: Every example and assignment has testable acceptance criteria
   - Acceptance: Approved by owner (comment on this issue)
   - Verify: Owner review
-  - Depends on: M04-2b
+  - Depends on: M04-2b (#28)
   - Files: `specs/SPEC-m05-structural-composition.md`
-- [ ] **M05-2a** — [m05-structural-composition] Composite & Bridge examples · `M`
+- [ ] **M05-2a** (#32) — [m05-structural-composition] Composite & Bridge examples · `M`
   - Acceptance: Each example has a `main` with deterministic output and runs with `java <File>.java` (no build)
   - Acceptance: Each example has JUnit/AssertJ tests of its behaviour
   - Acceptance: Modern Java 27 idioms per CLAUDE.md §5; Javadoc on public types
   - Verify: `./mvnw -q -pl modules/m05-structural-composition verify`; Run every demo with the source launcher
-  - Depends on: M05-1
+  - Depends on: M05-1 (#31)
   - Files: `modules/m05-structural-composition/pom.xml`, `modules/m05-structural-composition/src/main/java/.../examples/**`, `modules/m05-structural-composition/src/test/java/.../examples/**`
-- [ ] **M05-2b** — [m05-structural-composition] Facade & Flyweight examples · `M`
+- [ ] **M05-2b** (#33) — [m05-structural-composition] Facade & Flyweight examples · `M`
   - Acceptance: Each example has a `main` with deterministic output and runs with `java <File>.java` (no build)
   - Acceptance: Each example has JUnit/AssertJ tests of its behaviour
   - Acceptance: Modern Java 27 idioms per CLAUDE.md §5; Javadoc on public types
   - Verify: `./mvnw -q -pl modules/m05-structural-composition verify`; Run every demo with the source launcher
-  - Depends on: M05-1, M05-2a
+  - Depends on: M05-1 (#31), M05-2a (#32)
   - Files: `modules/m05-structural-composition/pom.xml`, `modules/m05-structural-composition/src/main/java/.../examples/**`, `modules/m05-structural-composition/src/test/java/.../examples/**`
-- [ ] **M05-3** — [m05-structural-composition] Lesson EN + TR + PDF + module README · `M`
+- [ ] **M05-3** (#34) — [m05-structural-composition] Lesson EN + TR + PDF + module README · `M`
   - Acceptance: Code blocks come from compiled example files (path cited)
   - Acceptance: EN/TR heading parity; Turkish characters correct
   - Acceptance: Both PDFs generated and committed; README links lesson, examples, assignments
   - Verify: `scripts/check-docs.sh` exit 0; `scripts/build-pdf.sh modules/m05-structural-composition` and inspect PDFs
-  - Depends on: M05-2a, M05-2b
+  - Depends on: M05-2a (#32), M05-2b (#33)
   - Files: `modules/m05-structural-composition/lesson/lesson.en.md`, `modules/m05-structural-composition/lesson/lesson.tr.md`, `modules/m05-structural-composition/lesson/*.pdf`, `modules/m05-structural-composition/README.md`
-- [ ] **M05-4** — [m05-structural-composition] Assignments + starters + solutions · `M`
+- [ ] **M05-4** (#35) — [m05-structural-composition] Assignments + starters + solutions · `M`
   - Acceptance: Starters compile and fail their contract tests
   - Acceptance: Solutions pass the same contract tests
   - Acceptance: Briefs (EN/TR) state goal, steps, hints, and how to run the tests
   - Verify: `./mvnw -q -pl modules/m05-structural-composition verify` (solutions green); `./mvnw -pl modules/m05-structural-composition test -Pexercises` (fails on starters)
-  - Depends on: M05-2a, M05-2b
+  - Depends on: M05-2a (#32), M05-2b (#33)
   - Files: `modules/m05-structural-composition/assignments/*.md`, `modules/m05-structural-composition/src/main/java/.../{exercises,solutions}/**`, `modules/m05-structural-composition/src/test/java/.../{exercises,solutions}/**`
 
 ### ✅ Checkpoint: Creational + Structural done — midterm-ready (W7)
@@ -277,225 +277,225 @@ Legend: size S = 1–2 units, M = 3–5 units · `Verify` must pass before ticki
 
 ## Phase 4 · M06 Behavioral I: Algorithms
 
-- [ ] **M06-1** — [m06-behavioral-algorithms] Module spec · `S`
+- [ ] **M06-1** (#36) — [m06-behavioral-algorithms] Module spec · `S`
   - Acceptance: Spec follows the module-spec template and SPEC §2 scope
   - Acceptance: Every example and assignment has testable acceptance criteria
   - Acceptance: Approved by owner (comment on this issue)
   - Verify: Owner review
-  - Depends on: M05-2b
+  - Depends on: M05-2b (#33)
   - Files: `specs/SPEC-m06-behavioral-algorithms.md`
-- [ ] **M06-2a** — [m06-behavioral-algorithms] Strategy & Template Method examples · `M`
+- [ ] **M06-2a** (#37) — [m06-behavioral-algorithms] Strategy & Template Method examples · `M`
   - Acceptance: Each example has a `main` with deterministic output and runs with `java <File>.java` (no build)
   - Acceptance: Each example has JUnit/AssertJ tests of its behaviour
   - Acceptance: Modern Java 27 idioms per CLAUDE.md §5; Javadoc on public types
   - Verify: `./mvnw -q -pl modules/m06-behavioral-algorithms verify`; Run every demo with the source launcher
-  - Depends on: M06-1
+  - Depends on: M06-1 (#36)
   - Files: `modules/m06-behavioral-algorithms/pom.xml`, `modules/m06-behavioral-algorithms/src/main/java/.../examples/**`, `modules/m06-behavioral-algorithms/src/test/java/.../examples/**`
-- [ ] **M06-2b** — [m06-behavioral-algorithms] Command & Iterator examples · `M`
+- [ ] **M06-2b** (#38) — [m06-behavioral-algorithms] Command & Iterator examples · `M`
   - Acceptance: Each example has a `main` with deterministic output and runs with `java <File>.java` (no build)
   - Acceptance: Each example has JUnit/AssertJ tests of its behaviour
   - Acceptance: Modern Java 27 idioms per CLAUDE.md §5; Javadoc on public types
   - Verify: `./mvnw -q -pl modules/m06-behavioral-algorithms verify`; Run every demo with the source launcher
-  - Depends on: M06-1, M06-2a
+  - Depends on: M06-1 (#36), M06-2a (#37)
   - Files: `modules/m06-behavioral-algorithms/pom.xml`, `modules/m06-behavioral-algorithms/src/main/java/.../examples/**`, `modules/m06-behavioral-algorithms/src/test/java/.../examples/**`
-- [ ] **M06-3** — [m06-behavioral-algorithms] Lesson EN + TR + PDF + module README · `M`
+- [ ] **M06-3** (#39) — [m06-behavioral-algorithms] Lesson EN + TR + PDF + module README · `M`
   - Acceptance: Code blocks come from compiled example files (path cited)
   - Acceptance: EN/TR heading parity; Turkish characters correct
   - Acceptance: Both PDFs generated and committed; README links lesson, examples, assignments
   - Verify: `scripts/check-docs.sh` exit 0; `scripts/build-pdf.sh modules/m06-behavioral-algorithms` and inspect PDFs
-  - Depends on: M06-2a, M06-2b
+  - Depends on: M06-2a (#37), M06-2b (#38)
   - Files: `modules/m06-behavioral-algorithms/lesson/lesson.en.md`, `modules/m06-behavioral-algorithms/lesson/lesson.tr.md`, `modules/m06-behavioral-algorithms/lesson/*.pdf`, `modules/m06-behavioral-algorithms/README.md`
-- [ ] **M06-4** — [m06-behavioral-algorithms] Assignments + starters + solutions · `M`
+- [ ] **M06-4** (#40) — [m06-behavioral-algorithms] Assignments + starters + solutions · `M`
   - Acceptance: Starters compile and fail their contract tests
   - Acceptance: Solutions pass the same contract tests
   - Acceptance: Briefs (EN/TR) state goal, steps, hints, and how to run the tests
   - Verify: `./mvnw -q -pl modules/m06-behavioral-algorithms verify` (solutions green); `./mvnw -pl modules/m06-behavioral-algorithms test -Pexercises` (fails on starters)
-  - Depends on: M06-2a, M06-2b
+  - Depends on: M06-2a (#37), M06-2b (#38)
   - Files: `modules/m06-behavioral-algorithms/assignments/*.md`, `modules/m06-behavioral-algorithms/src/main/java/.../{exercises,solutions}/**`, `modules/m06-behavioral-algorithms/src/test/java/.../{exercises,solutions}/**`
 ## Phase 4 · M07 Behavioral II: Communication
 
-- [ ] **M07-1** — [m07-behavioral-communication] Module spec · `S`
+- [ ] **M07-1** (#41) — [m07-behavioral-communication] Module spec · `S`
   - Acceptance: Spec follows the module-spec template and SPEC §2 scope
   - Acceptance: Every example and assignment has testable acceptance criteria
   - Acceptance: Approved by owner (comment on this issue)
   - Verify: Owner review
-  - Depends on: M06-2b
+  - Depends on: M06-2b (#38)
   - Files: `specs/SPEC-m07-behavioral-communication.md`
-- [ ] **M07-2a** — [m07-behavioral-communication] Observer & Mediator examples · `M`
+- [ ] **M07-2a** (#42) — [m07-behavioral-communication] Observer & Mediator examples · `M`
   - Acceptance: Each example has a `main` with deterministic output and runs with `java <File>.java` (no build)
   - Acceptance: Each example has JUnit/AssertJ tests of its behaviour
   - Acceptance: Modern Java 27 idioms per CLAUDE.md §5; Javadoc on public types
   - Verify: `./mvnw -q -pl modules/m07-behavioral-communication verify`; Run every demo with the source launcher
-  - Depends on: M07-1
+  - Depends on: M07-1 (#41)
   - Files: `modules/m07-behavioral-communication/pom.xml`, `modules/m07-behavioral-communication/src/main/java/.../examples/**`, `modules/m07-behavioral-communication/src/test/java/.../examples/**`
-- [ ] **M07-2b** — [m07-behavioral-communication] Chain of Responsibility & Memento examples · `M`
+- [ ] **M07-2b** (#43) — [m07-behavioral-communication] Chain of Responsibility & Memento examples · `M`
   - Acceptance: Each example has a `main` with deterministic output and runs with `java <File>.java` (no build)
   - Acceptance: Each example has JUnit/AssertJ tests of its behaviour
   - Acceptance: Modern Java 27 idioms per CLAUDE.md §5; Javadoc on public types
   - Verify: `./mvnw -q -pl modules/m07-behavioral-communication verify`; Run every demo with the source launcher
-  - Depends on: M07-1, M07-2a
+  - Depends on: M07-1 (#41), M07-2a (#42)
   - Files: `modules/m07-behavioral-communication/pom.xml`, `modules/m07-behavioral-communication/src/main/java/.../examples/**`, `modules/m07-behavioral-communication/src/test/java/.../examples/**`
-- [ ] **M07-3** — [m07-behavioral-communication] Lesson EN + TR + PDF + module README · `M`
+- [ ] **M07-3** (#44) — [m07-behavioral-communication] Lesson EN + TR + PDF + module README · `M`
   - Acceptance: Code blocks come from compiled example files (path cited)
   - Acceptance: EN/TR heading parity; Turkish characters correct
   - Acceptance: Both PDFs generated and committed; README links lesson, examples, assignments
   - Verify: `scripts/check-docs.sh` exit 0; `scripts/build-pdf.sh modules/m07-behavioral-communication` and inspect PDFs
-  - Depends on: M07-2a, M07-2b
+  - Depends on: M07-2a (#42), M07-2b (#43)
   - Files: `modules/m07-behavioral-communication/lesson/lesson.en.md`, `modules/m07-behavioral-communication/lesson/lesson.tr.md`, `modules/m07-behavioral-communication/lesson/*.pdf`, `modules/m07-behavioral-communication/README.md`
-- [ ] **M07-4** — [m07-behavioral-communication] Assignments + starters + solutions · `M`
+- [ ] **M07-4** (#45) — [m07-behavioral-communication] Assignments + starters + solutions · `M`
   - Acceptance: Starters compile and fail their contract tests
   - Acceptance: Solutions pass the same contract tests
   - Acceptance: Briefs (EN/TR) state goal, steps, hints, and how to run the tests
   - Verify: `./mvnw -q -pl modules/m07-behavioral-communication verify` (solutions green); `./mvnw -pl modules/m07-behavioral-communication test -Pexercises` (fails on starters)
-  - Depends on: M07-2a, M07-2b
+  - Depends on: M07-2a (#42), M07-2b (#43)
   - Files: `modules/m07-behavioral-communication/assignments/*.md`, `modules/m07-behavioral-communication/src/main/java/.../{exercises,solutions}/**`, `modules/m07-behavioral-communication/src/test/java/.../{exercises,solutions}/**`
 ## Phase 4 · M08 Behavioral III: State & Structure
 
-- [ ] **M08-1** — [m08-behavioral-state-structure] Module spec · `S`
+- [ ] **M08-1** (#46) — [m08-behavioral-state-structure] Module spec · `S`
   - Acceptance: Spec follows the module-spec template and SPEC §2 scope
   - Acceptance: Every example and assignment has testable acceptance criteria
   - Acceptance: Approved by owner (comment on this issue)
   - Verify: Owner review
-  - Depends on: M07-2b
+  - Depends on: M07-2b (#43)
   - Files: `specs/SPEC-m08-behavioral-state-structure.md`
-- [ ] **M08-2a** — [m08-behavioral-state-structure] State pattern examples · `M`
+- [ ] **M08-2a** (#47) — [m08-behavioral-state-structure] State pattern examples · `M`
   - Acceptance: Each example has a `main` with deterministic output and runs with `java <File>.java` (no build)
   - Acceptance: Each example has JUnit/AssertJ tests of its behaviour
   - Acceptance: Modern Java 27 idioms per CLAUDE.md §5; Javadoc on public types
   - Verify: `./mvnw -q -pl modules/m08-behavioral-state-structure verify`; Run every demo with the source launcher
-  - Depends on: M08-1
+  - Depends on: M08-1 (#46)
   - Files: `modules/m08-behavioral-state-structure/pom.xml`, `modules/m08-behavioral-state-structure/src/main/java/.../examples/**`, `modules/m08-behavioral-state-structure/src/test/java/.../examples/**`
-- [ ] **M08-2b** — [m08-behavioral-state-structure] Visitor & Interpreter examples · `M`
+- [ ] **M08-2b** (#48) — [m08-behavioral-state-structure] Visitor & Interpreter examples · `M`
   - Acceptance: Each example has a `main` with deterministic output and runs with `java <File>.java` (no build)
   - Acceptance: Each example has JUnit/AssertJ tests of its behaviour
   - Acceptance: Modern Java 27 idioms per CLAUDE.md §5; Javadoc on public types
   - Verify: `./mvnw -q -pl modules/m08-behavioral-state-structure verify`; Run every demo with the source launcher
-  - Depends on: M08-1, M08-2a
+  - Depends on: M08-1 (#46), M08-2a (#47)
   - Files: `modules/m08-behavioral-state-structure/pom.xml`, `modules/m08-behavioral-state-structure/src/main/java/.../examples/**`, `modules/m08-behavioral-state-structure/src/test/java/.../examples/**`
-- [ ] **M08-3** — [m08-behavioral-state-structure] Lesson EN + TR + PDF + module README · `M`
+- [ ] **M08-3** (#49) — [m08-behavioral-state-structure] Lesson EN + TR + PDF + module README · `M`
   - Acceptance: Code blocks come from compiled example files (path cited)
   - Acceptance: EN/TR heading parity; Turkish characters correct
   - Acceptance: Both PDFs generated and committed; README links lesson, examples, assignments
   - Verify: `scripts/check-docs.sh` exit 0; `scripts/build-pdf.sh modules/m08-behavioral-state-structure` and inspect PDFs
-  - Depends on: M08-2a, M08-2b
+  - Depends on: M08-2a (#47), M08-2b (#48)
   - Files: `modules/m08-behavioral-state-structure/lesson/lesson.en.md`, `modules/m08-behavioral-state-structure/lesson/lesson.tr.md`, `modules/m08-behavioral-state-structure/lesson/*.pdf`, `modules/m08-behavioral-state-structure/README.md`
-- [ ] **M08-4** — [m08-behavioral-state-structure] Assignments + starters + solutions · `M`
+- [ ] **M08-4** (#50) — [m08-behavioral-state-structure] Assignments + starters + solutions · `M`
   - Acceptance: Starters compile and fail their contract tests
   - Acceptance: Solutions pass the same contract tests
   - Acceptance: Briefs (EN/TR) state goal, steps, hints, and how to run the tests
   - Verify: `./mvnw -q -pl modules/m08-behavioral-state-structure verify` (solutions green); `./mvnw -pl modules/m08-behavioral-state-structure test -Pexercises` (fails on starters)
-  - Depends on: M08-2a, M08-2b
+  - Depends on: M08-2a (#47), M08-2b (#48)
   - Files: `modules/m08-behavioral-state-structure/assignments/*.md`, `modules/m08-behavioral-state-structure/src/main/java/.../{exercises,solutions}/**`, `modules/m08-behavioral-state-structure/src/test/java/.../{exercises,solutions}/**`
 ## Phase 4 · M09 Functional & Data-Oriented
 
-- [ ] **M09-1** — [m09-functional-data-oriented] Module spec · `S`
+- [ ] **M09-1** (#51) — [m09-functional-data-oriented] Module spec · `S`
   - Acceptance: Spec follows the module-spec template and SPEC §2 scope
   - Acceptance: Every example and assignment has testable acceptance criteria
   - Acceptance: Approved by owner (comment on this issue)
   - Verify: Owner review
-  - Depends on: M08-2b
+  - Depends on: M08-2b (#48)
   - Files: `specs/SPEC-m09-functional-data-oriented.md`
-- [ ] **M09-2a** — [m09-functional-data-oriented] Data-oriented programming & Result type examples · `M`
+- [ ] **M09-2a** (#52) — [m09-functional-data-oriented] Data-oriented programming & Result type examples · `M`
   - Acceptance: Each example has a `main` with deterministic output and runs with `java <File>.java` (no build)
   - Acceptance: Each example has JUnit/AssertJ tests of its behaviour
   - Acceptance: Modern Java 27 idioms per CLAUDE.md §5; Javadoc on public types
   - Verify: `./mvnw -q -pl modules/m09-functional-data-oriented verify`; Run every demo with the source launcher
-  - Depends on: M09-1
+  - Depends on: M09-1 (#51)
   - Files: `modules/m09-functional-data-oriented/pom.xml`, `modules/m09-functional-data-oriented/src/main/java/.../examples/**`, `modules/m09-functional-data-oriented/src/test/java/.../examples/**`
-- [ ] **M09-2b** — [m09-functional-data-oriented] Functional replacements for GoF patterns · `M`
+- [ ] **M09-2b** (#53) — [m09-functional-data-oriented] Functional replacements for GoF patterns · `M`
   - Acceptance: Each example has a `main` with deterministic output and runs with `java <File>.java` (no build)
   - Acceptance: Each example has JUnit/AssertJ tests of its behaviour
   - Acceptance: Modern Java 27 idioms per CLAUDE.md §5; Javadoc on public types
   - Verify: `./mvnw -q -pl modules/m09-functional-data-oriented verify`; Run every demo with the source launcher
-  - Depends on: M09-1, M09-2a
+  - Depends on: M09-1 (#51), M09-2a (#52)
   - Files: `modules/m09-functional-data-oriented/pom.xml`, `modules/m09-functional-data-oriented/src/main/java/.../examples/**`, `modules/m09-functional-data-oriented/src/test/java/.../examples/**`
-- [ ] **M09-3** — [m09-functional-data-oriented] Lesson EN + TR + PDF + module README · `M`
+- [ ] **M09-3** (#54) — [m09-functional-data-oriented] Lesson EN + TR + PDF + module README · `M`
   - Acceptance: Code blocks come from compiled example files (path cited)
   - Acceptance: EN/TR heading parity; Turkish characters correct
   - Acceptance: Both PDFs generated and committed; README links lesson, examples, assignments
   - Verify: `scripts/check-docs.sh` exit 0; `scripts/build-pdf.sh modules/m09-functional-data-oriented` and inspect PDFs
-  - Depends on: M09-2a, M09-2b
+  - Depends on: M09-2a (#52), M09-2b (#53)
   - Files: `modules/m09-functional-data-oriented/lesson/lesson.en.md`, `modules/m09-functional-data-oriented/lesson/lesson.tr.md`, `modules/m09-functional-data-oriented/lesson/*.pdf`, `modules/m09-functional-data-oriented/README.md`
-- [ ] **M09-4** — [m09-functional-data-oriented] Assignments + starters + solutions · `M`
+- [ ] **M09-4** (#55) — [m09-functional-data-oriented] Assignments + starters + solutions · `M`
   - Acceptance: Starters compile and fail their contract tests
   - Acceptance: Solutions pass the same contract tests
   - Acceptance: Briefs (EN/TR) state goal, steps, hints, and how to run the tests
   - Verify: `./mvnw -q -pl modules/m09-functional-data-oriented verify` (solutions green); `./mvnw -pl modules/m09-functional-data-oriented test -Pexercises` (fails on starters)
-  - Depends on: M09-2a, M09-2b
+  - Depends on: M09-2a (#52), M09-2b (#53)
   - Files: `modules/m09-functional-data-oriented/assignments/*.md`, `modules/m09-functional-data-oriented/src/main/java/.../{exercises,solutions}/**`, `modules/m09-functional-data-oriented/src/test/java/.../{exercises,solutions}/**`
 ## Phase 4 · M10 Concurrency Patterns
 
-- [ ] **M10-1** — [m10-concurrency-patterns] Module spec · `S`
+- [ ] **M10-1** (#56) — [m10-concurrency-patterns] Module spec · `S`
   - Acceptance: Spec follows the module-spec template and SPEC §2 scope
   - Acceptance: Every example and assignment has testable acceptance criteria
   - Acceptance: Approved by owner (comment on this issue)
   - Verify: Owner review
-  - Depends on: M09-2b
+  - Depends on: M09-2b (#53)
   - Files: `specs/SPEC-m10-concurrency-patterns.md`
-- [ ] **M10-2a** — [m10-concurrency-patterns] Virtual threads, Producer–Consumer & Immutable object examples · `M`
+- [ ] **M10-2a** (#57) — [m10-concurrency-patterns] Virtual threads, Producer–Consumer & Immutable object examples · `M`
   - Acceptance: Each example has a `main` with deterministic output and runs with `java <File>.java` (no build)
   - Acceptance: Each example has JUnit/AssertJ tests of its behaviour
   - Acceptance: Modern Java 27 idioms per CLAUDE.md §5; Javadoc on public types
   - Verify: `./mvnw -q -pl modules/m10-concurrency-patterns verify`; Run every demo with the source launcher
-  - Depends on: M10-1
+  - Depends on: M10-1 (#56)
   - Files: `modules/m10-concurrency-patterns/pom.xml`, `modules/m10-concurrency-patterns/src/main/java/.../examples/**`, `modules/m10-concurrency-patterns/src/test/java/.../examples/**`
-- [ ] **M10-2b** — [m10-concurrency-patterns] Structured Concurrency, Scoped Values & CompletableFuture examples · `M`
+- [ ] **M10-2b** (#58) — [m10-concurrency-patterns] Structured Concurrency, Scoped Values & CompletableFuture examples · `M`
   - Acceptance: Each example has a `main` with deterministic output and runs with `java <File>.java` (no build)
   - Acceptance: Each example has JUnit/AssertJ tests of its behaviour
   - Acceptance: Modern Java 27 idioms per CLAUDE.md §5; Javadoc on public types
   - Verify: `./mvnw -q -pl modules/m10-concurrency-patterns verify`; Run every demo with the source launcher
-  - Depends on: M10-1, M10-2a
+  - Depends on: M10-1 (#56), M10-2a (#57)
   - Files: `modules/m10-concurrency-patterns/pom.xml`, `modules/m10-concurrency-patterns/src/main/java/.../examples/**`, `modules/m10-concurrency-patterns/src/test/java/.../examples/**`
-- [ ] **M10-3** — [m10-concurrency-patterns] Lesson EN + TR + PDF + module README · `M`
+- [ ] **M10-3** (#59) — [m10-concurrency-patterns] Lesson EN + TR + PDF + module README · `M`
   - Acceptance: Code blocks come from compiled example files (path cited)
   - Acceptance: EN/TR heading parity; Turkish characters correct
   - Acceptance: Both PDFs generated and committed; README links lesson, examples, assignments
   - Verify: `scripts/check-docs.sh` exit 0; `scripts/build-pdf.sh modules/m10-concurrency-patterns` and inspect PDFs
-  - Depends on: M10-2a, M10-2b
+  - Depends on: M10-2a (#57), M10-2b (#58)
   - Files: `modules/m10-concurrency-patterns/lesson/lesson.en.md`, `modules/m10-concurrency-patterns/lesson/lesson.tr.md`, `modules/m10-concurrency-patterns/lesson/*.pdf`, `modules/m10-concurrency-patterns/README.md`
-- [ ] **M10-4** — [m10-concurrency-patterns] Assignments + starters + solutions · `M`
+- [ ] **M10-4** (#60) — [m10-concurrency-patterns] Assignments + starters + solutions · `M`
   - Acceptance: Starters compile and fail their contract tests
   - Acceptance: Solutions pass the same contract tests
   - Acceptance: Briefs (EN/TR) state goal, steps, hints, and how to run the tests
   - Verify: `./mvnw -q -pl modules/m10-concurrency-patterns verify` (solutions green); `./mvnw -pl modules/m10-concurrency-patterns test -Pexercises` (fails on starters)
-  - Depends on: M10-2a, M10-2b
+  - Depends on: M10-2a (#57), M10-2b (#58)
   - Files: `modules/m10-concurrency-patterns/assignments/*.md`, `modules/m10-concurrency-patterns/src/main/java/.../{exercises,solutions}/**`, `modules/m10-concurrency-patterns/src/test/java/.../{exercises,solutions}/**`
 ## Phase 4 · M11 Architecture & Enterprise
 
-- [ ] **M11-1** — [m11-architecture-enterprise] Module spec · `S`
+- [ ] **M11-1** (#61) — [m11-architecture-enterprise] Module spec · `S`
   - Acceptance: Spec follows the module-spec template and SPEC §2 scope
   - Acceptance: Every example and assignment has testable acceptance criteria
   - Acceptance: Approved by owner (comment on this issue)
   - Verify: Owner review
-  - Depends on: M10-2b
+  - Depends on: M10-2b (#58)
   - Files: `specs/SPEC-m11-architecture-enterprise.md`
-- [ ] **M11-2a** — [m11-architecture-enterprise] DI, Repository & Ports-and-Adapters examples · `M`
+- [ ] **M11-2a** (#62) — [m11-architecture-enterprise] DI, Repository & Ports-and-Adapters examples · `M`
   - Acceptance: Each example has a `main` with deterministic output and runs with `java <File>.java` (no build)
   - Acceptance: Each example has JUnit/AssertJ tests of its behaviour
   - Acceptance: Modern Java 27 idioms per CLAUDE.md §5; Javadoc on public types
   - Verify: `./mvnw -q -pl modules/m11-architecture-enterprise verify`; Run every demo with the source launcher
-  - Depends on: M11-1
+  - Depends on: M11-1 (#61)
   - Files: `modules/m11-architecture-enterprise/pom.xml`, `modules/m11-architecture-enterprise/src/main/java/.../examples/**`, `modules/m11-architecture-enterprise/src/test/java/.../examples/**`
-- [ ] **M11-2b** — [m11-architecture-enterprise] Domain events, anti-patterns, refactoring & ArchUnit examples · `M`
+- [ ] **M11-2b** (#63) — [m11-architecture-enterprise] Domain events, anti-patterns, refactoring & ArchUnit examples · `M`
   - Acceptance: Each example has a `main` with deterministic output and runs with `java <File>.java` (no build)
   - Acceptance: Each example has JUnit/AssertJ tests of its behaviour
   - Acceptance: Modern Java 27 idioms per CLAUDE.md §5; Javadoc on public types
   - Verify: `./mvnw -q -pl modules/m11-architecture-enterprise verify`; Run every demo with the source launcher
-  - Depends on: M11-1, M11-2a
+  - Depends on: M11-1 (#61), M11-2a (#62)
   - Files: `modules/m11-architecture-enterprise/pom.xml`, `modules/m11-architecture-enterprise/src/main/java/.../examples/**`, `modules/m11-architecture-enterprise/src/test/java/.../examples/**`
-- [ ] **M11-3** — [m11-architecture-enterprise] Lesson EN + TR + PDF + module README · `M`
+- [ ] **M11-3** (#64) — [m11-architecture-enterprise] Lesson EN + TR + PDF + module README · `M`
   - Acceptance: Code blocks come from compiled example files (path cited)
   - Acceptance: EN/TR heading parity; Turkish characters correct
   - Acceptance: Both PDFs generated and committed; README links lesson, examples, assignments
   - Verify: `scripts/check-docs.sh` exit 0; `scripts/build-pdf.sh modules/m11-architecture-enterprise` and inspect PDFs
-  - Depends on: M11-2a, M11-2b
+  - Depends on: M11-2a (#62), M11-2b (#63)
   - Files: `modules/m11-architecture-enterprise/lesson/lesson.en.md`, `modules/m11-architecture-enterprise/lesson/lesson.tr.md`, `modules/m11-architecture-enterprise/lesson/*.pdf`, `modules/m11-architecture-enterprise/README.md`
-- [ ] **M11-4** — [m11-architecture-enterprise] Assignments + starters + solutions · `M`
+- [ ] **M11-4** (#65) — [m11-architecture-enterprise] Assignments + starters + solutions · `M`
   - Acceptance: Starters compile and fail their contract tests
   - Acceptance: Solutions pass the same contract tests
   - Acceptance: Briefs (EN/TR) state goal, steps, hints, and how to run the tests
   - Verify: `./mvnw -q -pl modules/m11-architecture-enterprise verify` (solutions green); `./mvnw -pl modules/m11-architecture-enterprise test -Pexercises` (fails on starters)
-  - Depends on: M11-2a, M11-2b
+  - Depends on: M11-2a (#62), M11-2b (#63)
   - Files: `modules/m11-architecture-enterprise/assignments/*.md`, `modules/m11-architecture-enterprise/src/main/java/.../{exercises,solutions}/**`, `modules/m11-architecture-enterprise/src/test/java/.../{exercises,solutions}/**`
 
 ### ✅ Checkpoint: All modules done — `./mvnw verify` + `check-docs.sh` green
@@ -503,46 +503,46 @@ Legend: size S = 1–2 units, M = 3–5 units · `Verify` must pass before ticki
 
 ## Phase 5 · Capstone
 
-- [ ] **C1** — Capstone spec & rubric (EN/TR) · `M`
+- [ ] **C1** (#66) — Capstone spec & rubric (EN/TR) · `M`
   - Acceptance: Brief and rubric in EN + TR
   - Acceptance: Every rubric line is objectively assessable
   - Acceptance: Owner approves domain & scope
   - Verify: Owner review
-  - Depends on: M08-1
+  - Depends on: M08-1 (#46)
   - Files: `capstone/spec.en.md`, `capstone/spec.tr.md`, `capstone/rubric.en.md`, `capstone/rubric.tr.md`
-- [ ] **C2** — Capstone starter skeleton + acceptance tests · `M`
+- [ ] **C2** (#67) — Capstone starter skeleton + acceptance tests · `M`
   - Acceptance: Starter compiles; acceptance tests fail
   - Acceptance: Tests cover every mandatory feature in the brief
   - Verify: `./mvnw -q -pl capstone/starter -Pexercises-compile verify`
-  - Depends on: C1
+  - Depends on: C1 (#66)
   - Files: `capstone/starter/**`
-- [ ] **C3** — Reference slice 1: domain, builders, factories, repository · `M`
+- [ ] **C3** (#68) — Reference slice 1: domain, builders, factories, repository · `M`
   - Acceptance: Acceptance tests for catalogue & cart pass
   - Verify: `./mvnw -q -pl capstone/reference verify`
-  - Depends on: C2
+  - Depends on: C2 (#67)
   - Files: `capstone/reference/**`
-- [ ] **C4** — Reference slice 2: pricing strategies/decorators, order state machine, validation chain · `M`
+- [ ] **C4** (#69) — Reference slice 2: pricing strategies/decorators, order state machine, validation chain · `M`
   - Acceptance: Acceptance tests for pricing, lifecycle and validation pass
   - Verify: `./mvnw -q -pl capstone/reference verify`
-  - Depends on: C3
+  - Depends on: C3 (#68)
   - Files: `capstone/reference/**`
-- [ ] **C5** — Reference slice 3: events/observers, payment adapter, checkout facade, undo commands · `M`
+- [ ] **C5** (#70) — Reference slice 3: events/observers, payment adapter, checkout facade, undo commands · `M`
   - Acceptance: Acceptance tests for checkout end-to-end pass
   - Verify: `./mvnw -q -pl capstone/reference verify`
-  - Depends on: C4
+  - Depends on: C4 (#69)
   - Files: `capstone/reference/**`
-- [ ] **C6** — Reference slice 4: concurrent fulfilment, reporting, ArchUnit rules · `M`
+- [ ] **C6** (#71) — Reference slice 4: concurrent fulfilment, reporting, ArchUnit rules · `M`
   - Acceptance: All acceptance tests pass
   - Acceptance: ArchUnit rules pass
   - Acceptance: ≥ 10 distinct patterns documented in code
   - Verify: `./mvnw -q -pl capstone/reference verify`
-  - Depends on: C5, M11-4
+  - Depends on: C5 (#70), M11-4 (#65)
   - Files: `capstone/reference/**`
-- [ ] **C7** — Capstone walkthrough guide (EN/TR + PDF) · `M`
+- [ ] **C7** (#72) — Capstone walkthrough guide (EN/TR + PDF) · `M`
   - Acceptance: EN/TR parity, PDFs generated
   - Acceptance: Pattern map links to code
   - Verify: `scripts/check-docs.sh`; `scripts/build-pdf.sh capstone`
-  - Depends on: C6
+  - Depends on: C6 (#71)
   - Files: `capstone/guide.en.md`, `capstone/guide.tr.md`, `capstone/*.pdf`
 
 ### ✅ Checkpoint: Capstone — reference passes acceptance + ArchUnit tests; rubric published
@@ -550,16 +550,16 @@ Legend: size S = 1–2 units, M = 3–5 units · `Verify` must pass before ticki
 
 ## Phase 6 · Release v1.0
 
-- [ ] **R1** — Full course review pass · `M`
+- [ ] **R1** (#73) — Full course review pass · `M`
   - Acceptance: No open critical/major findings
   - Acceptance: All demos run
   - Acceptance: `check-docs.sh` clean
   - Verify: `./mvnw -q verify`, `-Pexercises-compile`, `scripts/check-docs.sh`
-  - Depends on: C7
+  - Depends on: C7 (#72)
   - Files: `(many — fixes only)`
-- [ ] **R2** — Release v1.0.0 with PDFs · `S`
+- [ ] **R2** (#74) — Release v1.0.0 with PDFs · `S`
   - Acceptance: Release page lists all PDFs (EN+TR per module + capstone)
   - Acceptance: README badges/links point to release
   - Verify: Download each PDF from the release page
-  - Depends on: R1
+  - Depends on: R1 (#73)
   - Files: `CHANGELOG.md`, `.github/workflows/release.yml`
