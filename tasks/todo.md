@@ -13,7 +13,7 @@ Legend: size S = 1–2 units, M = 3–5 units · `Verify` must pass before ticki
   - Verify: `export JAVA_HOME=$(/usr/libexec/java_home -v 27) && ./mvnw -q verify`; `JAVA_HOME=<jdk23> ./mvnw verify` fails with enforcer message
   - Depends on: none
   - Files: `pom.xml`, `mvnw, .mvn/`, `.gitignore, .editorconfig`, `modules/_sample/`
-- [ ] **F02** (#2) — Java 27 feature audit (final vs preview) · `S`
+- [x] **F02** (#2) — Java 27 feature audit (final vs preview) · `S`
   - Acceptance: `docs/java27-features.md` lists each feature with JEP #, status in JDK 27, module(s) using it
   - Acceptance: Preview features have an explicit decision (use behind profile / avoid)
   - Acceptance: Every claim links to an official source
