@@ -15,7 +15,7 @@ Verified on JDK 27+35 (Oracle), macOS arm64, Maven 3.9.16 via wrapper.
 | maven-surefire-plugin | 3.6.0 | ✅ | JUnit tests run |
 | JUnit (BOM) | 6.1.3 | ✅ | `GreetingTest` |
 | AssertJ | 3.27.7 | ✅ | `GreetingTest` |
-| ArchUnit | 1.5.1 | ✅ imports class file 71 and evaluates rules | `ArchUnitJdk27SpikeTest` (logs an SLF4J "no providers" notice — harmless) |
+| ArchUnit | 1.5.1 | ✅ imports class file 71 and evaluates rules | `ArchUnitJdk27SpikeTest` in the F01 `_sample` module (removed in M00-4; logs a harmless SLF4J notice) |
 | JaCoCo | 0.8.15 | ✅ instruments + reports | `./mvnw verify -Pcoverage` → `target/site/jacoco/index.html` |
 | maven-enforcer-plugin | 3.6.3 | ✅ `requireJavaVersion [27,)` fails fast on JDK 23 with bilingual message | `JAVA_HOME=<jdk23> ./mvnw verify` |
 | Multi-file source launcher (JEP 458) | JDK 27 | ✅ `java …/GreetingDemo.java` runs without a build | manual |

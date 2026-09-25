@@ -33,17 +33,17 @@ Each assignment `exNN` in a module is made of:
 
 ```java
 public abstract class Ex01Contract {                       // the assignment's spec, as tests
-    protected abstract WordCounter newCounter();
-    @Test void countsEachWordCaseInsensitively() { … }
+    protected abstract Temperature of(double value, Unit unit);
+    @Test void convertsCelsiusToFahrenheit() { … }
 }
 
 @Tag("exercise")
 class Ex01ExerciseTest extends Ex01Contract {             // student:  ./mvnw -pl modules/<id> test -Pexercises
-    @Override protected WordCounter newCounter() { return new exercises.ex01.SimpleWordCounter(); }
+    @Override protected Temperature of(double v, Unit u) { return new exercises.ex01.TemperatureReading(v, u); }
 }
 
 class Ex01SolutionTest extends Ex01Contract {             // CI:       ./mvnw verify
-    @Override protected WordCounter newCounter() { return new solutions.ex01.SimpleWordCounter(); }
+    @Override protected Temperature of(double v, Unit u) { return new solutions.ex01.TemperatureReading(v, u); }
 }
 ```
 
@@ -54,7 +54,7 @@ Rules:
 - Never weaken, skip or delete a contract test to make something pass.
 - The contract tests what the assignment brief promises — nothing more, nothing less. Keep the brief (EN + TR) and the contract in sync.
 
-The `modules/_sample` module contains a complete working example of this layout.
+Complete working example: `modules/m00-setup-and-modern-java` — assignment `ex01` (Temperature) and `ex02` (Payment fees).
 
 ## Lessons & translations
 
