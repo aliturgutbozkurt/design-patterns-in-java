@@ -18,12 +18,15 @@ class FirstStepsTest {
 
     @Test
     void multiFileProgramRunsWithoutABuild() throws Exception {
-        assertThat(launch("first-steps/multifile/Main.java")).isEqualTo("Hello, Ada — from two source files!\n");
+        assertThat(launch("first-steps/multifile/Main.java")).isEqualTo("Hello, Ada - from two source files!\n");
     }
 
     private static String launch(String sourceFile) throws IOException, InterruptedException {
         Path java = Path.of(System.getProperty("java.home"), "bin", "java");
-        Process process = new ProcessBuilder(java.toString(), sourceFile).redirectErrorStream(true).start();
+        // Windows consoles default to a legacy code page; force UTF-8 so the output is comparable on every OS.
+        Process process = new ProcessBuilder(java.toString(), "-Dstdout.encoding=UTF-8", sourceFile)
+                .redirectErrorStream(true)
+                .start();
         boolean finished = process.waitFor(60, TimeUnit.SECONDS);
         String output = new String(process.getInputStream().readAllBytes(), StandardCharsets.UTF_8);
         assertThat(finished).as("launcher finished in time").isTrue();
