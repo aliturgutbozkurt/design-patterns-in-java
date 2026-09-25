@@ -44,7 +44,7 @@ export JAVA_HOME=$(/usr/libexec/java_home -v 27)     # macOS; on Linux/Windows p
 ./mvnw -q verify                                      # build + all example & solution tests (CI gate)
 ./mvnw -q -pl modules/m03-creational-construction verify          # one module
 ./mvnw -q -pl modules/m03-creational-construction test -Pexercises # run the student's exercise tests
-./mvnw -q -Pexercises-compile verify                  # starters must compile (tests may fail)
+scripts/check-starters.sh [modules/<id>]              # starters compile AND still fail their contract tests
 
 # Run any example WITHOUT building (multi-file source launcher, JEP 458):
 java modules/m03-creational-construction/src/main/java/io/github/aliturgutbozkurt/patterns/m03/examples/builder/PizzaDemo.java
@@ -124,7 +124,9 @@ public record PercentOff(int percent) implements PricingRule {
   class Ex01SolutionTest extends Ex01Contract { Cart newCart() { return new solutions.ex01.Cart(); } }
   ```
   So the student's code and the reference solution are held to the *same* tests.
-- CI must prove: solutions pass, starters compile. Starters must NOT pass their tests.
+- CI must prove: solutions pass, starters compile, starters must NOT pass their tests (`scripts/check-starters.sh`).
+- Types the student must not change live in the `exercises.exNN` package marked `GIVEN — do not modify`;
+  the solution implements those same types, so one contract test fits both. Details: `CONTRIBUTING.md`.
 - Never delete, `@Disabled` or weaken a test to get green. Fix the code or ask.
 
 ## 7. Lessons (Markdown → PDF), bilingual rules

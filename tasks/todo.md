@@ -20,7 +20,7 @@ Legend: size S = 1–2 units, M = 3–5 units · `Verify` must pass before ticki
   - Verify: Each listed feature compiled in a scratch file with `javac --release 27` (preview ones with `--enable-preview`)
   - Depends on: F01 (#1)
   - Files: `docs/java27-features.md`
-- [ ] **F03** (#3) — Test harness: exercise tag, profiles, contract-test pattern · `M`
+- [x] **F03** (#3) — Test harness: exercise tag, profiles, contract-test pattern · `M`
   - Acceptance: Default build ignores exercise tests and passes
   - Acceptance: `-Pexercises` runs exercise tests and fails on the unfinished starter
   - Acceptance: Pattern documented in `CONTRIBUTING.md`
@@ -79,7 +79,7 @@ Legend: size S = 1–2 units, M = 3–5 units · `Verify` must pass before ticki
   - Acceptance: Starters compile and fail their contract tests
   - Acceptance: Solutions pass the same contract tests
   - Acceptance: Briefs (EN/TR) state goal, steps, hints, and how to run the tests
-  - Verify: `./mvnw -q -pl modules/m00-setup-and-modern-java verify` (solutions green); `./mvnw -pl modules/m00-setup-and-modern-java test -Pexercises` (fails on starters)
+  - Verify: `./mvnw -q -pl modules/m00-setup-and-modern-java verify` (solutions green); `scripts/check-starters.sh modules/m00-setup-and-modern-java` (every starter fails its contract)
   - Depends on: M00-2 (#8)
   - Files: `modules/m00-setup-and-modern-java/assignments/*.md`, `modules/m00-setup-and-modern-java/src/main/java/.../{exercises,solutions}/**`, `modules/m00-setup-and-modern-java/src/test/java/.../{exercises,solutions}/**`
 
@@ -120,7 +120,7 @@ Legend: size S = 1–2 units, M = 3–5 units · `Verify` must pass before ticki
   - Acceptance: Starters compile and fail their contract tests
   - Acceptance: Solutions pass the same contract tests
   - Acceptance: Briefs (EN/TR) state goal, steps, hints, and how to run the tests
-  - Verify: `./mvnw -q -pl modules/m01-oop-solid-uml verify` (solutions green); `./mvnw -pl modules/m01-oop-solid-uml test -Pexercises` (fails on starters)
+  - Verify: `./mvnw -q -pl modules/m01-oop-solid-uml verify` (solutions green); `scripts/check-starters.sh modules/m01-oop-solid-uml` (every starter fails its contract)
   - Depends on: M01-2a (#12), M01-2b (#13)
   - Files: `modules/m01-oop-solid-uml/assignments/*.md`, `modules/m01-oop-solid-uml/src/main/java/.../{exercises,solutions}/**`, `modules/m01-oop-solid-uml/src/test/java/.../{exercises,solutions}/**`
 ## Phase 3 · M02 Creational I: Factories
@@ -157,7 +157,7 @@ Legend: size S = 1–2 units, M = 3–5 units · `Verify` must pass before ticki
   - Acceptance: Starters compile and fail their contract tests
   - Acceptance: Solutions pass the same contract tests
   - Acceptance: Briefs (EN/TR) state goal, steps, hints, and how to run the tests
-  - Verify: `./mvnw -q -pl modules/m02-creational-factories verify` (solutions green); `./mvnw -pl modules/m02-creational-factories test -Pexercises` (fails on starters)
+  - Verify: `./mvnw -q -pl modules/m02-creational-factories verify` (solutions green); `scripts/check-starters.sh modules/m02-creational-factories` (every starter fails its contract)
   - Depends on: M02-2a (#17), M02-2b (#18)
   - Files: `modules/m02-creational-factories/assignments/*.md`, `modules/m02-creational-factories/src/main/java/.../{exercises,solutions}/**`, `modules/m02-creational-factories/src/test/java/.../{exercises,solutions}/**`
 ## Phase 3 · M03 Creational II: Construction
@@ -194,7 +194,7 @@ Legend: size S = 1–2 units, M = 3–5 units · `Verify` must pass before ticki
   - Acceptance: Starters compile and fail their contract tests
   - Acceptance: Solutions pass the same contract tests
   - Acceptance: Briefs (EN/TR) state goal, steps, hints, and how to run the tests
-  - Verify: `./mvnw -q -pl modules/m03-creational-construction verify` (solutions green); `./mvnw -pl modules/m03-creational-construction test -Pexercises` (fails on starters)
+  - Verify: `./mvnw -q -pl modules/m03-creational-construction verify` (solutions green); `scripts/check-starters.sh modules/m03-creational-construction` (every starter fails its contract)
   - Depends on: M03-2a (#22), M03-2b (#23)
   - Files: `modules/m03-creational-construction/assignments/*.md`, `modules/m03-creational-construction/src/main/java/.../{exercises,solutions}/**`, `modules/m03-creational-construction/src/test/java/.../{exercises,solutions}/**`
 ## Phase 3 · M04 Structural I: Wrappers
@@ -231,7 +231,7 @@ Legend: size S = 1–2 units, M = 3–5 units · `Verify` must pass before ticki
   - Acceptance: Starters compile and fail their contract tests
   - Acceptance: Solutions pass the same contract tests
   - Acceptance: Briefs (EN/TR) state goal, steps, hints, and how to run the tests
-  - Verify: `./mvnw -q -pl modules/m04-structural-wrappers verify` (solutions green); `./mvnw -pl modules/m04-structural-wrappers test -Pexercises` (fails on starters)
+  - Verify: `./mvnw -q -pl modules/m04-structural-wrappers verify` (solutions green); `scripts/check-starters.sh modules/m04-structural-wrappers` (every starter fails its contract)
   - Depends on: M04-2a (#27), M04-2b (#28)
   - Files: `modules/m04-structural-wrappers/assignments/*.md`, `modules/m04-structural-wrappers/src/main/java/.../{exercises,solutions}/**`, `modules/m04-structural-wrappers/src/test/java/.../{exercises,solutions}/**`
 ## Phase 3 · M05 Structural II: Composition
@@ -268,7 +268,7 @@ Legend: size S = 1–2 units, M = 3–5 units · `Verify` must pass before ticki
   - Acceptance: Starters compile and fail their contract tests
   - Acceptance: Solutions pass the same contract tests
   - Acceptance: Briefs (EN/TR) state goal, steps, hints, and how to run the tests
-  - Verify: `./mvnw -q -pl modules/m05-structural-composition verify` (solutions green); `./mvnw -pl modules/m05-structural-composition test -Pexercises` (fails on starters)
+  - Verify: `./mvnw -q -pl modules/m05-structural-composition verify` (solutions green); `scripts/check-starters.sh modules/m05-structural-composition` (every starter fails its contract)
   - Depends on: M05-2a (#32), M05-2b (#33)
   - Files: `modules/m05-structural-composition/assignments/*.md`, `modules/m05-structural-composition/src/main/java/.../{exercises,solutions}/**`, `modules/m05-structural-composition/src/test/java/.../{exercises,solutions}/**`
 
@@ -309,7 +309,7 @@ Legend: size S = 1–2 units, M = 3–5 units · `Verify` must pass before ticki
   - Acceptance: Starters compile and fail their contract tests
   - Acceptance: Solutions pass the same contract tests
   - Acceptance: Briefs (EN/TR) state goal, steps, hints, and how to run the tests
-  - Verify: `./mvnw -q -pl modules/m06-behavioral-algorithms verify` (solutions green); `./mvnw -pl modules/m06-behavioral-algorithms test -Pexercises` (fails on starters)
+  - Verify: `./mvnw -q -pl modules/m06-behavioral-algorithms verify` (solutions green); `scripts/check-starters.sh modules/m06-behavioral-algorithms` (every starter fails its contract)
   - Depends on: M06-2a (#37), M06-2b (#38)
   - Files: `modules/m06-behavioral-algorithms/assignments/*.md`, `modules/m06-behavioral-algorithms/src/main/java/.../{exercises,solutions}/**`, `modules/m06-behavioral-algorithms/src/test/java/.../{exercises,solutions}/**`
 ## Phase 4 · M07 Behavioral II: Communication
@@ -346,7 +346,7 @@ Legend: size S = 1–2 units, M = 3–5 units · `Verify` must pass before ticki
   - Acceptance: Starters compile and fail their contract tests
   - Acceptance: Solutions pass the same contract tests
   - Acceptance: Briefs (EN/TR) state goal, steps, hints, and how to run the tests
-  - Verify: `./mvnw -q -pl modules/m07-behavioral-communication verify` (solutions green); `./mvnw -pl modules/m07-behavioral-communication test -Pexercises` (fails on starters)
+  - Verify: `./mvnw -q -pl modules/m07-behavioral-communication verify` (solutions green); `scripts/check-starters.sh modules/m07-behavioral-communication` (every starter fails its contract)
   - Depends on: M07-2a (#42), M07-2b (#43)
   - Files: `modules/m07-behavioral-communication/assignments/*.md`, `modules/m07-behavioral-communication/src/main/java/.../{exercises,solutions}/**`, `modules/m07-behavioral-communication/src/test/java/.../{exercises,solutions}/**`
 ## Phase 4 · M08 Behavioral III: State & Structure
@@ -383,7 +383,7 @@ Legend: size S = 1–2 units, M = 3–5 units · `Verify` must pass before ticki
   - Acceptance: Starters compile and fail their contract tests
   - Acceptance: Solutions pass the same contract tests
   - Acceptance: Briefs (EN/TR) state goal, steps, hints, and how to run the tests
-  - Verify: `./mvnw -q -pl modules/m08-behavioral-state-structure verify` (solutions green); `./mvnw -pl modules/m08-behavioral-state-structure test -Pexercises` (fails on starters)
+  - Verify: `./mvnw -q -pl modules/m08-behavioral-state-structure verify` (solutions green); `scripts/check-starters.sh modules/m08-behavioral-state-structure` (every starter fails its contract)
   - Depends on: M08-2a (#47), M08-2b (#48)
   - Files: `modules/m08-behavioral-state-structure/assignments/*.md`, `modules/m08-behavioral-state-structure/src/main/java/.../{exercises,solutions}/**`, `modules/m08-behavioral-state-structure/src/test/java/.../{exercises,solutions}/**`
 ## Phase 4 · M09 Functional & Data-Oriented
@@ -420,7 +420,7 @@ Legend: size S = 1–2 units, M = 3–5 units · `Verify` must pass before ticki
   - Acceptance: Starters compile and fail their contract tests
   - Acceptance: Solutions pass the same contract tests
   - Acceptance: Briefs (EN/TR) state goal, steps, hints, and how to run the tests
-  - Verify: `./mvnw -q -pl modules/m09-functional-data-oriented verify` (solutions green); `./mvnw -pl modules/m09-functional-data-oriented test -Pexercises` (fails on starters)
+  - Verify: `./mvnw -q -pl modules/m09-functional-data-oriented verify` (solutions green); `scripts/check-starters.sh modules/m09-functional-data-oriented` (every starter fails its contract)
   - Depends on: M09-2a (#52), M09-2b (#53)
   - Files: `modules/m09-functional-data-oriented/assignments/*.md`, `modules/m09-functional-data-oriented/src/main/java/.../{exercises,solutions}/**`, `modules/m09-functional-data-oriented/src/test/java/.../{exercises,solutions}/**`
 ## Phase 4 · M10 Concurrency Patterns
@@ -457,7 +457,7 @@ Legend: size S = 1–2 units, M = 3–5 units · `Verify` must pass before ticki
   - Acceptance: Starters compile and fail their contract tests
   - Acceptance: Solutions pass the same contract tests
   - Acceptance: Briefs (EN/TR) state goal, steps, hints, and how to run the tests
-  - Verify: `./mvnw -q -pl modules/m10-concurrency-patterns verify` (solutions green); `./mvnw -pl modules/m10-concurrency-patterns test -Pexercises` (fails on starters)
+  - Verify: `./mvnw -q -pl modules/m10-concurrency-patterns verify` (solutions green); `scripts/check-starters.sh modules/m10-concurrency-patterns` (every starter fails its contract)
   - Depends on: M10-2a (#57), M10-2b (#58)
   - Files: `modules/m10-concurrency-patterns/assignments/*.md`, `modules/m10-concurrency-patterns/src/main/java/.../{exercises,solutions}/**`, `modules/m10-concurrency-patterns/src/test/java/.../{exercises,solutions}/**`
 ## Phase 4 · M11 Architecture & Enterprise
@@ -494,7 +494,7 @@ Legend: size S = 1–2 units, M = 3–5 units · `Verify` must pass before ticki
   - Acceptance: Starters compile and fail their contract tests
   - Acceptance: Solutions pass the same contract tests
   - Acceptance: Briefs (EN/TR) state goal, steps, hints, and how to run the tests
-  - Verify: `./mvnw -q -pl modules/m11-architecture-enterprise verify` (solutions green); `./mvnw -pl modules/m11-architecture-enterprise test -Pexercises` (fails on starters)
+  - Verify: `./mvnw -q -pl modules/m11-architecture-enterprise verify` (solutions green); `scripts/check-starters.sh modules/m11-architecture-enterprise` (every starter fails its contract)
   - Depends on: M11-2a (#62), M11-2b (#63)
   - Files: `modules/m11-architecture-enterprise/assignments/*.md`, `modules/m11-architecture-enterprise/src/main/java/.../{exercises,solutions}/**`, `modules/m11-architecture-enterprise/src/test/java/.../{exercises,solutions}/**`
 
@@ -513,7 +513,7 @@ Legend: size S = 1–2 units, M = 3–5 units · `Verify` must pass before ticki
 - [ ] **C2** (#67) — Capstone starter skeleton + acceptance tests · `M`
   - Acceptance: Starter compiles; acceptance tests fail
   - Acceptance: Tests cover every mandatory feature in the brief
-  - Verify: `./mvnw -q -pl capstone/starter -Pexercises-compile verify`
+  - Verify: `scripts/check-starters.sh capstone/starter`
   - Depends on: C1 (#66)
   - Files: `capstone/starter/**`
 - [ ] **C3** (#68) — Reference slice 1: domain, builders, factories, repository · `M`
@@ -554,7 +554,7 @@ Legend: size S = 1–2 units, M = 3–5 units · `Verify` must pass before ticki
   - Acceptance: No open critical/major findings
   - Acceptance: All demos run
   - Acceptance: `check-docs.sh` clean
-  - Verify: `./mvnw -q verify`, `-Pexercises-compile`, `scripts/check-docs.sh`
+  - Verify: `./mvnw -q verify`, `scripts/check-starters.sh`, `scripts/check-docs.sh`
   - Depends on: C7 (#72)
   - Files: `(many — fixes only)`
 - [ ] **R2** (#74) — Release v1.0.0 with PDFs · `S`

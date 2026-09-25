@@ -39,6 +39,10 @@
         <maven-site-plugin.version>3.22.0</maven-site-plugin.version>
         <maven-surefire-plugin.version>3.6.0</maven-surefire-plugin.version>
         <jacoco-maven-plugin.version>0.8.15</jacoco-maven-plugin.version>
+
+        <!-- Test selection (AD4): exercise tests are excluded by default; -Pexercises runs only them. -->
+        <test.groups></test.groups>
+        <test.excludedGroups>exercise</test.excludedGroups>
     </properties>
 
     <dependencyManagement>
@@ -107,6 +111,10 @@
                 <plugin>
                     <artifactId>maven-surefire-plugin</artifactId>
                     <version>${maven-surefire-plugin.version}</version>
+                    <configuration>
+                        <groups>${test.groups}</groups>
+                        <excludedGroups>${test.excludedGroups}</excludedGroups>
+                    </configuration>
                 </plugin>
                 <plugin>
                     <artifactId>maven-jar-plugin</artifactId>
@@ -160,6 +168,15 @@
     </build>
 
     <profiles>
+        <!-- Students: run YOUR exercise tests, e.g. ./mvnw -pl modules/<module-id> test -Pexercises -->
+        <profile>
+            <id>exercises</id>
+            <properties>
+                <test.groups>exercise</test.groups>
+                <test.excludedGroups></test.excludedGroups>
+                <surefire.failIfNoSpecifiedTests>false</surefire.failIfNoSpecifiedTests>
+            </properties>
+        </profile>
         <!-- Coverage report: ./mvnw verify -Pcoverage  → target/site/jacoco/index.html -->
         <profile>
             <id>coverage</id>
