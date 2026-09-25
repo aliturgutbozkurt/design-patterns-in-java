@@ -15,6 +15,6 @@ public class SimpleWordCounter implements WordCounter {
         Objects.requireNonNull(text, "text");
         return Arrays.stream(text.toLowerCase(Locale.ROOT).split("[^\\p{L}\\p{N}]+"))
                 .filter(word -> !word.isEmpty())
-                .collect(Collectors.toMap(word -> word, _ -> 1, (a, b) -> a));
+                .collect(Collectors.toMap(word -> word, _ -> 1, Integer::sum));
     }
 }
