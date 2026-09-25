@@ -75,7 +75,7 @@ Legend: size S = 1–2 units, M = 3–5 units · `Verify` must pass before ticki
   - Verify: `scripts/check-docs.sh` exit 0; `scripts/build-pdf.sh modules/m00-setup-and-modern-java` and inspect PDFs
   - Depends on: M00-2 (#8)
   - Files: `modules/m00-setup-and-modern-java/lesson/lesson.en.md`, `modules/m00-setup-and-modern-java/lesson/lesson.tr.md`, `modules/m00-setup-and-modern-java/lesson/*.pdf`, `modules/m00-setup-and-modern-java/README.md`
-- [ ] **M00-4** (#10) — [m00-setup-and-modern-java] Assignments + starters + solutions · `M`
+- [x] **M00-4** (#10) — [m00-setup-and-modern-java] Assignments + starters + solutions · `M`
   - Acceptance: Starters compile and fail their contract tests
   - Acceptance: Solutions pass the same contract tests
   - Acceptance: Briefs (EN/TR) state goal, steps, hints, and how to run the tests
