@@ -61,7 +61,7 @@ Legend: size S = 1–2 units, M = 3–5 units · `Verify` must pass before ticki
   - Verify: Owner review
   - Depends on: F06 (#6)
   - Files: `specs/SPEC-m00-setup-and-modern-java.md`
-- [ ] **M00-2** (#8) — [m00-setup-and-modern-java] Modern Java 27 refresher examples · `M`
+- [x] **M00-2** (#8) — [m00-setup-and-modern-java] Modern Java 27 refresher examples · `M`
   - Acceptance: Each example has a `main` with deterministic output and runs with `java <File>.java` (no build)
   - Acceptance: Each example has JUnit/AssertJ tests of its behaviour
   - Acceptance: Modern Java 27 idioms per CLAUDE.md §5; Javadoc on public types

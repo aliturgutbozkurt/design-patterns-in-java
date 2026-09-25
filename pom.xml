@@ -15,6 +15,7 @@
 
     <modules>
         <module>modules/_sample</module>
+        <module>modules/m00-setup-and-modern-java</module>
     </modules>
 
     <properties>
