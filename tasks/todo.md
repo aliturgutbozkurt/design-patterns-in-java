@@ -54,7 +54,7 @@ Legend: size S = 1–2 units, M = 3–5 units · `Verify` must pass before ticki
 
 ## Phase 2 · Pilot · M00 Setup & Modern Java
 
-- [ ] **M00-1** (#7) — [m00-setup-and-modern-java] Module spec · `S`
+- [x] **M00-1** (#7) — [m00-setup-and-modern-java] Module spec · `S`
   - Acceptance: Spec follows the module-spec template and SPEC §2 scope
   - Acceptance: Every example and assignment has testable acceptance criteria
   - Acceptance: Approved by owner (comment on this issue)
