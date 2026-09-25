@@ -174,7 +174,7 @@ def main():
         check_code(md)
         if md.name.endswith(".en.md"):
             check_parity(md, md.with_name(md.name[: -len(".en.md")] + ".tr.md"))
-        elif md.name.endswith(".tr.md"):
+        elif md.name.endswith(".tr.md") and md != ROOT / "README.tr.md":
             if not md.with_name(md.name[: -len(".tr.md")] + ".en.md").exists():
                 errors.append(f"{rel(md)}: missing English counterpart")
     readme = ROOT / "README.md"
