@@ -1,7 +1,7 @@
 # Implementation Plan: Design Patterns in Java (Java 27, Fall 2026)
 
 > Source spec: [`SPEC.md`](../SPEC.md) · Task list: [`tasks/todo.md`](todo.md) · Each task ↔ one GitHub issue
-> (milestone = phase/module, labels `type:*` + `module:*`). Status: **DRAFT — awaiting review**.
+> (milestone = phase/module, labels `type:*` + `module:*`). Status: **APPROVED** (2026-09-25).
 
 ## Overview
 
@@ -84,4 +84,4 @@ modules with 4+ patterns split their examples task in two (-2a / -2b) to stay at
 
 ## Open questions
 
-See `SPEC.md §11` (license, capstone domain, Java 27 feature status, midterm bank, slides/videos).
+Resolved in `SPEC.md §11` except Java 27 feature status (task F02).

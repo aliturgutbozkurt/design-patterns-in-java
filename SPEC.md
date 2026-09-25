@@ -1,6 +1,6 @@
 # Spec: Design Patterns in Java — Java 27 Course (Fall 2026)
 
-> Status: **DRAFT — awaiting review** · Owner: @aliturgutbozkurt · Created: 2026-09-25
+> Status: **APPROVED** (2026-09-25) · Owner: @aliturgutbozkurt · Created: 2026-09-25
 > Workflow: spec-driven development (agent-skills). This file is the root spec; each module gets `specs/SPEC-<id>.md`.
 
 ## 1. Objective
@@ -129,25 +129,27 @@ Coverage target: ≥ 80 % line coverage for `examples` + `solutions` packages (J
 6. Capstone has student spec + rubric (EN + TR), starter with acceptance tests, a reference solution using ≥ 10 patterns, and ArchUnit rules.
 7. Public GitHub repo with README (EN + TR), license, CI badge, and a `v1.0.0` release attaching all PDFs.
 
-## 10. Assumptions (correct me if any is wrong)
+## 10. Assumptions (confirmed by owner 2026-09-25)
 
 1. Audience is undergraduate / junior developers who already know basic Java — not absolute beginners.
 2. Engineering docs (SPEC, plan, CLAUDE.md, code, identifiers) are English; learner-facing prose is EN + TR.
 3. "2026 Eylül müfredatı" = a 14-week Fall 2026 semester; the module list above is the syllabus (no specific university's official syllabus).
 4. Maven (not Gradle) is the build tool; Maven Wrapper so students don't need a global Maven.
 5. PDFs are committed to the repo (so students can download them directly) and also attached to releases.
-6. License: **MIT** for code, **CC BY 4.0** for lesson text — needs confirmation.
-7. Capstone domain: "PatternShop" order processing (CLI + tests, no UI/DB) — needs confirmation.
+6. License: **MIT** for code, **CC BY 4.0** for lesson text — confirmed.
+7. Capstone domain: "PatternShop" order processing (CLI + tests, no UI/DB) — confirmed.
 
-## 11. Open questions
+## 11. Decisions log & open questions
 
-1. License choice (assumption 6)?
-2. Capstone domain (assumption 7) — alternatives: library management, ride-sharing dispatch, smart-home automation.
-3. Which Java 26/27 features are final vs. preview (Structured Concurrency, primitive patterns, lazy/stable values)? → resolved by task F02 from openjdk.org JEP pages.
-4. Should the midterm (W7) get its own question bank module? (Currently out of scope.)
-5. Video/slides? (Currently out of scope.)
+| # | Question | Decision (2026-09-25) |
+|---|---|---|
+| 1 | License | MIT (code) + CC BY 4.0 (lesson text) |
+| 2 | Capstone domain | PatternShop order processing |
+| 3 | Java 26/27 feature status | Open → resolved by task F02 from openjdk.org JEP pages |
+| 4 | Midterm question bank | Out of scope for v1 |
+| 5 | Slides / videos | Out of scope for v1 |
 
 ## 12. Out of scope (v1)
 
-Slides/videos, auto-grading platform integration (e.g. GitHub Classroom — possible v1.1), Gradle build, Kotlin examples,
+Slides/videos, midterm question bank, auto-grading platform integration (e.g. GitHub Classroom — possible v1.1), Gradle build, Kotlin examples,
 web UI or database in the capstone.
