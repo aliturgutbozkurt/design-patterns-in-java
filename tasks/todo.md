@@ -68,7 +68,7 @@ Legend: size S = 1–2 units, M = 3–5 units · `Verify` must pass before ticki
   - Verify: `./mvnw -q -pl modules/m00-setup-and-modern-java verify`; Run every demo with the source launcher
   - Depends on: M00-1 (#7)
   - Files: `modules/m00-setup-and-modern-java/pom.xml`, `modules/m00-setup-and-modern-java/src/main/java/.../examples/**`, `modules/m00-setup-and-modern-java/src/test/java/.../examples/**`
-- [ ] **M00-3** (#9) — [m00-setup-and-modern-java] Lesson EN + TR + PDF + module README · `M`
+- [x] **M00-3** (#9) — [m00-setup-and-modern-java] Lesson EN + TR + PDF + module README · `M`
   - Acceptance: Code blocks come from compiled example files (path cited)
   - Acceptance: EN/TR heading parity; Turkish characters correct
   - Acceptance: Both PDFs generated and committed; README links lesson, examples, assignments
