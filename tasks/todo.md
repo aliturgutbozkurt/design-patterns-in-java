@@ -250,7 +250,7 @@ Legend: size S = 1–2 units, M = 3–5 units · `Verify` must pass before ticki
   - Verify: `./mvnw -q -pl modules/m05-structural-composition verify`; Run every demo with the source launcher
   - Depends on: M05-1 (#31)
   - Files: `modules/m05-structural-composition/pom.xml`, `modules/m05-structural-composition/src/main/java/.../examples/**`, `modules/m05-structural-composition/src/test/java/.../examples/**`
-- [ ] **M05-2b** (#33) — [m05-structural-composition] Facade & Flyweight examples · `M`
+- [x] **M05-2b** (#33) — [m05-structural-composition] Facade & Flyweight examples · `M`
   - Acceptance: Each example has a `main` with deterministic output and runs with `java <File>.java` (no build)
   - Acceptance: Each example has JUnit/AssertJ tests of its behaviour
   - Acceptance: Modern Java 27 idioms per CLAUDE.md §5; Javadoc on public types
