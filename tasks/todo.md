@@ -132,7 +132,7 @@ Legend: size S = 1–2 units, M = 3–5 units · `Verify` must pass before ticki
   - Verify: Owner review
   - Depends on: M01-2b (#13)
   - Files: `specs/SPEC-m02-creational-factories.md`
-- [ ] **M02-2a** (#17) — [m02-creational-factories] Singleton & Static Factory Method examples · `M`
+- [x] **M02-2a** (#17) — [m02-creational-factories] Singleton & Static Factory Method examples · `M`
   - Acceptance: Each example has a `main` with deterministic output and runs with `java <File>.java` (no build)
   - Acceptance: Each example has JUnit/AssertJ tests of its behaviour
   - Acceptance: Modern Java 27 idioms per CLAUDE.md §5; Javadoc on public types
