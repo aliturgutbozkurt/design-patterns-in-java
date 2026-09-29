@@ -236,7 +236,7 @@ Legend: size S = 1–2 units, M = 3–5 units · `Verify` must pass before ticki
   - Files: `modules/m04-structural-wrappers/assignments/*.md`, `modules/m04-structural-wrappers/src/main/java/.../{exercises,solutions}/**`, `modules/m04-structural-wrappers/src/test/java/.../{exercises,solutions}/**`
 ## Phase 3 · M05 Structural II: Composition
 
-- [ ] **M05-1** (#31) — [m05-structural-composition] Module spec · `S`
+- [x] **M05-1** (#31) — [m05-structural-composition] Module spec · `S`
   - Acceptance: Spec follows the module-spec template and SPEC §2 scope
   - Acceptance: Every example and assignment has testable acceptance criteria
   - Acceptance: Approved by owner (comment on this issue)

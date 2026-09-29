@@ -1,6 +1,6 @@
 # Spec: m05-structural-composition — Structural II: Composition
 
-> Status: DRAFT · Parent: [SPEC.md](../SPEC.md) §2 · Week: 6 · Task: #31
+> Status: **APPROVED** (owner, 2026-09-29) · Parent: [SPEC.md](../SPEC.md) §2 · Week: 6 · Task: #31
 
 ## Objective
 
@@ -166,7 +166,9 @@ in-memory); Swing/AWT code (cited only — no GUI in examples); real HTTP/JDBC f
 tests; JOL or any other measurement library (would be a new dependency); Project Valhalla value classes (not in
 JDK 27 — lesson sidebar at most).
 
-## Open questions for the owner
+## Decisions (owner, 2026-09-29)
+
+All questions below were answered **yes**: the recommended defaults apply.
 
 1. **Flyweight memory numbers:** demos and tests count *instances* only (identity sets), never bytes. The lesson adds
    one manual, non-graded measurement recipe (`jcmd <pid> GC.class_histogram` on `ForestDemo` naive vs. shared) and
