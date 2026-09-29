@@ -118,8 +118,9 @@ launcher):**
   source), `CompressionDecorator`, `Base64Decorator`.
 - **Acceptance criteria (contract tests):** `roundTripsThroughCompression`, `roundTripsThroughBase64`,
   `roundTripsThroughBothInEitherOrder`, `compressionShrinksRepetitiveData`, `base64StoresOnlyBase64Characters`,
-  `outermostDecoratorTransformsFirst` (Base64 outside → the store holds Base64 text; compression outside → the store
-  holds bytes starting with the GZIP magic `0x1f 0x8b`), `sameDecoratorCanBeStackedTwice`, `emptyDataRoundTrips`,
+  `outermostDecoratorTransformsFirst` (`compression(base64(store))`: compress first, then encode → the store holds
+  Base64 text; `base64(compression(store))`: encode first, then compress → the store holds bytes starting with the
+  GZIP magic `0x1f 0x8b`), `sameDecoratorCanBeStackedTwice`, `emptyDataRoundTrips`,
   `readingANeverWrittenSourceReturnsEmpty`, `corruptDataIsReportedAsIllegalState`,
   `decoratorsWorkWithAnyDataSource` (a test-only data source), `rejectsNullArguments`.
 

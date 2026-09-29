@@ -227,7 +227,7 @@ Legend: size S = 1–2 units, M = 3–5 units · `Verify` must pass before ticki
   - Verify: `scripts/check-docs.sh` exit 0; `scripts/build-pdf.sh modules/m04-structural-wrappers` and inspect PDFs
   - Depends on: M04-2a (#27), M04-2b (#28)
   - Files: `modules/m04-structural-wrappers/lesson/lesson.en.md`, `modules/m04-structural-wrappers/lesson/lesson.tr.md`, `modules/m04-structural-wrappers/lesson/*.pdf`, `modules/m04-structural-wrappers/README.md`
-- [ ] **M04-4** (#30) — [m04-structural-wrappers] Assignments + starters + solutions · `M`
+- [x] **M04-4** (#30) — [m04-structural-wrappers] Assignments + starters + solutions · `M`
   - Acceptance: Starters compile and fail their contract tests
   - Acceptance: Solutions pass the same contract tests
   - Acceptance: Briefs (EN/TR) state goal, steps, hints, and how to run the tests

@@ -55,6 +55,9 @@ Kod tanımlayıcıları çevrilmez. Listede olmayan bir terim gerekiyorsa aynı 
 | composition over inheritance | kalıtım yerine bileşim |
 | coupling / cohesion | bağlaşım / uyum |
 | loose coupling | gevşek bağlaşım |
+| cache / cache hit / cache miss | önbellek / isabet (hit) / ıska (miss) |
+| time-to-live (TTL) | yaşam süresi (TTL) |
+| least recently used (LRU) eviction | en uzun süredir kullanılmayanı (LRU) çıkarma |
 | Single Responsibility Principle | Tek Sorumluluk İlkesi |
 | Open/Closed Principle | Açık/Kapalı İlkesi |
 | Liskov Substitution Principle | Liskov Yerine Geçme İlkesi |
