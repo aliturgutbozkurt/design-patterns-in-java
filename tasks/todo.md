@@ -183,7 +183,7 @@ Legend: size S = 1–2 units, M = 3–5 units · `Verify` must pass before ticki
   - Verify: `./mvnw -q -pl modules/m03-creational-construction verify`; Run every demo with the source launcher
   - Depends on: M03-1 (#21), M03-2a (#22)
   - Files: `modules/m03-creational-construction/pom.xml`, `modules/m03-creational-construction/src/main/java/.../examples/**`, `modules/m03-creational-construction/src/test/java/.../examples/**`
-- [ ] **M03-3** (#24) — [m03-creational-construction] Lesson EN + TR + PDF + module README · `M`
+- [x] **M03-3** (#24) — [m03-creational-construction] Lesson EN + TR + PDF + module README · `M`
   - Acceptance: Code blocks come from compiled example files (path cited)
   - Acceptance: EN/TR heading parity; Turkish characters correct
   - Acceptance: Both PDFs generated and committed; README links lesson, examples, assignments

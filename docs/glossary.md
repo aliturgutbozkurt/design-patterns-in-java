@@ -81,6 +81,10 @@ Kod tanımlayıcıları çevrilmez. Listede olmayan bir terim gerekiyorsa aynı 
 | record pattern | record deseni |
 | exhaustive switch | eksiksiz (exhaustive) switch |
 | compact constructor | kompakt kurucu |
+| telescoping constructor | teleskopik kurucu |
+| copy constructor | kopya kurucu (copy constructor) |
+| shallow copy / deep copy | yüzeysel kopya / derin kopya |
+| step builder | step builder (adım adım builder) |
 | constructor | kurucu (constructor) |
 | lambda expression / method reference | lambda ifadesi / metot referansı |
 | functional interface | fonksiyonel arayüz |
