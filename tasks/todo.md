@@ -95,7 +95,7 @@ Legend: size S = 1–2 units, M = 3–5 units · `Verify` must pass before ticki
   - Verify: Owner review
   - Depends on: M00-2 (#8)
   - Files: `specs/SPEC-m01-oop-solid-uml.md`
-- [ ] **M01-2a** (#12) — [m01-oop-solid-uml] SRP, OCP, LSP examples (before/after refactors) · `M`
+- [x] **M01-2a** (#12) — [m01-oop-solid-uml] SRP, OCP, LSP examples (before/after refactors) · `M`
   - Acceptance: Each example has a `main` with deterministic output and runs with `java <File>.java` (no build)
   - Acceptance: Each example has JUnit/AssertJ tests of its behaviour
   - Acceptance: Modern Java 27 idioms per CLAUDE.md §5; Javadoc on public types
