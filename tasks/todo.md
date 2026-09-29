@@ -213,7 +213,7 @@ Legend: size S = 1–2 units, M = 3–5 units · `Verify` must pass before ticki
   - Verify: `./mvnw -q -pl modules/m04-structural-wrappers verify`; Run every demo with the source launcher
   - Depends on: M04-1 (#26)
   - Files: `modules/m04-structural-wrappers/pom.xml`, `modules/m04-structural-wrappers/src/main/java/.../examples/**`, `modules/m04-structural-wrappers/src/test/java/.../examples/**`
-- [ ] **M04-2b** (#28) — [m04-structural-wrappers] Proxy examples (virtual, protection, caching, dynamic) · `M`
+- [x] **M04-2b** (#28) — [m04-structural-wrappers] Proxy examples (virtual, protection, caching, dynamic) · `M`
   - Acceptance: Each example has a `main` with deterministic output and runs with `java <File>.java` (no build)
   - Acceptance: Each example has JUnit/AssertJ tests of its behaviour
   - Acceptance: Modern Java 27 idioms per CLAUDE.md §5; Javadoc on public types
