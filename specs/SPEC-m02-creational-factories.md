@@ -102,6 +102,8 @@ from `target/classes`) see the same file.
   `productStatsMatchTheTable`, `generatorUsesOnlyItsFactory`, `difficultyScalesEnemiesAndObstacles`,
   `generatorWorksWithAnyFactory` (a test-only factory), `forBiomeReturnsTheMatchingFamily`,
   `forNameIsCaseInsensitive`, `unknownNameRejected`, `rejectsDifficultyOutsideOneToTen`.
+- **Contract note:** the contract drives the generator through `generate(LevelFactory, int)` returning the GIVEN
+  `Level`, so the same tests fit the starter's and the solution's `LevelGenerator` classes.
 
 ## Quiz topics
 
