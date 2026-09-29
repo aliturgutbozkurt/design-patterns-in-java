@@ -321,7 +321,7 @@ Legend: size S = 1–2 units, M = 3–5 units · `Verify` must pass before ticki
   - Verify: Owner review
   - Depends on: M06-2b (#38)
   - Files: `specs/SPEC-m07-behavioral-communication.md`
-- [ ] **M07-2a** (#42) — [m07-behavioral-communication] Observer & Mediator examples · `M`
+- [x] **M07-2a** (#42) — [m07-behavioral-communication] Observer & Mediator examples · `M`
   - Acceptance: Each example has a `main` with deterministic output and runs with `java <File>.java` (no build)
   - Acceptance: Each example has JUnit/AssertJ tests of its behaviour
   - Acceptance: Modern Java 27 idioms per CLAUDE.md §5; Javadoc on public types
