@@ -102,7 +102,7 @@ Legend: size S = 1–2 units, M = 3–5 units · `Verify` must pass before ticki
   - Verify: `./mvnw -q -pl modules/m01-oop-solid-uml verify`; Run every demo with the source launcher
   - Depends on: M01-1 (#11)
   - Files: `modules/m01-oop-solid-uml/pom.xml`, `modules/m01-oop-solid-uml/src/main/java/.../examples/**`, `modules/m01-oop-solid-uml/src/test/java/.../examples/**`
-- [ ] **M01-2b** (#13) — [m01-oop-solid-uml] ISP, DIP, composition-over-inheritance examples · `M`
+- [x] **M01-2b** (#13) — [m01-oop-solid-uml] ISP, DIP, composition-over-inheritance examples · `M`
   - Acceptance: Each example has a `main` with deterministic output and runs with `java <File>.java` (no build)
   - Acceptance: Each example has JUnit/AssertJ tests of its behaviour
   - Acceptance: Modern Java 27 idioms per CLAUDE.md §5; Javadoc on public types
