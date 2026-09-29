@@ -1,6 +1,6 @@
 # Spec: m06-behavioral-algorithms — Behavioral I: Algorithms
 
-> Status: DRAFT · Parent: [SPEC.md](../SPEC.md) §2 · Week: 8 · Task: #36
+> Status: **APPROVED** (owner, 2026-09-29) · Parent: [SPEC.md](../SPEC.md) §2 · Week: 8 · Task: #36
 
 ## Objective
 
@@ -181,7 +181,9 @@ snapshots); State and Visitor (m08); parallel gatherers with a combiner (`Gather
 JSON libraries (a hand-written flat JSON Lines parser only); `HttpServlet` and other Jakarta EE template methods in
 code (lesson mention only); preview features (none are needed in this module).
 
-## Open questions for the owner
+## Decisions (owner, 2026-09-29)
+
+All questions below were answered **yes**: the recommended defaults apply.
 
 1. **Undo/redo example domain.** Issue #38 lists "text editor undo/redo" as an example, but ex01 (issue #40) is also
    a text editor with undo/redo, so a worked example would give away the assignment. **Recommended default:** the

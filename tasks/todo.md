@@ -277,7 +277,7 @@ Legend: size S = 1–2 units, M = 3–5 units · `Verify` must pass before ticki
 
 ## Phase 4 · M06 Behavioral I: Algorithms
 
-- [ ] **M06-1** (#36) — [m06-behavioral-algorithms] Module spec · `S`
+- [x] **M06-1** (#36) — [m06-behavioral-algorithms] Module spec · `S`
   - Acceptance: Spec follows the module-spec template and SPEC §2 scope
   - Acceptance: Every example and assignment has testable acceptance criteria
   - Acceptance: Approved by owner (comment on this issue)
