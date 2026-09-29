@@ -199,7 +199,7 @@ Legend: size S = 1–2 units, M = 3–5 units · `Verify` must pass before ticki
   - Files: `modules/m03-creational-construction/assignments/*.md`, `modules/m03-creational-construction/src/main/java/.../{exercises,solutions}/**`, `modules/m03-creational-construction/src/test/java/.../{exercises,solutions}/**`
 ## Phase 3 · M04 Structural I: Wrappers
 
-- [ ] **M04-1** (#26) — [m04-structural-wrappers] Module spec · `S`
+- [x] **M04-1** (#26) — [m04-structural-wrappers] Module spec · `S`
   - Acceptance: Spec follows the module-spec template and SPEC §2 scope
   - Acceptance: Every example and assignment has testable acceptance criteria
   - Acceptance: Approved by owner (comment on this issue)

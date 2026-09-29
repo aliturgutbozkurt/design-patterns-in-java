@@ -1,6 +1,6 @@
 # Spec: m04-structural-wrappers — Structural I: Wrappers
 
-> Status: DRAFT · Parent: [SPEC.md](../SPEC.md) §2 · Week: 5 · Task: #26
+> Status: **APPROVED** (owner, 2026-09-29) · Parent: [SPEC.md](../SPEC.md) §2 · Week: 5 · Task: #26
 
 ## Objective
 
@@ -163,7 +163,9 @@ single-threaded; concurrency comes in m10); remote proxies / RMI beyond a mentio
 Flyweight (m05); Ports & Adapters as an architecture (m11 — m04 teaches the class-level Adapter); Lazy Constants in
 graded code (preview, JEP 531).
 
-## Open questions for the owner
+## Decisions (owner, 2026-09-29)
+
+All questions below were answered **yes**: the recommended defaults apply.
 
 1. **Caching proxy example vs. ex02 overlap:** issue #28 asks for a TTL caching proxy example and issue #30 for a
    TTL caching assignment. *Recommended default:* keep both, but keep the example minimal (exchange rates: TTL only)
