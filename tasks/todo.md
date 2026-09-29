@@ -146,7 +146,7 @@ Legend: size S = 1–2 units, M = 3–5 units · `Verify` must pass before ticki
   - Verify: `./mvnw -q -pl modules/m02-creational-factories verify`; Run every demo with the source launcher
   - Depends on: M02-1 (#16), M02-2a (#17)
   - Files: `modules/m02-creational-factories/pom.xml`, `modules/m02-creational-factories/src/main/java/.../examples/**`, `modules/m02-creational-factories/src/test/java/.../examples/**`
-- [ ] **M02-3** (#19) — [m02-creational-factories] Lesson EN + TR + PDF + module README · `M`
+- [x] **M02-3** (#19) — [m02-creational-factories] Lesson EN + TR + PDF + module README · `M`
   - Acceptance: Code blocks come from compiled example files (path cited)
   - Acceptance: EN/TR heading parity; Turkish characters correct
   - Acceptance: Both PDFs generated and committed; README links lesson, examples, assignments
