@@ -66,7 +66,8 @@ Task **M03-2b** (#23) — Prototype, Object Pool, composition root:
 
 - **Goal:** build an always-valid immutable object with required and optional parts; report *all* problems at once.
 - **Given (do not modify):** record `Booking(String traveller, String from, String to, LocalDate departure,
-  Optional<LocalDate> returnDate, int passengers, CabinClass cabin, Set<String> extras)`; `enum CabinClass
+  LocalDate returnDate, int passengers, CabinClass cabin, Set<String> extras)` with `Optional<LocalDate> returnTrip()`
+  (`returnDate` is `null` for one-way — `Optional` only as a return type, CLAUDE.md §5); `enum CabinClass
   { ECONOMY, BUSINESS, FIRST }`; interface `BookingBuilder` (fluent `traveller`, `from`, `to`, `departure`,
   `returnDate`, `passengers`, `cabin`, `extra` — each returns `BookingBuilder` — and `Booking build()`).
 - **Rules:** traveller, from, to and departure are required; defaults: one-way, 1 passenger, `ECONOMY`, no extras;
@@ -82,11 +83,13 @@ Task **M03-2b** (#23) — Prototype, Object Pool, composition root:
 ### ex02 — Shape editor with prototypes
 
 - **Goal:** implement deep copies for a small composite object graph and a template registry.
-- **Given (do not modify):** record `Point(int x, int y)`; interface `Shape` (`Point position()`,
-  `void moveBy(int dx, int dy)`, `Shape copy()`, `String describe()`).
+- **Given (do not modify):** record `Point(int x, int y)` (with `moved(dx, dy)`); interface `Shape` (`Point position()`,
+  `void moveBy(int dx, int dy)`, `Shape copy()`, `String describe()`); interface `ShapeRegistry` (`register`, `create`,
+  `names`) so the contract fits both starter and solution.
 - **Student writes:** mutable `Circle(Point, int radius)`, `Rect(Point, int width, int height)`,
   `Group(List<Shape>)` (position = its first child's; `moveBy` moves all children; `copy()` is **deep**), and
-  `TemplateRegistry` (`register(String, Shape)`, `create(String)` returns a fresh copy, `names()` sorted).
+  `TemplateRegistry implements ShapeRegistry` (`register(String, Shape)`, `create(String)` returns a fresh copy,
+  `names()` sorted).
 - **Acceptance criteria (contract tests):** `copyDescribesTheSameShape`, `copyIsANewObject`,
   `movingACopyLeavesTheOriginal`, `groupCopyIsDeep`, `nestedGroupsAreCopiedDeeply`,
   `registryReturnsFreshCopies`, `registeredTemplateIsNotAffectedByChangesToCreatedShapes`,

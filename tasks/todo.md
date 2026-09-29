@@ -190,7 +190,7 @@ Legend: size S = 1–2 units, M = 3–5 units · `Verify` must pass before ticki
   - Verify: `scripts/check-docs.sh` exit 0; `scripts/build-pdf.sh modules/m03-creational-construction` and inspect PDFs
   - Depends on: M03-2a (#22), M03-2b (#23)
   - Files: `modules/m03-creational-construction/lesson/lesson.en.md`, `modules/m03-creational-construction/lesson/lesson.tr.md`, `modules/m03-creational-construction/lesson/*.pdf`, `modules/m03-creational-construction/README.md`
-- [ ] **M03-4** (#25) — [m03-creational-construction] Assignments + starters + solutions · `M`
+- [x] **M03-4** (#25) — [m03-creational-construction] Assignments + starters + solutions · `M`
   - Acceptance: Starters compile and fail their contract tests
   - Acceptance: Solutions pass the same contract tests
   - Acceptance: Briefs (EN/TR) state goal, steps, hints, and how to run the tests
