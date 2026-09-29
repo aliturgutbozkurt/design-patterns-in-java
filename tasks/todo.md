@@ -328,7 +328,7 @@ Legend: size S = 1–2 units, M = 3–5 units · `Verify` must pass before ticki
   - Verify: `./mvnw -q -pl modules/m07-behavioral-communication verify`; Run every demo with the source launcher
   - Depends on: M07-1 (#41)
   - Files: `modules/m07-behavioral-communication/pom.xml`, `modules/m07-behavioral-communication/src/main/java/.../examples/**`, `modules/m07-behavioral-communication/src/test/java/.../examples/**`
-- [ ] **M07-2b** (#43) — [m07-behavioral-communication] Chain of Responsibility & Memento examples · `M`
+- [x] **M07-2b** (#43) — [m07-behavioral-communication] Chain of Responsibility & Memento examples · `M`
   - Acceptance: Each example has a `main` with deterministic output and runs with `java <File>.java` (no build)
   - Acceptance: Each example has JUnit/AssertJ tests of its behaviour
   - Acceptance: Modern Java 27 idioms per CLAUDE.md §5; Javadoc on public types
