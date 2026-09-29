@@ -12,4 +12,21 @@
     </parent>
 
     <artifactId>m02-creational-factories</artifactId>
+
+    <build>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+            </resource>
+            <!-- ServiceLoader configuration lives next to the sources so `java PluginDemo.java` finds it without a
+                 build (the source launcher only sees the source root); this copies it to target/classes for tests.
+                 Decision: specs/SPEC-m02-creational-factories.md, "Decisions" 1. -->
+            <resource>
+                <directory>src/main/java</directory>
+                <includes>
+                    <include>META-INF/services/**</include>
+                </includes>
+            </resource>
+        </resources>
+    </build>
 </project>

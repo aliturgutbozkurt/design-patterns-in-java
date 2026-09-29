@@ -1,0 +1,3 @@
+# Exporter plugins found by ServiceLoader (see PluginRegistry). One fully qualified class name per line.
+io.github.aliturgutbozkurt.patterns.m02.examples.serviceloader.JsonExporterProvider
+io.github.aliturgutbozkurt.patterns.m02.examples.serviceloader.YamlExporterProvider

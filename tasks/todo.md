@@ -139,7 +139,7 @@ Legend: size S = 1–2 units, M = 3–5 units · `Verify` must pass before ticki
   - Verify: `./mvnw -q -pl modules/m02-creational-factories verify`; Run every demo with the source launcher
   - Depends on: M02-1 (#16)
   - Files: `modules/m02-creational-factories/pom.xml`, `modules/m02-creational-factories/src/main/java/.../examples/**`, `modules/m02-creational-factories/src/test/java/.../examples/**`
-- [ ] **M02-2b** (#18) — [m02-creational-factories] Factory Method, Abstract Factory & ServiceLoader examples · `M`
+- [x] **M02-2b** (#18) — [m02-creational-factories] Factory Method, Abstract Factory & ServiceLoader examples · `M`
   - Acceptance: Each example has a `main` with deterministic output and runs with `java <File>.java` (no build)
   - Acceptance: Each example has JUnit/AssertJ tests of its behaviour
   - Acceptance: Modern Java 27 idioms per CLAUDE.md §5; Javadoc on public types
