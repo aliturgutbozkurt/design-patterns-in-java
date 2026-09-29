@@ -291,7 +291,7 @@ Legend: size S = 1–2 units, M = 3–5 units · `Verify` must pass before ticki
   - Verify: `./mvnw -q -pl modules/m06-behavioral-algorithms verify`; Run every demo with the source launcher
   - Depends on: M06-1 (#36)
   - Files: `modules/m06-behavioral-algorithms/pom.xml`, `modules/m06-behavioral-algorithms/src/main/java/.../examples/**`, `modules/m06-behavioral-algorithms/src/test/java/.../examples/**`
-- [ ] **M06-2b** (#38) — [m06-behavioral-algorithms] Command & Iterator examples · `M`
+- [x] **M06-2b** (#38) — [m06-behavioral-algorithms] Command & Iterator examples · `M`
   - Acceptance: Each example has a `main` with deterministic output and runs with `java <File>.java` (no build)
   - Acceptance: Each example has JUnit/AssertJ tests of its behaviour
   - Acceptance: Modern Java 27 idioms per CLAUDE.md §5; Javadoc on public types
