@@ -243,7 +243,7 @@ Legend: size S = 1–2 units, M = 3–5 units · `Verify` must pass before ticki
   - Verify: Owner review
   - Depends on: M04-2b (#28)
   - Files: `specs/SPEC-m05-structural-composition.md`
-- [ ] **M05-2a** (#32) — [m05-structural-composition] Composite & Bridge examples · `M`
+- [x] **M05-2a** (#32) — [m05-structural-composition] Composite & Bridge examples · `M`
   - Acceptance: Each example has a `main` with deterministic output and runs with `java <File>.java` (no build)
   - Acceptance: Each example has JUnit/AssertJ tests of its behaviour
   - Acceptance: Modern Java 27 idioms per CLAUDE.md §5; Javadoc on public types
