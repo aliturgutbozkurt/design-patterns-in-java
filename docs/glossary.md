@@ -74,6 +74,9 @@ Kod tanımlayıcıları çevrilmez. Listede olmayan bir terim gerekiyorsa aynı 
 | role interface | rol arayüzü |
 | fragile base class | kırılgan taban sınıf |
 | composition root | bileşim kökü (composition root) |
+| characterization test | karakterizasyon testi |
+| expression problem | ifade problemi (expression problem) |
+| optional operation | isteğe bağlı işlem (optional operation) |
 
 ## Java language · Java dili
 

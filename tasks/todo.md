@@ -109,7 +109,7 @@ Legend: size S = 1–2 units, M = 3–5 units · `Verify` must pass before ticki
   - Verify: `./mvnw -q -pl modules/m01-oop-solid-uml verify`; Run every demo with the source launcher
   - Depends on: M01-1 (#11), M01-2a (#12)
   - Files: `modules/m01-oop-solid-uml/pom.xml`, `modules/m01-oop-solid-uml/src/main/java/.../examples/**`, `modules/m01-oop-solid-uml/src/test/java/.../examples/**`
-- [ ] **M01-3** (#14) — [m01-oop-solid-uml] Lesson EN + TR + PDF + module README · `M`
+- [x] **M01-3** (#14) — [m01-oop-solid-uml] Lesson EN + TR + PDF + module README · `M`
   - Acceptance: Code blocks come from compiled example files (path cited)
   - Acceptance: EN/TR heading parity; Turkish characters correct
   - Acceptance: Both PDFs generated and committed; README links lesson, examples, assignments
