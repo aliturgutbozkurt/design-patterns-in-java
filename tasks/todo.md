@@ -162,7 +162,7 @@ Legend: size S = 1–2 units, M = 3–5 units · `Verify` must pass before ticki
   - Files: `modules/m02-creational-factories/assignments/*.md`, `modules/m02-creational-factories/src/main/java/.../{exercises,solutions}/**`, `modules/m02-creational-factories/src/test/java/.../{exercises,solutions}/**`
 ## Phase 3 · M03 Creational II: Construction
 
-- [ ] **M03-1** (#21) — [m03-creational-construction] Module spec · `S`
+- [x] **M03-1** (#21) — [m03-creational-construction] Module spec · `S`
   - Acceptance: Spec follows the module-spec template and SPEC §2 scope
   - Acceptance: Every example and assignment has testable acceptance criteria
   - Acceptance: Approved by owner (comment on this issue)

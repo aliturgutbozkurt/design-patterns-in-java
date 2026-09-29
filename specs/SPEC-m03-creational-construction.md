@@ -1,6 +1,6 @@
 # Spec: m03-creational-construction — Creational II: Construction
 
-> Status: DRAFT · Parent: [SPEC.md](../SPEC.md) §2 · Week: 4 · Task: #21
+> Status: **APPROVED** (owner, 2026-09-29) · Parent: [SPEC.md](../SPEC.md) §2 · Week: 4 · Task: #21
 
 ## Objective
 
@@ -106,12 +106,11 @@ Annotation-processor builders (Lombok, `@RecordBuilder`); serialization-based de
 Pool example (explicitly discouraged for virtual threads); DI frameworks and scopes (m11); connection-pool libraries
 (HikariCP) beyond a mention.
 
-## Open questions for the owner
+## Decisions (owner, 2026-09-29)
 
-1. **Concurrency tests:** the pool and throttle tests run hundreds of virtual threads and assert a *maximum* in-use
-   count (never flaky by timing) plus one acquire-timeout test with a 50 ms timeout. OK, or should timeout behaviour
-   be tested only with an injected clock?
-2. **Composition root:** "DI as creation" gets one example (not a GoF pattern; m11 goes deeper). Enough?
+1. Concurrency tests assert only order-independent facts (maximum leases in use, number of connections created) with
+   hundreds of virtual threads; one acquire-timeout test uses a real 50 ms timeout.
+2. "DI as creation" gets one example; m11 goes deeper.
 
 ## Success criteria
 
