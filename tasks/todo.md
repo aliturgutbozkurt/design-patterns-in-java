@@ -264,7 +264,7 @@ Legend: size S = 1–2 units, M = 3–5 units · `Verify` must pass before ticki
   - Verify: `scripts/check-docs.sh` exit 0; `scripts/build-pdf.sh modules/m05-structural-composition` and inspect PDFs
   - Depends on: M05-2a (#32), M05-2b (#33)
   - Files: `modules/m05-structural-composition/lesson/lesson.en.md`, `modules/m05-structural-composition/lesson/lesson.tr.md`, `modules/m05-structural-composition/lesson/*.pdf`, `modules/m05-structural-composition/README.md`
-- [ ] **M05-4** (#35) — [m05-structural-composition] Assignments + starters + solutions · `M`
+- [x] **M05-4** (#35) — [m05-structural-composition] Assignments + starters + solutions · `M`
   - Acceptance: Starters compile and fail their contract tests
   - Acceptance: Solutions pass the same contract tests
   - Acceptance: Briefs (EN/TR) state goal, steps, hints, and how to run the tests

@@ -107,7 +107,7 @@ interfaces as abstraction, vendor drivers as implementors), `java.util.logging.H
 - **Given (do not modify):** `sealed interface MenuComponent permits MenuItem, Menu`; record
   `MenuItem(String name, int priceCents, boolean vegetarian)` (name non-blank, price ≥ 0); record
   `Menu(String name, List<MenuComponent> children)` (children copied with `List.copyOf`; duplicate child names
-  rejected); interface `MenuQueries` with `int itemCount(MenuComponent)`, `int totalCents(MenuComponent)`,
+  rejected; `Menu.of(name, children...)`); interface `MenuQueries` with `int itemCount(MenuComponent)`, `int totalCents(MenuComponent)`,
   `List<String> itemNames(MenuComponent)`, `List<MenuItem> vegetarian(MenuComponent)`,
   `Optional<String> pathTo(MenuComponent root, String itemName)`, `String render(MenuComponent)`.
 - **Rules:** traversal is depth-first in menu order; `pathTo` returns names joined with ` > ` (e.g.
@@ -125,9 +125,10 @@ interfaces as abstraction, vendor drivers as implementors), `java.util.logging.H
 
 - **Goal:** share intrinsic tile data among many cells and measure the saving by counting distinct instances before
   and after.
-- **Given (do not modify):** `enum Terrain { GRASS, SAND, FOREST, WATER, MOUNTAIN }`; record
+- **Given (do not modify):** `enum Terrain { GRASS, SAND, FOREST, WATER, MOUNTAIN }` carrying the terrain table
+  (`symbol()`, `movementCost()`, `walkable()`, so starter, solution and `NaiveTileMap` share one source); record
   `TileType(Terrain terrain, char symbol, int movementCost, boolean walkable, List<String> sprite)` (the 8 × 8 sprite
-  makes each instance "heavy"); `Sprites.forTerrain(Terrain)`; record `Point(int x, int y)`; interface
+  makes each instance "heavy") with `TileType.of(Terrain)` building a new instance; `Sprites.forTerrain(Terrain)`; record `Point(int x, int y)`; interface
   `TileTypeRegistry` (`TileType typeOf(Terrain)`, `int createdCount()`); interface `TileMap` (`int width()`,
   `int height()`, `TileType typeAt(int x, int y)`, `void paint(int x, int y, Terrain)`,
   `int movementCost(List<Point> path)`, `String render()`); `NaiveTileMap implements TileMap` (the "before":
