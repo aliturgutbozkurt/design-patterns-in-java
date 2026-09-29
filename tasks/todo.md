@@ -125,7 +125,7 @@ Legend: size S = 1–2 units, M = 3–5 units · `Verify` must pass before ticki
   - Files: `modules/m01-oop-solid-uml/assignments/*.md`, `modules/m01-oop-solid-uml/src/main/java/.../{exercises,solutions}/**`, `modules/m01-oop-solid-uml/src/test/java/.../{exercises,solutions}/**`
 ## Phase 3 · M02 Creational I: Factories
 
-- [ ] **M02-1** (#16) — [m02-creational-factories] Module spec · `S`
+- [x] **M02-1** (#16) — [m02-creational-factories] Module spec · `S`
   - Acceptance: Spec follows the module-spec template and SPEC §2 scope
   - Acceptance: Every example and assignment has testable acceptance criteria
   - Acceptance: Approved by owner (comment on this issue)

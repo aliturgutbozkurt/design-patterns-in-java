@@ -1,6 +1,6 @@
 # Spec: m02-creational-factories — Creational I: Factories
 
-> Status: DRAFT · Parent: [SPEC.md](../SPEC.md) §2 · Week: 3 · Task: #16
+> Status: **APPROVED** (owner, 2026-09-29) · Parent: [SPEC.md](../SPEC.md) §2 · Week: 3 · Task: #16
 
 ## Objective
 
@@ -117,13 +117,12 @@ Builder, Prototype, Object Pool and DI as creation (m03); DI frameworks (m11); J
 the lesson only); reflection-based factories (`Class.forName(...).newInstance()`); Lazy Constants in graded code
 (preview, JEP 531).
 
-## Open questions for the owner
+## Decisions (owner, 2026-09-29)
 
-1. **ServiceLoader resource location:** keep `META-INF/services` under `src/main/java` (so `java PluginDemo.java`
-   works without a build) and add it as a resource in the m02 module POM — a build-config change, no new plugin or
-   dependency. OK?
-2. **Pattern count:** Singleton, Static Factory Method, Factory Method and Abstract Factory each get ≥ 2 examples;
-   `ServiceLoader` (a JDK mechanism, not a GoF pattern) gets one. Enough?
+1. `META-INF/services` lives under `src/main/java` (so `java PluginDemo.java` works without a build) and the m02
+   module POM adds that path as a resource — build configuration only, no new plugin or dependency.
+2. Singleton, Static Factory Method, Factory Method and Abstract Factory get ≥ 2 examples each; `ServiceLoader` (a JDK
+   mechanism, not a GoF pattern) gets one.
 
 ## Success criteria
 
