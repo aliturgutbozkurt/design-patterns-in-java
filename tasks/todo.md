@@ -88,7 +88,7 @@ Legend: size S = 1–2 units, M = 3–5 units · `Verify` must pass before ticki
 
 ## Phase 3 · M01 OOP, SOLID & UML
 
-- [ ] **M01-1** (#11) — [m01-oop-solid-uml] Module spec · `S`
+- [x] **M01-1** (#11) — [m01-oop-solid-uml] Module spec · `S`
   - Acceptance: Spec follows the module-spec template and SPEC §2 scope
   - Acceptance: Every example and assignment has testable acceptance criteria
   - Acceptance: Approved by owner (comment on this issue)

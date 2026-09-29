@@ -1,6 +1,6 @@
 # Spec: m01-oop-solid-uml — OOP, SOLID & UML
 
-> Status: DRAFT · Parent: [SPEC.md](../SPEC.md) §2 · Week: 2 · Task: #11
+> Status: **APPROVED** (owner, 2026-09-29) · Parent: [SPEC.md](../SPEC.md) §2 · Week: 2 · Task: #11
 
 ## Objective
 
@@ -56,8 +56,12 @@ Task **M01-2a** (#12) — SRP, OCP, LSP:
 |---|---|---|---|---|
 | `srp.before.InvoiceService` | `srp.SrpDemo` | invoicing | God class: computes totals, formats text, stores in a map, "emails" (prints) — four reasons to change | characterization: produces the reference invoice text for a fixed input |
 | `srp.after` — `Invoice`, `InvoiceLine` (records), `InvoiceCalculator`, `InvoiceFormatter`, `InvoiceRepository` + `InMemoryInvoiceRepository`, `InvoiceWorkflow` | `srp.SrpDemo` | invoicing | Each class has one reason to change; `InvoiceWorkflow` only coordinates | output identical to `before`; subtotal, 20 % VAT, total; formatter tested in isolation with a hand-built `Invoice`; repository stores and finds by number |
+| `srp.gradebook.before.GradeBook` | `srp.GradeBookDemo` | university grades | One class parses CSV lines, computes averages, maps to letter grades and prints the report | characterization: reference report text for a fixed CSV input |
+| `srp.gradebook.after` — `StudentScores` (record), `ScoreParser`, `GradingScale`, `GradeReport` | `srp.GradeBookDemo` | university grades | Parsing, grading policy and presentation change for different reasons, so they live apart | output identical to `before`; letter-grade boundaries (e.g. 89.99 → BA, 90.00 → AA); parser rejects malformed lines with the line number |
 | `ocp.before.PriceCalculator` | `ocp.OcpDemo` | shop discounts | `if/else` on a customer-type `String`; a new discount means editing the class | regular / student / VIP prices; unknown type is rejected |
 | `ocp.after` — `DiscountRule` (functional interface), `DiscountRules` (static factories: `percentOff`, `fixedOff`, `minimumSpend`), `Checkout` | `ocp.OcpDemo` | shop discounts | New rules are added as values (lambda) without touching `Checkout` | rules applied in order; price never below zero; a rule defined only in the test works unchanged; same results as `before` for the three existing types |
+| `ocp.sorting.before.CourseSorter` | `ocp.CourseSortDemo` | course catalog | `switch` on a sort-key `String`; every new ordering edits the sorter | sorts by code / credits / title; unknown key rejected |
+| `ocp.sorting.after` — `Course` (record), `CourseCatalog.sorted(Comparator<Course>)` | `ocp.CourseSortDemo` | course catalog | The JDK is itself open for extension: new orderings are composed with `Comparator.comparing`/`thenComparing`/`reversed`, not added to the catalog | same orderings as `before`; composed ordering (credits desc, then code); an ordering defined only in the test works unchanged |
 | `lsp.before` — `Rectangle` (mutable, setters), `Square extends Rectangle` | `lsp.RectangleDemo` | geometry | Classic violation: `resize(rect, 5, 4)` expects area 20, a `Square` gives 16. `Square` validates its side *before* `super(...)` (JEP 513) | the test **documents** the violation (area is 16, not 20) and the validation |
 | `lsp.after` — `sealed interface Shape permits Rectangle, Square` (records) | `lsp.RectangleDemo` | geometry | Immutable values: `withWidth` returns a new `Rectangle`; there is no `setWidth` to break | area/perimeter; `withWidth` does not change the original; all shapes usable through `Shape` |
 | `lsp.accounts.before` — `Account`, `FixedDepositAccount extends Account` | `lsp.AccountDemo` | banking | Subclass strengthens a precondition: `withdraw` throws for a subtype, so client code that works for `Account` breaks | test shows the client (`payBill`) fails for the subtype |
@@ -69,6 +73,8 @@ Task **M01-2b** (#13) — ISP, DIP, composition:
 |---|---|---|---|---|
 | `isp.before` — `MultiFunctionDevice` (print, scan, fax), `BasicPrinter` | `isp.IspDemo` | office devices | Fat interface forces `BasicPrinter` to throw `UnsupportedOperationException` | test shows `scan` on `BasicPrinter` throws |
 | `isp.after` — `Printer`, `DocumentScanner`, `Fax` role interfaces; `BasicPrinter`, `OfficeMachine`; clients `PrintQueue`, `ArchiveService` | `isp.IspDemo` | office devices | Clients depend on the smallest role they need; one class may play several roles | `PrintQueue` accepts any `Printer`; `BasicPrinter` is not a `DocumentScanner`; `OfficeMachine` plays all three roles |
+| `isp.store.before` — `ProductStore` (find, list, save, delete, importAll), `ReadOnlyProductStore` | `isp.StoreDemo` | product catalog | A read-only view forced to implement writes throws `UnsupportedOperationException` — same smell as `List.of(...).add` | test shows writes on the read-only view throw |
+| `isp.store.after` — `ProductReader`, `ProductWriter`, `InMemoryProducts` (implements both), `CatalogPage` (needs only `ProductReader`) | `isp.StoreDemo` | product catalog | Split by client need; a read-only client cannot even see write methods | `CatalogPage` renders from a lambda/reader-only fake; `InMemoryProducts` round-trips save → find |
 | `dip.before.NotificationService` | `dip.DipDemo` | order notifications | Business logic calls `new EmailSender()` — high-level code depends on a detail | behaviour (captured `System.out`) is correct but only testable by capturing output |
 | `dip.after` — `MessageSender` (owned by the high-level package), `EmailSender`, `SmsSender`, `NotificationService` | `dip.DipDemo` | order notifications | Constructor injection; the demo's `main` is the composition root | service sends through a recording test double; chooses channel by customer preference; works with a lambda sender |
 | `dip.clock` — `SessionPolicy` | `dip.ClockDemo` | login sessions | `java.time.Clock` as the JDK's own inverted dependency: no `Instant.now()` in logic | fixed/offset clock decides expired vs. active at the exact boundary |
@@ -130,12 +136,12 @@ given pattern.
 GRASP, UML diagrams other than class and sequence, DI frameworks (Spring, Guice — m11 shows manual DI only), ArchUnit
 rules (m11), JPMS modules, mocking libraries (hand-written test doubles only).
 
-## Open questions for the owner
+## Decisions (owner, 2026-09-29)
 
-1. SRP, OCP and ISP each have **one** before/after scenario (two runnable forms each); LSP, DIP and composition have two
-   scenarios. SPEC §1's "≥ 2 examples per pattern" applies to patterns — is one before/after pair per principle enough
-   here, or should SRP/OCP/ISP each get a second scenario (adds roughly one unit of work to M01-2a/2b)?
-2. VAT in the invoice example is 20 % (current Turkish KDV rate). OK, or keep it rate-neutral (e.g. 10 %)?
+1. Every principle gets **two** before/after scenarios (SRP: invoice + gradebook; OCP: discounts + course sorting;
+   LSP: shapes + accounts; ISP: office devices + product store; DIP: notifications + clock; composition: counting set +
+   vehicles). Principles are held to the same "≥ 2 examples" bar as patterns.
+2. Invoice VAT rate is 20 % (current Turkish KDV rate).
 
 ## Success criteria
 
