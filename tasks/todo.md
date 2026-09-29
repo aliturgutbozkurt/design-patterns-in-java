@@ -116,7 +116,7 @@ Legend: size S = 1–2 units, M = 3–5 units · `Verify` must pass before ticki
   - Verify: `scripts/check-docs.sh` exit 0; `scripts/build-pdf.sh modules/m01-oop-solid-uml` and inspect PDFs
   - Depends on: M01-2a (#12), M01-2b (#13)
   - Files: `modules/m01-oop-solid-uml/lesson/lesson.en.md`, `modules/m01-oop-solid-uml/lesson/lesson.tr.md`, `modules/m01-oop-solid-uml/lesson/*.pdf`, `modules/m01-oop-solid-uml/README.md`
-- [ ] **M01-4** (#15) — [m01-oop-solid-uml] Assignments + starters + solutions · `M`
+- [x] **M01-4** (#15) — [m01-oop-solid-uml] Assignments + starters + solutions · `M`
   - Acceptance: Starters compile and fail their contract tests
   - Acceptance: Solutions pass the same contract tests
   - Acceptance: Briefs (EN/TR) state goal, steps, hints, and how to run the tests
