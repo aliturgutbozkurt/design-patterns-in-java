@@ -1,6 +1,6 @@
 # Spec: m07-behavioral-communication — Behavioral II: Communication
 
-> Status: DRAFT · Parent: [SPEC.md](../SPEC.md) §2 · Week: 9 · Task: #41
+> Status: **APPROVED** (owner, 2026-09-29) · Parent: [SPEC.md](../SPEC.md) §2 · Week: 9 · Task: #41
 
 ## Objective
 
@@ -172,7 +172,9 @@ scratch (the Reactive Streams TCK); distributed messaging (Kafka, JMS); Swing/Ja
 headless); serialisation of mementos to disk; Command-based undo (m06); domain events in a hexagonal architecture
 (m11); preview features.
 
-## Open questions for the owner
+## Decisions (owner, 2026-09-29)
+
+All questions below were answered **yes**: the recommended defaults apply.
 
 1. **Assignment coverage:** ex01 grades Observer and ex02 grades Chain of Responsibility; Mediator and Memento are
    practised through the examples and the quiz only (Memento-style undo overlaps with m06's Command undo exercise).
