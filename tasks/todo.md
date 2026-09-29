@@ -176,7 +176,7 @@ Legend: size S = 1–2 units, M = 3–5 units · `Verify` must pass before ticki
   - Verify: `./mvnw -q -pl modules/m03-creational-construction verify`; Run every demo with the source launcher
   - Depends on: M03-1 (#21)
   - Files: `modules/m03-creational-construction/pom.xml`, `modules/m03-creational-construction/src/main/java/.../examples/**`, `modules/m03-creational-construction/src/test/java/.../examples/**`
-- [ ] **M03-2b** (#23) — [m03-creational-construction] Prototype, Object Pool & composition-root examples · `M`
+- [x] **M03-2b** (#23) — [m03-creational-construction] Prototype, Object Pool & composition-root examples · `M`
   - Acceptance: Each example has a `main` with deterministic output and runs with `java <File>.java` (no build)
   - Acceptance: Each example has JUnit/AssertJ tests of its behaviour
   - Acceptance: Modern Java 27 idioms per CLAUDE.md §5; Javadoc on public types
