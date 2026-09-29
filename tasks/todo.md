@@ -284,7 +284,7 @@ Legend: size S = 1–2 units, M = 3–5 units · `Verify` must pass before ticki
   - Verify: Owner review
   - Depends on: M05-2b (#33)
   - Files: `specs/SPEC-m06-behavioral-algorithms.md`
-- [ ] **M06-2a** (#37) — [m06-behavioral-algorithms] Strategy & Template Method examples · `M`
+- [x] **M06-2a** (#37) — [m06-behavioral-algorithms] Strategy & Template Method examples · `M`
   - Acceptance: Each example has a `main` with deterministic output and runs with `java <File>.java` (no build)
   - Acceptance: Each example has JUnit/AssertJ tests of its behaviour
   - Acceptance: Modern Java 27 idioms per CLAUDE.md §5; Javadoc on public types
