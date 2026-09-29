@@ -15,6 +15,7 @@
 
     <modules>
         <module>modules/m00-setup-and-modern-java</module>
+        <module>modules/m07-behavioral-communication</module>
     </modules>
 
     <properties>
