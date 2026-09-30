@@ -70,6 +70,13 @@ Kod tanımlayıcıları çevrilmez. Listede olmayan bir terim gerekiyorsa aynı 
 | immutable / immutability | değişmez / değişmezlik |
 | side effect | yan etki |
 | class diagram / sequence diagram | sınıf diyagramı / sıralama diyagramı |
+| god class | her işi yapan sınıf (god class) |
+| role interface | rol arayüzü |
+| fragile base class | kırılgan taban sınıf |
+| composition root | bileşim kökü (composition root) |
+| characterization test | karakterizasyon testi |
+| expression problem | ifade problemi (expression problem) |
+| optional operation | isteğe bağlı işlem (optional operation) |
 
 ## Java language · Java dili
 
