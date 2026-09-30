@@ -1,6 +1,6 @@
 # Spec: m08-behavioral-state-structure — Behavioral III: State & Structure
 
-> Status: DRAFT · Parent: [SPEC.md](../SPEC.md) §2 · Week: 10 · Task: #46
+> Status: **APPROVED** (owner, 2026-09-30) · Parent: [SPEC.md](../SPEC.md) §2 · Week: 10 · Task: #46
 
 ## Objective
 
@@ -271,7 +271,9 @@ Sidebar question: what JEP 532 primitive patterns would add, and why the course 
 - Data-oriented programming as a whole design style (m09 builds on this module's sealed ASTs).
 - Concurrency in state machines (m10).
 
-## Open questions for the owner
+## Decisions (owner, 2026-09-30)
+
+All questions below were answered **yes**: the recommended defaults apply (including any build or dependency change they describe).
 
 1. **ex02 vs. the calculator example.** Issue #48 asks for an "arithmetic language with record AST, evaluator and
    pretty printer" as an *example*, and issue #50 asks for a "mini expression language: sealed AST, evaluator, pretty

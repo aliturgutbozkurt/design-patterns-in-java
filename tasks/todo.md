@@ -351,7 +351,7 @@ Legend: size S = 1–2 units, M = 3–5 units · `Verify` must pass before ticki
   - Files: `modules/m07-behavioral-communication/assignments/*.md`, `modules/m07-behavioral-communication/src/main/java/.../{exercises,solutions}/**`, `modules/m07-behavioral-communication/src/test/java/.../{exercises,solutions}/**`
 ## Phase 4 · M08 Behavioral III: State & Structure
 
-- [ ] **M08-1** (#46) — [m08-behavioral-state-structure] Module spec · `S`
+- [x] **M08-1** (#46) — [m08-behavioral-state-structure] Module spec · `S`
   - Acceptance: Spec follows the module-spec template and SPEC §2 scope
   - Acceptance: Every example and assignment has testable acceptance criteria
   - Acceptance: Approved by owner (comment on this issue)
