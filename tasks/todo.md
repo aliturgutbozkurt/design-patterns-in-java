@@ -257,7 +257,7 @@ Legend: size S = 1–2 units, M = 3–5 units · `Verify` must pass before ticki
   - Verify: `./mvnw -q -pl modules/m05-structural-composition verify`; Run every demo with the source launcher
   - Depends on: M05-1 (#31), M05-2a (#32)
   - Files: `modules/m05-structural-composition/pom.xml`, `modules/m05-structural-composition/src/main/java/.../examples/**`, `modules/m05-structural-composition/src/test/java/.../examples/**`
-- [ ] **M05-3** (#34) — [m05-structural-composition] Lesson EN + TR + PDF + module README · `M`
+- [x] **M05-3** (#34) — [m05-structural-composition] Lesson EN + TR + PDF + module README · `M`
   - Acceptance: Code blocks come from compiled example files (path cited)
   - Acceptance: EN/TR heading parity; Turkish characters correct
   - Acceptance: Both PDFs generated and committed; README links lesson, examples, assignments
