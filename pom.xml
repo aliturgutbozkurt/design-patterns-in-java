@@ -18,6 +18,7 @@
         <module>modules/m01-oop-solid-uml</module>
         <module>modules/m02-creational-factories</module>
         <module>modules/m03-creational-construction</module>
+        <module>modules/m04-structural-wrappers</module>
     </modules>
 
     <properties>

@@ -199,35 +199,35 @@ Legend: size S = 1–2 units, M = 3–5 units · `Verify` must pass before ticki
   - Files: `modules/m03-creational-construction/assignments/*.md`, `modules/m03-creational-construction/src/main/java/.../{exercises,solutions}/**`, `modules/m03-creational-construction/src/test/java/.../{exercises,solutions}/**`
 ## Phase 3 · M04 Structural I: Wrappers
 
-- [ ] **M04-1** (#26) — [m04-structural-wrappers] Module spec · `S`
+- [x] **M04-1** (#26) — [m04-structural-wrappers] Module spec · `S`
   - Acceptance: Spec follows the module-spec template and SPEC §2 scope
   - Acceptance: Every example and assignment has testable acceptance criteria
   - Acceptance: Approved by owner (comment on this issue)
   - Verify: Owner review
   - Depends on: M03-2b (#23)
   - Files: `specs/SPEC-m04-structural-wrappers.md`
-- [ ] **M04-2a** (#27) — [m04-structural-wrappers] Adapter & Decorator examples · `M`
+- [x] **M04-2a** (#27) — [m04-structural-wrappers] Adapter & Decorator examples · `M`
   - Acceptance: Each example has a `main` with deterministic output and runs with `java <File>.java` (no build)
   - Acceptance: Each example has JUnit/AssertJ tests of its behaviour
   - Acceptance: Modern Java 27 idioms per CLAUDE.md §5; Javadoc on public types
   - Verify: `./mvnw -q -pl modules/m04-structural-wrappers verify`; Run every demo with the source launcher
   - Depends on: M04-1 (#26)
   - Files: `modules/m04-structural-wrappers/pom.xml`, `modules/m04-structural-wrappers/src/main/java/.../examples/**`, `modules/m04-structural-wrappers/src/test/java/.../examples/**`
-- [ ] **M04-2b** (#28) — [m04-structural-wrappers] Proxy examples (virtual, protection, caching, dynamic) · `M`
+- [x] **M04-2b** (#28) — [m04-structural-wrappers] Proxy examples (virtual, protection, caching, dynamic) · `M`
   - Acceptance: Each example has a `main` with deterministic output and runs with `java <File>.java` (no build)
   - Acceptance: Each example has JUnit/AssertJ tests of its behaviour
   - Acceptance: Modern Java 27 idioms per CLAUDE.md §5; Javadoc on public types
   - Verify: `./mvnw -q -pl modules/m04-structural-wrappers verify`; Run every demo with the source launcher
   - Depends on: M04-1 (#26), M04-2a (#27)
   - Files: `modules/m04-structural-wrappers/pom.xml`, `modules/m04-structural-wrappers/src/main/java/.../examples/**`, `modules/m04-structural-wrappers/src/test/java/.../examples/**`
-- [ ] **M04-3** (#29) — [m04-structural-wrappers] Lesson EN + TR + PDF + module README · `M`
+- [x] **M04-3** (#29) — [m04-structural-wrappers] Lesson EN + TR + PDF + module README · `M`
   - Acceptance: Code blocks come from compiled example files (path cited)
   - Acceptance: EN/TR heading parity; Turkish characters correct
   - Acceptance: Both PDFs generated and committed; README links lesson, examples, assignments
   - Verify: `scripts/check-docs.sh` exit 0; `scripts/build-pdf.sh modules/m04-structural-wrappers` and inspect PDFs
   - Depends on: M04-2a (#27), M04-2b (#28)
   - Files: `modules/m04-structural-wrappers/lesson/lesson.en.md`, `modules/m04-structural-wrappers/lesson/lesson.tr.md`, `modules/m04-structural-wrappers/lesson/*.pdf`, `modules/m04-structural-wrappers/README.md`
-- [ ] **M04-4** (#30) — [m04-structural-wrappers] Assignments + starters + solutions · `M`
+- [x] **M04-4** (#30) — [m04-structural-wrappers] Assignments + starters + solutions · `M`
   - Acceptance: Starters compile and fail their contract tests
   - Acceptance: Solutions pass the same contract tests
   - Acceptance: Briefs (EN/TR) state goal, steps, hints, and how to run the tests
