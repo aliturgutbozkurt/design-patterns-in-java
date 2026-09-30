@@ -365,7 +365,7 @@ Legend: size S = 1–2 units, M = 3–5 units · `Verify` must pass before ticki
   - Verify: `./mvnw -q -pl modules/m08-behavioral-state-structure verify`; Run every demo with the source launcher
   - Depends on: M08-1 (#46)
   - Files: `modules/m08-behavioral-state-structure/pom.xml`, `modules/m08-behavioral-state-structure/src/main/java/.../examples/**`, `modules/m08-behavioral-state-structure/src/test/java/.../examples/**`
-- [ ] **M08-2b** (#48) — [m08-behavioral-state-structure] Visitor & Interpreter examples · `M`
+- [x] **M08-2b** (#48) — [m08-behavioral-state-structure] Visitor & Interpreter examples · `M`
   - Acceptance: Each example has a `main` with deterministic output and runs with `java <File>.java` (no build)
   - Acceptance: Each example has JUnit/AssertJ tests of its behaviour
   - Acceptance: Modern Java 27 idioms per CLAUDE.md §5; Javadoc on public types
