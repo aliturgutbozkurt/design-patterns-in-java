@@ -100,7 +100,30 @@ Task **M11-2b** (#63) — Domain events, anti-patterns & refactoring, test doubl
 |---|---|---|
 | `HexagonalShopArchitectureTest` (plain JUnit tests calling `rule.check(classes)` on classes imported once with `ImportOption.DoNotIncludeTests`) | `onionArchitecture()` with `domainModels("..shop.domain..")`, `applicationServices("..shop.application..")`, one `adapter(…)` per adapter package, `withOptionalLayers(true)`, and `ignoreDependency(resideInAPackage("..config.."), alwaysTrue())` for the composition root; domain classes only depend on `java.lang..`, `java.util..`, `java.math..`, `java.time..` and the domain package; adapters do not depend on each other (`slices().matching("..shop.adapter.(*).(*)..").should().notDependOnEachOther()`); outbound ports are interfaces; classes in `..adapter..` are only accessed from `..adapter..` and `..config..`; no cycles between `hexagonal.shop` slices | all rules pass on `hexagonal.shop`; the same rules are also run on `hexagonal.transfer` |
 | `ErosionRulesTest` | the domain-isolation and no-cycles rules above applied to `erosion` | each rule throws `AssertionError`; messages asserted as in the `erosion` row |
-| `CourseConventionsArchTest` (`@AnalyzeClasses(packages = "io.github.aliturgutbozkurt.patterns.m11.examples")` + `@ArchTest` fields, the JUnit-engine style, shown once) | `src/main` depends only on `java..` and the course root package (proves "zero external dependencies"); no cycles between top-level example packages (`erosion` excluded); no class calls `System.exit`; non-final static fields exist only in `antipatterns.globalstate.before` (enforces open question 2) | all rules pass |
+| `CourseConventionsArchTest` (`@AnalyzeClasses(packages = "io.github.aliturgutbozkurt.patterns.m11")` + `@ArchTest` fields, the JUnit-engine style, shown once) | `src/main` depends only on `java..` and the course root package (proves "zero external dependencies"); no cycles between top-level example packages (`erosion` excluded); no class calls `System.exit`; non-final static fields exist only in `antipatterns.globalstate.before` (enforces open question 2) | all rules pass |
+
+**Implementation notes (M11-2b, synced with the code):**
+
+- `events.aggregate`: order ids are strings; `OrderStore` offers `saveAll` (all-or-nothing), `failNextSave()`, `load`,
+  `statuses()`. `DomainEventDispatcher<B>` is generic over the event base type (so `refactoring.notifications` reuses
+  it) and has `dispatchAll`; after a commit, events go out per aggregate in the order they were raised, aggregates in
+  registration order.
+- `events.outbox`: `OutboxOrderStore.save(Order)` stores the `events.aggregate.Order` state and its events; a failing
+  write (`failNextWrite()`) happens before the aggregate's events are pulled, so a retry loses nothing.
+  `OutboxRelay.relayPending` rethrows the broker's exception after stopping.
+- `antipatterns.godclass.after` adds the value records `CheckoutRequest` and `PlacedOrder`; the size check (≤ 5 public
+  methods, ≤ 4 constructor parameters) applies to the five collaborators named above. `before.OrderManager` has 12.
+- `antipatterns.globalstate.before` adds the record `ReorderPolicy`; `after.ReorderService(StockLevels, IntSupplier)`.
+  `ServiceLocator.reset()` also resets the `StockLevels` Singleton (the typical test-only hatch).
+- `refactoring.shipping.after.ShippingMethod.Pickup` has no components; `refactoring.notifications` keeps the three
+  side-effect ports (`Mailer`, `CrmClient`, `Analytics`) in the parent package and wires them in
+  `after.SignUpReactions`.
+- `testdoubles.checkout`: `PaymentGateway.charge` returns `Optional<String>` (transaction id, empty = declined);
+  `MockPaymentGateway.expectDeclinedCharge`; a declined charge is written to the `AuditLog` (so the dummy fails there).
+- `CourseConventionsArchTest` analyses all of m11's production code (`examples`, `exercises`, `solutions`), not only
+  `examples`. The transfer hexagon's port rule selects classes named `*Port`; its adapter slices are
+  `..transfer.adapter.(*)..`. ArchUnit prints the erosion cycle across several lines, so the test compares it with
+  whitespace normalised.
 
 Capstone bridge: `repository.catalog` / `hexagonal.shop` prepare slice C3 (domain, repository), `events.aggregate` /
 `events.outbox` and `LegacyPaymentAdapter` prepare slice C5 (events, payment adapter), and the architecture tests

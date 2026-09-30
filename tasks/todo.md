@@ -476,7 +476,7 @@ Legend: size S = 1–2 units, M = 3–5 units · `Verify` must pass before ticki
   - Verify: `./mvnw -q -pl modules/m11-architecture-enterprise verify`; Run every demo with the source launcher
   - Depends on: M11-1 (#61)
   - Files: `modules/m11-architecture-enterprise/pom.xml`, `modules/m11-architecture-enterprise/src/main/java/.../examples/**`, `modules/m11-architecture-enterprise/src/test/java/.../examples/**`
-- [ ] **M11-2b** (#63) — [m11-architecture-enterprise] Domain events, anti-patterns, refactoring & ArchUnit examples · `M`
+- [x] **M11-2b** (#63) — [m11-architecture-enterprise] Domain events, anti-patterns, refactoring & ArchUnit examples · `M`
   - Acceptance: Each example has a `main` with deterministic output and runs with `java <File>.java` (no build)
   - Acceptance: Each example has JUnit/AssertJ tests of its behaviour
   - Acceptance: Modern Java 27 idioms per CLAUDE.md §5; Javadoc on public types
