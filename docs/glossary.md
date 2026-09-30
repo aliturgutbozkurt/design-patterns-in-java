@@ -53,7 +53,6 @@ Kod tanımlayıcıları çevrilmez. Listede olmayan bir terim gerekiyorsa aynı 
 | Memento | Memento (Hatıra) | |
 | originator / caretaker (Memento roles) | kaynak (originator) / bekçi (caretaker) | |
 | snapshot | anlık görüntü (snapshot) | |
-| undo / redo | geri al / yinele | |
 | Observer | Observer (Gözlemci) | |
 | subject / listener / subscription | özne / dinleyici / abonelik | |
 | lapsed listener | unutulmuş dinleyici (lapsed listener) | bellek sızıntısı |
@@ -111,7 +110,6 @@ Kod tanımlayıcıları çevrilmez. Listede olmayan bir terim gerekiyorsa aynı 
 | fragile base class | kırılgan taban sınıf |
 | composition root | bileşim kökü (composition root) |
 | characterization test | karakterizasyon testi |
-| expression problem | ifade problemi (expression problem) |
 | optional operation | isteğe bağlı işlem (optional operation) |
 
 ## Java language · Java dili
