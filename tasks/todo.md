@@ -379,7 +379,7 @@ Legend: size S = 1–2 units, M = 3–5 units · `Verify` must pass before ticki
   - Verify: `scripts/check-docs.sh` exit 0; `scripts/build-pdf.sh modules/m08-behavioral-state-structure` and inspect PDFs
   - Depends on: M08-2a (#47), M08-2b (#48)
   - Files: `modules/m08-behavioral-state-structure/lesson/lesson.en.md`, `modules/m08-behavioral-state-structure/lesson/lesson.tr.md`, `modules/m08-behavioral-state-structure/lesson/*.pdf`, `modules/m08-behavioral-state-structure/README.md`
-- [ ] **M08-4** (#50) — [m08-behavioral-state-structure] Assignments + starters + solutions · `M`
+- [x] **M08-4** (#50) — [m08-behavioral-state-structure] Assignments + starters + solutions · `M`
   - Acceptance: Starters compile and fail their contract tests
   - Acceptance: Solutions pass the same contract tests
   - Acceptance: Briefs (EN/TR) state goal, steps, hints, and how to run the tests

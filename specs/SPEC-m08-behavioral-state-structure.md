@@ -166,7 +166,8 @@ only; no dependency.
   - `"document is archived"` for every event in `ARCHIVED`.
   - `"<EventName> not allowed in <STATUS>"` otherwise, e.g. `"Publish not allowed in IN_REVIEW"`.
 
-  A refused event changes nothing, including history and approvals. `history()` and `approvals()` are unmodifiable
+  A refused event changes nothing, including history and approvals. Every accepted event appends a history entry,
+  including an approval that keeps the status `IN_REVIEW`. `history()` and `approvals()` are unmodifiable
   and list entries in order. `null` events throw `NullPointerException`. `requiredApprovals < 1` or a blank author
   throws `IllegalArgumentException`.
 - **Student writes:** `ReviewWorkflow implements DocumentWorkflow` with constructor
@@ -193,15 +194,19 @@ only; no dependency.
     `If(Expr condition, Expr then, Expr otherwise)`.
   - `enum UnaryOp { NEG, NOT }` and `enum BinaryOp { OR, AND, EQ, LT, LE, ADD, SUB, MUL, DIV }`, each with
     `symbol()` and `precedence()` (OR lowest, then AND, then comparisons, then ADD/SUB, then MUL/DIV; all binary
-    operators left-associative; comparisons are non-associative).
+    operators left-associative; comparisons are non-associative). Concretely `OR` 1, `AND` 2, `NOT` 3, comparisons 4
+    (`BinaryOp.isComparison()`), `ADD`/`SUB` 5, `MUL`/`DIV` 6, `NEG` 7, so `not a = b` means `not (a = b)`.
   - `sealed interface Value` with records `NumValue(long)` and `BoolValue(boolean)`, and `EvalException`.
   - `Parser.parse(String)`, a complete recursive-descent parser for
     `if c then a else b`, `not`, unary `-`, `and`, `or`, `=`, `<`, `<=`, `+ - * /`, parentheses, identifiers and
-    `true`/`false`. It is given so that the contract can build inputs from text and check round-trips.
+    `true`/`false`. It is given so that the contract can build inputs from text and check round-trips. Parse errors
+    throw `IllegalArgumentException` with the column; nesting is capped at 200.
   - interface `Language` (`Value evaluate(Expr, Map<String, Value> env)`, `String print(Expr)`,
     `Set<String> freeVariables(Expr)`).
 - **Rules:**
-  - Arithmetic uses `Math.addExact`/`subtractExact`/`multiplyExact` (overflow → `ArithmeticException`). `DIV`
+  - Arithmetic uses `Math.addExact`/`subtractExact`/`multiplyExact`, and `negateExact` for unary minus (overflow →
+    `ArithmeticException`). For mixed-type `EQ` the left operand's type is the expected one; a non-boolean `If`
+    condition reports `IF` as the operator. `DIV`
     truncates toward zero, and division by zero → `EvalException("division by zero")`.
   - Type errors → `EvalException("type error: <OP> expects <NUM|BOOL> but got <NUM|BOOL>")`. `EQ` accepts two
     numbers or two booleans, and mixed types are a type error. A non-boolean `If` condition is a type error.

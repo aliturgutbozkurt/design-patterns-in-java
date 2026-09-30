@@ -66,6 +66,8 @@ Kod tanımlayıcıları çevrilmez. Listede olmayan bir terim gerekiyorsa aynı 
 | client (code) | istemci (kod) |
 | delegation | yetki devri (delegasyon) |
 | double dispatch | çift yönlendirme (double dispatch) |
+| expression problem | ifade problemi (expression problem) |
+| state machine / state transition | durum makinesi / durum geçişi |
 | invariant | değişmez (invariant) |
 | immutable / immutability | değişmez / değişmezlik |
 | side effect | yan etki |
@@ -80,6 +82,7 @@ Kod tanımlayıcıları çevrilmez. Listede olmayan bir terim gerekiyorsa aynı 
 | pattern matching | desen eşleme (pattern matching) |
 | record pattern | record deseni |
 | exhaustive switch | eksiksiz (exhaustive) switch |
+| guard (`case … when …`) | koşul (guard, `when`) |
 | compact constructor | kompakt kurucu |
 | constructor | kurucu (constructor) |
 | lambda expression / method reference | lambda ifadesi / metot referansı |
@@ -95,6 +98,10 @@ Kod tanımlayıcıları çevrilmez. Listede olmayan bir terim gerekiyorsa aynı 
 | preview feature | önizleme özelliği (preview) |
 | source-code launcher | kaynak kod başlatıcı |
 | data-oriented programming | veri odaklı programlama |
+| abstract syntax tree (AST) | soyut sözdizimi ağacı (AST) |
+| lexer / parser | sözcük çözümleyici (lexer) / ayrıştırıcı (parser) |
+| recursive descent | özyinelemeli iniş (recursive descent) |
+| operator precedence / associativity | operatör önceliği / birleşme yönü (associativity) |
 
 ## Testing & tooling · Test ve araçlar
 
