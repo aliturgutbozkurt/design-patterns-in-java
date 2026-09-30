@@ -68,6 +68,12 @@ Kod tanımlayıcıları çevrilmez. Listede olmayan bir terim gerekiyorsa aynı 
 | concrete class | somut sınıf |
 | client (code) | istemci (kod) |
 | delegation | yetki devri (delegasyon) |
+| wrapper | sarmalayıcı |
+| object adapter / class adapter | nesne adaptörü / sınıf adaptörü |
+| target / adaptee (Adapter) | hedef (target) / uyarlanan (adaptee) |
+| virtual / protection / caching / remote proxy | sanal / koruma / önbellek / uzak vekil |
+| view (vs. copy) | görünüm (kopyaya karşı) |
+| memoization | bellekleme (memoization) |
 | double dispatch | çift yönlendirme (double dispatch) |
 | invariant | değişmez (invariant) |
 | immutable / immutability | değişmez / değişmezlik |
@@ -89,6 +95,8 @@ Kod tanımlayıcıları çevrilmez. Listede olmayan bir terim gerekiyorsa aynı 
 | functional interface | fonksiyonel arayüz |
 | higher-order function | yüksek mertebeden fonksiyon |
 | generic type | jenerik tip |
+| dynamic proxy / invocation handler | dinamik vekil / çağrı işleyici (InvocationHandler) |
+| double-checked locking | çift denetimli kilitleme (double-checked locking) |
 | virtual thread | sanal iş parçacığı (virtual thread) |
 | platform thread | platform iş parçacığı |
 | structured concurrency | yapılandırılmış eşzamanlılık |

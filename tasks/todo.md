@@ -220,7 +220,7 @@ Legend: size S = 1–2 units, M = 3–5 units · `Verify` must pass before ticki
   - Verify: `./mvnw -q -pl modules/m04-structural-wrappers verify`; Run every demo with the source launcher
   - Depends on: M04-1 (#26), M04-2a (#27)
   - Files: `modules/m04-structural-wrappers/pom.xml`, `modules/m04-structural-wrappers/src/main/java/.../examples/**`, `modules/m04-structural-wrappers/src/test/java/.../examples/**`
-- [ ] **M04-3** (#29) — [m04-structural-wrappers] Lesson EN + TR + PDF + module README · `M`
+- [x] **M04-3** (#29) — [m04-structural-wrappers] Lesson EN + TR + PDF + module README · `M`
   - Acceptance: Code blocks come from compiled example files (path cited)
   - Acceptance: EN/TR heading parity; Turkish characters correct
   - Acceptance: Both PDFs generated and committed; README links lesson, examples, assignments
