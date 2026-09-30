@@ -124,7 +124,7 @@ launcher):**
   `false` when there is nothing to undo or redo. A `Delete`/`Replace` must restore the exact removed text on undo.
   All edits made inside `group(...)` undo and redo as **one** step; nested groups join the outer group. If the
   consumer throws, every edit the group already made is rolled back and the exception is rethrown. The history keeps
-  at most `maxHistory` steps and drops the oldest. `null` arguments throw `NullPointerException`.
+  at most `maxHistory` steps and drops the oldest (`maxHistory < 1` throws `IllegalArgumentException`). `null` arguments throw `NullPointerException`.
 - **Student writes:** `CommandEditor implements Editor` with constructor `CommandEditor(String initialText, int
   maxHistory)`, plus one command class per edit type (`execute`/`undo`). The contract creates editors only through
   `Editor newEditor(String initialText, int maxHistory)`.
