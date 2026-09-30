@@ -34,6 +34,8 @@ Kod tanımlayıcıları çevrilmez. Listede olmayan bir terim gerekiyorsa aynı 
 | intrinsic / extrinsic state | içsel / dışsal durum | |
 | Proxy | Proxy (Vekil) | |
 | Chain of Responsibility | Chain of Responsibility (Sorumluluk Zinciri) | |
+| middleware | ara katman yazılımı (middleware) | Chain of Responsibility'nin "önce ve sonra" biçimi |
+| fail-fast / collect-all (validation) | ilk hatada dur (fail-fast) / tüm hataları topla (collect-all) | |
 | Command | Command (Komut) | |
 | invoker / receiver (Command) | çağırıcı / alıcı | |
 | macro command | makro komut | |
@@ -47,8 +49,16 @@ Kod tanımlayıcıları çevrilmez. Listede olmayan bir terim gerekiyorsa aynı 
 | in-order / pre-order / level-order traversal | ortanca sıralı / önce kök / seviye sıralı dolaşma | |
 | hook method | kanca metot (hook) | Template Method |
 | Mediator | Mediator (Arabulucu) | |
+| colleague (Mediator role) | iş arkadaşı (colleague) | |
 | Memento | Memento (Hatıra) | |
+| originator / caretaker (Memento roles) | kaynak (originator) / bekçi (caretaker) | |
+| snapshot | anlık görüntü (snapshot) | |
+| undo / redo | geri al / yinele | |
 | Observer | Observer (Gözlemci) | |
+| subject / listener / subscription | özne / dinleyici / abonelik | |
+| lapsed listener | unutulmuş dinleyici (lapsed listener) | bellek sızıntısı |
+| event bus / dead event | olay veri yolu (event bus) / ölü olay (dead event) | |
+| back-pressure / demand | geri basınç (back-pressure) / talep (demand) | `java.util.concurrent.Flow` |
 | State | State (Durum) | |
 | Strategy | Strategy (Strateji) | |
 | Template Method | Template Method (Şablon Metot) | |

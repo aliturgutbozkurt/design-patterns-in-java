@@ -314,35 +314,35 @@ Legend: size S = 1–2 units, M = 3–5 units · `Verify` must pass before ticki
   - Files: `modules/m06-behavioral-algorithms/assignments/*.md`, `modules/m06-behavioral-algorithms/src/main/java/.../{exercises,solutions}/**`, `modules/m06-behavioral-algorithms/src/test/java/.../{exercises,solutions}/**`
 ## Phase 4 · M07 Behavioral II: Communication
 
-- [ ] **M07-1** (#41) — [m07-behavioral-communication] Module spec · `S`
+- [x] **M07-1** (#41) — [m07-behavioral-communication] Module spec · `S`
   - Acceptance: Spec follows the module-spec template and SPEC §2 scope
   - Acceptance: Every example and assignment has testable acceptance criteria
   - Acceptance: Approved by owner (comment on this issue)
   - Verify: Owner review
   - Depends on: M06-2b (#38)
   - Files: `specs/SPEC-m07-behavioral-communication.md`
-- [ ] **M07-2a** (#42) — [m07-behavioral-communication] Observer & Mediator examples · `M`
+- [x] **M07-2a** (#42) — [m07-behavioral-communication] Observer & Mediator examples · `M`
   - Acceptance: Each example has a `main` with deterministic output and runs with `java <File>.java` (no build)
   - Acceptance: Each example has JUnit/AssertJ tests of its behaviour
   - Acceptance: Modern Java 27 idioms per CLAUDE.md §5; Javadoc on public types
   - Verify: `./mvnw -q -pl modules/m07-behavioral-communication verify`; Run every demo with the source launcher
   - Depends on: M07-1 (#41)
   - Files: `modules/m07-behavioral-communication/pom.xml`, `modules/m07-behavioral-communication/src/main/java/.../examples/**`, `modules/m07-behavioral-communication/src/test/java/.../examples/**`
-- [ ] **M07-2b** (#43) — [m07-behavioral-communication] Chain of Responsibility & Memento examples · `M`
+- [x] **M07-2b** (#43) — [m07-behavioral-communication] Chain of Responsibility & Memento examples · `M`
   - Acceptance: Each example has a `main` with deterministic output and runs with `java <File>.java` (no build)
   - Acceptance: Each example has JUnit/AssertJ tests of its behaviour
   - Acceptance: Modern Java 27 idioms per CLAUDE.md §5; Javadoc on public types
   - Verify: `./mvnw -q -pl modules/m07-behavioral-communication verify`; Run every demo with the source launcher
   - Depends on: M07-1 (#41), M07-2a (#42)
   - Files: `modules/m07-behavioral-communication/pom.xml`, `modules/m07-behavioral-communication/src/main/java/.../examples/**`, `modules/m07-behavioral-communication/src/test/java/.../examples/**`
-- [ ] **M07-3** (#44) — [m07-behavioral-communication] Lesson EN + TR + PDF + module README · `M`
+- [x] **M07-3** (#44) — [m07-behavioral-communication] Lesson EN + TR + PDF + module README · `M`
   - Acceptance: Code blocks come from compiled example files (path cited)
   - Acceptance: EN/TR heading parity; Turkish characters correct
   - Acceptance: Both PDFs generated and committed; README links lesson, examples, assignments
   - Verify: `scripts/check-docs.sh` exit 0; `scripts/build-pdf.sh modules/m07-behavioral-communication` and inspect PDFs
   - Depends on: M07-2a (#42), M07-2b (#43)
   - Files: `modules/m07-behavioral-communication/lesson/lesson.en.md`, `modules/m07-behavioral-communication/lesson/lesson.tr.md`, `modules/m07-behavioral-communication/lesson/*.pdf`, `modules/m07-behavioral-communication/README.md`
-- [ ] **M07-4** (#45) — [m07-behavioral-communication] Assignments + starters + solutions · `M`
+- [x] **M07-4** (#45) — [m07-behavioral-communication] Assignments + starters + solutions · `M`
   - Acceptance: Starters compile and fail their contract tests
   - Acceptance: Solutions pass the same contract tests
   - Acceptance: Briefs (EN/TR) state goal, steps, hints, and how to run the tests

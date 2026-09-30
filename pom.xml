@@ -21,6 +21,7 @@
         <module>modules/m04-structural-wrappers</module>
         <module>modules/m05-structural-composition</module>
         <module>modules/m06-behavioral-algorithms</module>
+        <module>modules/m07-behavioral-communication</module>
     </modules>
 
     <properties>
