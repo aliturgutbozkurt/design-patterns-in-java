@@ -469,7 +469,7 @@ Legend: size S = 1–2 units, M = 3–5 units · `Verify` must pass before ticki
   - Verify: Owner review
   - Depends on: M10-2b (#58)
   - Files: `specs/SPEC-m11-architecture-enterprise.md`
-- [ ] **M11-2a** (#62) — [m11-architecture-enterprise] DI, Repository & Ports-and-Adapters examples · `M`
+- [x] **M11-2a** (#62) — [m11-architecture-enterprise] DI, Repository & Ports-and-Adapters examples · `M`
   - Acceptance: Each example has a `main` with deterministic output and runs with `java <File>.java` (no build)
   - Acceptance: Each example has JUnit/AssertJ tests of its behaviour
   - Acceptance: Modern Java 27 idioms per CLAUDE.md §5; Javadoc on public types
