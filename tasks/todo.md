@@ -125,35 +125,35 @@ Legend: size S = 1–2 units, M = 3–5 units · `Verify` must pass before ticki
   - Files: `modules/m01-oop-solid-uml/assignments/*.md`, `modules/m01-oop-solid-uml/src/main/java/.../{exercises,solutions}/**`, `modules/m01-oop-solid-uml/src/test/java/.../{exercises,solutions}/**`
 ## Phase 3 · M02 Creational I: Factories
 
-- [ ] **M02-1** (#16) — [m02-creational-factories] Module spec · `S`
+- [x] **M02-1** (#16) — [m02-creational-factories] Module spec · `S`
   - Acceptance: Spec follows the module-spec template and SPEC §2 scope
   - Acceptance: Every example and assignment has testable acceptance criteria
   - Acceptance: Approved by owner (comment on this issue)
   - Verify: Owner review
   - Depends on: M01-2b (#13)
   - Files: `specs/SPEC-m02-creational-factories.md`
-- [ ] **M02-2a** (#17) — [m02-creational-factories] Singleton & Static Factory Method examples · `M`
+- [x] **M02-2a** (#17) — [m02-creational-factories] Singleton & Static Factory Method examples · `M`
   - Acceptance: Each example has a `main` with deterministic output and runs with `java <File>.java` (no build)
   - Acceptance: Each example has JUnit/AssertJ tests of its behaviour
   - Acceptance: Modern Java 27 idioms per CLAUDE.md §5; Javadoc on public types
   - Verify: `./mvnw -q -pl modules/m02-creational-factories verify`; Run every demo with the source launcher
   - Depends on: M02-1 (#16)
   - Files: `modules/m02-creational-factories/pom.xml`, `modules/m02-creational-factories/src/main/java/.../examples/**`, `modules/m02-creational-factories/src/test/java/.../examples/**`
-- [ ] **M02-2b** (#18) — [m02-creational-factories] Factory Method, Abstract Factory & ServiceLoader examples · `M`
+- [x] **M02-2b** (#18) — [m02-creational-factories] Factory Method, Abstract Factory & ServiceLoader examples · `M`
   - Acceptance: Each example has a `main` with deterministic output and runs with `java <File>.java` (no build)
   - Acceptance: Each example has JUnit/AssertJ tests of its behaviour
   - Acceptance: Modern Java 27 idioms per CLAUDE.md §5; Javadoc on public types
   - Verify: `./mvnw -q -pl modules/m02-creational-factories verify`; Run every demo with the source launcher
   - Depends on: M02-1 (#16), M02-2a (#17)
   - Files: `modules/m02-creational-factories/pom.xml`, `modules/m02-creational-factories/src/main/java/.../examples/**`, `modules/m02-creational-factories/src/test/java/.../examples/**`
-- [ ] **M02-3** (#19) — [m02-creational-factories] Lesson EN + TR + PDF + module README · `M`
+- [x] **M02-3** (#19) — [m02-creational-factories] Lesson EN + TR + PDF + module README · `M`
   - Acceptance: Code blocks come from compiled example files (path cited)
   - Acceptance: EN/TR heading parity; Turkish characters correct
   - Acceptance: Both PDFs generated and committed; README links lesson, examples, assignments
   - Verify: `scripts/check-docs.sh` exit 0; `scripts/build-pdf.sh modules/m02-creational-factories` and inspect PDFs
   - Depends on: M02-2a (#17), M02-2b (#18)
   - Files: `modules/m02-creational-factories/lesson/lesson.en.md`, `modules/m02-creational-factories/lesson/lesson.tr.md`, `modules/m02-creational-factories/lesson/*.pdf`, `modules/m02-creational-factories/README.md`
-- [ ] **M02-4** (#20) — [m02-creational-factories] Assignments + starters + solutions · `M`
+- [x] **M02-4** (#20) — [m02-creational-factories] Assignments + starters + solutions · `M`
   - Acceptance: Starters compile and fail their contract tests
   - Acceptance: Solutions pass the same contract tests
   - Acceptance: Briefs (EN/TR) state goal, steps, hints, and how to run the tests

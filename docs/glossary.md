@@ -100,6 +100,9 @@ Kod tanımlayıcıları çevrilmez. Listede olmayan bir terim gerekiyorsa aynı 
 | thread-safe | iş parçacığı güvenli |
 | race condition / deadlock | yarış durumu / kilitlenme |
 | preview feature | önizleme özelliği (preview) |
+| class loader | sınıf yükleyici (class loader) |
+| lazy holder idiom | lazy holder (tembel tutucu) yöntemi |
+| service provider interface (SPI) | servis sağlayıcı arayüzü (SPI) |
 | source-code launcher | kaynak kod başlatıcı |
 | data-oriented programming | veri odaklı programlama |
 
