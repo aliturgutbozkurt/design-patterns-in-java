@@ -298,7 +298,7 @@ Legend: size S = 1–2 units, M = 3–5 units · `Verify` must pass before ticki
   - Verify: `./mvnw -q -pl modules/m06-behavioral-algorithms verify`; Run every demo with the source launcher
   - Depends on: M06-1 (#36), M06-2a (#37)
   - Files: `modules/m06-behavioral-algorithms/pom.xml`, `modules/m06-behavioral-algorithms/src/main/java/.../examples/**`, `modules/m06-behavioral-algorithms/src/test/java/.../examples/**`
-- [ ] **M06-3** (#39) — [m06-behavioral-algorithms] Lesson EN + TR + PDF + module README · `M`
+- [x] **M06-3** (#39) — [m06-behavioral-algorithms] Lesson EN + TR + PDF + module README · `M`
   - Acceptance: Code blocks come from compiled example files (path cited)
   - Acceptance: EN/TR heading parity; Turkish characters correct
   - Acceptance: Both PDFs generated and committed; README links lesson, examples, assignments
