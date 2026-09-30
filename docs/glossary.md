@@ -22,10 +22,16 @@ Kod tanımlayıcıları çevrilmez. Listede olmayan bir terim gerekiyorsa aynı 
 | Object Pool | Object Pool (Nesne Havuzu) | |
 | Adapter | Adapter (Adaptör) | |
 | Bridge | Bridge (Köprü) | |
+| abstraction / implementor (Bridge) | soyutlama / uygulayıcı (implementor) | |
 | Composite | Composite (Bileşik) | |
+| part–whole hierarchy | parça–bütün hiyerarşisi | |
+| transparency vs. safety (Composite) | şeffaflık / güvenlik | `add`/`remove` bileşende mi, yalnızca bileşikte mi |
 | Decorator | Decorator (Dekoratör) | |
 | Facade | Facade (Cephe) | |
+| subsystem | alt sistem | |
+| compensation (undoing earlier steps) | telafi (compensation) | |
 | Flyweight | Flyweight (Sinek Siklet) | |
+| intrinsic / extrinsic state | içsel / dışsal durum | |
 | Proxy | Proxy (Vekil) | |
 | Chain of Responsibility | Chain of Responsibility (Sorumluluk Zinciri) | |
 | Command | Command (Komut) | |
@@ -43,6 +49,7 @@ Kod tanımlayıcıları çevrilmez. Listede olmayan bir terim gerekiyorsa aynı 
 | Dependency Injection | Dependency Injection (Bağımlılık Enjeksiyonu) | kısaltma: DI |
 | Ports and Adapters / Hexagonal Architecture | Ports and Adapters (Portlar ve Adaptörler) / Altıgen Mimari | |
 | anti-pattern | anti-kalıp | |
+| god object | tanrı nesnesi (god object) | |
 
 ## Object-oriented design · Nesne yönelimli tasarım
 
@@ -51,6 +58,7 @@ Kod tanımlayıcıları çevrilmez. Listede olmayan bir terim gerekiyorsa aynı 
 | encapsulation | kapsülleme |
 | inheritance | kalıtım |
 | polymorphism | çok biçimlilik |
+| expression problem | ifade problemi (expression problem) |
 | abstraction | soyutlama |
 | composition over inheritance | kalıtım yerine bileşim |
 | coupling / cohesion | bağlaşım / uyum |
@@ -120,6 +128,8 @@ Kod tanımlayıcıları çevrilmez. Listede olmayan bir terim gerekiyorsa aynı 
 | service provider interface (SPI) | servis sağlayıcı arayüzü (SPI) |
 | source-code launcher | kaynak kod başlatıcı |
 | data-oriented programming | veri odaklı programlama |
+| value-based class | değer tabanlı sınıf (value-based class) |
+| compact object headers (JEP 534) | sıkıştırılmış nesne başlıkları |
 
 ## Testing & tooling · Test ve araçlar
 

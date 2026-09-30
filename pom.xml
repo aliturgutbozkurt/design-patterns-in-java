@@ -19,6 +19,7 @@
         <module>modules/m02-creational-factories</module>
         <module>modules/m03-creational-construction</module>
         <module>modules/m04-structural-wrappers</module>
+        <module>modules/m05-structural-composition</module>
     </modules>
 
     <properties>

@@ -236,35 +236,35 @@ Legend: size S = 1–2 units, M = 3–5 units · `Verify` must pass before ticki
   - Files: `modules/m04-structural-wrappers/assignments/*.md`, `modules/m04-structural-wrappers/src/main/java/.../{exercises,solutions}/**`, `modules/m04-structural-wrappers/src/test/java/.../{exercises,solutions}/**`
 ## Phase 3 · M05 Structural II: Composition
 
-- [ ] **M05-1** (#31) — [m05-structural-composition] Module spec · `S`
+- [x] **M05-1** (#31) — [m05-structural-composition] Module spec · `S`
   - Acceptance: Spec follows the module-spec template and SPEC §2 scope
   - Acceptance: Every example and assignment has testable acceptance criteria
   - Acceptance: Approved by owner (comment on this issue)
   - Verify: Owner review
   - Depends on: M04-2b (#28)
   - Files: `specs/SPEC-m05-structural-composition.md`
-- [ ] **M05-2a** (#32) — [m05-structural-composition] Composite & Bridge examples · `M`
+- [x] **M05-2a** (#32) — [m05-structural-composition] Composite & Bridge examples · `M`
   - Acceptance: Each example has a `main` with deterministic output and runs with `java <File>.java` (no build)
   - Acceptance: Each example has JUnit/AssertJ tests of its behaviour
   - Acceptance: Modern Java 27 idioms per CLAUDE.md §5; Javadoc on public types
   - Verify: `./mvnw -q -pl modules/m05-structural-composition verify`; Run every demo with the source launcher
   - Depends on: M05-1 (#31)
   - Files: `modules/m05-structural-composition/pom.xml`, `modules/m05-structural-composition/src/main/java/.../examples/**`, `modules/m05-structural-composition/src/test/java/.../examples/**`
-- [ ] **M05-2b** (#33) — [m05-structural-composition] Facade & Flyweight examples · `M`
+- [x] **M05-2b** (#33) — [m05-structural-composition] Facade & Flyweight examples · `M`
   - Acceptance: Each example has a `main` with deterministic output and runs with `java <File>.java` (no build)
   - Acceptance: Each example has JUnit/AssertJ tests of its behaviour
   - Acceptance: Modern Java 27 idioms per CLAUDE.md §5; Javadoc on public types
   - Verify: `./mvnw -q -pl modules/m05-structural-composition verify`; Run every demo with the source launcher
   - Depends on: M05-1 (#31), M05-2a (#32)
   - Files: `modules/m05-structural-composition/pom.xml`, `modules/m05-structural-composition/src/main/java/.../examples/**`, `modules/m05-structural-composition/src/test/java/.../examples/**`
-- [ ] **M05-3** (#34) — [m05-structural-composition] Lesson EN + TR + PDF + module README · `M`
+- [x] **M05-3** (#34) — [m05-structural-composition] Lesson EN + TR + PDF + module README · `M`
   - Acceptance: Code blocks come from compiled example files (path cited)
   - Acceptance: EN/TR heading parity; Turkish characters correct
   - Acceptance: Both PDFs generated and committed; README links lesson, examples, assignments
   - Verify: `scripts/check-docs.sh` exit 0; `scripts/build-pdf.sh modules/m05-structural-composition` and inspect PDFs
   - Depends on: M05-2a (#32), M05-2b (#33)
   - Files: `modules/m05-structural-composition/lesson/lesson.en.md`, `modules/m05-structural-composition/lesson/lesson.tr.md`, `modules/m05-structural-composition/lesson/*.pdf`, `modules/m05-structural-composition/README.md`
-- [ ] **M05-4** (#35) — [m05-structural-composition] Assignments + starters + solutions · `M`
+- [x] **M05-4** (#35) — [m05-structural-composition] Assignments + starters + solutions · `M`
   - Acceptance: Starters compile and fail their contract tests
   - Acceptance: Solutions pass the same contract tests
   - Acceptance: Briefs (EN/TR) state goal, steps, hints, and how to run the tests
