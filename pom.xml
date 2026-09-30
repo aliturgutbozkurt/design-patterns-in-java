@@ -17,6 +17,7 @@
         <module>modules/m00-setup-and-modern-java</module>
         <module>modules/m01-oop-solid-uml</module>
         <module>modules/m02-creational-factories</module>
+        <module>modules/m03-creational-construction</module>
     </modules>
 
     <properties>

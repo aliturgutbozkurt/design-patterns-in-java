@@ -162,35 +162,35 @@ Legend: size S = 1–2 units, M = 3–5 units · `Verify` must pass before ticki
   - Files: `modules/m02-creational-factories/assignments/*.md`, `modules/m02-creational-factories/src/main/java/.../{exercises,solutions}/**`, `modules/m02-creational-factories/src/test/java/.../{exercises,solutions}/**`
 ## Phase 3 · M03 Creational II: Construction
 
-- [ ] **M03-1** (#21) — [m03-creational-construction] Module spec · `S`
+- [x] **M03-1** (#21) — [m03-creational-construction] Module spec · `S`
   - Acceptance: Spec follows the module-spec template and SPEC §2 scope
   - Acceptance: Every example and assignment has testable acceptance criteria
   - Acceptance: Approved by owner (comment on this issue)
   - Verify: Owner review
   - Depends on: M02-2b (#18)
   - Files: `specs/SPEC-m03-creational-construction.md`
-- [ ] **M03-2a** (#22) — [m03-creational-construction] Builder examples (classic, record+builder, step builder) · `M`
+- [x] **M03-2a** (#22) — [m03-creational-construction] Builder examples (classic, record+builder, step builder) · `M`
   - Acceptance: Each example has a `main` with deterministic output and runs with `java <File>.java` (no build)
   - Acceptance: Each example has JUnit/AssertJ tests of its behaviour
   - Acceptance: Modern Java 27 idioms per CLAUDE.md §5; Javadoc on public types
   - Verify: `./mvnw -q -pl modules/m03-creational-construction verify`; Run every demo with the source launcher
   - Depends on: M03-1 (#21)
   - Files: `modules/m03-creational-construction/pom.xml`, `modules/m03-creational-construction/src/main/java/.../examples/**`, `modules/m03-creational-construction/src/test/java/.../examples/**`
-- [ ] **M03-2b** (#23) — [m03-creational-construction] Prototype, Object Pool & composition-root examples · `M`
+- [x] **M03-2b** (#23) — [m03-creational-construction] Prototype, Object Pool & composition-root examples · `M`
   - Acceptance: Each example has a `main` with deterministic output and runs with `java <File>.java` (no build)
   - Acceptance: Each example has JUnit/AssertJ tests of its behaviour
   - Acceptance: Modern Java 27 idioms per CLAUDE.md §5; Javadoc on public types
   - Verify: `./mvnw -q -pl modules/m03-creational-construction verify`; Run every demo with the source launcher
   - Depends on: M03-1 (#21), M03-2a (#22)
   - Files: `modules/m03-creational-construction/pom.xml`, `modules/m03-creational-construction/src/main/java/.../examples/**`, `modules/m03-creational-construction/src/test/java/.../examples/**`
-- [ ] **M03-3** (#24) — [m03-creational-construction] Lesson EN + TR + PDF + module README · `M`
+- [x] **M03-3** (#24) — [m03-creational-construction] Lesson EN + TR + PDF + module README · `M`
   - Acceptance: Code blocks come from compiled example files (path cited)
   - Acceptance: EN/TR heading parity; Turkish characters correct
   - Acceptance: Both PDFs generated and committed; README links lesson, examples, assignments
   - Verify: `scripts/check-docs.sh` exit 0; `scripts/build-pdf.sh modules/m03-creational-construction` and inspect PDFs
   - Depends on: M03-2a (#22), M03-2b (#23)
   - Files: `modules/m03-creational-construction/lesson/lesson.en.md`, `modules/m03-creational-construction/lesson/lesson.tr.md`, `modules/m03-creational-construction/lesson/*.pdf`, `modules/m03-creational-construction/README.md`
-- [ ] **M03-4** (#25) — [m03-creational-construction] Assignments + starters + solutions · `M`
+- [x] **M03-4** (#25) — [m03-creational-construction] Assignments + starters + solutions · `M`
   - Acceptance: Starters compile and fail their contract tests
   - Acceptance: Solutions pass the same contract tests
   - Acceptance: Briefs (EN/TR) state goal, steps, hints, and how to run the tests
