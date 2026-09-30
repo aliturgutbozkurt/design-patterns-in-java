@@ -395,7 +395,7 @@ Legend: size S = 1–2 units, M = 3–5 units · `Verify` must pass before ticki
   - Verify: Owner review
   - Depends on: M08-2b (#48)
   - Files: `specs/SPEC-m09-functional-data-oriented.md`
-- [ ] **M09-2a** (#52) — [m09-functional-data-oriented] Data-oriented programming & Result type examples · `M`
+- [x] **M09-2a** (#52) — [m09-functional-data-oriented] Data-oriented programming & Result type examples · `M`
   - Acceptance: Each example has a `main` with deterministic output and runs with `java <File>.java` (no build)
   - Acceptance: Each example has JUnit/AssertJ tests of its behaviour
   - Acceptance: Modern Java 27 idioms per CLAUDE.md §5; Javadoc on public types
