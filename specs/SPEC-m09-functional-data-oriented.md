@@ -80,6 +80,16 @@ Task **M09-2a** (#52): data-oriented programming, immutability, `Optional` and `
 | `result.checkout`: the same checkout three ways: `ExceptionCheckout` (throws `CheckoutException` subclasses), `OptionalCheckout` (returns `Optional<Receipt>`), `ResultCheckout` (returns `Result<Receipt, CheckoutError>` with `sealed interface CheckoutError permits EmptyCart, OutOfStock, InvalidCoupon, PaymentDeclined`); fakes `InMemoryInventory` (reserve/release, call log) and `ScriptedPaymentGateway`; `CheckoutErrors.message(CheckoutError)` | `CheckoutStylesDemo` | PatternShop checkout | Choosing an error model: exceptions (hidden control flow, not in the signature), `Optional` (loses *why*), `Result` (the failure is in the type, each step is a `flatMap`, and the caller must handle every error kind) | for a shared scenario table (parameterised test), the exception version and the `Result` version agree on the receipt or the error kind; the `Optional` version is empty for every failure; after the first failure no later step runs (the payment gateway is not called when stock is short); a declined payment releases the reserved stock (inventory log asserted); `CheckoutErrors.message` gives exact text for each error with an exhaustive `switch` and no `default` |
 | `result.jdk`: `JdkResultShapes` (small functions over `Optional`, `Stream` and `CompletableFuture`), `FutureResults.toResult(CompletableFuture<T>)` → `Result<T, Throwable>` (unwraps `CompletionException`) | `JdkResultShapesDemo` | price lookups (already-completed futures) | The same `map`/`flatMap` shape across the JDK: `Optional.map`/`flatMap`, `Stream.map`/`flatMap`, `CompletableFuture.thenApply`/`thenCompose`; `exceptionally`/`handle` as recover/fold; `CompletableFuture` as an asynchronous `Result` | `completedFuture(2).thenApply(×10).thenCompose(+1)` joins to `21`; `thenCompose` on a failed future never calls its function; `exceptionally` directly on `failedFuture(e)` receives `e`, but after a `thenApply` it receives a `CompletionException` wrapping `e`; `toResult` gives `Ok` for a success and `Err` holding the *unwrapped* cause for a failure; `flatMap(Optional::stream)` drops empties while keeping order |
 
+Helper types added while implementing M09-2a (no behaviour changed): `dop.order.modern` — `Placed`, `Paid` and
+`Shipped` also reject an empty line list (only `Draft` and `Cancelled` may be empty), and `OrderId.toString()` is
+its value. `result.checkout` — records `CartItem`, `CheckoutRequest(List<CartItem> items, String coupon, String
+card)` (blank coupon = none), `Receipt(String paymentId, long totalCents)`, `Coupons` (`SAVE10`, `HALF`); the
+`CheckoutException` subclasses are nested in one sealed abstract class and share `CheckoutErrors.message` texts;
+`ScriptedPaymentGateway(Set<String> declinedCards)` returns `Optional<String>` payment ids `PAY-1`, `PAY-2`, ….
+`optional.directory` — records `CustomerId`, `OrderSummary`; `CustomerDirectory.sample()` with `require`,
+`referrerName`, `namesOf`, `findByEmailOrId` (`or` + `filter`). `result.core` — `Partitioned` is its own file.
+`result.jdk` — `JdkResultShapes.sample()` (prices + a mug→coaster bundle) and `FutureResults.cause(Throwable)`.
+
 Task **M09-2b** (#53): composition, laziness, and "patterns that became language features".
 
 | Package | Demo | Domain | What it shows | Tested behaviour |
