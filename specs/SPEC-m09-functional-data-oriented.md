@@ -1,6 +1,6 @@
 # Spec: m09-functional-data-oriented — Functional & Data-Oriented Patterns
 
-> Status: DRAFT · Parent: [SPEC.md](../SPEC.md) §2 · Week: 11 · Task: #51
+> Status: **APPROVED** (owner, 2026-09-30) · Parent: [SPEC.md](../SPEC.md) §2 · Week: 11 · Task: #51
 
 ## Objective
 
@@ -242,7 +242,9 @@ dispatch (m08; here only the before/after comparison); concurrency patterns, `St
 `CompletableFuture` pipelines (m10; here only already-completed futures); serialisation formats (JSON libraries);
 preview features in code: Lazy Constants (JEP 531) and primitive patterns (JEP 532) appear only as lesson sidebars.
 
-## Open questions for the owner
+## Decisions (owner, 2026-09-30)
+
+All questions below were answered **yes**: the recommended defaults apply (including any build or dependency change they describe).
 
 1. **ex01 overlaps m08's "Visitor vs. sealed types".** Issue #55 asks for "Refactor a Visitor-based design to
    data-oriented programming", and m08 already teaches Visitor → `switch`. **Recommended default:** keep ex01 as

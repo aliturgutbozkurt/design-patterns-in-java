@@ -388,7 +388,7 @@ Legend: size S = 1–2 units, M = 3–5 units · `Verify` must pass before ticki
   - Files: `modules/m08-behavioral-state-structure/assignments/*.md`, `modules/m08-behavioral-state-structure/src/main/java/.../{exercises,solutions}/**`, `modules/m08-behavioral-state-structure/src/test/java/.../{exercises,solutions}/**`
 ## Phase 4 · M09 Functional & Data-Oriented
 
-- [ ] **M09-1** (#51) — [m09-functional-data-oriented] Module spec · `S`
+- [x] **M09-1** (#51) — [m09-functional-data-oriented] Module spec · `S`
   - Acceptance: Spec follows the module-spec template and SPEC §2 scope
   - Acceptance: Every example and assignment has testable acceptance criteria
   - Acceptance: Approved by owner (comment on this issue)
