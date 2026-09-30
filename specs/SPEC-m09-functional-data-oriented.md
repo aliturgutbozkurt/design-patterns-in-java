@@ -238,6 +238,13 @@ launcher, in scratch files outside the repo):**
   `blankReferralMeansNoReferral`, `registryNotCalledWhenFieldsInvalid`, `takenUsernameFailsFast` (the referral is not
   checked), `invalidReferralIsReported`, `errorListIsUnmodifiable`, `neverThrowsForBadInput`, `rejectsNullInput`.
 
+Implementation notes (M09-4, no rule changed): ex01's legacy types live in `exercises.ex01.legacy`; overtime is
+`(hours − 160) × (rate * 3 / 2)`, exactly as the GIVEN `MonthlyPayVisitor` computes it; `Employee` nests a small
+`Checks` helper for the compact constructors; `PayrollSummary` does not copy its map, so returning an unmodifiable
+`totalByKind` is the student's job (criterion `summaryMapIsUnmodifiable`). `Ex01SolutionTest` adds one check that the
+reference solution declares no `EmployeeVisitor`. ex02's email rule is `[^@\s]+@[^@\s]+\.[^@\s]+`, and the contract's
+fake registry accepts only the referral code `SPRING26`.
+
 ## Quiz topics
 
 The four DOP rules (model data as immutable data, sealed alternatives, validate at the boundary, make illegal states

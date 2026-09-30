@@ -416,7 +416,7 @@ Legend: size S = 1–2 units, M = 3–5 units · `Verify` must pass before ticki
   - Verify: `scripts/check-docs.sh` exit 0; `scripts/build-pdf.sh modules/m09-functional-data-oriented` and inspect PDFs
   - Depends on: M09-2a (#52), M09-2b (#53)
   - Files: `modules/m09-functional-data-oriented/lesson/lesson.en.md`, `modules/m09-functional-data-oriented/lesson/lesson.tr.md`, `modules/m09-functional-data-oriented/lesson/*.pdf`, `modules/m09-functional-data-oriented/README.md`
-- [ ] **M09-4** (#55) — [m09-functional-data-oriented] Assignments + starters + solutions · `M`
+- [x] **M09-4** (#55) — [m09-functional-data-oriented] Assignments + starters + solutions · `M`
   - Acceptance: Starters compile and fail their contract tests
   - Acceptance: Solutions pass the same contract tests
   - Acceptance: Briefs (EN/TR) state goal, steps, hints, and how to run the tests
