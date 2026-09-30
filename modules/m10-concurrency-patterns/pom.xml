@@ -12,4 +12,27 @@
     </parent>
 
     <artifactId>m10-concurrency-patterns</artifactId>
+
+    <!-- Structured Concurrency (JEP 533) is a preview API in JDK 27. Owner decision 1 in
+         specs/SPEC-m10-concurrency-patterns.md: this module only compiles and tests with preview enabled; only
+         classes that use a preview API are marked (PreviewIsolationTest keeps them inside examples.structured). -->
+    <properties>
+        <!-- JaCoCo's prepare-agent prepends its agent to this property, so -Pcoverage keeps working -->
+        <argLine>--enable-preview</argLine>
+    </properties>
+
+    <build>
+        <plugins>
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <enablePreview>true</enablePreview>
+                    <compilerArgs combine.children="append">
+                        <!-- one [preview] warning per preview API use would fail -Werror; all other lint stays on -->
+                        <arg>-Xlint:-preview</arg>
+                    </compilerArgs>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 </project>
