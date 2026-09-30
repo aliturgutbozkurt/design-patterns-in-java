@@ -15,6 +15,7 @@
 
     <modules>
         <module>modules/m00-setup-and-modern-java</module>
+        <module>modules/m08-behavioral-state-structure</module>
     </modules>
 
     <properties>
