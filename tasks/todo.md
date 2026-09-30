@@ -358,7 +358,7 @@ Legend: size S = 1–2 units, M = 3–5 units · `Verify` must pass before ticki
   - Verify: Owner review
   - Depends on: M07-2b (#43)
   - Files: `specs/SPEC-m08-behavioral-state-structure.md`
-- [ ] **M08-2a** (#47) — [m08-behavioral-state-structure] State pattern examples · `M`
+- [x] **M08-2a** (#47) — [m08-behavioral-state-structure] State pattern examples · `M`
   - Acceptance: Each example has a `main` with deterministic output and runs with `java <File>.java` (no build)
   - Acceptance: Each example has JUnit/AssertJ tests of its behaviour
   - Acceptance: Modern Java 27 idioms per CLAUDE.md §5; Javadoc on public types
