@@ -277,35 +277,35 @@ Legend: size S = 1–2 units, M = 3–5 units · `Verify` must pass before ticki
 
 ## Phase 4 · M06 Behavioral I: Algorithms
 
-- [ ] **M06-1** (#36) — [m06-behavioral-algorithms] Module spec · `S`
+- [x] **M06-1** (#36) — [m06-behavioral-algorithms] Module spec · `S`
   - Acceptance: Spec follows the module-spec template and SPEC §2 scope
   - Acceptance: Every example and assignment has testable acceptance criteria
   - Acceptance: Approved by owner (comment on this issue)
   - Verify: Owner review
   - Depends on: M05-2b (#33)
   - Files: `specs/SPEC-m06-behavioral-algorithms.md`
-- [ ] **M06-2a** (#37) — [m06-behavioral-algorithms] Strategy & Template Method examples · `M`
+- [x] **M06-2a** (#37) — [m06-behavioral-algorithms] Strategy & Template Method examples · `M`
   - Acceptance: Each example has a `main` with deterministic output and runs with `java <File>.java` (no build)
   - Acceptance: Each example has JUnit/AssertJ tests of its behaviour
   - Acceptance: Modern Java 27 idioms per CLAUDE.md §5; Javadoc on public types
   - Verify: `./mvnw -q -pl modules/m06-behavioral-algorithms verify`; Run every demo with the source launcher
   - Depends on: M06-1 (#36)
   - Files: `modules/m06-behavioral-algorithms/pom.xml`, `modules/m06-behavioral-algorithms/src/main/java/.../examples/**`, `modules/m06-behavioral-algorithms/src/test/java/.../examples/**`
-- [ ] **M06-2b** (#38) — [m06-behavioral-algorithms] Command & Iterator examples · `M`
+- [x] **M06-2b** (#38) — [m06-behavioral-algorithms] Command & Iterator examples · `M`
   - Acceptance: Each example has a `main` with deterministic output and runs with `java <File>.java` (no build)
   - Acceptance: Each example has JUnit/AssertJ tests of its behaviour
   - Acceptance: Modern Java 27 idioms per CLAUDE.md §5; Javadoc on public types
   - Verify: `./mvnw -q -pl modules/m06-behavioral-algorithms verify`; Run every demo with the source launcher
   - Depends on: M06-1 (#36), M06-2a (#37)
   - Files: `modules/m06-behavioral-algorithms/pom.xml`, `modules/m06-behavioral-algorithms/src/main/java/.../examples/**`, `modules/m06-behavioral-algorithms/src/test/java/.../examples/**`
-- [ ] **M06-3** (#39) — [m06-behavioral-algorithms] Lesson EN + TR + PDF + module README · `M`
+- [x] **M06-3** (#39) — [m06-behavioral-algorithms] Lesson EN + TR + PDF + module README · `M`
   - Acceptance: Code blocks come from compiled example files (path cited)
   - Acceptance: EN/TR heading parity; Turkish characters correct
   - Acceptance: Both PDFs generated and committed; README links lesson, examples, assignments
   - Verify: `scripts/check-docs.sh` exit 0; `scripts/build-pdf.sh modules/m06-behavioral-algorithms` and inspect PDFs
   - Depends on: M06-2a (#37), M06-2b (#38)
   - Files: `modules/m06-behavioral-algorithms/lesson/lesson.en.md`, `modules/m06-behavioral-algorithms/lesson/lesson.tr.md`, `modules/m06-behavioral-algorithms/lesson/*.pdf`, `modules/m06-behavioral-algorithms/README.md`
-- [ ] **M06-4** (#40) — [m06-behavioral-algorithms] Assignments + starters + solutions · `M`
+- [x] **M06-4** (#40) — [m06-behavioral-algorithms] Assignments + starters + solutions · `M`
   - Acceptance: Starters compile and fail their contract tests
   - Acceptance: Solutions pass the same contract tests
   - Acceptance: Briefs (EN/TR) state goal, steps, hints, and how to run the tests

@@ -35,8 +35,17 @@ Kod tanımlayıcıları çevrilmez. Listede olmayan bir terim gerekiyorsa aynı 
 | Proxy | Proxy (Vekil) | |
 | Chain of Responsibility | Chain of Responsibility (Sorumluluk Zinciri) | |
 | Command | Command (Komut) | |
+| invoker / receiver (Command) | çağırıcı / alıcı | |
+| macro command | makro komut | |
+| undo / redo | geri alma / yineleme (undo/redo) | |
 | Interpreter | Interpreter (Yorumlayıcı) | |
 | Iterator | Iterator (Yineleyici) | |
+| external / internal iteration | dış / iç yineleme | |
+| fail-fast iterator | hızlı-başarısız (fail-fast) yineleyici | |
+| spliterator | spliterator (bölünebilir yineleyici) | |
+| stream gatherer; initializer / integrator / finisher | gatherer (akış toplayıcısı); başlatıcı / bütünleştirici / bitirici | |
+| in-order / pre-order / level-order traversal | ortanca sıralı / önce kök / seviye sıralı dolaşma | |
+| hook method | kanca metot (hook) | Template Method |
 | Mediator | Mediator (Arabulucu) | |
 | Memento | Memento (Hatıra) | |
 | Observer | Observer (Gözlemci) | |
