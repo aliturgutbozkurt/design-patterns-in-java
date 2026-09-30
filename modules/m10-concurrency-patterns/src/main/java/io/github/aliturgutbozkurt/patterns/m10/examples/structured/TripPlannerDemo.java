@@ -28,8 +28,10 @@ public final class TripPlannerDemo {
             throw new IllegalStateException("unexpected failure", e);
         }
 
+        var flightStarted = new CountDownLatch(1);
         var flightInterrupted = new CountDownLatch(1);
         Lookup<Trip.Flight> slowFlights = destination -> {
+            flightStarted.countDown();
             try {
                 new CountDownLatch(1).await();                  // hangs until the scope cancels it
                 return new Trip.Flight("never");
@@ -39,6 +41,7 @@ public final class TripPlannerDemo {
             }
         };
         Lookup<Trip.Hotel> noRooms = destination -> {
+            flightStarted.await();                              // fail once the flight look-up is running
             throw new IllegalStateException("no rooms in " + destination);
         };
         try {

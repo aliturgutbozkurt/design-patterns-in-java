@@ -7,6 +7,7 @@ import io.github.aliturgutbozkurt.patterns.m10.examples.structured.travel.Lookup
 import io.github.aliturgutbozkurt.patterns.m10.examples.structured.travel.Trip;
 import io.github.aliturgutbozkurt.patterns.m10.examples.structured.travel.TripPlanner;
 import io.github.aliturgutbozkurt.patterns.m10.examples.structured.travel.TripPlannerWithDeadline;
+import io.github.aliturgutbozkurt.patterns.m10.support.Await;
 import io.github.aliturgutbozkurt.patterns.m10.support.Demos;
 import java.time.Duration;
 import java.util.concurrent.CountDownLatch;
@@ -24,9 +25,13 @@ class TripPlannerTest {
     private static final Trip.Hotel HOTEL = new Trip.Hotel("Casa Azul");
     private static final Trip.Forecast FORECAST = new Trip.Forecast("sunny, 24 C");
 
-    /** A look-up that blocks until it is interrupted, and counts down {@code interrupted} when that happens. */
-    private static <T> Lookup<T> blockedUntilInterrupted(CountDownLatch interrupted) {
+    /**
+     * A look-up that signals {@code started}, blocks until it is interrupted, and counts down {@code interrupted}
+     * when that happens.
+     */
+    private static <T> Lookup<T> blockedUntilInterrupted(CountDownLatch started, CountDownLatch interrupted) {
         return _ -> {
+            started.countDown();
             try {
                 new CountDownLatch(1).await();          // never opened: only cancellation ends this
                 throw new AssertionError("unreachable");
@@ -45,9 +50,11 @@ class TripPlannerTest {
 
     @Test
     void aFailingHotelCancelsTheScopeAndTheBlockedFlightLookupIsInterruptedBeforePlanReturns() {
+        var flightStarted = new CountDownLatch(1);
         var flightInterrupted = new CountDownLatch(1);
         var noRooms = new IllegalStateException("no rooms in Lisbon");
-        var planner = new TripPlanner(blockedUntilInterrupted(flightInterrupted), _ -> {
+        var planner = new TripPlanner(blockedUntilInterrupted(flightStarted, flightInterrupted), _ -> {
+            Await.latch(flightStarted);                 // fail only once the flight look-up is really running
             throw noRooms;
         }, _ -> FORECAST);
 
@@ -58,11 +65,13 @@ class TripPlannerTest {
 
     @Test
     void theCancelledSiblingStaysUnavailable() throws InterruptedException {
+        var started = new CountDownLatch(1);
         var interrupted = new CountDownLatch(1);
-        Lookup<Trip.Flight> blocked = blockedUntilInterrupted(interrupted);
+        Lookup<Trip.Flight> blocked = blockedUntilInterrupted(started, interrupted);
         try (var scope = StructuredTaskScope.open(StructuredTaskScope.Joiner.<Object>allSuccessfulOrThrow())) {
             var flight = scope.fork(() -> blocked.find("Lisbon"));
             scope.fork(() -> {
+                Await.latch(started);
                 throw new IllegalStateException("hotel down");
             });
             assertThatThrownBy(scope::join).isInstanceOf(ExecutionException.class);
@@ -74,12 +83,12 @@ class TripPlannerTest {
 
     @Test
     void aDeadlineCancelsTheScopeWithCancelledByTimeoutException() {
-        var weatherInterrupted = new CountDownLatch(1);
+        // the weather look-up never finishes; whether its thread even started before the 50 ms expired is up to
+        // the scheduler, so only the outcome is asserted
         var planner = new TripPlannerWithDeadline(_ -> FLIGHT, _ -> HOTEL,
-                blockedUntilInterrupted(weatherInterrupted), Duration.ofMillis(50));
+                blockedUntilInterrupted(new CountDownLatch(1), new CountDownLatch(1)), Duration.ofMillis(50));
         assertThatThrownBy(() -> planner.plan("Lisbon")).isInstanceOf(ExecutionException.class)
                 .hasCauseInstanceOf(StructuredTaskScope.CancelledByTimeoutException.class);
-        assertThat(weatherInterrupted.getCount()).isZero();
     }
 
     @Test
