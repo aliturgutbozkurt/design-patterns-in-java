@@ -402,7 +402,7 @@ Legend: size S = 1–2 units, M = 3–5 units · `Verify` must pass before ticki
   - Verify: `./mvnw -q -pl modules/m09-functional-data-oriented verify`; Run every demo with the source launcher
   - Depends on: M09-1 (#51)
   - Files: `modules/m09-functional-data-oriented/pom.xml`, `modules/m09-functional-data-oriented/src/main/java/.../examples/**`, `modules/m09-functional-data-oriented/src/test/java/.../examples/**`
-- [ ] **M09-2b** (#53) — [m09-functional-data-oriented] Functional replacements for GoF patterns · `M`
+- [x] **M09-2b** (#53) — [m09-functional-data-oriented] Functional replacements for GoF patterns · `M`
   - Acceptance: Each example has a `main` with deterministic output and runs with `java <File>.java` (no build)
   - Acceptance: Each example has JUnit/AssertJ tests of its behaviour
   - Acceptance: Modern Java 27 idioms per CLAUDE.md §5; Javadoc on public types
