@@ -305,7 +305,7 @@ Legend: size S = 1–2 units, M = 3–5 units · `Verify` must pass before ticki
   - Verify: `scripts/check-docs.sh` exit 0; `scripts/build-pdf.sh modules/m06-behavioral-algorithms` and inspect PDFs
   - Depends on: M06-2a (#37), M06-2b (#38)
   - Files: `modules/m06-behavioral-algorithms/lesson/lesson.en.md`, `modules/m06-behavioral-algorithms/lesson/lesson.tr.md`, `modules/m06-behavioral-algorithms/lesson/*.pdf`, `modules/m06-behavioral-algorithms/README.md`
-- [ ] **M06-4** (#40) — [m06-behavioral-algorithms] Assignments + starters + solutions · `M`
+- [x] **M06-4** (#40) — [m06-behavioral-algorithms] Assignments + starters + solutions · `M`
   - Acceptance: Starters compile and fail their contract tests
   - Acceptance: Solutions pass the same contract tests
   - Acceptance: Briefs (EN/TR) state goal, steps, hints, and how to run the tests
