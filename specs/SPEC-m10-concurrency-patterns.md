@@ -1,6 +1,6 @@
 # Spec: m10-concurrency-patterns — Concurrency Patterns
 
-> Status: DRAFT · Parent: [SPEC.md](../SPEC.md) §2 · Week: 12 · Task: #56
+> Status: **APPROVED** (owner, 2026-09-30) · Parent: [SPEC.md](../SPEC.md) §2 · Week: 12 · Task: #56
 
 ## Objective
 
@@ -283,7 +283,9 @@ CPU-bound work beyond a sidebar; actors and distributed messaging; `Semaphore` t
 graded use of preview APIs; Lazy Constants (JEP 531, sidebar in m02/m09 only); performance benchmarking (JMH); the
 capstone's optional structured-concurrency extension (specified in the capstone spec).
 
-## Open questions for the owner
+## Decisions (owner, 2026-09-30)
+
+All questions below were answered **yes**: the recommended defaults apply (including any build or dependency change they describe).
 
 1. **Preview build change for m10 (ask first, CLAUDE.md §9).** This is the concrete change in
    `modules/m10-concurrency-patterns/pom.xml` only (the parent POM, CI and other modules are untouched). It was

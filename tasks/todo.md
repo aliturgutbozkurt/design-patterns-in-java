@@ -425,7 +425,7 @@ Legend: size S = 1–2 units, M = 3–5 units · `Verify` must pass before ticki
   - Files: `modules/m09-functional-data-oriented/assignments/*.md`, `modules/m09-functional-data-oriented/src/main/java/.../{exercises,solutions}/**`, `modules/m09-functional-data-oriented/src/test/java/.../{exercises,solutions}/**`
 ## Phase 4 · M10 Concurrency Patterns
 
-- [ ] **M10-1** (#56) — [m10-concurrency-patterns] Module spec · `S`
+- [x] **M10-1** (#56) — [m10-concurrency-patterns] Module spec · `S`
   - Acceptance: Spec follows the module-spec template and SPEC §2 scope
   - Acceptance: Every example and assignment has testable acceptance criteria
   - Acceptance: Approved by owner (comment on this issue)
