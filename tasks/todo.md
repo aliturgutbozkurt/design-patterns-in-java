@@ -342,7 +342,7 @@ Legend: size S = 1–2 units, M = 3–5 units · `Verify` must pass before ticki
   - Verify: `scripts/check-docs.sh` exit 0; `scripts/build-pdf.sh modules/m07-behavioral-communication` and inspect PDFs
   - Depends on: M07-2a (#42), M07-2b (#43)
   - Files: `modules/m07-behavioral-communication/lesson/lesson.en.md`, `modules/m07-behavioral-communication/lesson/lesson.tr.md`, `modules/m07-behavioral-communication/lesson/*.pdf`, `modules/m07-behavioral-communication/README.md`
-- [ ] **M07-4** (#45) — [m07-behavioral-communication] Assignments + starters + solutions · `M`
+- [x] **M07-4** (#45) — [m07-behavioral-communication] Assignments + starters + solutions · `M`
   - Acceptance: Starters compile and fail their contract tests
   - Acceptance: Solutions pass the same contract tests
   - Acceptance: Briefs (EN/TR) state goal, steps, hints, and how to run the tests

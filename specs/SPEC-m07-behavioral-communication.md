@@ -111,7 +111,7 @@ moves it to the end; `ArrayDeque.reversed()` is a live `Deque` view; `java.util.
 - **Goal:** build a subject with typed, unsubscribable listeners and well-defined delivery rules.
 - **Given (do not modify):** record `Bid(String bidder, long amountCents)`; `sealed interface AuctionEvent permits
   BidPlaced, BidRejected, Sold, Unsold` with records `BidPlaced(Bid bid)`, `BidRejected(Bid bid, String reason)`,
-  `Sold(Bid winningBid)`, `Unsold()`; interface `Subscription` (`void close()`); interface `Auction`
+  `Sold(Bid winningBid)`, `Unsold()`; interface `Subscription` (`void close()`, extends `AutoCloseable`); interface `Auction`
   (`Subscription subscribe(Consumer<? super AuctionEvent>)`, `<E extends AuctionEvent> Subscription
   subscribe(Class<E> type, Consumer<? super E>)`, `void placeBid(Bid)`, `void close()`, `Optional<Bid>
   highestBid()`).
@@ -127,6 +127,7 @@ moves it to the end; `ArrayDeque.reversed()` is a live `Deque` view; `java.util.
   `rejectsBidBelowMinimumIncrement`, `highestBidReflectsAcceptedBidsOnly`, `listenersNotifiedInSubscriptionOrder`,
   `typedSubscriptionReceivesOnlyItsEventType`, `closedSubscriptionReceivesNothing`,
   `closingASubscriptionTwiceIsHarmless`, `unsubscribingDuringDeliveryTakesEffectFromTheNextEvent`,
+  `subscribingDuringDeliveryTakesEffectFromTheNextEvent`,
   `failingListenerDoesNotStopOthers`, `closeWithBidsPublishesSold`, `closeWithoutBidsPublishesUnsold`,
   `closeIsPublishedOnlyOnce`, `bidsAfterCloseAreRejected`, `rejectsNullArguments`.
 
@@ -144,7 +145,7 @@ moves it to the end; `ArrayDeque.reversed()` is a live `Deque` view; `java.util.
   20 000.00; boundaries are inclusive. If no link decides, the result is `Rejected("chain", "no approver could
   decide")`. The trail lists the names of every approver that reviewed the expense, in order. The chain stops at the
   first decision.
-- **Student writes:** `PolicyCheck`, `TeamLead`, `Manager`, `Director` (each `implements Approver`) and
+- **Student writes:** `PolicyCheck` (`"policy check"`; reasons `"amount must be positive"`, `"meals above 100.00"`), `TeamLead` (`"team lead"`), `Manager` (`"manager"`), `Director` (`"director"`) (each `implements Approver`; the starters already return these names) and
   `ApprovalChains` with static factories `standard()` (policy → team lead → manager → director) and
   `of(List<Approver>)` (any approvers, in the given order).
 - **Acceptance criteria (contract tests):** `smallTravelExpenseApprovedByTeamLead`, `equipmentSkipsTeamLead`,
