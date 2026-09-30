@@ -4,7 +4,6 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import java.time.Duration;
 import java.util.concurrent.CountDownLatch;
-import java.util.concurrent.CyclicBarrier;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -46,10 +45,5 @@ public final class Await {
     /** Waits (bounded) for {@code thread} to end and asserts that it did. */
     public static void terminated(Thread thread) throws InterruptedException {
         assertThat(thread.join(BOUND)).as("%s terminated within %s", thread, BOUND).isTrue();
-    }
-
-    /** A barrier for {@code parties} threads; used inside tasks to prove they are in flight together. */
-    public static void barrier(CyclicBarrier barrier) throws Exception {
-        barrier.await(BOUND.toMillis(), TimeUnit.MILLISECONDS);
     }
 }
