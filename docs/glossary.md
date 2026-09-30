@@ -39,6 +39,9 @@ Kod tanımlayıcıları çevrilmez. Listede olmayan bir terim gerekiyorsa aynı 
 | Template Method | Template Method (Şablon Metot) | |
 | Visitor | Visitor (Ziyaretçi) | |
 | Producer–Consumer | Producer–Consumer (Üretici–Tüketici) | |
+| Guarded Suspension | Guarded Suspension (Korumalı Bekletme) | koşul sağlanana dek bekle |
+| Balking | Balking (Vazgeçme) | koşul yoksa hemen dön |
+| Immutable Object | Immutable Object (Değişmez Nesne) | |
 | Repository | Repository (Depo) | |
 | Dependency Injection | Dependency Injection (Bağımlılık Enjeksiyonu) | kısaltma: DI |
 | Ports and Adapters / Hexagonal Architecture | Ports and Adapters (Portlar ve Adaptörler) / Altıgen Mimari | |
@@ -88,6 +91,15 @@ Kod tanımlayıcıları çevrilmez. Listede olmayan bir terim gerekiyorsa aynı 
 | generic type | jenerik tip |
 | virtual thread | sanal iş parçacığı (virtual thread) |
 | platform thread | platform iş parçacığı |
+| thread-per-task | görev başına iş parçacığı (thread-per-task) |
+| carrier thread / pinning | taşıyıcı iş parçacığı / sabitlenme (pinning) |
+| bounded queue / poison pill | sınırlı kuyruk / zehirli hap (poison pill) |
+| guard / spurious wake-up | koruma koşulu (guard) / sahte uyanma (spurious wake-up) |
+| monitor / condition (variable) | monitör / koşul (değişkeni) |
+| copy-on-write / safe publication | yazarken kopyalama (copy-on-write) / güvenli yayınlama |
+| fan-out / fan-in | dağıtma / toplama (fan-out / fan-in) |
+| deadline / timeout / cancellation | son süre (deadline) / zaman aşımı (timeout) / iptal |
+| subtask / owner thread / joiner | alt görev / sahip iş parçacığı / birleştirici (joiner) |
 | structured concurrency | yapılandırılmış eşzamanlılık |
 | scoped value | kapsamlı değer (scoped value) |
 | thread-safe | iş parçacığı güvenli |
