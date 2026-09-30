@@ -439,7 +439,7 @@ Legend: size S = 1–2 units, M = 3–5 units · `Verify` must pass before ticki
   - Verify: `./mvnw -q -pl modules/m10-concurrency-patterns verify`; Run every demo with the source launcher
   - Depends on: M10-1 (#56)
   - Files: `modules/m10-concurrency-patterns/pom.xml`, `modules/m10-concurrency-patterns/src/main/java/.../examples/**`, `modules/m10-concurrency-patterns/src/test/java/.../examples/**`
-- [ ] **M10-2b** (#58) — [m10-concurrency-patterns] Structured Concurrency, Scoped Values & CompletableFuture examples · `M`
+- [x] **M10-2b** (#58) — [m10-concurrency-patterns] Structured Concurrency, Scoped Values & CompletableFuture examples · `M`
   - Acceptance: Each example has a `main` with deterministic output and runs with `java <File>.java` (no build)
   - Acceptance: Each example has JUnit/AssertJ tests of its behaviour
   - Acceptance: Modern Java 27 idioms per CLAUDE.md §5; Javadoc on public types
