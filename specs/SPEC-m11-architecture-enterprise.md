@@ -1,6 +1,6 @@
 # Spec: m11-architecture-enterprise — Architecture & Enterprise Patterns
 
-> Status: DRAFT · Parent: [SPEC.md](../SPEC.md) §2 · Week: 13 · Task: #61
+> Status: **APPROVED** (owner, 2026-09-30) · Parent: [SPEC.md](../SPEC.md) §2 · Week: 13 · Task: #61
 
 ## Objective
 
@@ -233,7 +233,9 @@ maps) beyond a mention; JPMS modules as an architecture-enforcement tool beyond 
 (Mockito) beyond a mention; ArchUnit `FreezingArchRule` and PlantUML-based rules; payment compensation when saving
 fails after a successful charge; preview features.
 
-## Open questions for the owner
+## Decisions (owner, 2026-09-30)
+
+All questions below were answered **yes**: the recommended defaults apply (including any build or dependency change they describe).
 
 1. **ArchUnit test dependency (CLAUDE.md "ask first").** The parent `pom.xml` already pins
    `com.tngtech.archunit:archunit-junit5` in `dependencyManagement` (`archunit.version` = 1.5.1), but no module uses

@@ -462,7 +462,7 @@ Legend: size S = 1–2 units, M = 3–5 units · `Verify` must pass before ticki
   - Files: `modules/m10-concurrency-patterns/assignments/*.md`, `modules/m10-concurrency-patterns/src/main/java/.../{exercises,solutions}/**`, `modules/m10-concurrency-patterns/src/test/java/.../{exercises,solutions}/**`
 ## Phase 4 · M11 Architecture & Enterprise
 
-- [ ] **M11-1** (#61) — [m11-architecture-enterprise] Module spec · `S`
+- [x] **M11-1** (#61) — [m11-architecture-enterprise] Module spec · `S`
   - Acceptance: Spec follows the module-spec template and SPEC §2 scope
   - Acceptance: Every example and assignment has testable acceptance criteria
   - Acceptance: Approved by owner (comment on this issue)
