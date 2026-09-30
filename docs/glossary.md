@@ -28,12 +28,22 @@ Kod tanımlayıcıları çevrilmez. Listede olmayan bir terim gerekiyorsa aynı 
 | Flyweight | Flyweight (Sinek Siklet) | |
 | Proxy | Proxy (Vekil) | |
 | Chain of Responsibility | Chain of Responsibility (Sorumluluk Zinciri) | |
+| middleware | ara katman yazılımı (middleware) | Chain of Responsibility'nin "önce ve sonra" biçimi |
+| fail-fast / collect-all (validation) | ilk hatada dur (fail-fast) / tüm hataları topla (collect-all) | |
 | Command | Command (Komut) | |
 | Interpreter | Interpreter (Yorumlayıcı) | |
 | Iterator | Iterator (Yineleyici) | |
 | Mediator | Mediator (Arabulucu) | |
+| colleague (Mediator role) | iş arkadaşı (colleague) | |
 | Memento | Memento (Hatıra) | |
+| originator / caretaker (Memento roles) | kaynak (originator) / bekçi (caretaker) | |
+| snapshot | anlık görüntü (snapshot) | |
+| undo / redo | geri al / yinele | |
 | Observer | Observer (Gözlemci) | |
+| subject / listener / subscription | özne / dinleyici / abonelik | |
+| lapsed listener | unutulmuş dinleyici (lapsed listener) | bellek sızıntısı |
+| event bus / dead event | olay veri yolu (event bus) / ölü olay (dead event) | |
+| back-pressure / demand | geri basınç (back-pressure) / talep (demand) | `java.util.concurrent.Flow` |
 | State | State (Durum) | |
 | Strategy | Strategy (Strateji) | |
 | Template Method | Template Method (Şablon Metot) | |

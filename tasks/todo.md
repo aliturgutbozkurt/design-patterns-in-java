@@ -335,7 +335,7 @@ Legend: size S = 1–2 units, M = 3–5 units · `Verify` must pass before ticki
   - Verify: `./mvnw -q -pl modules/m07-behavioral-communication verify`; Run every demo with the source launcher
   - Depends on: M07-1 (#41), M07-2a (#42)
   - Files: `modules/m07-behavioral-communication/pom.xml`, `modules/m07-behavioral-communication/src/main/java/.../examples/**`, `modules/m07-behavioral-communication/src/test/java/.../examples/**`
-- [ ] **M07-3** (#44) — [m07-behavioral-communication] Lesson EN + TR + PDF + module README · `M`
+- [x] **M07-3** (#44) — [m07-behavioral-communication] Lesson EN + TR + PDF + module README · `M`
   - Acceptance: Code blocks come from compiled example files (path cited)
   - Acceptance: EN/TR heading parity; Turkish characters correct
   - Acceptance: Both PDFs generated and committed; README links lesson, examples, assignments
