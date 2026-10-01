@@ -101,6 +101,7 @@ Kod tanımlayıcıları çevrilmez. Listede olmayan bir terim gerekiyorsa aynı 
 | view (vs. copy) | görünüm (kopyaya karşı) |
 | memoization | bellekleme (memoization) |
 | double dispatch | çift yönlendirme (double dispatch) |
+| state machine / state transition | durum makinesi / durum geçişi |
 | invariant | değişmez (invariant) |
 | immutable / immutability | değişmez / değişmezlik |
 | side effect | yan etki |
@@ -121,6 +122,7 @@ Kod tanımlayıcıları çevrilmez. Listede olmayan bir terim gerekiyorsa aynı 
 | pattern matching | desen eşleme (pattern matching) |
 | record pattern | record deseni |
 | exhaustive switch | eksiksiz (exhaustive) switch |
+| guard (`case … when …`) | koşul (guard, `when`) |
 | compact constructor | kompakt kurucu |
 | telescoping constructor | teleskopik kurucu |
 | copy constructor | kopya kurucu (copy constructor) |
@@ -147,6 +149,10 @@ Kod tanımlayıcıları çevrilmez. Listede olmayan bir terim gerekiyorsa aynı 
 | data-oriented programming | veri odaklı programlama |
 | value-based class | değer tabanlı sınıf (value-based class) |
 | compact object headers (JEP 534) | sıkıştırılmış nesne başlıkları |
+| abstract syntax tree (AST) | soyut sözdizimi ağacı (AST) |
+| lexer / parser | sözcük çözümleyici (lexer) / ayrıştırıcı (parser) |
+| recursive descent | özyinelemeli iniş (recursive descent) |
+| operator precedence / associativity | operatör önceliği / birleşme yönü (associativity) |
 
 ## Testing & tooling · Test ve araçlar
 

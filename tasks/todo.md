@@ -351,35 +351,35 @@ Legend: size S = 1–2 units, M = 3–5 units · `Verify` must pass before ticki
   - Files: `modules/m07-behavioral-communication/assignments/*.md`, `modules/m07-behavioral-communication/src/main/java/.../{exercises,solutions}/**`, `modules/m07-behavioral-communication/src/test/java/.../{exercises,solutions}/**`
 ## Phase 4 · M08 Behavioral III: State & Structure
 
-- [ ] **M08-1** (#46) — [m08-behavioral-state-structure] Module spec · `S`
+- [x] **M08-1** (#46) — [m08-behavioral-state-structure] Module spec · `S`
   - Acceptance: Spec follows the module-spec template and SPEC §2 scope
   - Acceptance: Every example and assignment has testable acceptance criteria
   - Acceptance: Approved by owner (comment on this issue)
   - Verify: Owner review
   - Depends on: M07-2b (#43)
   - Files: `specs/SPEC-m08-behavioral-state-structure.md`
-- [ ] **M08-2a** (#47) — [m08-behavioral-state-structure] State pattern examples · `M`
+- [x] **M08-2a** (#47) — [m08-behavioral-state-structure] State pattern examples · `M`
   - Acceptance: Each example has a `main` with deterministic output and runs with `java <File>.java` (no build)
   - Acceptance: Each example has JUnit/AssertJ tests of its behaviour
   - Acceptance: Modern Java 27 idioms per CLAUDE.md §5; Javadoc on public types
   - Verify: `./mvnw -q -pl modules/m08-behavioral-state-structure verify`; Run every demo with the source launcher
   - Depends on: M08-1 (#46)
   - Files: `modules/m08-behavioral-state-structure/pom.xml`, `modules/m08-behavioral-state-structure/src/main/java/.../examples/**`, `modules/m08-behavioral-state-structure/src/test/java/.../examples/**`
-- [ ] **M08-2b** (#48) — [m08-behavioral-state-structure] Visitor & Interpreter examples · `M`
+- [x] **M08-2b** (#48) — [m08-behavioral-state-structure] Visitor & Interpreter examples · `M`
   - Acceptance: Each example has a `main` with deterministic output and runs with `java <File>.java` (no build)
   - Acceptance: Each example has JUnit/AssertJ tests of its behaviour
   - Acceptance: Modern Java 27 idioms per CLAUDE.md §5; Javadoc on public types
   - Verify: `./mvnw -q -pl modules/m08-behavioral-state-structure verify`; Run every demo with the source launcher
   - Depends on: M08-1 (#46), M08-2a (#47)
   - Files: `modules/m08-behavioral-state-structure/pom.xml`, `modules/m08-behavioral-state-structure/src/main/java/.../examples/**`, `modules/m08-behavioral-state-structure/src/test/java/.../examples/**`
-- [ ] **M08-3** (#49) — [m08-behavioral-state-structure] Lesson EN + TR + PDF + module README · `M`
+- [x] **M08-3** (#49) — [m08-behavioral-state-structure] Lesson EN + TR + PDF + module README · `M`
   - Acceptance: Code blocks come from compiled example files (path cited)
   - Acceptance: EN/TR heading parity; Turkish characters correct
   - Acceptance: Both PDFs generated and committed; README links lesson, examples, assignments
   - Verify: `scripts/check-docs.sh` exit 0; `scripts/build-pdf.sh modules/m08-behavioral-state-structure` and inspect PDFs
   - Depends on: M08-2a (#47), M08-2b (#48)
   - Files: `modules/m08-behavioral-state-structure/lesson/lesson.en.md`, `modules/m08-behavioral-state-structure/lesson/lesson.tr.md`, `modules/m08-behavioral-state-structure/lesson/*.pdf`, `modules/m08-behavioral-state-structure/README.md`
-- [ ] **M08-4** (#50) — [m08-behavioral-state-structure] Assignments + starters + solutions · `M`
+- [x] **M08-4** (#50) — [m08-behavioral-state-structure] Assignments + starters + solutions · `M`
   - Acceptance: Starters compile and fail their contract tests
   - Acceptance: Solutions pass the same contract tests
   - Acceptance: Briefs (EN/TR) state goal, steps, hints, and how to run the tests
