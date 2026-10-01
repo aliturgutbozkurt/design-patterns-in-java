@@ -73,6 +73,23 @@ class ConnectionPoolTest {
     }
 
     @Test
+    void aFailingFactoryDoesNotLeakAPermit() throws InterruptedException {
+        var attempts = new int[1];
+        var pool = new ConnectionPool(1, n -> {
+            if (attempts[0]++ == 0) {
+                throw new IllegalStateException("database down");
+            }
+            return new FakeConnection(n);
+        });
+        assertThatIllegalStateException().isThrownBy(() -> pool.acquire(ONE_SECOND)).withMessage("database down");
+        assertThat(pool.inUse()).isZero();
+        assertThat(pool.created()).isZero();
+        try (PooledConnection lease = pool.acquire(Duration.ofMillis(50))) {   // the only permit is free again
+            assertThat(lease.query("x")).isEqualTo("conn-1: x");
+        }
+    }
+
+    @Test
     void demoPrintsOnlyOrderIndependentFacts() {
         assertThat(Console.capture(() -> {
             try {

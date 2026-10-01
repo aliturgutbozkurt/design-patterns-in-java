@@ -386,7 +386,13 @@ tembel olarak oluşturulur; bir zaman aşımı sonsuza dek beklemeyi önler:
         synchronized (this) {
             connection = idle.pollFirst();
             if (connection == null) {
-                connection = factory.apply(++created);
+                try {
+                    connection = factory.apply(created + 1);
+                } catch (RuntimeException e) {
+                    permits.release();                          // a failed creation must not shrink the pool
+                    throw e;
+                }
+                created++;
             }
             inUse++;
             maxInUse = Math.max(maxInUse, inUse);
