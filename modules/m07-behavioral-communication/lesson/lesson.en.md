@@ -268,6 +268,7 @@ the new event overtakes the one being delivered, and later handlers see them in 
             }
         } finally {
             dispatching = false;
+            pending.clear(); // non-empty only if a handler threw: drop what it queued
         }
     }
 ```

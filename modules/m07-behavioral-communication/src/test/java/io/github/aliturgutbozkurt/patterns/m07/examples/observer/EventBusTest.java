@@ -27,6 +27,19 @@ class EventBusTest {
     private final List<String> received = new ArrayList<>();
 
     @Test
+    void eventsQueuedByAFailingDispatchDoNotLeakIntoTheNextPublish() {
+        bus.subscribe(OrderPlaced.class, placed -> {
+            bus.publish(SHIPPED);                                   // queued behind PLACED
+            throw new IllegalStateException("warehouse down");
+        });
+        bus.subscribe(ShopEvent.class, event -> received.add(event.getClass().getSimpleName()));
+        assertThatThrownBy(() -> bus.publish(PLACED)).hasMessage("warehouse down");
+        received.clear();
+        bus.publish(FAILED);
+        assertThat(received).containsExactly("PaymentFailed");
+    }
+
+    @Test
     void handlerReceivesOnlyItsEventType() {
         List<PaymentFailed> failures = new ArrayList<>();
         bus.subscribe(PaymentFailed.class, failures::add);

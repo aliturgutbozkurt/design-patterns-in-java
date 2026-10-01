@@ -273,6 +273,7 @@ Bu veri yolu onu kuyruğa alır:
             }
         } finally {
             dispatching = false;
+            pending.clear(); // non-empty only if a handler threw: drop what it queued
         }
     }
 ```

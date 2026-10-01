@@ -11,7 +11,8 @@ import java.util.function.Consumer;
 
 /**
  * Typed publish/subscribe: publishers and handlers only know the bus and the event types, never each other. Events
- * published from inside a handler are queued and delivered after the current event (no re-entrant recursion).
+ * published from inside a handler are queued and delivered after the current event (no re-entrant recursion). If a
+ * handler throws, the exception reaches the publisher and the events queued during that dispatch are dropped.
  * Single-threaded; not thread-safe.
  *
  * @see "m07 lesson, section Observer — typed event bus"
@@ -58,6 +59,7 @@ public final class EventBus {
             }
         } finally {
             dispatching = false;
+            pending.clear(); // non-empty only if a handler threw: drop what it queued
         }
     }
 
