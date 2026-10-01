@@ -10,7 +10,11 @@ import java.math.RoundingMode;
 import java.util.LinkedHashMap;
 import java.util.List;
 
-/** Run: {@code java modules/m01-oop-solid-uml/src/main/java/io/github/aliturgutbozkurt/patterns/m01/examples/ocp/OcpDemo.java} */
+/**
+ * Run: {@code java modules/m01-oop-solid-uml/src/main/java/io/github/aliturgutbozkurt/patterns/m01/examples/ocp/OcpDemo.java}
+ *
+ * @see "m01 lesson, section OCP"
+ */
 public final class OcpDemo {
 
     private OcpDemo() {}

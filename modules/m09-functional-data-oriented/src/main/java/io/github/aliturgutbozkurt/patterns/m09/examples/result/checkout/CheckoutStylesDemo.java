@@ -4,7 +4,11 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-/** Run: {@code java modules/m09-functional-data-oriented/src/main/java/io/github/aliturgutbozkurt/patterns/m09/examples/result/checkout/CheckoutStylesDemo.java} */
+/**
+ * Run: {@code java modules/m09-functional-data-oriented/src/main/java/io/github/aliturgutbozkurt/patterns/m09/examples/result/checkout/CheckoutStylesDemo.java}
+ *
+ * @see "m09 lesson, section Optional and Result — choosing an error model"
+ */
 public final class CheckoutStylesDemo {
 
     private CheckoutStylesDemo() {}

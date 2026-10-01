@@ -6,6 +6,8 @@ import java.util.Objects;
 /**
  * A whole-number percentage between 0 and 100. The {@code String} constructor shows flexible constructor bodies
  * (JEP 513, final in Java 25): we may validate and parse <em>before</em> delegating with {@code this(...)}.
+ *
+ * @see "m00 lesson, section Records as value objects"
  */
 public record Percentage(int value) {
 

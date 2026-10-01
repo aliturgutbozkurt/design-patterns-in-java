@@ -1,6 +1,10 @@
 package io.github.aliturgutbozkurt.patterns.m09.examples.features.shop.modern;
 
-/** Run: {@code java modules/m09-functional-data-oriented/src/main/java/io/github/aliturgutbozkurt/patterns/m09/examples/features/shop/modern/InvoiceRunDemo.java} */
+/**
+ * Run: {@code java modules/m09-functional-data-oriented/src/main/java/io/github/aliturgutbozkurt/patterns/m09/examples/features/shop/modern/InvoiceRunDemo.java}
+ *
+ * @see "m09 lesson, section Patterns that became language features — the combined effect"
+ */
 public final class InvoiceRunDemo {
 
     private InvoiceRunDemo() {}

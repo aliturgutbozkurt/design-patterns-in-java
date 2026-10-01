@@ -7,7 +7,11 @@ import io.github.aliturgutbozkurt.patterns.m05.examples.composite.expression.Mul
 import io.github.aliturgutbozkurt.patterns.m05.examples.composite.expression.Neg;
 import io.github.aliturgutbozkurt.patterns.m05.examples.composite.expression.Num;
 
-/** Run: {@code java modules/m05-structural-composition/src/main/java/io/github/aliturgutbozkurt/patterns/m05/examples/composite/ExpressionDemo.java} */
+/**
+ * Run: {@code java modules/m05-structural-composition/src/main/java/io/github/aliturgutbozkurt/patterns/m05/examples/composite/ExpressionDemo.java}
+ *
+ * @see "m05 lesson, section Composite"
+ */
 public final class ExpressionDemo {
 
     private ExpressionDemo() {}

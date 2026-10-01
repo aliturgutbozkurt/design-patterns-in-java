@@ -5,7 +5,11 @@ import java.util.Locale;
 import java.util.stream.Collectors;
 import java.util.stream.Gatherers;
 
-/** Run: {@code java modules/m06-behavioral-algorithms/src/main/java/io/github/aliturgutbozkurt/patterns/m06/examples/iterator/gatherers/GatherersDemo.java} */
+/**
+ * Run: {@code java modules/m06-behavioral-algorithms/src/main/java/io/github/aliturgutbozkurt/patterns/m06/examples/iterator/gatherers/GatherersDemo.java}
+ *
+ * @see "m06 lesson, section Iterator"
+ */
 public final class GatherersDemo {
 
     private GatherersDemo() {}

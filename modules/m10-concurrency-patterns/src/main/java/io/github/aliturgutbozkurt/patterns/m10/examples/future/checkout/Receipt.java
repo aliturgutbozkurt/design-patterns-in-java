@@ -8,7 +8,11 @@ package io.github.aliturgutbozkurt.patterns.m10.examples.future.checkout;
  */
 public record Receipt(String customer, Status status, long totalCents, String detail) {
 
-    /** Whether the order went through. */
+    /**
+     * Whether the order went through.
+     *
+     * @see "m10 lesson, section CompletableFuture pipelines"
+     */
     public enum Status { APPROVED, DECLINED }
 
     public static Receipt approved(String customer, long totalCents, String paymentId) {

@@ -1,6 +1,10 @@
 package io.github.aliturgutbozkurt.patterns.m00.examples.sealedtypes;
 
-/** A triangle given by its three side lengths. */
+/**
+ * A triangle given by its three side lengths.
+ *
+ * @see "m00 lesson, section Sealed hierarchies and pattern matching"
+ */
 public record Triangle(double a, double b, double c) implements Shape {
 
     public Triangle {

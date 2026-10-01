@@ -3,7 +3,11 @@ package io.github.aliturgutbozkurt.patterns.m00.examples.functional;
 import io.github.aliturgutbozkurt.patterns.m00.examples.records.Money;
 import java.util.Objects;
 
-/** One line of a customer order. */
+/**
+ * One line of a customer order.
+ *
+ * @see "m00 lesson, section Functions and streams"
+ */
 public record OrderLine(String product, String category, int quantity, Money unitPrice) {
 
     public OrderLine {

@@ -9,7 +9,11 @@ import java.time.Clock;
 import java.time.Instant;
 import java.time.ZoneOffset;
 
-/** Run: {@code java modules/m11-architecture-enterprise/src/main/java/io/github/aliturgutbozkurt/patterns/m11/examples/di/MiniContainerDemo.java} */
+/**
+ * Run: {@code java modules/m11-architecture-enterprise/src/main/java/io/github/aliturgutbozkurt/patterns/m11/examples/di/MiniContainerDemo.java}
+ *
+ * @see "m11 lesson, section Dependency Injection"
+ */
 public final class MiniContainerDemo {
 
     private MiniContainerDemo() {}

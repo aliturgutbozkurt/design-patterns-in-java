@@ -3,7 +3,11 @@ package io.github.aliturgutbozkurt.patterns.m07.examples.mediator;
 import io.github.aliturgutbozkurt.patterns.m07.examples.mediator.form.SignUpForm;
 import java.util.Locale;
 
-/** Run: {@code java modules/m07-behavioral-communication/src/main/java/io/github/aliturgutbozkurt/patterns/m07/examples/mediator/SignUpFormDemo.java} */
+/**
+ * Run: {@code java modules/m07-behavioral-communication/src/main/java/io/github/aliturgutbozkurt/patterns/m07/examples/mediator/SignUpFormDemo.java}
+ *
+ * @see "m07 lesson, section Mediator"
+ */
 public final class SignUpFormDemo {
 
     private SignUpFormDemo() {}

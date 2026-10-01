@@ -3,7 +3,11 @@ package io.github.aliturgutbozkurt.patterns.m02.examples.staticfactory;
 import java.util.List;
 import java.util.Locale;
 
-/** Run: {@code java modules/m02-creational-factories/src/main/java/io/github/aliturgutbozkurt/patterns/m02/examples/staticfactory/StaticFactoryDemo.java} */
+/**
+ * Run: {@code java modules/m02-creational-factories/src/main/java/io/github/aliturgutbozkurt/patterns/m02/examples/staticfactory/StaticFactoryDemo.java}
+ *
+ * @see "m02 lesson, section Static Factory Method"
+ */
 public final class StaticFactoryDemo {
 
     private StaticFactoryDemo() {}

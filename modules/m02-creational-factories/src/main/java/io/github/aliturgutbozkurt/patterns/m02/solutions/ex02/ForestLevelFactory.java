@@ -6,7 +6,11 @@ import io.github.aliturgutbozkurt.patterns.m02.exercises.ex02.LevelFactory;
 import io.github.aliturgutbozkurt.patterns.m02.exercises.ex02.Obstacle;
 import io.github.aliturgutbozkurt.patterns.m02.exercises.ex02.Reward;
 
-/** Reference solution for assignment 02: the forest family. */
+/**
+ * Reference solution for assignment 02: the forest family.
+ *
+ * @see "m02 lesson, section Abstract Factory"
+ */
 public class ForestLevelFactory implements LevelFactory {
 
     @Override

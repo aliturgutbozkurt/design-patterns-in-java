@@ -18,7 +18,11 @@ import java.util.regex.Pattern;
  */
 public final class HttpRequest {
 
-    /** HTTP method. */
+    /**
+     * HTTP method.
+     *
+     * @see "m03 lesson, section Builder"
+     */
     public enum Method { GET, POST, PUT, DELETE }
 
     private static final Pattern HEADER_NAME = Pattern.compile("[A-Za-z0-9-]+");

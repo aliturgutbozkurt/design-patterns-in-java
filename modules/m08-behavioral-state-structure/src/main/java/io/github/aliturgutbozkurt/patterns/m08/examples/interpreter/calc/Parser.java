@@ -31,7 +31,11 @@ public final class Parser {
 
     public static final int MAX_DEPTH = 200;
 
-    /** {@code let name = value}, one line of a {@link Program}. */
+    /**
+     * {@code let name = value}, one line of a {@link Program}.
+     *
+     * @see "m08 lesson, section Interpreter — Modern Java 27"
+     */
     public record Binding(String name, Expr value) {
 
         public Binding {

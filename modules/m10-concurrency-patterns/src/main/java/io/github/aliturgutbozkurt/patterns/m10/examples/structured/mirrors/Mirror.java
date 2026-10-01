@@ -9,7 +9,11 @@ import java.util.Objects;
  */
 public record Mirror(String name, Source source) {
 
-    /** Fetches {@code file}; may block and may fail. */
+    /**
+     * Fetches {@code file}; may block and may fail.
+     *
+     * @see "m10 lesson, section Structured Concurrency"
+     */
     @FunctionalInterface
     public interface Source {
         String fetch(String file) throws Exception;

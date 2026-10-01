@@ -4,7 +4,11 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-/** Run: {@code java modules/m00-setup-and-modern-java/src/main/java/io/github/aliturgutbozkurt/patterns/m00/examples/sealedtypes/JsonDemo.java} */
+/**
+ * Run: {@code java modules/m00-setup-and-modern-java/src/main/java/io/github/aliturgutbozkurt/patterns/m00/examples/sealedtypes/JsonDemo.java}
+ *
+ * @see "m00 lesson, section A recursive example: JSON"
+ */
 public final class JsonDemo {
 
     private JsonDemo() {}

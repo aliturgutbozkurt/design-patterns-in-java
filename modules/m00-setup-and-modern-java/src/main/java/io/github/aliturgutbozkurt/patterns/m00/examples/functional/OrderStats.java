@@ -12,7 +12,11 @@ import java.util.TreeMap;
 import java.util.stream.Collectors;
 import java.util.stream.Gatherers;
 
-/** Small stream pipelines over order lines: behaviour is passed around as lambdas and method references. */
+/**
+ * Small stream pipelines over order lines: behaviour is passed around as lambdas and method references.
+ *
+ * @see "m00 lesson, section Functions and streams"
+ */
 public final class OrderStats {
 
     private OrderStats() {}

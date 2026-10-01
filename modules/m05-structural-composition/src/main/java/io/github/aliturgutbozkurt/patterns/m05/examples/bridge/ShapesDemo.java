@@ -9,7 +9,11 @@ import io.github.aliturgutbozkurt.patterns.m05.examples.bridge.shapes.SvgRendere
 import java.util.List;
 import java.util.function.Function;
 
-/** Run: {@code java modules/m05-structural-composition/src/main/java/io/github/aliturgutbozkurt/patterns/m05/examples/bridge/ShapesDemo.java} */
+/**
+ * Run: {@code java modules/m05-structural-composition/src/main/java/io/github/aliturgutbozkurt/patterns/m05/examples/bridge/ShapesDemo.java}
+ *
+ * @see "m05 lesson, section Bridge"
+ */
 public final class ShapesDemo {
 
     private ShapesDemo() {}

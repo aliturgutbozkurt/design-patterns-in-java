@@ -8,7 +8,11 @@ import io.github.aliturgutbozkurt.patterns.m01.examples.lsp.accounts.after.Withd
 import java.math.BigDecimal;
 import java.util.List;
 
-/** Run: {@code java modules/m01-oop-solid-uml/src/main/java/io/github/aliturgutbozkurt/patterns/m01/examples/lsp/AccountDemo.java} */
+/**
+ * Run: {@code java modules/m01-oop-solid-uml/src/main/java/io/github/aliturgutbozkurt/patterns/m01/examples/lsp/AccountDemo.java}
+ *
+ * @see "m01 lesson, section LSP"
+ */
 public final class AccountDemo {
 
     private AccountDemo() {}

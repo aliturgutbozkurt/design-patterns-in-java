@@ -10,7 +10,11 @@ import java.util.List;
 import java.util.Set;
 import java.util.concurrent.atomic.AtomicInteger;
 
-/** Run: {@code java modules/m07-behavioral-communication/src/main/java/io/github/aliturgutbozkurt/patterns/m07/examples/chain/MiddlewareDemo.java} */
+/**
+ * Run: {@code java modules/m07-behavioral-communication/src/main/java/io/github/aliturgutbozkurt/patterns/m07/examples/chain/MiddlewareDemo.java}
+ *
+ * @see "m07 lesson, section Chain of Responsibility"
+ */
 public final class MiddlewareDemo {
 
     private MiddlewareDemo() {}

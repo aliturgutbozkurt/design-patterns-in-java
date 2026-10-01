@@ -8,6 +8,8 @@ import java.util.concurrent.Executors;
 
 /**
  * Run: {@code java modules/m10-concurrency-patterns/src/main/java/io/github/aliturgutbozkurt/patterns/m10/examples/immutable/LiveConfigDemo.java}
+ *
+ * @see "m10 lesson, section Immutable Object"
  */
 public final class LiveConfigDemo {
 

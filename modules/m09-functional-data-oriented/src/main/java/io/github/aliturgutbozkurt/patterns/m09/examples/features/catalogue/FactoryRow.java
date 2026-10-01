@@ -29,7 +29,11 @@ public final class FactoryRow {
 
     private FactoryRow() {}
 
-    /** Before: one factory subclass per product, chosen by a static lookup. */
+    /**
+     * Before: one factory subclass per product, chosen by a static lookup.
+     *
+     * @see "m09 lesson, section Patterns that became language features"
+     */
     public static final class Classic {
 
         abstract static class ShapeFactory {
@@ -59,7 +63,11 @@ public final class FactoryRow {
         }
     }
 
-    /** After: the registry is data; constructor references are the factories. */
+    /**
+     * After: the registry is data; constructor references are the factories.
+     *
+     * @see "m09 lesson, section Patterns that became language features"
+     */
     public static final class Modern {
 
         static final Map<String, Supplier<Shape>> SHAPES = Map.of("circle", Circle::new, "square", Square::new);

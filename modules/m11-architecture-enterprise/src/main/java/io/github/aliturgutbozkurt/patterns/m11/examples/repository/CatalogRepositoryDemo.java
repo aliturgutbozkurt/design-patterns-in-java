@@ -16,7 +16,11 @@ import io.github.aliturgutbozkurt.patterns.m11.examples.support.TempDirectory;
 import java.nio.file.Path;
 import java.util.List;
 
-/** Run: {@code java modules/m11-architecture-enterprise/src/main/java/io/github/aliturgutbozkurt/patterns/m11/examples/repository/CatalogRepositoryDemo.java} */
+/**
+ * Run: {@code java modules/m11-architecture-enterprise/src/main/java/io/github/aliturgutbozkurt/patterns/m11/examples/repository/CatalogRepositoryDemo.java}
+ *
+ * @see "m11 lesson, section Repository"
+ */
 public final class CatalogRepositoryDemo {
 
     private CatalogRepositoryDemo() {}

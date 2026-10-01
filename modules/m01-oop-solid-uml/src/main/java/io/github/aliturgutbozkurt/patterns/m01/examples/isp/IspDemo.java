@@ -8,7 +8,11 @@ import io.github.aliturgutbozkurt.patterns.m01.examples.isp.after.Printer;
 import io.github.aliturgutbozkurt.patterns.m01.examples.isp.before.MultiFunctionDevice;
 import java.util.List;
 
-/** Run: {@code java modules/m01-oop-solid-uml/src/main/java/io/github/aliturgutbozkurt/patterns/m01/examples/isp/IspDemo.java} */
+/**
+ * Run: {@code java modules/m01-oop-solid-uml/src/main/java/io/github/aliturgutbozkurt/patterns/m01/examples/isp/IspDemo.java}
+ *
+ * @see "m01 lesson, section ISP"
+ */
 public final class IspDemo {
 
     private IspDemo() {}

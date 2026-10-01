@@ -8,7 +8,11 @@ import java.util.concurrent.atomic.AtomicLong;
 import java.util.function.Consumer;
 import java.util.function.LongSupplier;
 
-/** Run: {@code java modules/m04-structural-wrappers/src/main/java/io/github/aliturgutbozkurt/patterns/m04/examples/proxy/dynamic/DynamicProxyDemo.java} */
+/**
+ * Run: {@code java modules/m04-structural-wrappers/src/main/java/io/github/aliturgutbozkurt/patterns/m04/examples/proxy/dynamic/DynamicProxyDemo.java}
+ *
+ * @see "m04 lesson, section Proxy"
+ */
 public final class DynamicProxyDemo {
 
     private DynamicProxyDemo() {}

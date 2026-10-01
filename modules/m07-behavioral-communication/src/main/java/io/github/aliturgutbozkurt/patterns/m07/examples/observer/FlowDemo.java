@@ -11,6 +11,8 @@ import io.github.aliturgutbozkurt.patterns.m07.examples.observer.flow.Temperatur
  *
  * <p>Every publisher uses the caller-runs executor {@code Runnable::run}: delivery happens synchronously inside
  * {@code subscribe}, {@code publish}, {@code request} and {@code close}, so the output is deterministic.
+ *
+ * @see "m07 lesson, section Observer"
  */
 public final class FlowDemo {
 

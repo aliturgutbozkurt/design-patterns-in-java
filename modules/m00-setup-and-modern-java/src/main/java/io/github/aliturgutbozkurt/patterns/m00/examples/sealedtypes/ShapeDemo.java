@@ -3,7 +3,11 @@ package io.github.aliturgutbozkurt.patterns.m00.examples.sealedtypes;
 import java.util.List;
 import java.util.Locale;
 
-/** Run: {@code java modules/m00-setup-and-modern-java/src/main/java/io/github/aliturgutbozkurt/patterns/m00/examples/sealedtypes/ShapeDemo.java} */
+/**
+ * Run: {@code java modules/m00-setup-and-modern-java/src/main/java/io/github/aliturgutbozkurt/patterns/m00/examples/sealedtypes/ShapeDemo.java}
+ *
+ * @see "m00 lesson, section Sealed hierarchies and pattern matching"
+ */
 public final class ShapeDemo {
 
     private ShapeDemo() {}

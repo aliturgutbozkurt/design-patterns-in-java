@@ -7,7 +7,11 @@ import java.time.Duration;
 import java.time.Instant;
 import java.time.ZoneOffset;
 
-/** Run: {@code java modules/m11-architecture-enterprise/src/main/java/io/github/aliturgutbozkurt/patterns/m11/examples/testdoubles/SessionExpiryDemo.java} */
+/**
+ * Run: {@code java modules/m11-architecture-enterprise/src/main/java/io/github/aliturgutbozkurt/patterns/m11/examples/testdoubles/SessionExpiryDemo.java}
+ *
+ * @see "m11 lesson, section Test doubles"
+ */
 public final class SessionExpiryDemo {
 
     private SessionExpiryDemo() {}

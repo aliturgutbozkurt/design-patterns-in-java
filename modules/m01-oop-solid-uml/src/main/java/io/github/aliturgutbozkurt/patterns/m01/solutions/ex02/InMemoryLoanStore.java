@@ -7,7 +7,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-/** Reference solution for assignment 02: a list keeps insertion order. */
+/**
+ * Reference solution for assignment 02: a list keeps insertion order.
+ *
+ * @see "m01 lesson, section DIP"
+ */
 public class InMemoryLoanStore implements LoanStore {
 
     private final List<Loan> loans = new ArrayList<>();

@@ -9,7 +9,11 @@ import io.github.aliturgutbozkurt.patterns.m11.examples.events.outbox.OutboxRela
 import java.util.ArrayList;
 import java.util.List;
 
-/** Run: {@code java modules/m11-architecture-enterprise/src/main/java/io/github/aliturgutbozkurt/patterns/m11/examples/events/OutboxDemo.java} */
+/**
+ * Run: {@code java modules/m11-architecture-enterprise/src/main/java/io/github/aliturgutbozkurt/patterns/m11/examples/events/OutboxDemo.java}
+ *
+ * @see "m11 lesson, section Domain events"
+ */
 public final class OutboxDemo {
 
     private OutboxDemo() {}

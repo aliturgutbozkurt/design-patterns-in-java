@@ -8,7 +8,11 @@ import io.github.aliturgutbozkurt.patterns.m02.examples.factorymethod.export.cla
 import io.github.aliturgutbozkurt.patterns.m02.examples.factorymethod.export.modern.ExportFormat;
 import java.util.List;
 
-/** Run: {@code java modules/m02-creational-factories/src/main/java/io/github/aliturgutbozkurt/patterns/m02/examples/factorymethod/ExportDemo.java} */
+/**
+ * Run: {@code java modules/m02-creational-factories/src/main/java/io/github/aliturgutbozkurt/patterns/m02/examples/factorymethod/ExportDemo.java}
+ *
+ * @see "m02 lesson, section Factory Method"
+ */
 public final class ExportDemo {
 
     private ExportDemo() {}

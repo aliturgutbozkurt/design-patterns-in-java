@@ -10,7 +10,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-/** Run: {@code java modules/m11-architecture-enterprise/src/main/java/io/github/aliturgutbozkurt/patterns/m11/examples/testdoubles/TestDoublesDemo.java} */
+/**
+ * Run: {@code java modules/m11-architecture-enterprise/src/main/java/io/github/aliturgutbozkurt/patterns/m11/examples/testdoubles/TestDoublesDemo.java}
+ *
+ * @see "m11 lesson, section Test doubles"
+ */
 public final class TestDoublesDemo {
 
     private TestDoublesDemo() {}

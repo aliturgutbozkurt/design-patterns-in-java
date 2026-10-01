@@ -5,7 +5,11 @@ import io.github.aliturgutbozkurt.patterns.m05.examples.composite.orgchart.Emplo
 import io.github.aliturgutbozkurt.patterns.m05.examples.composite.orgchart.Engineer;
 import io.github.aliturgutbozkurt.patterns.m05.examples.composite.orgchart.Manager;
 
-/** Run: {@code java modules/m05-structural-composition/src/main/java/io/github/aliturgutbozkurt/patterns/m05/examples/composite/OrgChartDemo.java} */
+/**
+ * Run: {@code java modules/m05-structural-composition/src/main/java/io/github/aliturgutbozkurt/patterns/m05/examples/composite/OrgChartDemo.java}
+ *
+ * @see "m05 lesson, section Composite"
+ */
 public final class OrgChartDemo {
 
     private OrgChartDemo() {}

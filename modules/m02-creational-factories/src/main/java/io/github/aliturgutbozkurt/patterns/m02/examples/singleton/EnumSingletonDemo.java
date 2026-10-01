@@ -8,7 +8,11 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.UncheckedIOException;
 
-/** Run: {@code java modules/m02-creational-factories/src/main/java/io/github/aliturgutbozkurt/patterns/m02/examples/singleton/EnumSingletonDemo.java} */
+/**
+ * Run: {@code java modules/m02-creational-factories/src/main/java/io/github/aliturgutbozkurt/patterns/m02/examples/singleton/EnumSingletonDemo.java}
+ *
+ * @see "m02 lesson, section Singleton"
+ */
 public final class EnumSingletonDemo {
 
     private EnumSingletonDemo() {}

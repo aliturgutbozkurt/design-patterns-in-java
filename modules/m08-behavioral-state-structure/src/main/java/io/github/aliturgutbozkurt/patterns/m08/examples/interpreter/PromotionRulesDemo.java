@@ -10,7 +10,11 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Set;
 
-/** Run: {@code java modules/m08-behavioral-state-structure/src/main/java/io/github/aliturgutbozkurt/patterns/m08/examples/interpreter/PromotionRulesDemo.java} */
+/**
+ * Run: {@code java modules/m08-behavioral-state-structure/src/main/java/io/github/aliturgutbozkurt/patterns/m08/examples/interpreter/PromotionRulesDemo.java}
+ *
+ * @see "m08 lesson, section Interpreter"
+ */
 public final class PromotionRulesDemo {
 
     private PromotionRulesDemo() {}

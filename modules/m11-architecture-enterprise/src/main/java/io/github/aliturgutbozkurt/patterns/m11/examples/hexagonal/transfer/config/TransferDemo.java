@@ -4,7 +4,11 @@ import io.github.aliturgutbozkurt.patterns.m11.examples.hexagonal.transfer.domai
 import io.github.aliturgutbozkurt.patterns.m11.examples.hexagonal.transfer.domain.Money;
 import java.util.List;
 
-/** Run: {@code java modules/m11-architecture-enterprise/src/main/java/io/github/aliturgutbozkurt/patterns/m11/examples/hexagonal/transfer/config/TransferDemo.java} */
+/**
+ * Run: {@code java modules/m11-architecture-enterprise/src/main/java/io/github/aliturgutbozkurt/patterns/m11/examples/hexagonal/transfer/config/TransferDemo.java}
+ *
+ * @see "m11 lesson, section Ports and Adapters"
+ */
 public final class TransferDemo {
 
     private TransferDemo() {}

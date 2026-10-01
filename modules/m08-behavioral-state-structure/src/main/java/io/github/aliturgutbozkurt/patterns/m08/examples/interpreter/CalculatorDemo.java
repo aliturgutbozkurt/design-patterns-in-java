@@ -12,7 +12,11 @@ import io.github.aliturgutbozkurt.patterns.m08.examples.interpreter.calc.Simplif
 import java.util.List;
 import java.util.Locale;
 
-/** Run: {@code java modules/m08-behavioral-state-structure/src/main/java/io/github/aliturgutbozkurt/patterns/m08/examples/interpreter/CalculatorDemo.java} */
+/**
+ * Run: {@code java modules/m08-behavioral-state-structure/src/main/java/io/github/aliturgutbozkurt/patterns/m08/examples/interpreter/CalculatorDemo.java}
+ *
+ * @see "m08 lesson, section Interpreter"
+ */
 public final class CalculatorDemo {
 
     private CalculatorDemo() {}

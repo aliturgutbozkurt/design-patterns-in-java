@@ -10,7 +10,11 @@ import java.util.Objects;
  */
 public record JobResult(Job job, Status status, String message, int attempts) {
 
-    /** Outcome of a job after all its attempts. */
+    /**
+     * Outcome of a job after all its attempts.
+     *
+     * @see "m06 lesson, section Command"
+     */
     public enum Status { SUCCEEDED, FAILED }
 
     public JobResult {

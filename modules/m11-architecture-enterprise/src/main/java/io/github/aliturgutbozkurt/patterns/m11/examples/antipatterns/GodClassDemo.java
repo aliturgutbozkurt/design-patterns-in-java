@@ -14,7 +14,11 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-/** Run: {@code java modules/m11-architecture-enterprise/src/main/java/io/github/aliturgutbozkurt/patterns/m11/examples/antipatterns/GodClassDemo.java} */
+/**
+ * Run: {@code java modules/m11-architecture-enterprise/src/main/java/io/github/aliturgutbozkurt/patterns/m11/examples/antipatterns/GodClassDemo.java}
+ *
+ * @see "m11 lesson, section Anti-patterns"
+ */
 public final class GodClassDemo {
 
     private GodClassDemo() {}

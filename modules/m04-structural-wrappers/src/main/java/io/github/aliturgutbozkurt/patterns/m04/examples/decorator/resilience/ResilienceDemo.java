@@ -5,7 +5,11 @@ import java.util.Map;
 import java.util.function.Consumer;
 import java.util.stream.Collectors;
 
-/** Run: {@code java modules/m04-structural-wrappers/src/main/java/io/github/aliturgutbozkurt/patterns/m04/examples/decorator/resilience/ResilienceDemo.java} */
+/**
+ * Run: {@code java modules/m04-structural-wrappers/src/main/java/io/github/aliturgutbozkurt/patterns/m04/examples/decorator/resilience/ResilienceDemo.java}
+ *
+ * @see "m04 lesson, section Decorator"
+ */
 public final class ResilienceDemo {
 
     private ResilienceDemo() {}

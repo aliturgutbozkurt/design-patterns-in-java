@@ -6,7 +6,11 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
-/** Run: {@code java modules/m06-behavioral-algorithms/src/main/java/io/github/aliturgutbozkurt/patterns/m06/examples/strategy/shipping/modern/ShippingDemo.java} */
+/**
+ * Run: {@code java modules/m06-behavioral-algorithms/src/main/java/io/github/aliturgutbozkurt/patterns/m06/examples/strategy/shipping/modern/ShippingDemo.java}
+ *
+ * @see "m06 lesson, section Strategy"
+ */
 public final class ShippingDemo {
 
     private ShippingDemo() {}

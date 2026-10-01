@@ -1,6 +1,10 @@
 package io.github.aliturgutbozkurt.patterns.m06.examples.command.spreadsheet.classic;
 
-/** Run: {@code java modules/m06-behavioral-algorithms/src/main/java/io/github/aliturgutbozkurt/patterns/m06/examples/command/spreadsheet/classic/SpreadsheetDemo.java} */
+/**
+ * Run: {@code java modules/m06-behavioral-algorithms/src/main/java/io/github/aliturgutbozkurt/patterns/m06/examples/command/spreadsheet/classic/SpreadsheetDemo.java}
+ *
+ * @see "m06 lesson, section Command"
+ */
 public final class SpreadsheetDemo {
 
     private SpreadsheetDemo() {}

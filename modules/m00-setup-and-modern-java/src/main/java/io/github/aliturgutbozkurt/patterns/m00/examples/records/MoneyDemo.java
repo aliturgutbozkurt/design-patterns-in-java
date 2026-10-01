@@ -1,6 +1,10 @@
 package io.github.aliturgutbozkurt.patterns.m00.examples.records;
 
-/** Run: {@code java modules/m00-setup-and-modern-java/src/main/java/io/github/aliturgutbozkurt/patterns/m00/examples/records/MoneyDemo.java} */
+/**
+ * Run: {@code java modules/m00-setup-and-modern-java/src/main/java/io/github/aliturgutbozkurt/patterns/m00/examples/records/MoneyDemo.java}
+ *
+ * @see "m00 lesson, section Records as value objects"
+ */
 public final class MoneyDemo {
 
     private MoneyDemo() {}

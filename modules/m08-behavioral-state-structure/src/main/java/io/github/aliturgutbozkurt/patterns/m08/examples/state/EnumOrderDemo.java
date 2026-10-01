@@ -6,7 +6,11 @@ import io.github.aliturgutbozkurt.patterns.m08.examples.state.order.enumfsm.Orde
 import io.github.aliturgutbozkurt.patterns.m08.examples.state.order.enumfsm.StateDiagram;
 import java.util.Locale;
 
-/** Run: {@code java modules/m08-behavioral-state-structure/src/main/java/io/github/aliturgutbozkurt/patterns/m08/examples/state/EnumOrderDemo.java} */
+/**
+ * Run: {@code java modules/m08-behavioral-state-structure/src/main/java/io/github/aliturgutbozkurt/patterns/m08/examples/state/EnumOrderDemo.java}
+ *
+ * @see "m08 lesson, section State"
+ */
 public final class EnumOrderDemo {
 
     private EnumOrderDemo() {}

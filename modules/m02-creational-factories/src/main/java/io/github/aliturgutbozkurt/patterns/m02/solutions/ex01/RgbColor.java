@@ -12,6 +12,8 @@ import java.util.regex.Pattern;
 /**
  * Reference solution for assignment 01: a private constructor and three named static factories. The 8 basic colours
  * are created once and handed out again by {@link #named} and by {@link #rgb} whenever the value matches.
+ *
+ * @see "m02 lesson, section Static Factory Method"
  */
 public final class RgbColor implements Color {
 

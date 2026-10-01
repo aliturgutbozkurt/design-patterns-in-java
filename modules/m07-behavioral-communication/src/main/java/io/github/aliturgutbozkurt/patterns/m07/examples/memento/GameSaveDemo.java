@@ -4,7 +4,11 @@ import io.github.aliturgutbozkurt.patterns.m07.examples.memento.game.Game;
 import io.github.aliturgutbozkurt.patterns.m07.examples.memento.game.GameState;
 import io.github.aliturgutbozkurt.patterns.m07.examples.memento.game.SaveSlots;
 
-/** Run: {@code java modules/m07-behavioral-communication/src/main/java/io/github/aliturgutbozkurt/patterns/m07/examples/memento/GameSaveDemo.java} */
+/**
+ * Run: {@code java modules/m07-behavioral-communication/src/main/java/io/github/aliturgutbozkurt/patterns/m07/examples/memento/GameSaveDemo.java}
+ *
+ * @see "m07 lesson, section Memento"
+ */
 public final class GameSaveDemo {
 
     private GameSaveDemo() {}

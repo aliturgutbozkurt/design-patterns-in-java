@@ -8,7 +8,11 @@ import io.github.aliturgutbozkurt.patterns.m05.examples.facade.hometheater.Proje
 import io.github.aliturgutbozkurt.patterns.m05.examples.facade.hometheater.Screen;
 import io.github.aliturgutbozkurt.patterns.m05.examples.facade.hometheater.StreamingPlayer;
 
-/** Run: {@code java modules/m05-structural-composition/src/main/java/io/github/aliturgutbozkurt/patterns/m05/examples/facade/HomeTheaterDemo.java} */
+/**
+ * Run: {@code java modules/m05-structural-composition/src/main/java/io/github/aliturgutbozkurt/patterns/m05/examples/facade/HomeTheaterDemo.java}
+ *
+ * @see "m05 lesson, section Facade"
+ */
 public final class HomeTheaterDemo {
 
     private HomeTheaterDemo() {}

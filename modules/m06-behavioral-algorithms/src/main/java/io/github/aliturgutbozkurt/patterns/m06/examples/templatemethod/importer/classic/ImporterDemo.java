@@ -2,7 +2,11 @@ package io.github.aliturgutbozkurt.patterns.m06.examples.templatemethod.importer
 
 import java.util.stream.Collectors;
 
-/** Run: {@code java modules/m06-behavioral-algorithms/src/main/java/io/github/aliturgutbozkurt/patterns/m06/examples/templatemethod/importer/classic/ImporterDemo.java} */
+/**
+ * Run: {@code java modules/m06-behavioral-algorithms/src/main/java/io/github/aliturgutbozkurt/patterns/m06/examples/templatemethod/importer/classic/ImporterDemo.java}
+ *
+ * @see "m06 lesson, section Template Method"
+ */
 public final class ImporterDemo {
 
     static final String CSV = """

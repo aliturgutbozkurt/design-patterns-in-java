@@ -11,7 +11,11 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.stream.Collectors;
 
-/** Run: {@code java modules/m01-oop-solid-uml/src/main/java/io/github/aliturgutbozkurt/patterns/m01/examples/ocp/CourseSortDemo.java} */
+/**
+ * Run: {@code java modules/m01-oop-solid-uml/src/main/java/io/github/aliturgutbozkurt/patterns/m01/examples/ocp/CourseSortDemo.java}
+ *
+ * @see "m01 lesson, section OCP"
+ */
 public final class CourseSortDemo {
 
     private CourseSortDemo() {}

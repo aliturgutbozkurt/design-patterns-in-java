@@ -16,7 +16,11 @@ import java.util.Optional;
  */
 public final class InvoiceService {
 
-    /** One invoice line: {@code quantity × unitPrice}. */
+    /**
+     * One invoice line: {@code quantity × unitPrice}.
+     *
+     * @see "m01 lesson, section SRP"
+     */
     public record Line(String product, int quantity, BigDecimal unitPrice) {}
 
     private final Map<String, String> sentInvoices = new LinkedHashMap<>();

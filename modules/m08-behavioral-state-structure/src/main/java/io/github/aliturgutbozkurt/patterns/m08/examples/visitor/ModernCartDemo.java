@@ -7,7 +7,11 @@ import io.github.aliturgutbozkurt.patterns.m08.examples.visitor.cart.modern.Cart
 import io.github.aliturgutbozkurt.patterns.m08.examples.visitor.cart.modern.CartOperations;
 import java.util.List;
 
-/** Run: {@code java modules/m08-behavioral-state-structure/src/main/java/io/github/aliturgutbozkurt/patterns/m08/examples/visitor/ModernCartDemo.java} */
+/**
+ * Run: {@code java modules/m08-behavioral-state-structure/src/main/java/io/github/aliturgutbozkurt/patterns/m08/examples/visitor/ModernCartDemo.java}
+ *
+ * @see "m08 lesson, section Visitor"
+ */
 public final class ModernCartDemo {
 
     private ModernCartDemo() {}

@@ -5,7 +5,11 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
-/** Run: {@code java modules/m08-behavioral-state-structure/src/main/java/io/github/aliturgutbozkurt/patterns/m08/examples/state/ThreadStateDemo.java} */
+/**
+ * Run: {@code java modules/m08-behavioral-state-structure/src/main/java/io/github/aliturgutbozkurt/patterns/m08/examples/state/ThreadStateDemo.java}
+ *
+ * @see "m08 lesson, section State"
+ */
 public final class ThreadStateDemo {
 
     private ThreadStateDemo() {}

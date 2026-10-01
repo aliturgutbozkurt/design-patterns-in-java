@@ -5,7 +5,11 @@ import io.github.aliturgutbozkurt.patterns.m11.examples.antipatterns.patternitis
 import io.github.aliturgutbozkurt.patterns.m11.examples.antipatterns.patternitis.before.GreetingStrategy;
 import java.util.Arrays;
 
-/** Run: {@code java modules/m11-architecture-enterprise/src/main/java/io/github/aliturgutbozkurt/patterns/m11/examples/antipatterns/PatternitisDemo.java} */
+/**
+ * Run: {@code java modules/m11-architecture-enterprise/src/main/java/io/github/aliturgutbozkurt/patterns/m11/examples/antipatterns/PatternitisDemo.java}
+ *
+ * @see "m11 lesson, section Anti-patterns"
+ */
 public final class PatternitisDemo {
 
     private PatternitisDemo() {}

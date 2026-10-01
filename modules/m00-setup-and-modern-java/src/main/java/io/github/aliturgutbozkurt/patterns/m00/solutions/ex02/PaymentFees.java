@@ -9,7 +9,11 @@ import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.Objects;
 
-/** Reference solution for assignment 02: one exhaustive switch over the sealed {@link Payment}. */
+/**
+ * Reference solution for assignment 02: one exhaustive switch over the sealed {@link Payment}.
+ *
+ * @see "m00 lesson, section Sealed hierarchies and pattern matching"
+ */
 public class PaymentFees implements FeeCalculator {
 
     private static final BigDecimal CARD_RATE = new BigDecimal("0.029");

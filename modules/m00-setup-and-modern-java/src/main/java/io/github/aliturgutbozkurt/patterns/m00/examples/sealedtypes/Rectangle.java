@@ -1,6 +1,10 @@
 package io.github.aliturgutbozkurt.patterns.m00.examples.sealedtypes;
 
-/** An axis-aligned rectangle with positive sides. */
+/**
+ * An axis-aligned rectangle with positive sides.
+ *
+ * @see "m00 lesson, section Sealed hierarchies and pattern matching"
+ */
 public record Rectangle(double width, double height) implements Shape {
 
     public Rectangle {

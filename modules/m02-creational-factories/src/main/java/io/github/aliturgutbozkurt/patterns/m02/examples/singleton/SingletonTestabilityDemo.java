@@ -3,7 +3,11 @@ package io.github.aliturgutbozkurt.patterns.m02.examples.singleton;
 import io.github.aliturgutbozkurt.patterns.m02.examples.singleton.testability.after.OrderService;
 import io.github.aliturgutbozkurt.patterns.m02.examples.singleton.testability.after.SequentialIds;
 
-/** Run: {@code java modules/m02-creational-factories/src/main/java/io/github/aliturgutbozkurt/patterns/m02/examples/singleton/SingletonTestabilityDemo.java} */
+/**
+ * Run: {@code java modules/m02-creational-factories/src/main/java/io/github/aliturgutbozkurt/patterns/m02/examples/singleton/SingletonTestabilityDemo.java}
+ *
+ * @see "m02 lesson, section Singleton"
+ */
 public final class SingletonTestabilityDemo {
 
     private SingletonTestabilityDemo() {}

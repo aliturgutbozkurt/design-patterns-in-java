@@ -7,7 +7,11 @@ import io.github.aliturgutbozkurt.patterns.m05.examples.bridge.alerts.MessageCha
 import io.github.aliturgutbozkurt.patterns.m05.examples.bridge.alerts.SmsChannel;
 import io.github.aliturgutbozkurt.patterns.m05.examples.bridge.alerts.UrgentAlerts;
 
-/** Run: {@code java modules/m05-structural-composition/src/main/java/io/github/aliturgutbozkurt/patterns/m05/examples/bridge/AlertsDemo.java} */
+/**
+ * Run: {@code java modules/m05-structural-composition/src/main/java/io/github/aliturgutbozkurt/patterns/m05/examples/bridge/AlertsDemo.java}
+ *
+ * @see "m05 lesson, section Bridge"
+ */
 public final class AlertsDemo {
 
     private AlertsDemo() {}

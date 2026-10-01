@@ -4,7 +4,11 @@ import io.github.aliturgutbozkurt.patterns.m03.examples.pool.throttle.ThrottledC
 import java.util.concurrent.Executors;
 import java.util.concurrent.atomic.AtomicInteger;
 
-/** Run: {@code java modules/m03-creational-construction/src/main/java/io/github/aliturgutbozkurt/patterns/m03/examples/pool/ThrottleDemo.java} */
+/**
+ * Run: {@code java modules/m03-creational-construction/src/main/java/io/github/aliturgutbozkurt/patterns/m03/examples/pool/ThrottleDemo.java}
+ *
+ * @see "m03 lesson, section Object Pool"
+ */
 public final class ThrottleDemo {
 
     private ThrottleDemo() {}

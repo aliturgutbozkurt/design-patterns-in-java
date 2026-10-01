@@ -9,13 +9,25 @@ import java.util.Objects;
  */
 public record Trip(Flight flight, Hotel hotel, Forecast forecast) {
 
-    /** A booked flight. */
+    /**
+     * A booked flight.
+     *
+     * @see "m10 lesson, section Structured Concurrency"
+     */
     public record Flight(String number) {}
 
-    /** A booked hotel. */
+    /**
+     * A booked hotel.
+     *
+     * @see "m10 lesson, section Structured Concurrency"
+     */
     public record Hotel(String name) {}
 
-    /** The weather forecast at the destination. */
+    /**
+     * The weather forecast at the destination.
+     *
+     * @see "m10 lesson, section Structured Concurrency"
+     */
     public record Forecast(String summary) {}
 
     public Trip {

@@ -5,7 +5,11 @@ import io.github.aliturgutbozkurt.patterns.m04.examples.adapter.payment.PaymentR
 import java.math.BigDecimal;
 import java.util.List;
 
-/** Run: {@code java modules/m04-structural-wrappers/src/main/java/io/github/aliturgutbozkurt/patterns/m04/examples/adapter/payment/PaymentAdapterDemo.java} */
+/**
+ * Run: {@code java modules/m04-structural-wrappers/src/main/java/io/github/aliturgutbozkurt/patterns/m04/examples/adapter/payment/PaymentAdapterDemo.java}
+ *
+ * @see "m04 lesson, section Adapter"
+ */
 public final class PaymentAdapterDemo {
 
     private PaymentAdapterDemo() {}

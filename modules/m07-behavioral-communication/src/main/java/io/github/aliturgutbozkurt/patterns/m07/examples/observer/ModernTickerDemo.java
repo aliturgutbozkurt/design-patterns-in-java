@@ -4,7 +4,11 @@ import io.github.aliturgutbozkurt.patterns.m07.examples.observer.modern.PriceCha
 import io.github.aliturgutbozkurt.patterns.m07.examples.observer.modern.Ticker;
 import java.math.BigDecimal;
 
-/** Run: {@code java modules/m07-behavioral-communication/src/main/java/io/github/aliturgutbozkurt/patterns/m07/examples/observer/ModernTickerDemo.java} */
+/**
+ * Run: {@code java modules/m07-behavioral-communication/src/main/java/io/github/aliturgutbozkurt/patterns/m07/examples/observer/ModernTickerDemo.java}
+ *
+ * @see "m07 lesson, section Observer"
+ */
 public final class ModernTickerDemo {
 
     private ModernTickerDemo() {}

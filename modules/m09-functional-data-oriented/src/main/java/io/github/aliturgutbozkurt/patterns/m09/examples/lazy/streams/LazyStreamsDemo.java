@@ -4,7 +4,11 @@ import java.lang.System.Logger.Level;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 
-/** Run: {@code java modules/m09-functional-data-oriented/src/main/java/io/github/aliturgutbozkurt/patterns/m09/examples/lazy/streams/LazyStreamsDemo.java} */
+/**
+ * Run: {@code java modules/m09-functional-data-oriented/src/main/java/io/github/aliturgutbozkurt/patterns/m09/examples/lazy/streams/LazyStreamsDemo.java}
+ *
+ * @see "m09 lesson, section Lazy evaluation and memoisation"
+ */
 public final class LazyStreamsDemo {
 
     private LazyStreamsDemo() {}

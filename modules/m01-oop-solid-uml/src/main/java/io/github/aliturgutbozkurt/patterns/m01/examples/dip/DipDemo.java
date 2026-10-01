@@ -4,7 +4,11 @@ import io.github.aliturgutbozkurt.patterns.m01.examples.dip.after.EmailSender;
 import io.github.aliturgutbozkurt.patterns.m01.examples.dip.after.NotificationService;
 import io.github.aliturgutbozkurt.patterns.m01.examples.dip.after.SmsSender;
 
-/** Run: {@code java modules/m01-oop-solid-uml/src/main/java/io/github/aliturgutbozkurt/patterns/m01/examples/dip/DipDemo.java} */
+/**
+ * Run: {@code java modules/m01-oop-solid-uml/src/main/java/io/github/aliturgutbozkurt/patterns/m01/examples/dip/DipDemo.java}
+ *
+ * @see "m01 lesson, section DIP"
+ */
 public final class DipDemo {
 
     private DipDemo() {}

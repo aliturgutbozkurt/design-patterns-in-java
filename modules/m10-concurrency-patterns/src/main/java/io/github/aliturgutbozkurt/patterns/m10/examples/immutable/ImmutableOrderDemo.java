@@ -11,6 +11,8 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * Run: {@code java modules/m10-concurrency-patterns/src/main/java/io/github/aliturgutbozkurt/patterns/m10/examples/immutable/ImmutableOrderDemo.java}
+ *
+ * @see "m10 lesson, section Immutable Object"
  */
 public final class ImmutableOrderDemo {
 

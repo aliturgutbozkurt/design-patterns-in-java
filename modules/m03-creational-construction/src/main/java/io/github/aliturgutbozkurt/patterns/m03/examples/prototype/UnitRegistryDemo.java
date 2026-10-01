@@ -7,7 +7,11 @@ import io.github.aliturgutbozkurt.patterns.m03.examples.prototype.registry.Unit;
 import io.github.aliturgutbozkurt.patterns.m03.examples.prototype.registry.UnitRegistry;
 import java.util.List;
 
-/** Run: {@code java modules/m03-creational-construction/src/main/java/io/github/aliturgutbozkurt/patterns/m03/examples/prototype/UnitRegistryDemo.java} */
+/**
+ * Run: {@code java modules/m03-creational-construction/src/main/java/io/github/aliturgutbozkurt/patterns/m03/examples/prototype/UnitRegistryDemo.java}
+ *
+ * @see "m03 lesson, section Prototype"
+ */
 public final class UnitRegistryDemo {
 
     private UnitRegistryDemo() {}

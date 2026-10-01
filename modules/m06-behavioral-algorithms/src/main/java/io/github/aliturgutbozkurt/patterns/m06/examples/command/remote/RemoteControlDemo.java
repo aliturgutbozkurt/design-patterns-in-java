@@ -2,7 +2,11 @@ package io.github.aliturgutbozkurt.patterns.m06.examples.command.remote;
 
 import java.util.List;
 
-/** Run: {@code java modules/m06-behavioral-algorithms/src/main/java/io/github/aliturgutbozkurt/patterns/m06/examples/command/remote/RemoteControlDemo.java} */
+/**
+ * Run: {@code java modules/m06-behavioral-algorithms/src/main/java/io/github/aliturgutbozkurt/patterns/m06/examples/command/remote/RemoteControlDemo.java}
+ *
+ * @see "m06 lesson, section Command"
+ */
 public final class RemoteControlDemo {
 
     private RemoteControlDemo() {}

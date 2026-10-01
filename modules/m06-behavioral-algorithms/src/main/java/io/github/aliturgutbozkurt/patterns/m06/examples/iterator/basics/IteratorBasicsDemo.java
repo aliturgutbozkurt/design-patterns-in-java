@@ -6,7 +6,11 @@ import java.util.NoSuchElementException;
 import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
 
-/** Run: {@code java modules/m06-behavioral-algorithms/src/main/java/io/github/aliturgutbozkurt/patterns/m06/examples/iterator/basics/IteratorBasicsDemo.java} */
+/**
+ * Run: {@code java modules/m06-behavioral-algorithms/src/main/java/io/github/aliturgutbozkurt/patterns/m06/examples/iterator/basics/IteratorBasicsDemo.java}
+ *
+ * @see "m06 lesson, section Iterator"
+ */
 public final class IteratorBasicsDemo {
 
     private IteratorBasicsDemo() {}

@@ -3,7 +3,11 @@ package io.github.aliturgutbozkurt.patterns.m07.examples.mediator;
 import io.github.aliturgutbozkurt.patterns.m07.examples.mediator.atc.Aircraft;
 import io.github.aliturgutbozkurt.patterns.m07.examples.mediator.atc.ControlTower;
 
-/** Run: {@code java modules/m07-behavioral-communication/src/main/java/io/github/aliturgutbozkurt/patterns/m07/examples/mediator/AirTrafficDemo.java} */
+/**
+ * Run: {@code java modules/m07-behavioral-communication/src/main/java/io/github/aliturgutbozkurt/patterns/m07/examples/mediator/AirTrafficDemo.java}
+ *
+ * @see "m07 lesson, section Mediator"
+ */
 public final class AirTrafficDemo {
 
     private AirTrafficDemo() {}

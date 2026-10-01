@@ -7,6 +7,8 @@ import java.util.List;
 /**
  * Run: {@code java modules/m02-creational-factories/src/main/java/io/github/aliturgutbozkurt/patterns/m02/examples/abstractfactory/WidgetDemo.java}
  * (a real application would pass {@code System.getProperty("os.name")}).
+ *
+ * @see "m02 lesson, section Abstract Factory"
  */
 public final class WidgetDemo {
 

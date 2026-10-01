@@ -7,7 +7,11 @@ import java.util.concurrent.atomic.AtomicInteger;
 import java.util.function.Function;
 import java.util.function.Supplier;
 
-/** Run: {@code java modules/m09-functional-data-oriented/src/main/java/io/github/aliturgutbozkurt/patterns/m09/examples/lazy/memo/MemoizationDemo.java} */
+/**
+ * Run: {@code java modules/m09-functional-data-oriented/src/main/java/io/github/aliturgutbozkurt/patterns/m09/examples/lazy/memo/MemoizationDemo.java}
+ *
+ * @see "m09 lesson, section Lazy evaluation and memoisation"
+ */
 public final class MemoizationDemo {
 
     private MemoizationDemo() {}

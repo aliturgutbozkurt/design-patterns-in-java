@@ -6,7 +6,11 @@ import io.github.aliturgutbozkurt.patterns.m05.examples.bridge.remote.Radio;
 import io.github.aliturgutbozkurt.patterns.m05.examples.bridge.remote.RemoteControl;
 import io.github.aliturgutbozkurt.patterns.m05.examples.bridge.remote.Tv;
 
-/** Run: {@code java modules/m05-structural-composition/src/main/java/io/github/aliturgutbozkurt/patterns/m05/examples/bridge/RemoteDemo.java} */
+/**
+ * Run: {@code java modules/m05-structural-composition/src/main/java/io/github/aliturgutbozkurt/patterns/m05/examples/bridge/RemoteDemo.java}
+ *
+ * @see "m05 lesson, section Bridge"
+ */
 public final class RemoteDemo {
 
     private RemoteDemo() {}

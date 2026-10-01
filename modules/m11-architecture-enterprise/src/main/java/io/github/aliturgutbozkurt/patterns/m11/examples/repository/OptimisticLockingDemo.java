@@ -5,7 +5,11 @@ import io.github.aliturgutbozkurt.patterns.m11.examples.repository.orders.InMemo
 import io.github.aliturgutbozkurt.patterns.m11.examples.repository.orders.Order;
 import io.github.aliturgutbozkurt.patterns.m11.examples.repository.orders.OrderRepository;
 
-/** Run: {@code java modules/m11-architecture-enterprise/src/main/java/io/github/aliturgutbozkurt/patterns/m11/examples/repository/OptimisticLockingDemo.java} */
+/**
+ * Run: {@code java modules/m11-architecture-enterprise/src/main/java/io/github/aliturgutbozkurt/patterns/m11/examples/repository/OptimisticLockingDemo.java}
+ *
+ * @see "m11 lesson, section Repository"
+ */
 public final class OptimisticLockingDemo {
 
     private OptimisticLockingDemo() {}

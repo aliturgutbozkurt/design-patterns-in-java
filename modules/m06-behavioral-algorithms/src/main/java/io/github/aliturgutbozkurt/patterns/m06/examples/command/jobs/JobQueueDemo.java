@@ -7,7 +7,11 @@ import io.github.aliturgutbozkurt.patterns.m06.examples.command.jobs.JobResult.S
 import java.util.ArrayList;
 import java.util.List;
 
-/** Run: {@code java modules/m06-behavioral-algorithms/src/main/java/io/github/aliturgutbozkurt/patterns/m06/examples/command/jobs/JobQueueDemo.java} */
+/**
+ * Run: {@code java modules/m06-behavioral-algorithms/src/main/java/io/github/aliturgutbozkurt/patterns/m06/examples/command/jobs/JobQueueDemo.java}
+ *
+ * @see "m06 lesson, section Command"
+ */
 public final class JobQueueDemo {
 
     private JobQueueDemo() {}

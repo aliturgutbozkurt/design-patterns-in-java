@@ -12,7 +12,11 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.Set;
 
-/** Run: {@code java modules/m08-behavioral-state-structure/src/main/java/io/github/aliturgutbozkurt/patterns/m08/examples/visitor/DiskUsageDemo.java} */
+/**
+ * Run: {@code java modules/m08-behavioral-state-structure/src/main/java/io/github/aliturgutbozkurt/patterns/m08/examples/visitor/DiskUsageDemo.java}
+ *
+ * @see "m08 lesson, section Visitor"
+ */
 public final class DiskUsageDemo {
 
     private DiskUsageDemo() {}

@@ -13,7 +13,11 @@ import java.util.Enumeration;
 import java.util.Iterator;
 import java.util.List;
 
-/** Run: {@code java modules/m04-structural-wrappers/src/main/java/io/github/aliturgutbozkurt/patterns/m04/examples/adapter/jdk/JdkAdaptersDemo.java} */
+/**
+ * Run: {@code java modules/m04-structural-wrappers/src/main/java/io/github/aliturgutbozkurt/patterns/m04/examples/adapter/jdk/JdkAdaptersDemo.java}
+ *
+ * @see "m04 lesson, section Adapter"
+ */
 public final class JdkAdaptersDemo {
 
     private JdkAdaptersDemo() {}

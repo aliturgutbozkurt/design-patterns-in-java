@@ -15,7 +15,11 @@ public final class CommandRow {
 
     private CommandRow() {}
 
-    /** Before: one class per command, each knowing how to do and undo itself. */
+    /**
+     * Before: one class per command, each knowing how to do and undo itself.
+     *
+     * @see "m09 lesson, section Patterns that became language features"
+     */
     public static final class Classic {
 
         interface Command {
@@ -50,7 +54,11 @@ public final class CommandRow {
         }
     }
 
-    /** After: commands are plain data; behaviour lives in two exhaustive functions. */
+    /**
+     * After: commands are plain data; behaviour lives in two exhaustive functions.
+     *
+     * @see "m09 lesson, section Patterns that became language features"
+     */
     public static final class Modern {
 
         sealed interface Edit permits Add, Remove {}

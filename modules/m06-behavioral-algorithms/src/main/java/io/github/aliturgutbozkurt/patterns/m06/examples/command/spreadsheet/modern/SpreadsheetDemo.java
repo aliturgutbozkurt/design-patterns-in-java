@@ -6,7 +6,11 @@ import io.github.aliturgutbozkurt.patterns.m06.examples.command.spreadsheet.mode
 import io.github.aliturgutbozkurt.patterns.m06.examples.command.spreadsheet.modern.SheetEdit.SetCell;
 import java.util.List;
 
-/** Run: {@code java modules/m06-behavioral-algorithms/src/main/java/io/github/aliturgutbozkurt/patterns/m06/examples/command/spreadsheet/modern/SpreadsheetDemo.java} */
+/**
+ * Run: {@code java modules/m06-behavioral-algorithms/src/main/java/io/github/aliturgutbozkurt/patterns/m06/examples/command/spreadsheet/modern/SpreadsheetDemo.java}
+ *
+ * @see "m06 lesson, section Command"
+ */
 public final class SpreadsheetDemo {
 
     private SpreadsheetDemo() {}

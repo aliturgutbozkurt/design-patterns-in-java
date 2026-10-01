@@ -5,7 +5,11 @@ import io.github.aliturgutbozkurt.patterns.m03.examples.builder.classic.HttpRequ
 import java.net.URI;
 import java.time.Duration;
 
-/** Run: {@code java modules/m03-creational-construction/src/main/java/io/github/aliturgutbozkurt/patterns/m03/examples/builder/HttpRequestDemo.java} */
+/**
+ * Run: {@code java modules/m03-creational-construction/src/main/java/io/github/aliturgutbozkurt/patterns/m03/examples/builder/HttpRequestDemo.java}
+ *
+ * @see "m03 lesson, section Builder"
+ */
 public final class HttpRequestDemo {
 
     private HttpRequestDemo() {}

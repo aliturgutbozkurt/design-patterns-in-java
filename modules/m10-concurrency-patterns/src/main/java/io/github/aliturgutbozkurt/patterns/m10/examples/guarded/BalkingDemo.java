@@ -12,6 +12,8 @@ import java.util.concurrent.CountDownLatch;
  * Run: {@code java modules/m10-concurrency-patterns/src/main/java/io/github/aliturgutbozkurt/patterns/m10/examples/guarded/BalkingDemo.java}
  *
  * <p>A slow store is simulated with latches, so "save while another save is writing" happens every time.
+ *
+ * @see "m10 lesson, section Guarded Suspension and Balking"
  */
 public final class BalkingDemo {
 

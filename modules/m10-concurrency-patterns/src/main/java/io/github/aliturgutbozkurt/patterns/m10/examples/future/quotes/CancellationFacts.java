@@ -18,7 +18,11 @@ import java.util.concurrent.atomic.AtomicBoolean;
  */
 public final class CancellationFacts {
 
-    /** What the cancelled future reported and what the running task observed. */
+    /**
+     * What the cancelled future reported and what the running task observed.
+     *
+     * @see "m10 lesson, section CompletableFuture pipelines"
+     */
     public record Outcome(boolean cancelled, boolean interrupted) {}
 
     private CancellationFacts() {}

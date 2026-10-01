@@ -12,6 +12,8 @@ import java.util.List;
  *
  * <p>A sensor reader hands 8 readings to a writer through a buffer of 2. Both threads keep suspending at their
  * guards (reader: "full", writer: "empty"); FIFO order makes the result the same every time.
+ *
+ * @see "m10 lesson, section Guarded Suspension and Balking"
  */
 public final class BoundedBufferDemo {
 

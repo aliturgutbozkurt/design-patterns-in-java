@@ -9,6 +9,8 @@ import java.util.stream.IntStream;
  * Run: {@code java modules/m10-concurrency-patterns/src/main/java/io/github/aliturgutbozkurt/patterns/m10/examples/producerconsumer/LogIngestionDemo.java}
  *
  * <p>Which consumer counts which line changes from run to run; the merged counts never do.
+ *
+ * @see "m10 lesson, section Producer–Consumer"
  */
 public final class LogIngestionDemo {
 

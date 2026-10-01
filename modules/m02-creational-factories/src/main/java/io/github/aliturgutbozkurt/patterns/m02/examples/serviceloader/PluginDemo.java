@@ -7,6 +7,8 @@ import java.util.SequencedMap;
 /**
  * Run: {@code java modules/m02-creational-factories/src/main/java/io/github/aliturgutbozkurt/patterns/m02/examples/serviceloader/PluginDemo.java}
  * — the source launcher finds {@code META-INF/services} in the source root, so no build is needed.
+ *
+ * @see "m02 lesson, section ServiceLoader"
  */
 public final class PluginDemo {
 

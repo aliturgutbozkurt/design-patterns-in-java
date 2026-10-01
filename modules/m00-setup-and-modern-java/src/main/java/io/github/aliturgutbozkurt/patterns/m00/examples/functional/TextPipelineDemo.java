@@ -5,7 +5,11 @@ import java.util.List;
 import java.util.Set;
 import java.util.function.Function;
 
-/** Run: {@code java modules/m00-setup-and-modern-java/src/main/java/io/github/aliturgutbozkurt/patterns/m00/examples/functional/TextPipelineDemo.java} */
+/**
+ * Run: {@code java modules/m00-setup-and-modern-java/src/main/java/io/github/aliturgutbozkurt/patterns/m00/examples/functional/TextPipelineDemo.java}
+ *
+ * @see "m00 lesson, section Functions and streams"
+ */
 public final class TextPipelineDemo {
 
     private TextPipelineDemo() {}

@@ -14,7 +14,11 @@ import java.util.concurrent.ConcurrentLinkedQueue;
  */
 public final class AuditLog {
 
-    /** One audit entry. */
+    /**
+     * One audit entry.
+     *
+     * @see "m10 lesson, section Scoped Values"
+     */
     public record Entry(String requestId, String principal, String action) {}
 
     private final Queue<Entry> entries = new ConcurrentLinkedQueue<>();

@@ -6,7 +6,11 @@ import java.time.Period;
 import java.util.HashSet;
 import java.util.Set;
 
-/** Run: {@code java modules/m09-functional-data-oriented/src/main/java/io/github/aliturgutbozkurt/patterns/m09/examples/immutability/values/ValueObjectsDemo.java} */
+/**
+ * Run: {@code java modules/m09-functional-data-oriented/src/main/java/io/github/aliturgutbozkurt/patterns/m09/examples/immutability/values/ValueObjectsDemo.java}
+ *
+ * @see "m09 lesson, section Immutability and value objects"
+ */
 public final class ValueObjectsDemo {
 
     private ValueObjectsDemo() {}

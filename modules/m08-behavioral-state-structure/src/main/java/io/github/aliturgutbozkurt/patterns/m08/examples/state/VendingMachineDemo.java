@@ -6,7 +6,11 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.function.Supplier;
 
-/** Run: {@code java modules/m08-behavioral-state-structure/src/main/java/io/github/aliturgutbozkurt/patterns/m08/examples/state/VendingMachineDemo.java} */
+/**
+ * Run: {@code java modules/m08-behavioral-state-structure/src/main/java/io/github/aliturgutbozkurt/patterns/m08/examples/state/VendingMachineDemo.java}
+ *
+ * @see "m08 lesson, section State"
+ */
 public final class VendingMachineDemo {
 
     private VendingMachineDemo() {}

@@ -12,7 +12,11 @@ import java.util.Objects;
  */
 public final class Thermostat {
 
-    /** Operating mode. */
+    /**
+     * Operating mode.
+     *
+     * @see "m07 lesson, section Observer — the JDK's own observers"
+     */
     public enum Mode { OFF, HEAT, COOL }
 
     private static final int MIN_TARGET = 5;

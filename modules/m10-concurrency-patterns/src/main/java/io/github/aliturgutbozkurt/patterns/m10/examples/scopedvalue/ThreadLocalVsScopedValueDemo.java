@@ -5,6 +5,8 @@ import io.github.aliturgutbozkurt.patterns.m10.examples.scopedvalue.threadlocal.
 
 /**
  * Run: {@code java modules/m10-concurrency-patterns/src/main/java/io/github/aliturgutbozkurt/patterns/m10/examples/scopedvalue/ThreadLocalVsScopedValueDemo.java}
+ *
+ * @see "m10 lesson, section Scoped Values"
  */
 public final class ThreadLocalVsScopedValueDemo {
 

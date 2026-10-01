@@ -14,7 +14,11 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.Set;
 
-/** Run: {@code java modules/m05-structural-composition/src/main/java/io/github/aliturgutbozkurt/patterns/m05/examples/facade/CheckoutDemo.java} */
+/**
+ * Run: {@code java modules/m05-structural-composition/src/main/java/io/github/aliturgutbozkurt/patterns/m05/examples/facade/CheckoutDemo.java}
+ *
+ * @see "m05 lesson, section Facade"
+ */
 public final class CheckoutDemo {
 
     private CheckoutDemo() {}

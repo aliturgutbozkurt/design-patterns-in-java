@@ -6,7 +6,11 @@ import io.github.aliturgutbozkurt.patterns.m02.examples.abstractfactory.cloud.Ni
 import io.github.aliturgutbozkurt.patterns.m02.examples.abstractfactory.cloud.ReportArchiver;
 import java.util.List;
 
-/** Run: {@code java modules/m02-creational-factories/src/main/java/io/github/aliturgutbozkurt/patterns/m02/examples/abstractfactory/CloudDemo.java} */
+/**
+ * Run: {@code java modules/m02-creational-factories/src/main/java/io/github/aliturgutbozkurt/patterns/m02/examples/abstractfactory/CloudDemo.java}
+ *
+ * @see "m02 lesson, section Abstract Factory"
+ */
 public final class CloudDemo {
 
     private CloudDemo() {}

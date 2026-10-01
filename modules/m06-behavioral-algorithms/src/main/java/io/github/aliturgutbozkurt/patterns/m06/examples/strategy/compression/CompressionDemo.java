@@ -4,7 +4,11 @@ import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
 import java.util.List;
 
-/** Run: {@code java modules/m06-behavioral-algorithms/src/main/java/io/github/aliturgutbozkurt/patterns/m06/examples/strategy/compression/CompressionDemo.java} */
+/**
+ * Run: {@code java modules/m06-behavioral-algorithms/src/main/java/io/github/aliturgutbozkurt/patterns/m06/examples/strategy/compression/CompressionDemo.java}
+ *
+ * @see "m06 lesson, section Strategy"
+ */
 public final class CompressionDemo {
 
     private CompressionDemo() {}

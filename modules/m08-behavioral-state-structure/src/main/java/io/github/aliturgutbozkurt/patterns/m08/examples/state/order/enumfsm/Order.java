@@ -12,7 +12,11 @@ import java.util.Objects;
  */
 public final class Order {
 
-    /** One accepted move, printed as {@code NEW -> PAID}. */
+    /**
+     * One accepted move, printed as {@code NEW -> PAID}.
+     *
+     * @see "m08 lesson, section State — Modern Java 27"
+     */
     public record Transition(OrderStatus from, OrderStatus to) {
 
         public Transition {

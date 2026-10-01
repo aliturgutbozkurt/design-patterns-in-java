@@ -11,6 +11,8 @@ import java.io.IOException;
  *
  * <p>Manual memory measurement (not part of the tests): add {@code shared} or {@code naive} as an argument; the demo
  * then builds only that forest and waits for Enter, so you can run {@code jcmd <pid> GC.class_histogram}.
+ *
+ * @see "m05 lesson, section Flyweight"
  */
 public final class ForestDemo {
 

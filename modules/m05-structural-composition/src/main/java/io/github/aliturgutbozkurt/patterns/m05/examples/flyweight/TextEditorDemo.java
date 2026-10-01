@@ -3,7 +3,11 @@ package io.github.aliturgutbozkurt.patterns.m05.examples.flyweight;
 import io.github.aliturgutbozkurt.patterns.m05.examples.flyweight.glyphs.GlyphFactory;
 import io.github.aliturgutbozkurt.patterns.m05.examples.flyweight.glyphs.TextDocument;
 
-/** Run: {@code java modules/m05-structural-composition/src/main/java/io/github/aliturgutbozkurt/patterns/m05/examples/flyweight/TextEditorDemo.java} */
+/**
+ * Run: {@code java modules/m05-structural-composition/src/main/java/io/github/aliturgutbozkurt/patterns/m05/examples/flyweight/TextEditorDemo.java}
+ *
+ * @see "m05 lesson, section Flyweight"
+ */
 public final class TextEditorDemo {
 
     private TextEditorDemo() {}

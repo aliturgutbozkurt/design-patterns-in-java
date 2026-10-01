@@ -7,6 +7,10 @@ package io.github.aliturgutbozkurt.patterns.m05.examples.facade.checkout;
  */
 public record Rejected(Reason reason, String detail) implements CheckoutResult {
 
-    /** Why an order was rejected. */
+    /**
+     * Why an order was rejected.
+     *
+     * @see "m05 lesson, section Facade — modern Java 27"
+     */
     public enum Reason { OUT_OF_STOCK, PAYMENT_DECLINED, SHIPPING_UNAVAILABLE }
 }

@@ -4,7 +4,11 @@ import io.github.aliturgutbozkurt.patterns.m09.examples.dop.boundary.ImportedRow
 import io.github.aliturgutbozkurt.patterns.m09.examples.dop.boundary.ImportedRow.Rejected;
 import java.util.List;
 
-/** Run: {@code java modules/m09-functional-data-oriented/src/main/java/io/github/aliturgutbozkurt/patterns/m09/examples/dop/boundary/ParseDontValidateDemo.java} */
+/**
+ * Run: {@code java modules/m09-functional-data-oriented/src/main/java/io/github/aliturgutbozkurt/patterns/m09/examples/dop/boundary/ParseDontValidateDemo.java}
+ *
+ * @see "m09 lesson, section Data-oriented programming — parse, don't validate"
+ */
 public final class ParseDontValidateDemo {
 
     /** A bulk order as a customer uploaded it: two good rows and four broken ones. */

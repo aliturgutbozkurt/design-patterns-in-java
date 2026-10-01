@@ -4,7 +4,11 @@ import io.github.aliturgutbozkurt.patterns.m03.examples.builder.classic.Pizza;
 import io.github.aliturgutbozkurt.patterns.m03.examples.builder.classic.Pizza.Crust;
 import io.github.aliturgutbozkurt.patterns.m03.examples.builder.classic.Pizza.Size;
 
-/** Run: {@code java modules/m03-creational-construction/src/main/java/io/github/aliturgutbozkurt/patterns/m03/examples/builder/PizzaDemo.java} */
+/**
+ * Run: {@code java modules/m03-creational-construction/src/main/java/io/github/aliturgutbozkurt/patterns/m03/examples/builder/PizzaDemo.java}
+ *
+ * @see "m03 lesson, section Builder"
+ */
 public final class PizzaDemo {
 
     private PizzaDemo() {}

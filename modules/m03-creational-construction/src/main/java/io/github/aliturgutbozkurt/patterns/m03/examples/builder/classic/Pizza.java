@@ -15,7 +15,11 @@ import java.util.Objects;
  */
 public final class Pizza extends MenuItem {
 
-    /** Size with its base price. */
+    /**
+     * Size with its base price.
+     *
+     * @see "m03 lesson, section Builder"
+     */
     public enum Size {
         SMALL("8.00"), MEDIUM("10.00"), LARGE("13.00");
 
@@ -26,7 +30,11 @@ public final class Pizza extends MenuItem {
         }
     }
 
-    /** Crust; stuffed costs extra. */
+    /**
+     * Crust; stuffed costs extra.
+     *
+     * @see "m03 lesson, section Builder"
+     */
     public enum Crust { THIN, CLASSIC, STUFFED }
 
     private static final int MAX_TOPPINGS = 5;

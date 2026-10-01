@@ -9,7 +9,11 @@ import java.util.List;
 import java.util.Set;
 import java.util.function.Function;
 
-/** Run: {@code java modules/m04-structural-wrappers/src/main/java/io/github/aliturgutbozkurt/patterns/m04/examples/decorator/functional/FunctionalDecoratorDemo.java} */
+/**
+ * Run: {@code java modules/m04-structural-wrappers/src/main/java/io/github/aliturgutbozkurt/patterns/m04/examples/decorator/functional/FunctionalDecoratorDemo.java}
+ *
+ * @see "m04 lesson, section Decorator"
+ */
 public final class FunctionalDecoratorDemo {
 
     private FunctionalDecoratorDemo() {}

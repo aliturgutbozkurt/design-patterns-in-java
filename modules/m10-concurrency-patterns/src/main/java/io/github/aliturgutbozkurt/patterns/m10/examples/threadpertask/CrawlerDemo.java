@@ -11,6 +11,8 @@ import java.util.concurrent.Executors;
  *
  * <p>Crawls a 200-page fake shop with 50 ms latency per page. Fetched one after another that would take 10 s; with
  * one virtual thread per fetch it takes about one latency per level. The output is the sorted report only.
+ *
+ * @see "m10 lesson, section Thread-per-task with virtual threads"
  */
 public final class CrawlerDemo {
 

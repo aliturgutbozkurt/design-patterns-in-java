@@ -8,7 +8,11 @@ import io.github.aliturgutbozkurt.patterns.m07.examples.observer.eventbus.Paymen
 import io.github.aliturgutbozkurt.patterns.m07.examples.observer.eventbus.ShopEvent;
 import java.math.BigDecimal;
 
-/** Run: {@code java modules/m07-behavioral-communication/src/main/java/io/github/aliturgutbozkurt/patterns/m07/examples/observer/EventBusDemo.java} */
+/**
+ * Run: {@code java modules/m07-behavioral-communication/src/main/java/io/github/aliturgutbozkurt/patterns/m07/examples/observer/EventBusDemo.java}
+ *
+ * @see "m07 lesson, section Observer"
+ */
 public final class EventBusDemo {
 
     private EventBusDemo() {}

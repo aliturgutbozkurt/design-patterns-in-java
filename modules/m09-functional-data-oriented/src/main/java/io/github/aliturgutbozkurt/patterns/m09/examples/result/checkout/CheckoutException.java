@@ -16,7 +16,11 @@ public abstract sealed class CheckoutException extends RuntimeException permits 
         super(message);
     }
 
-    /** The cart has no items. */
+    /**
+     * The cart has no items.
+     *
+     * @see "m09 lesson, section Optional and Result — choosing an error model"
+     */
     public static final class EmptyCart extends CheckoutException {
         private static final long serialVersionUID = 1L;
 
@@ -25,7 +29,11 @@ public abstract sealed class CheckoutException extends RuntimeException permits 
         }
     }
 
-    /** Not enough stock for one SKU. */
+    /**
+     * Not enough stock for one SKU.
+     *
+     * @see "m09 lesson, section Optional and Result — choosing an error model"
+     */
     public static final class OutOfStock extends CheckoutException {
         private static final long serialVersionUID = 1L;
 
@@ -34,7 +42,11 @@ public abstract sealed class CheckoutException extends RuntimeException permits 
         }
     }
 
-    /** The coupon code is unknown. */
+    /**
+     * The coupon code is unknown.
+     *
+     * @see "m09 lesson, section Optional and Result — choosing an error model"
+     */
     public static final class InvalidCoupon extends CheckoutException {
         private static final long serialVersionUID = 1L;
 
@@ -43,7 +55,11 @@ public abstract sealed class CheckoutException extends RuntimeException permits 
         }
     }
 
-    /** The payment gateway said no. */
+    /**
+     * The payment gateway said no.
+     *
+     * @see "m09 lesson, section Optional and Result — choosing an error model"
+     */
     public static final class PaymentDeclined extends CheckoutException {
         private static final long serialVersionUID = 1L;
 

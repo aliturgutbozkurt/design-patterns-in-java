@@ -9,7 +9,11 @@ import java.util.Objects;
 import java.util.SortedMap;
 import java.util.TreeMap;
 
-/** Reference solution for assignment 01: only the money rules — how sales add up. */
+/**
+ * Reference solution for assignment 01: only the money rules — how sales add up.
+ *
+ * @see "m01 lesson, section SRP"
+ */
 public class RegionSummarizer implements SalesSummarizer {
 
     @Override

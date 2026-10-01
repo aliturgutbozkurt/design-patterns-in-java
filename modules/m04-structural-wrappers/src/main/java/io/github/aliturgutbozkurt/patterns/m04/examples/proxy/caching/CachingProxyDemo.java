@@ -5,7 +5,11 @@ import java.time.Duration;
 import java.time.Instant;
 import java.util.Map;
 
-/** Run: {@code java modules/m04-structural-wrappers/src/main/java/io/github/aliturgutbozkurt/patterns/m04/examples/proxy/caching/CachingProxyDemo.java} */
+/**
+ * Run: {@code java modules/m04-structural-wrappers/src/main/java/io/github/aliturgutbozkurt/patterns/m04/examples/proxy/caching/CachingProxyDemo.java}
+ *
+ * @see "m04 lesson, section Proxy"
+ */
 public final class CachingProxyDemo {
 
     private CachingProxyDemo() {}

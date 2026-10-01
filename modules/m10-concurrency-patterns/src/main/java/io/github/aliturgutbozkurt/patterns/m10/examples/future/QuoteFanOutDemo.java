@@ -15,6 +15,8 @@ import java.util.function.Supplier;
  * Run: {@code java modules/m10-concurrency-patterns/src/main/java/io/github/aliturgutbozkurt/patterns/m10/examples/future/QuoteFanOutDemo.java}
  *
  * <p>The slow provider waits for a latch that the demo opens only at the very end, so every deadline fires.
+ *
+ * @see "m10 lesson, section CompletableFuture pipelines"
  */
 public final class QuoteFanOutDemo {
 

@@ -8,7 +8,11 @@ import java.time.Instant;
 import java.time.ZoneOffset;
 import java.util.List;
 
-/** Run: {@code java modules/m01-oop-solid-uml/src/main/java/io/github/aliturgutbozkurt/patterns/m01/examples/dip/ClockDemo.java} */
+/**
+ * Run: {@code java modules/m01-oop-solid-uml/src/main/java/io/github/aliturgutbozkurt/patterns/m01/examples/dip/ClockDemo.java}
+ *
+ * @see "m01 lesson, section DIP"
+ */
 public final class ClockDemo {
 
     private ClockDemo() {}

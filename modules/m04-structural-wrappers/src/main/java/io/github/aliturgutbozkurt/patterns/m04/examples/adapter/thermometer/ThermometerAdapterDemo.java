@@ -4,7 +4,11 @@ import java.util.Locale;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-/** Run: {@code java modules/m04-structural-wrappers/src/main/java/io/github/aliturgutbozkurt/patterns/m04/examples/adapter/thermometer/ThermometerAdapterDemo.java} */
+/**
+ * Run: {@code java modules/m04-structural-wrappers/src/main/java/io/github/aliturgutbozkurt/patterns/m04/examples/adapter/thermometer/ThermometerAdapterDemo.java}
+ *
+ * @see "m04 lesson, section Adapter"
+ */
 public final class ThermometerAdapterDemo {
 
     private ThermometerAdapterDemo() {}

@@ -5,7 +5,11 @@ import java.util.List;
 import java.util.Spliterator;
 import java.util.stream.StreamSupport;
 
-/** Run: {@code java modules/m06-behavioral-algorithms/src/main/java/io/github/aliturgutbozkurt/patterns/m06/examples/iterator/spliterator/SpliteratorDemo.java} */
+/**
+ * Run: {@code java modules/m06-behavioral-algorithms/src/main/java/io/github/aliturgutbozkurt/patterns/m06/examples/iterator/spliterator/SpliteratorDemo.java}
+ *
+ * @see "m06 lesson, section Iterator"
+ */
 public final class SpliteratorDemo {
 
     private static final List<String> CUSTOMERS = List.of("Ada", "Bora", "Cem", "Deniz", "Ece", "Filiz", "Gus");

@@ -2,7 +2,11 @@ package io.github.aliturgutbozkurt.patterns.m04.examples.decorator.coffee.classi
 
 import java.math.BigDecimal;
 
-/** Run: {@code java modules/m04-structural-wrappers/src/main/java/io/github/aliturgutbozkurt/patterns/m04/examples/decorator/coffee/classic/CoffeeDemo.java} */
+/**
+ * Run: {@code java modules/m04-structural-wrappers/src/main/java/io/github/aliturgutbozkurt/patterns/m04/examples/decorator/coffee/classic/CoffeeDemo.java}
+ *
+ * @see "m04 lesson, section Decorator"
+ */
 public final class CoffeeDemo {
 
     private CoffeeDemo() {}

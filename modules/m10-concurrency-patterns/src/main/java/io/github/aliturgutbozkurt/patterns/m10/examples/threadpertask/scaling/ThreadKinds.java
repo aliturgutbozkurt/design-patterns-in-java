@@ -11,7 +11,11 @@ import java.util.concurrent.atomic.AtomicReference;
  */
 public final class ThreadKinds {
 
-    /** What a thread reports about itself. */
+    /**
+     * What a thread reports about itself.
+     *
+     * @see "m10 lesson, section Thread-per-task with virtual threads"
+     */
     public record Facts(String name, boolean virtual, boolean daemon) {}
 
     private ThreadKinds() {}

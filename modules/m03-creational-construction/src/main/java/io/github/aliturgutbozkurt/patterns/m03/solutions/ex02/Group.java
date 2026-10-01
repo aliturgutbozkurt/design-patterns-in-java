@@ -5,7 +5,11 @@ import io.github.aliturgutbozkurt.patterns.m03.exercises.ex02.Shape;
 import java.util.List;
 import java.util.stream.Collectors;
 
-/** Reference solution for assignment 02: a deep copy copies every child — recursively, through nested groups. */
+/**
+ * Reference solution for assignment 02: a deep copy copies every child — recursively, through nested groups.
+ *
+ * @see "m03 lesson, section Prototype"
+ */
 public class Group implements Shape {
 
     private final List<Shape> children;

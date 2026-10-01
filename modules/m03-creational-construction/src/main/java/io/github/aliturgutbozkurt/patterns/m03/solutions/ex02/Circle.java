@@ -4,7 +4,11 @@ import io.github.aliturgutbozkurt.patterns.m03.exercises.ex02.Point;
 import io.github.aliturgutbozkurt.patterns.m03.exercises.ex02.Shape;
 import java.util.Objects;
 
-/** Reference solution for assignment 02: {@link Point} is immutable, so copying the reference is enough. */
+/**
+ * Reference solution for assignment 02: {@link Point} is immutable, so copying the reference is enough.
+ *
+ * @see "m03 lesson, section Prototype"
+ */
 public class Circle implements Shape {
 
     private Point centre;

@@ -4,7 +4,11 @@ import io.github.aliturgutbozkurt.patterns.m11.examples.antipatterns.anaemic.aft
 import io.github.aliturgutbozkurt.patterns.m11.examples.antipatterns.anaemic.before.AccountService;
 import java.math.BigDecimal;
 
-/** Run: {@code java modules/m11-architecture-enterprise/src/main/java/io/github/aliturgutbozkurt/patterns/m11/examples/antipatterns/AnaemicDomainDemo.java} */
+/**
+ * Run: {@code java modules/m11-architecture-enterprise/src/main/java/io/github/aliturgutbozkurt/patterns/m11/examples/antipatterns/AnaemicDomainDemo.java}
+ *
+ * @see "m11 lesson, section Anti-patterns"
+ */
 public final class AnaemicDomainDemo {
 
     private AnaemicDomainDemo() {}

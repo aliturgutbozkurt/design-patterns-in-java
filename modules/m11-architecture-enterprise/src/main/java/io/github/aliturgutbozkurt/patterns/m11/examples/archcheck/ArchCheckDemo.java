@@ -11,7 +11,11 @@ import io.github.aliturgutbozkurt.patterns.m11.examples.hexagonal.shop.domain.Sk
 import java.util.List;
 import java.util.Set;
 
-/** Run: {@code java modules/m11-architecture-enterprise/src/main/java/io/github/aliturgutbozkurt/patterns/m11/examples/archcheck/ArchCheckDemo.java} */
+/**
+ * Run: {@code java modules/m11-architecture-enterprise/src/main/java/io/github/aliturgutbozkurt/patterns/m11/examples/archcheck/ArchCheckDemo.java}
+ *
+ * @see "m11 lesson, section Architecture rules — how the tools work"
+ */
 public final class ArchCheckDemo {
 
     private static final String ROOT = "io.github.aliturgutbozkurt.patterns.m11.examples.";

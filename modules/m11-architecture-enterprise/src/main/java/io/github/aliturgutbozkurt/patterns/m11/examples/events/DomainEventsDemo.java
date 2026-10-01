@@ -9,7 +9,11 @@ import io.github.aliturgutbozkurt.patterns.m11.examples.events.aggregate.SendCon
 import io.github.aliturgutbozkurt.patterns.m11.examples.events.aggregate.UnitOfWork;
 import java.util.function.Consumer;
 
-/** Run: {@code java modules/m11-architecture-enterprise/src/main/java/io/github/aliturgutbozkurt/patterns/m11/examples/events/DomainEventsDemo.java} */
+/**
+ * Run: {@code java modules/m11-architecture-enterprise/src/main/java/io/github/aliturgutbozkurt/patterns/m11/examples/events/DomainEventsDemo.java}
+ *
+ * @see "m11 lesson, section Domain events"
+ */
 public final class DomainEventsDemo {
 
     private DomainEventsDemo() {}

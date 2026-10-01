@@ -3,7 +3,11 @@ package io.github.aliturgutbozkurt.patterns.m07.examples.memento;
 import io.github.aliturgutbozkurt.patterns.m07.examples.memento.classic.History;
 import io.github.aliturgutbozkurt.patterns.m07.examples.memento.classic.TextDocument;
 
-/** Run: {@code java modules/m07-behavioral-communication/src/main/java/io/github/aliturgutbozkurt/patterns/m07/examples/memento/ClassicMementoDemo.java} */
+/**
+ * Run: {@code java modules/m07-behavioral-communication/src/main/java/io/github/aliturgutbozkurt/patterns/m07/examples/memento/ClassicMementoDemo.java}
+ *
+ * @see "m07 lesson, section Memento"
+ */
 public final class ClassicMementoDemo {
 
     private ClassicMementoDemo() {}

@@ -6,7 +6,11 @@ import io.github.aliturgutbozkurt.patterns.m11.examples.refactoring.shipping.aft
 import io.github.aliturgutbozkurt.patterns.m11.examples.refactoring.shipping.after.ShippingMethod.Standard;
 import java.math.BigDecimal;
 
-/** Run: {@code java modules/m11-architecture-enterprise/src/main/java/io/github/aliturgutbozkurt/patterns/m11/examples/refactoring/ShippingRefactoringDemo.java} */
+/**
+ * Run: {@code java modules/m11-architecture-enterprise/src/main/java/io/github/aliturgutbozkurt/patterns/m11/examples/refactoring/ShippingRefactoringDemo.java}
+ *
+ * @see "m11 lesson, section Refactoring to patterns"
+ */
 public final class ShippingRefactoringDemo {
 
     private ShippingRefactoringDemo() {}

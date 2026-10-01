@@ -2,7 +2,11 @@ package io.github.aliturgutbozkurt.patterns.m03.examples.di;
 
 import java.util.List;
 
-/** Run: {@code java modules/m03-creational-construction/src/main/java/io/github/aliturgutbozkurt/patterns/m03/examples/di/CompositionRootDemo.java} */
+/**
+ * Run: {@code java modules/m03-creational-construction/src/main/java/io/github/aliturgutbozkurt/patterns/m03/examples/di/CompositionRootDemo.java}
+ *
+ * @see "m03 lesson, section Dependency injection as creation"
+ */
 public final class CompositionRootDemo {
 
     private CompositionRootDemo() {}

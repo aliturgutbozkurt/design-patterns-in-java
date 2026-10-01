@@ -14,7 +14,11 @@ import java.util.TreeMap;
 public record DiskUsageReport(SortedMap<String, Usage> byExtension, List<String> skippedDirectories,
         List<String> failures, boolean stoppedEarly) {
 
-    /** Files and bytes for one extension. */
+    /**
+     * Files and bytes for one extension.
+     *
+     * @see "m08 lesson, section Visitor — Real-world usage"
+     */
     public record Usage(int files, long bytes) {
 
         public Usage plus(Usage other) {

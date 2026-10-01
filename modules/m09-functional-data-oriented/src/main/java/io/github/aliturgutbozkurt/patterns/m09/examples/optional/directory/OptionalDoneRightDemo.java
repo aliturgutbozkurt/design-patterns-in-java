@@ -5,7 +5,11 @@ import java.util.NoSuchElementException;
 import java.util.Optional;
 import java.util.concurrent.atomic.AtomicInteger;
 
-/** Run: {@code java modules/m09-functional-data-oriented/src/main/java/io/github/aliturgutbozkurt/patterns/m09/examples/optional/directory/OptionalDoneRightDemo.java} */
+/**
+ * Run: {@code java modules/m09-functional-data-oriented/src/main/java/io/github/aliturgutbozkurt/patterns/m09/examples/optional/directory/OptionalDoneRightDemo.java}
+ *
+ * @see "m09 lesson, section Optional and Result — Optional as a return type"
+ */
 public final class OptionalDoneRightDemo {
 
     private OptionalDoneRightDemo() {}

@@ -13,6 +13,8 @@ import java.util.Set;
 /**
  * Reference solution for assignment 01: setters only record values; {@link #build()} checks every rule, reports all
  * problems in one exception, and copies the extras so the booking is immutable and independent of the builder.
+ *
+ * @see "m03 lesson, section Builder"
  */
 public class DefaultBookingBuilder implements BookingBuilder {
 

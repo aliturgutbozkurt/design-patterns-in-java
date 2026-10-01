@@ -3,7 +3,11 @@ package io.github.aliturgutbozkurt.patterns.m03.examples.builder;
 import io.github.aliturgutbozkurt.patterns.m03.examples.builder.record.ServerConfig;
 import java.time.Duration;
 
-/** Run: {@code java modules/m03-creational-construction/src/main/java/io/github/aliturgutbozkurt/patterns/m03/examples/builder/ServerConfigDemo.java} */
+/**
+ * Run: {@code java modules/m03-creational-construction/src/main/java/io/github/aliturgutbozkurt/patterns/m03/examples/builder/ServerConfigDemo.java}
+ *
+ * @see "m03 lesson, section Builder"
+ */
 public final class ServerConfigDemo {
 
     private ServerConfigDemo() {}

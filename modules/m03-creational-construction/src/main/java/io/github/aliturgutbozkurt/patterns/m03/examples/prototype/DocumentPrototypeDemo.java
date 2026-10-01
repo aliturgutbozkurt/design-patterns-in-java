@@ -4,7 +4,11 @@ import io.github.aliturgutbozkurt.patterns.m03.examples.prototype.documents.Docu
 import java.util.List;
 import java.util.Map;
 
-/** Run: {@code java modules/m03-creational-construction/src/main/java/io/github/aliturgutbozkurt/patterns/m03/examples/prototype/DocumentPrototypeDemo.java} */
+/**
+ * Run: {@code java modules/m03-creational-construction/src/main/java/io/github/aliturgutbozkurt/patterns/m03/examples/prototype/DocumentPrototypeDemo.java}
+ *
+ * @see "m03 lesson, section Prototype"
+ */
 public final class DocumentPrototypeDemo {
 
     private DocumentPrototypeDemo() {}

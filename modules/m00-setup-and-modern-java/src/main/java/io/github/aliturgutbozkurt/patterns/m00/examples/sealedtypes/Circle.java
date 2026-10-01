@@ -1,6 +1,10 @@
 package io.github.aliturgutbozkurt.patterns.m00.examples.sealedtypes;
 
-/** A circle; radius 0 is allowed and describes a point. */
+/**
+ * A circle; radius 0 is allowed and describes a point.
+ *
+ * @see "m00 lesson, section Sealed hierarchies and pattern matching"
+ */
 public record Circle(double radius) implements Shape {
 
     public Circle {

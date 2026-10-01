@@ -14,7 +14,11 @@ import java.util.concurrent.locks.ReentrantLock;
  */
 public final class ReadinessGate {
 
-    /** The life cycle of the service behind the gate. */
+    /**
+     * The life cycle of the service behind the gate.
+     *
+     * @see "m10 lesson, section Guarded Suspension and Balking"
+     */
     public enum State { STARTING, READY, FAILED }
 
     private final ReentrantLock lock = new ReentrantLock();

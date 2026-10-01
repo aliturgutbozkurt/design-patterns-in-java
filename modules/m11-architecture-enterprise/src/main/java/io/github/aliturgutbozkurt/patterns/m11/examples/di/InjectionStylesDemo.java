@@ -9,7 +9,11 @@ import java.time.ZoneOffset;
 import java.util.Arrays;
 import java.util.concurrent.atomic.AtomicLong;
 
-/** Run: {@code java modules/m11-architecture-enterprise/src/main/java/io/github/aliturgutbozkurt/patterns/m11/examples/di/InjectionStylesDemo.java} */
+/**
+ * Run: {@code java modules/m11-architecture-enterprise/src/main/java/io/github/aliturgutbozkurt/patterns/m11/examples/di/InjectionStylesDemo.java}
+ *
+ * @see "m11 lesson, section Dependency Injection"
+ */
 public final class InjectionStylesDemo {
 
     private InjectionStylesDemo() {}

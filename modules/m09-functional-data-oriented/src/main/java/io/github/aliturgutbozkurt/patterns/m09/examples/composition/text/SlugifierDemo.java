@@ -4,7 +4,11 @@ import java.util.List;
 import java.util.Locale;
 import java.util.function.Function;
 
-/** Run: {@code java modules/m09-functional-data-oriented/src/main/java/io/github/aliturgutbozkurt/patterns/m09/examples/composition/text/SlugifierDemo.java} */
+/**
+ * Run: {@code java modules/m09-functional-data-oriented/src/main/java/io/github/aliturgutbozkurt/patterns/m09/examples/composition/text/SlugifierDemo.java}
+ *
+ * @see "m09 lesson, section Function composition, currying and partial application"
+ */
 public final class SlugifierDemo {
 
     private SlugifierDemo() {}

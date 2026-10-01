@@ -2,7 +2,11 @@ package io.github.aliturgutbozkurt.patterns.m04.examples.proxy.protection;
 
 import java.util.List;
 
-/** Run: {@code java modules/m04-structural-wrappers/src/main/java/io/github/aliturgutbozkurt/patterns/m04/examples/proxy/protection/ProtectionProxyDemo.java} */
+/**
+ * Run: {@code java modules/m04-structural-wrappers/src/main/java/io/github/aliturgutbozkurt/patterns/m04/examples/proxy/protection/ProtectionProxyDemo.java}
+ *
+ * @see "m04 lesson, section Proxy"
+ */
 public final class ProtectionProxyDemo {
 
     private ProtectionProxyDemo() {}

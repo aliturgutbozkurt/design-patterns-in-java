@@ -3,7 +3,11 @@ package io.github.aliturgutbozkurt.patterns.m00.examples.functional;
 import io.github.aliturgutbozkurt.patterns.m00.examples.records.Money;
 import java.util.List;
 
-/** Run: {@code java modules/m00-setup-and-modern-java/src/main/java/io/github/aliturgutbozkurt/patterns/m00/examples/functional/OrderStatsDemo.java} */
+/**
+ * Run: {@code java modules/m00-setup-and-modern-java/src/main/java/io/github/aliturgutbozkurt/patterns/m00/examples/functional/OrderStatsDemo.java}
+ *
+ * @see "m00 lesson, section Functions and streams"
+ */
 public final class OrderStatsDemo {
 
     private OrderStatsDemo() {}

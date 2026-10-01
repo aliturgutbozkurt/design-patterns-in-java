@@ -6,7 +6,11 @@ import java.io.UncheckedIOException;
 import java.nio.charset.StandardCharsets;
 import java.util.List;
 
-/** Run: {@code java modules/m06-behavioral-algorithms/src/main/java/io/github/aliturgutbozkurt/patterns/m06/examples/templatemethod/jdk/JdkTemplateMethodDemo.java} */
+/**
+ * Run: {@code java modules/m06-behavioral-algorithms/src/main/java/io/github/aliturgutbozkurt/patterns/m06/examples/templatemethod/jdk/JdkTemplateMethodDemo.java}
+ *
+ * @see "m06 lesson, section Template Method"
+ */
 public final class JdkTemplateMethodDemo {
 
     private JdkTemplateMethodDemo() {}

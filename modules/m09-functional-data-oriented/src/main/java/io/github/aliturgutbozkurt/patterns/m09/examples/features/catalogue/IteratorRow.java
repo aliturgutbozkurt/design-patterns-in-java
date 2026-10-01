@@ -20,7 +20,11 @@ public final class IteratorRow {
 
     private IteratorRow() {}
 
-    /** Before: the iterator keeps the cursor and builds each batch by hand. */
+    /**
+     * Before: the iterator keeps the cursor and builds each batch by hand.
+     *
+     * @see "m09 lesson, section Patterns that became language features"
+     */
     public static final class Classic {
 
         static final class BatchIterator implements Iterator<List<Integer>> {
@@ -60,7 +64,11 @@ public final class IteratorRow {
         }
     }
 
-    /** After: a generated stream, cut into windows by a JDK gatherer. */
+    /**
+     * After: a generated stream, cut into windows by a JDK gatherer.
+     *
+     * @see "m09 lesson, section Patterns that became language features"
+     */
     public static final class Modern {
 
         private Modern() {}

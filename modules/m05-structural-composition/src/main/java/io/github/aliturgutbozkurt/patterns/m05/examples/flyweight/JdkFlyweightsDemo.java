@@ -4,7 +4,11 @@ import io.github.aliturgutbozkurt.patterns.m05.examples.flyweight.jdk.JdkFlyweig
 import java.time.LocalDate;
 import java.util.Locale;
 
-/** Run: {@code java modules/m05-structural-composition/src/main/java/io/github/aliturgutbozkurt/patterns/m05/examples/flyweight/JdkFlyweightsDemo.java} */
+/**
+ * Run: {@code java modules/m05-structural-composition/src/main/java/io/github/aliturgutbozkurt/patterns/m05/examples/flyweight/JdkFlyweightsDemo.java}
+ *
+ * @see "m05 lesson, section Flyweight"
+ */
 public final class JdkFlyweightsDemo {
 
     private JdkFlyweightsDemo() {}

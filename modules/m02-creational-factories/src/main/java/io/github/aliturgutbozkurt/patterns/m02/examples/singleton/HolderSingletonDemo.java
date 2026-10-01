@@ -3,7 +3,11 @@ package io.github.aliturgutbozkurt.patterns.m02.examples.singleton;
 import io.github.aliturgutbozkurt.patterns.m02.examples.singleton.holder.CurrencyTable;
 import java.math.BigDecimal;
 
-/** Run: {@code java modules/m02-creational-factories/src/main/java/io/github/aliturgutbozkurt/patterns/m02/examples/singleton/HolderSingletonDemo.java} */
+/**
+ * Run: {@code java modules/m02-creational-factories/src/main/java/io/github/aliturgutbozkurt/patterns/m02/examples/singleton/HolderSingletonDemo.java}
+ *
+ * @see "m02 lesson, section Singleton"
+ */
 public final class HolderSingletonDemo {
 
     private HolderSingletonDemo() {}

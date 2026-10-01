@@ -6,7 +6,11 @@ import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
-/** Reference solution for assignment 02: copies in, copies out. */
+/**
+ * Reference solution for assignment 02: copies in, copies out.
+ *
+ * @see "m03 lesson, section Prototype"
+ */
 public class TemplateRegistry implements ShapeRegistry {
 
     private final Map<String, Shape> templates = new TreeMap<>();

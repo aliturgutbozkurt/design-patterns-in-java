@@ -11,6 +11,8 @@ import java.util.concurrent.CountDownLatch;
  * Run: {@code java modules/m10-concurrency-patterns/src/main/java/io/github/aliturgutbozkurt/patterns/m10/examples/producerconsumer/FulfilmentDemo.java}
  *
  * <p>The ship stage waits for a latch, so the queues fill up deterministically: 6 orders fit, the 7th does not.
+ *
+ * @see "m10 lesson, section Producer–Consumer"
  */
 public final class FulfilmentDemo {
 

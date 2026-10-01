@@ -4,7 +4,11 @@ import io.github.aliturgutbozkurt.patterns.m07.examples.observer.beans.Thermosta
 import io.github.aliturgutbozkurt.patterns.m07.examples.observer.beans.Thermostat.Mode;
 import java.beans.PropertyChangeEvent;
 
-/** Run: {@code java modules/m07-behavioral-communication/src/main/java/io/github/aliturgutbozkurt/patterns/m07/examples/observer/ThermostatDemo.java} */
+/**
+ * Run: {@code java modules/m07-behavioral-communication/src/main/java/io/github/aliturgutbozkurt/patterns/m07/examples/observer/ThermostatDemo.java}
+ *
+ * @see "m07 lesson, section Observer"
+ */
 public final class ThermostatDemo {
 
     private ThermostatDemo() {}

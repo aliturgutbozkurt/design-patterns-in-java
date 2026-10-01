@@ -5,7 +5,11 @@ import io.github.aliturgutbozkurt.patterns.m11.examples.antipatterns.globalstate
 import io.github.aliturgutbozkurt.patterns.m11.examples.antipatterns.globalstate.before.ServiceLocator;
 import io.github.aliturgutbozkurt.patterns.m11.examples.antipatterns.globalstate.before.StockLevels;
 
-/** Run: {@code java modules/m11-architecture-enterprise/src/main/java/io/github/aliturgutbozkurt/patterns/m11/examples/antipatterns/GlobalStateDemo.java} */
+/**
+ * Run: {@code java modules/m11-architecture-enterprise/src/main/java/io/github/aliturgutbozkurt/patterns/m11/examples/antipatterns/GlobalStateDemo.java}
+ *
+ * @see "m11 lesson, section Anti-patterns"
+ */
 public final class GlobalStateDemo {
 
     private GlobalStateDemo() {}

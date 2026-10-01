@@ -5,7 +5,11 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.TreeSet;
 
-/** Run: {@code java modules/m01-oop-solid-uml/src/main/java/io/github/aliturgutbozkurt/patterns/m01/examples/composition/CountingSetDemo.java} */
+/**
+ * Run: {@code java modules/m01-oop-solid-uml/src/main/java/io/github/aliturgutbozkurt/patterns/m01/examples/composition/CountingSetDemo.java}
+ *
+ * @see "m01 lesson, section Composition over inheritance"
+ */
 public final class CountingSetDemo {
 
     private CountingSetDemo() {}

@@ -7,6 +7,8 @@ import java.util.List;
 
 /**
  * Run (preview API, JEP 533): {@code java --enable-preview --source 27 modules/m10-concurrency-patterns/src/main/java/io/github/aliturgutbozkurt/patterns/m10/examples/structured/StructuredContextDemo.java}
+ *
+ * @see "m10 lesson, section Structured Concurrency"
  */
 public final class StructuredContextDemo {
 

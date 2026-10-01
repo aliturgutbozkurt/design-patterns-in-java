@@ -6,7 +6,11 @@ import java.util.Locale;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
-/** Run: {@code java modules/m06-behavioral-algorithms/src/main/java/io/github/aliturgutbozkurt/patterns/m06/examples/strategy/sorting/ComparatorDemo.java} */
+/**
+ * Run: {@code java modules/m06-behavioral-algorithms/src/main/java/io/github/aliturgutbozkurt/patterns/m06/examples/strategy/sorting/ComparatorDemo.java}
+ *
+ * @see "m06 lesson, section Strategy"
+ */
 public final class ComparatorDemo {
 
     private ComparatorDemo() {}

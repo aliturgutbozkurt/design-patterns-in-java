@@ -4,7 +4,11 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-/** Run: {@code java modules/m09-functional-data-oriented/src/main/java/io/github/aliturgutbozkurt/patterns/m09/examples/immutability/cart/DefensiveCopyDemo.java} */
+/**
+ * Run: {@code java modules/m09-functional-data-oriented/src/main/java/io/github/aliturgutbozkurt/patterns/m09/examples/immutability/cart/DefensiveCopyDemo.java}
+ *
+ * @see "m09 lesson, section Immutability and value objects"
+ */
 public final class DefensiveCopyDemo {
 
     private DefensiveCopyDemo() {}

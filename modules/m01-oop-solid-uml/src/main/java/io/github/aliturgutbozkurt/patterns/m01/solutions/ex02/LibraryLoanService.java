@@ -13,6 +13,8 @@ import java.util.Objects;
 /**
  * Reference solution for assignment 02: every collaborator — storage, messaging and even time — comes in through
  * the constructor as an abstraction, so the rules can be tested with fakes.
+ *
+ * @see "m01 lesson, section DIP"
  */
 public class LibraryLoanService implements LoanService {
 

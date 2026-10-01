@@ -8,6 +8,8 @@ import io.github.aliturgutbozkurt.patterns.m10.examples.threadpertask.scaling.Wo
  *
  * <p>10 000 blocking tasks: a pool of 100 platform threads lets only 100 of them wait at once, one virtual thread
  * per task lets all 10 000 wait at once. The jobs meet at a gate instead of sleeping, so the numbers are exact.
+ *
+ * @see "m10 lesson, section Thread-per-task with virtual threads"
  */
 public final class ThreadPerTaskDemo {
 

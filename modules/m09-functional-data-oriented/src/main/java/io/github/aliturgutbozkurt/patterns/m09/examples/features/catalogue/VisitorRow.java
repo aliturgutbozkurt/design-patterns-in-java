@@ -17,7 +17,11 @@ public final class VisitorRow {
         return String.format(Locale.ROOT, "%.2f", value);
     }
 
-    /** Before: every shape accepts a visitor; every operation is a visitor class. */
+    /**
+     * Before: every shape accepts a visitor; every operation is a visitor class.
+     *
+     * @see "m09 lesson, section Patterns that became language features"
+     */
     public static final class Classic {
 
         interface ShapeVisitor<R> {
@@ -52,7 +56,11 @@ public final class VisitorRow {
         }
     }
 
-    /** After: the data is a sealed hierarchy; each operation is one {@code switch}. */
+    /**
+     * After: the data is a sealed hierarchy; each operation is one {@code switch}.
+     *
+     * @see "m09 lesson, section Patterns that became language features"
+     */
     public static final class Modern {
 
         sealed interface Shape permits Circle, Rect {}

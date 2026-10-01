@@ -16,7 +16,11 @@ public final class TemplateMethodRow {
 
     private TemplateMethodRow() {}
 
-    /** Before: the skeleton is fixed in a base class; subclasses fill in the steps. */
+    /**
+     * Before: the skeleton is fixed in a base class; subclasses fill in the steps.
+     *
+     * @see "m09 lesson, section Patterns that became language features"
+     */
     public static final class Classic {
 
         abstract static class Report {
@@ -50,7 +54,11 @@ public final class TemplateMethodRow {
         }
     }
 
-    /** After: the skeleton is a function; the steps are its parameters. */
+    /**
+     * After: the skeleton is a function; the steps are its parameters.
+     *
+     * @see "m09 lesson, section Patterns that became language features"
+     */
     public static final class Modern {
 
         private Modern() {}

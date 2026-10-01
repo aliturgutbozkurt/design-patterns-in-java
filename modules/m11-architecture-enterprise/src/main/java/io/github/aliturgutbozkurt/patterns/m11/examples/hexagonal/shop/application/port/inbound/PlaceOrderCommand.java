@@ -18,7 +18,11 @@ public record PlaceOrderCommand(String customer, List<LineRequest> lines) {
         lines = List.copyOf(lines);
     }
 
-    /** One requested line: a product and a quantity (checked by the use case). */
+    /**
+     * One requested line: a product and a quantity (checked by the use case).
+     *
+     * @see "m11 lesson, section Ports and Adapters — PatternShop"
+     */
     public record LineRequest(Sku sku, int quantity) {
         public LineRequest {
             Objects.requireNonNull(sku, "sku");

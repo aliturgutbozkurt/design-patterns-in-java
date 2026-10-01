@@ -4,7 +4,11 @@ import io.github.aliturgutbozkurt.patterns.m03.exercises.ex02.Point;
 import io.github.aliturgutbozkurt.patterns.m03.exercises.ex02.Shape;
 import java.util.Objects;
 
-/** Reference solution for assignment 02. */
+/**
+ * Reference solution for assignment 02.
+ *
+ * @see "m03 lesson, section Prototype"
+ */
 public class Rect implements Shape {
 
     private Point corner;

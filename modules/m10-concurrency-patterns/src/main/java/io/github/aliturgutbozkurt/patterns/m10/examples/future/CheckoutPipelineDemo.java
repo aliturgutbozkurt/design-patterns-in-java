@@ -15,6 +15,8 @@ import java.util.concurrent.Executors;
  *
  * <p>With {@code Runnable::run} the whole pipeline runs synchronously inside {@code checkout}; the same code on
  * virtual threads gives the same receipt.
+ *
+ * @see "m10 lesson, section CompletableFuture pipelines"
  */
 public final class CheckoutPipelineDemo {
 

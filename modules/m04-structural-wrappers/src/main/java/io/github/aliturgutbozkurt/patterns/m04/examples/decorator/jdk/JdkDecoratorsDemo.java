@@ -16,7 +16,11 @@ import java.util.List;
 import java.util.zip.GZIPInputStream;
 import java.util.zip.GZIPOutputStream;
 
-/** Run: {@code java modules/m04-structural-wrappers/src/main/java/io/github/aliturgutbozkurt/patterns/m04/examples/decorator/jdk/JdkDecoratorsDemo.java} */
+/**
+ * Run: {@code java modules/m04-structural-wrappers/src/main/java/io/github/aliturgutbozkurt/patterns/m04/examples/decorator/jdk/JdkDecoratorsDemo.java}
+ *
+ * @see "m04 lesson, section Decorator"
+ */
 public final class JdkDecoratorsDemo {
 
     private JdkDecoratorsDemo() {}

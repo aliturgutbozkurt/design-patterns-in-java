@@ -14,6 +14,8 @@ import java.util.concurrent.ExecutionException;
  * Run (preview API, JEP 533): {@code java --enable-preview --source 27 modules/m10-concurrency-patterns/src/main/java/io/github/aliturgutbozkurt/patterns/m10/examples/structured/MirrorDownloadDemo.java}
  *
  * <p>Choosing a joiner is choosing a policy. Slow and hanging work waits on latches, so the output never changes.
+ *
+ * @see "m10 lesson, section Structured Concurrency"
  */
 public final class MirrorDownloadDemo {
 

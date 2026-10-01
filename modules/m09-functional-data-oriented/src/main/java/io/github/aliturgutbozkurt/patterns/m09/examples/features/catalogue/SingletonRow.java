@@ -10,7 +10,11 @@ public final class SingletonRow {
 
     private SingletonRow() {}
 
-    /** Before: a private constructor, a static field and a synchronised accessor. */
+    /**
+     * Before: a private constructor, a static field and a synchronised accessor.
+     *
+     * @see "m09 lesson, section Patterns that became language features"
+     */
     public static final class Classic {
 
         static final class Settings {
@@ -39,7 +43,11 @@ public final class SingletonRow {
         }
     }
 
-    /** After: the JVM guarantees exactly one {@code INSTANCE}. */
+    /**
+     * After: the JVM guarantees exactly one {@code INSTANCE}.
+     *
+     * @see "m09 lesson, section Patterns that became language features"
+     */
     public static final class Modern {
 
         enum Settings {

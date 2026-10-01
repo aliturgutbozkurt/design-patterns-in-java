@@ -5,7 +5,11 @@ import io.github.aliturgutbozkurt.patterns.m02.exercises.ex02.LevelFactory;
 import java.util.Objects;
 import java.util.stream.Stream;
 
-/** Reference solution for assignment 02: every product comes from the one factory it was given. */
+/**
+ * Reference solution for assignment 02: every product comes from the one factory it was given.
+ *
+ * @see "m02 lesson, section Abstract Factory"
+ */
 public class LevelGenerator {
 
     private final LevelFactory factory;

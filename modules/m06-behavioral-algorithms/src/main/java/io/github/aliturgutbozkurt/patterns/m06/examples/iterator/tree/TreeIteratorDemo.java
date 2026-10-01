@@ -2,7 +2,11 @@ package io.github.aliturgutbozkurt.patterns.m06.examples.iterator.tree;
 
 import java.util.StringJoiner;
 
-/** Run: {@code java modules/m06-behavioral-algorithms/src/main/java/io/github/aliturgutbozkurt/patterns/m06/examples/iterator/tree/TreeIteratorDemo.java} */
+/**
+ * Run: {@code java modules/m06-behavioral-algorithms/src/main/java/io/github/aliturgutbozkurt/patterns/m06/examples/iterator/tree/TreeIteratorDemo.java}
+ *
+ * @see "m06 lesson, section Iterator"
+ */
 public final class TreeIteratorDemo {
 
     private TreeIteratorDemo() {}

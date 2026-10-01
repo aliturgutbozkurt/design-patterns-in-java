@@ -7,7 +7,11 @@ import io.github.aliturgutbozkurt.patterns.m01.exercises.ex01.SalesSummarizer;
 import java.util.List;
 import java.util.Objects;
 
-/** Reference solution for assignment 01: coordinates; knows neither how to sum nor which format it renders. */
+/**
+ * Reference solution for assignment 01: coordinates; knows neither how to sum nor which format it renders.
+ *
+ * @see "m01 lesson, section SRP"
+ */
 public class ReportService implements ReportGenerator {
 
     private final SalesSummarizer summarizer;

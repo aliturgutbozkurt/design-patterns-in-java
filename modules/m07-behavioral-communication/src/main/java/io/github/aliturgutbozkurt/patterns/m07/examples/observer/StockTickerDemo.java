@@ -5,7 +5,11 @@ import io.github.aliturgutbozkurt.patterns.m07.examples.observer.classic.PriceDi
 import io.github.aliturgutbozkurt.patterns.m07.examples.observer.classic.StockTicker;
 import java.math.BigDecimal;
 
-/** Run: {@code java modules/m07-behavioral-communication/src/main/java/io/github/aliturgutbozkurt/patterns/m07/examples/observer/StockTickerDemo.java} */
+/**
+ * Run: {@code java modules/m07-behavioral-communication/src/main/java/io/github/aliturgutbozkurt/patterns/m07/examples/observer/StockTickerDemo.java}
+ *
+ * @see "m07 lesson, section Observer"
+ */
 public final class StockTickerDemo {
 
     private StockTickerDemo() {}

@@ -2,7 +2,11 @@ package io.github.aliturgutbozkurt.patterns.m09.examples.features.catalogue;
 
 import java.util.Locale;
 
-/** Run: {@code java modules/m09-functional-data-oriented/src/main/java/io/github/aliturgutbozkurt/patterns/m09/examples/features/catalogue/CatalogueDemo.java} */
+/**
+ * Run: {@code java modules/m09-functional-data-oriented/src/main/java/io/github/aliturgutbozkurt/patterns/m09/examples/features/catalogue/CatalogueDemo.java}
+ *
+ * @see "m09 lesson, section Patterns that became language features"
+ */
 public final class CatalogueDemo {
 
     private CatalogueDemo() {}

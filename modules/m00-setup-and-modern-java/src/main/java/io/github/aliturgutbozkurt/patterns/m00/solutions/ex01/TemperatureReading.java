@@ -4,7 +4,11 @@ import io.github.aliturgutbozkurt.patterns.m00.exercises.ex01.Temperature;
 import io.github.aliturgutbozkurt.patterns.m00.exercises.ex01.Unit;
 import java.util.Objects;
 
-/** Reference solution for assignment 01: a validated temperature value object. */
+/**
+ * Reference solution for assignment 01: a validated temperature value object.
+ *
+ * @see "m00 lesson, section Records as value objects"
+ */
 public record TemperatureReading(double value, Unit unit) implements Temperature {
 
     public TemperatureReading {

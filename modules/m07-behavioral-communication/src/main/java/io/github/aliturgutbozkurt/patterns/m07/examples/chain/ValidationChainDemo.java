@@ -4,7 +4,11 @@ import io.github.aliturgutbozkurt.patterns.m07.examples.chain.validation.SignUp;
 import io.github.aliturgutbozkurt.patterns.m07.examples.chain.validation.SignUpRules;
 import java.util.List;
 
-/** Run: {@code java modules/m07-behavioral-communication/src/main/java/io/github/aliturgutbozkurt/patterns/m07/examples/chain/ValidationChainDemo.java} */
+/**
+ * Run: {@code java modules/m07-behavioral-communication/src/main/java/io/github/aliturgutbozkurt/patterns/m07/examples/chain/ValidationChainDemo.java}
+ *
+ * @see "m07 lesson, section Chain of Responsibility"
+ */
 public final class ValidationChainDemo {
 
     private ValidationChainDemo() {}

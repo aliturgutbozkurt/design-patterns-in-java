@@ -9,6 +9,8 @@ import java.util.function.UnaryOperator;
 /**
  * Functions as values: small steps composed into pipelines. Passing behaviour as data is the heart of the Strategy
  * and Command patterns (m06).
+ *
+ * @see "m00 lesson, section Functions and streams"
  */
 public final class TextPipeline {
 

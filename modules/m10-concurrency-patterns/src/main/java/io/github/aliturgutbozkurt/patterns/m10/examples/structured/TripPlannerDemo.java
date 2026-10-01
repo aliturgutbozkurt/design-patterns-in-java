@@ -12,6 +12,8 @@ import java.util.concurrent.ExecutionException;
  * Run (preview API, JEP 533): {@code java --enable-preview --source 27 modules/m10-concurrency-patterns/src/main/java/io/github/aliturgutbozkurt/patterns/m10/examples/structured/TripPlannerDemo.java}
  *
  * <p>The failing and the hanging look-ups are simulated with latches, so every run prints the same lines.
+ *
+ * @see "m10 lesson, section Structured Concurrency"
  */
 public final class TripPlannerDemo {
 

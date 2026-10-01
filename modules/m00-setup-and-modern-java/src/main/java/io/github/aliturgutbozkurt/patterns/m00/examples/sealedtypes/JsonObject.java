@@ -4,7 +4,11 @@ import java.util.Collections;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-/** A JSON object. Members keep their insertion order and are copied into an unmodifiable map. */
+/**
+ * A JSON object. Members keep their insertion order and are copied into an unmodifiable map.
+ *
+ * @see "m00 lesson, section A recursive example: JSON"
+ */
 public record JsonObject(Map<String, Json> members) implements Json {
 
     public JsonObject {

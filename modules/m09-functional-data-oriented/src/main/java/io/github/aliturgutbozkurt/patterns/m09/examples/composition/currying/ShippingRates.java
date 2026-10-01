@@ -10,7 +10,11 @@ import java.util.function.Function;
  */
 public final class ShippingRates {
 
-    /** Where the parcel goes; each zone has a base price for the first kilogram and a price per extra kilogram. */
+    /**
+     * Where the parcel goes; each zone has a base price for the first kilogram and a price per extra kilogram.
+     *
+     * @see "m09 lesson, section Function composition, currying and partial application"
+     */
     public enum Zone {
         DOMESTIC(4_99, 1_00), EU(9_99, 2_50), WORLD(19_99, 5_00);
 

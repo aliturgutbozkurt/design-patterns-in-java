@@ -3,7 +3,11 @@ package io.github.aliturgutbozkurt.patterns.m01.solutions.ex01;
 import io.github.aliturgutbozkurt.patterns.m01.exercises.ex01.ReportFormat;
 import io.github.aliturgutbozkurt.patterns.m01.exercises.ex01.SalesSummary;
 
-/** Reference solution for assignment 01: only the CSV layout. */
+/**
+ * Reference solution for assignment 01: only the CSV layout.
+ *
+ * @see "m01 lesson, section SRP"
+ */
 public class CsvReportFormat implements ReportFormat {
 
     @Override

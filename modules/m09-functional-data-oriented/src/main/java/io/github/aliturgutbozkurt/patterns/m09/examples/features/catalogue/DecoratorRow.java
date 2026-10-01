@@ -15,7 +15,11 @@ public final class DecoratorRow {
 
     private DecoratorRow() {}
 
-    /** Before: each decoration is a class that wraps another {@code Text}. */
+    /**
+     * Before: each decoration is a class that wraps another {@code Text}.
+     *
+     * @see "m09 lesson, section Patterns that became language features"
+     */
     public static final class Classic {
 
         interface Text {
@@ -45,7 +49,11 @@ public final class DecoratorRow {
         }
     }
 
-    /** After: each decoration is a function; the stack is a composition. */
+    /**
+     * After: each decoration is a function; the stack is a composition.
+     *
+     * @see "m09 lesson, section Patterns that became language features"
+     */
     public static final class Modern {
 
         static final Function<String, String> TRIM = String::strip;

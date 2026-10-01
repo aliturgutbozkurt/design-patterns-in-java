@@ -12,7 +12,11 @@ import java.util.function.Supplier;
  */
 public final class Catalogue {
 
-    /** One pattern: what replaced it, when the class-based form is still worth writing, and runnable sides. */
+    /**
+     * One pattern: what replaced it, when the class-based form is still worth writing, and runnable sides.
+     *
+     * @see "m09 lesson, section Patterns that became language features"
+     */
     public record Row(String pattern, String modernFeature, String stillUseTheClassWhen, String lesson,
                       Supplier<String> classic, Supplier<String> modern) {
         public Row {

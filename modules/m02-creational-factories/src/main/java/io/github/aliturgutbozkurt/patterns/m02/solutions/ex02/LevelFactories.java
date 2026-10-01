@@ -5,7 +5,11 @@ import io.github.aliturgutbozkurt.patterns.m02.exercises.ex02.LevelFactory;
 import java.util.Arrays;
 import java.util.Locale;
 
-/** Reference solution for assignment 02: static factories that choose the family. */
+/**
+ * Reference solution for assignment 02: static factories that choose the family.
+ *
+ * @see "m02 lesson, section Abstract Factory"
+ */
 public final class LevelFactories {
 
     private LevelFactories() {}

@@ -3,7 +3,11 @@ package io.github.aliturgutbozkurt.patterns.m04.examples.proxy.virtual;
 import java.util.List;
 import java.util.concurrent.Executors;
 
-/** Run: {@code java modules/m04-structural-wrappers/src/main/java/io/github/aliturgutbozkurt/patterns/m04/examples/proxy/virtual/LazyImageDemo.java} */
+/**
+ * Run: {@code java modules/m04-structural-wrappers/src/main/java/io/github/aliturgutbozkurt/patterns/m04/examples/proxy/virtual/LazyImageDemo.java}
+ *
+ * @see "m04 lesson, section Proxy"
+ */
 public final class LazyImageDemo {
 
     private LazyImageDemo() {}

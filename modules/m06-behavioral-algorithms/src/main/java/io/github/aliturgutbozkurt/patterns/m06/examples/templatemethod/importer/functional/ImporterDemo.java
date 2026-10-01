@@ -4,7 +4,11 @@ import io.github.aliturgutbozkurt.patterns.m06.examples.templatemethod.importer.
 import java.util.ArrayList;
 import java.util.List;
 
-/** Run: {@code java modules/m06-behavioral-algorithms/src/main/java/io/github/aliturgutbozkurt/patterns/m06/examples/templatemethod/importer/functional/ImporterDemo.java} */
+/**
+ * Run: {@code java modules/m06-behavioral-algorithms/src/main/java/io/github/aliturgutbozkurt/patterns/m06/examples/templatemethod/importer/functional/ImporterDemo.java}
+ *
+ * @see "m06 lesson, section Template Method"
+ */
 public final class ImporterDemo {
 
     static final String CSV = """

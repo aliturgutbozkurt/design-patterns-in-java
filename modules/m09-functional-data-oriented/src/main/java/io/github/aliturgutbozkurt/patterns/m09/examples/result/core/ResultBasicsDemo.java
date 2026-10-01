@@ -4,7 +4,11 @@ import io.github.aliturgutbozkurt.patterns.m09.examples.result.core.Result.Err;
 import io.github.aliturgutbozkurt.patterns.m09.examples.result.core.Result.Ok;
 import java.util.List;
 
-/** Run: {@code java modules/m09-functional-data-oriented/src/main/java/io/github/aliturgutbozkurt/patterns/m09/examples/result/core/ResultBasicsDemo.java} */
+/**
+ * Run: {@code java modules/m09-functional-data-oriented/src/main/java/io/github/aliturgutbozkurt/patterns/m09/examples/result/core/ResultBasicsDemo.java}
+ *
+ * @see "m09 lesson, section Optional and Result — errors as values"
+ */
 public final class ResultBasicsDemo {
 
     private static final long UNIT_PRICE_CENTS = 250;

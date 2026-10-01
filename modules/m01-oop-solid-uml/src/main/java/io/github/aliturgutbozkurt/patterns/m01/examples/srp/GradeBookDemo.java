@@ -5,7 +5,11 @@ import io.github.aliturgutbozkurt.patterns.m01.examples.srp.gradebook.after.Grad
 import io.github.aliturgutbozkurt.patterns.m01.examples.srp.gradebook.after.ScoreParser;
 import io.github.aliturgutbozkurt.patterns.m01.examples.srp.gradebook.before.GradeBook;
 
-/** Run: {@code java modules/m01-oop-solid-uml/src/main/java/io/github/aliturgutbozkurt/patterns/m01/examples/srp/GradeBookDemo.java} */
+/**
+ * Run: {@code java modules/m01-oop-solid-uml/src/main/java/io/github/aliturgutbozkurt/patterns/m01/examples/srp/GradeBookDemo.java}
+ *
+ * @see "m01 lesson, section SRP"
+ */
 public final class GradeBookDemo {
 
     private static final String CSV = """

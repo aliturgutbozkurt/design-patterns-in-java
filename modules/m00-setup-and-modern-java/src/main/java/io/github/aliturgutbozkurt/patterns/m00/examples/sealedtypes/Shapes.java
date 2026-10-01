@@ -3,6 +3,8 @@ package io.github.aliturgutbozkurt.patterns.m00.examples.sealedtypes;
 /**
  * Operations written <em>outside</em> the hierarchy with pattern matching (data-oriented style). Adding a new
  * operation needs no change to the shapes; adding a new shape makes these switches fail to compile until handled.
+ *
+ * @see "m00 lesson, section Sealed hierarchies and pattern matching"
  */
 public final class Shapes {
 

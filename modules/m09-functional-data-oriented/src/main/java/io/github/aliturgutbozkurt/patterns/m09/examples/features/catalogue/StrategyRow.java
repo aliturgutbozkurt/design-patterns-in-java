@@ -19,7 +19,11 @@ public final class StrategyRow {
 
     private StrategyRow() {}
 
-    /** Before: a strategy interface and a named class for each ordering. */
+    /**
+     * Before: a strategy interface and a named class for each ordering.
+     *
+     * @see "m09 lesson, section Patterns that became language features"
+     */
     public static final class Classic {
 
         interface ItemOrder {
@@ -51,7 +55,11 @@ public final class StrategyRow {
         }
     }
 
-    /** After: the JDK's strategy interface, built from key extractors. */
+    /**
+     * After: the JDK's strategy interface, built from key extractors.
+     *
+     * @see "m09 lesson, section Patterns that became language features"
+     */
     public static final class Modern {
 
         static final Comparator<Item> BY_PRICE_THEN_NAME =

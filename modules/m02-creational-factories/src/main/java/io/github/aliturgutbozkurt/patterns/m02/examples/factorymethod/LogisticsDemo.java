@@ -6,7 +6,11 @@ import io.github.aliturgutbozkurt.patterns.m02.examples.factorymethod.logistics.
 import io.github.aliturgutbozkurt.patterns.m02.examples.factorymethod.logistics.SeaLogistics;
 import java.util.List;
 
-/** Run: {@code java modules/m02-creational-factories/src/main/java/io/github/aliturgutbozkurt/patterns/m02/examples/factorymethod/LogisticsDemo.java} */
+/**
+ * Run: {@code java modules/m02-creational-factories/src/main/java/io/github/aliturgutbozkurt/patterns/m02/examples/factorymethod/LogisticsDemo.java}
+ *
+ * @see "m02 lesson, section Factory Method"
+ */
 public final class LogisticsDemo {
 
     private LogisticsDemo() {}

@@ -3,7 +3,11 @@ package io.github.aliturgutbozkurt.patterns.m07.examples.memento;
 import io.github.aliturgutbozkurt.patterns.m07.examples.memento.editor.Editor;
 import io.github.aliturgutbozkurt.patterns.m07.examples.memento.editor.EditorSnapshot;
 
-/** Run: {@code java modules/m07-behavioral-communication/src/main/java/io/github/aliturgutbozkurt/patterns/m07/examples/memento/EditorUndoDemo.java} */
+/**
+ * Run: {@code java modules/m07-behavioral-communication/src/main/java/io/github/aliturgutbozkurt/patterns/m07/examples/memento/EditorUndoDemo.java}
+ *
+ * @see "m07 lesson, section Memento"
+ */
 public final class EditorUndoDemo {
 
     private EditorUndoDemo() {}

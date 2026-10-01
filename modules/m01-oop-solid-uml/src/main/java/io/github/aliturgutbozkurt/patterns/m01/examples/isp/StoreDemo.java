@@ -8,7 +8,11 @@ import io.github.aliturgutbozkurt.patterns.m01.examples.isp.store.before.ReadOnl
 import java.math.BigDecimal;
 import java.util.List;
 
-/** Run: {@code java modules/m01-oop-solid-uml/src/main/java/io/github/aliturgutbozkurt/patterns/m01/examples/isp/StoreDemo.java} */
+/**
+ * Run: {@code java modules/m01-oop-solid-uml/src/main/java/io/github/aliturgutbozkurt/patterns/m01/examples/isp/StoreDemo.java}
+ *
+ * @see "m01 lesson, section ISP"
+ */
 public final class StoreDemo {
 
     private StoreDemo() {}

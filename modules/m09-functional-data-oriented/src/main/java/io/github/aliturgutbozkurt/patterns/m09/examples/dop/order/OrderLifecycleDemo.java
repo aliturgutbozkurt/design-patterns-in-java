@@ -13,7 +13,11 @@ import io.github.aliturgutbozkurt.patterns.m09.examples.dop.order.modern.OrderTr
 import io.github.aliturgutbozkurt.patterns.m09.examples.dop.order.modern.OrderViews;
 import java.util.List;
 
-/** Run: {@code java modules/m09-functional-data-oriented/src/main/java/io/github/aliturgutbozkurt/patterns/m09/examples/dop/order/OrderLifecycleDemo.java} */
+/**
+ * Run: {@code java modules/m09-functional-data-oriented/src/main/java/io/github/aliturgutbozkurt/patterns/m09/examples/dop/order/OrderLifecycleDemo.java}
+ *
+ * @see "m09 lesson, section Data-oriented programming"
+ */
 public final class OrderLifecycleDemo {
 
     private OrderLifecycleDemo() {}

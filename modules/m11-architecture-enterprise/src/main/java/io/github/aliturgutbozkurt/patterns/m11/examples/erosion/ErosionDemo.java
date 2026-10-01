@@ -3,7 +3,11 @@ package io.github.aliturgutbozkurt.patterns.m11.examples.erosion;
 import io.github.aliturgutbozkurt.patterns.m11.examples.erosion.domain.Invoice;
 import java.math.BigDecimal;
 
-/** Run: {@code java modules/m11-architecture-enterprise/src/main/java/io/github/aliturgutbozkurt/patterns/m11/examples/erosion/ErosionDemo.java} */
+/**
+ * Run: {@code java modules/m11-architecture-enterprise/src/main/java/io/github/aliturgutbozkurt/patterns/m11/examples/erosion/ErosionDemo.java}
+ *
+ * @see "m11 lesson, section Architecture rules"
+ */
 public final class ErosionDemo {
 
     private ErosionDemo() {}

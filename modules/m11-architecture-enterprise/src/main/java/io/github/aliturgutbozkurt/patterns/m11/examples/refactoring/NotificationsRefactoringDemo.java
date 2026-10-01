@@ -7,7 +7,11 @@ import io.github.aliturgutbozkurt.patterns.m11.examples.refactoring.notification
 import io.github.aliturgutbozkurt.patterns.m11.examples.refactoring.notifications.after.SignUpReactions;
 import io.github.aliturgutbozkurt.patterns.m11.examples.refactoring.notifications.after.UserRegistered;
 
-/** Run: {@code java modules/m11-architecture-enterprise/src/main/java/io/github/aliturgutbozkurt/patterns/m11/examples/refactoring/NotificationsRefactoringDemo.java} */
+/**
+ * Run: {@code java modules/m11-architecture-enterprise/src/main/java/io/github/aliturgutbozkurt/patterns/m11/examples/refactoring/NotificationsRefactoringDemo.java}
+ *
+ * @see "m11 lesson, section Refactoring to patterns"
+ */
 public final class NotificationsRefactoringDemo {
 
     private NotificationsRefactoringDemo() {}

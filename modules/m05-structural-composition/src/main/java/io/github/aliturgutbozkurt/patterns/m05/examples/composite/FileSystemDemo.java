@@ -4,7 +4,11 @@ import io.github.aliturgutbozkurt.patterns.m05.examples.composite.filesystem.Dir
 import io.github.aliturgutbozkurt.patterns.m05.examples.composite.filesystem.File;
 import io.github.aliturgutbozkurt.patterns.m05.examples.composite.filesystem.FsOps;
 
-/** Run: {@code java modules/m05-structural-composition/src/main/java/io/github/aliturgutbozkurt/patterns/m05/examples/composite/FileSystemDemo.java} */
+/**
+ * Run: {@code java modules/m05-structural-composition/src/main/java/io/github/aliturgutbozkurt/patterns/m05/examples/composite/FileSystemDemo.java}
+ *
+ * @see "m05 lesson, section Composite"
+ */
 public final class FileSystemDemo {
 
     private FileSystemDemo() {}

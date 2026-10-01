@@ -19,7 +19,11 @@ public final class Workloads {
     /** How long a job waits at its gate before it gives up (only a broken setup ever gets there). */
     static final Duration GATE_TIMEOUT = Duration.ofSeconds(5);
 
-    /** What a run measured. */
+    /**
+     * What a run measured.
+     *
+     * @see "m10 lesson, section Thread-per-task with virtual threads"
+     */
     public record Result(int completed, int peakInFlight) {}
 
     private Workloads() {}

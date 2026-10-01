@@ -3,7 +3,11 @@ package io.github.aliturgutbozkurt.patterns.m09.examples.result.jdk;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
 
-/** Run: {@code java modules/m09-functional-data-oriented/src/main/java/io/github/aliturgutbozkurt/patterns/m09/examples/result/jdk/JdkResultShapesDemo.java} */
+/**
+ * Run: {@code java modules/m09-functional-data-oriented/src/main/java/io/github/aliturgutbozkurt/patterns/m09/examples/result/jdk/JdkResultShapesDemo.java}
+ *
+ * @see "m09 lesson, section Optional and Result — the same shape in the JDK"
+ */
 public final class JdkResultShapesDemo {
 
     private JdkResultShapesDemo() {}

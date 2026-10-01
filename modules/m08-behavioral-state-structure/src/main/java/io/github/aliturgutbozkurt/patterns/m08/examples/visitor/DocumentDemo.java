@@ -12,7 +12,11 @@ import io.github.aliturgutbozkurt.patterns.m08.examples.visitor.document.Inline.
 import io.github.aliturgutbozkurt.patterns.m08.examples.visitor.document.Inline.Text;
 import java.util.List;
 
-/** Run: {@code java modules/m08-behavioral-state-structure/src/main/java/io/github/aliturgutbozkurt/patterns/m08/examples/visitor/DocumentDemo.java} */
+/**
+ * Run: {@code java modules/m08-behavioral-state-structure/src/main/java/io/github/aliturgutbozkurt/patterns/m08/examples/visitor/DocumentDemo.java}
+ *
+ * @see "m08 lesson, section Visitor"
+ */
 public final class DocumentDemo {
 
     private DocumentDemo() {}

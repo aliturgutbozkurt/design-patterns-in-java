@@ -13,6 +13,8 @@ import java.util.concurrent.CompletableFuture;
  * Run: {@code java modules/m10-concurrency-patterns/src/main/java/io/github/aliturgutbozkurt/patterns/m10/examples/guarded/ReadinessGateDemo.java}
  *
  * <p>Requests started before the warm-up wait at the gate; the answers are printed in request order.
+ *
+ * @see "m10 lesson, section Guarded Suspension and Balking"
  */
 public final class ReadinessGateDemo {
 

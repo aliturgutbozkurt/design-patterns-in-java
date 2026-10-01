@@ -6,6 +6,8 @@ import java.util.concurrent.Executors;
 /**
  * Run: {@code java modules/m03-creational-construction/src/main/java/io/github/aliturgutbozkurt/patterns/m03/examples/pool/ConnectionPoolDemo.java}
  * — the concurrent part prints only facts that do not depend on thread scheduling.
+ *
+ * @see "m03 lesson, section Object Pool"
  */
 public final class ConnectionPoolDemo {
 

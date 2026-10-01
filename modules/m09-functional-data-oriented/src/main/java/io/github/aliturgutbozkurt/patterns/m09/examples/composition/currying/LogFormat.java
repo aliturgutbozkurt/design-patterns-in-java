@@ -11,7 +11,11 @@ import java.util.function.Function;
  */
 public final class LogFormat {
 
-    /** Severity of a log line. */
+    /**
+     * Severity of a log line.
+     *
+     * @see "m09 lesson, section Function composition, currying and partial application"
+     */
     public enum Level { INFO, WARN, ERROR }
 
     private LogFormat() {}
