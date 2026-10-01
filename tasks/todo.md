@@ -425,35 +425,35 @@ Legend: size S = 1–2 units, M = 3–5 units · `Verify` must pass before ticki
   - Files: `modules/m09-functional-data-oriented/assignments/*.md`, `modules/m09-functional-data-oriented/src/main/java/.../{exercises,solutions}/**`, `modules/m09-functional-data-oriented/src/test/java/.../{exercises,solutions}/**`
 ## Phase 4 · M10 Concurrency Patterns
 
-- [ ] **M10-1** (#56) — [m10-concurrency-patterns] Module spec · `S`
+- [x] **M10-1** (#56) — [m10-concurrency-patterns] Module spec · `S`
   - Acceptance: Spec follows the module-spec template and SPEC §2 scope
   - Acceptance: Every example and assignment has testable acceptance criteria
   - Acceptance: Approved by owner (comment on this issue)
   - Verify: Owner review
   - Depends on: M09-2b (#53)
   - Files: `specs/SPEC-m10-concurrency-patterns.md`
-- [ ] **M10-2a** (#57) — [m10-concurrency-patterns] Virtual threads, Producer–Consumer & Immutable object examples · `M`
+- [x] **M10-2a** (#57) — [m10-concurrency-patterns] Virtual threads, Producer–Consumer & Immutable object examples · `M`
   - Acceptance: Each example has a `main` with deterministic output and runs with `java <File>.java` (no build)
   - Acceptance: Each example has JUnit/AssertJ tests of its behaviour
   - Acceptance: Modern Java 27 idioms per CLAUDE.md §5; Javadoc on public types
   - Verify: `./mvnw -q -pl modules/m10-concurrency-patterns verify`; Run every demo with the source launcher
   - Depends on: M10-1 (#56)
   - Files: `modules/m10-concurrency-patterns/pom.xml`, `modules/m10-concurrency-patterns/src/main/java/.../examples/**`, `modules/m10-concurrency-patterns/src/test/java/.../examples/**`
-- [ ] **M10-2b** (#58) — [m10-concurrency-patterns] Structured Concurrency, Scoped Values & CompletableFuture examples · `M`
+- [x] **M10-2b** (#58) — [m10-concurrency-patterns] Structured Concurrency, Scoped Values & CompletableFuture examples · `M`
   - Acceptance: Each example has a `main` with deterministic output and runs with `java <File>.java` (no build)
   - Acceptance: Each example has JUnit/AssertJ tests of its behaviour
   - Acceptance: Modern Java 27 idioms per CLAUDE.md §5; Javadoc on public types
   - Verify: `./mvnw -q -pl modules/m10-concurrency-patterns verify`; Run every demo with the source launcher
   - Depends on: M10-1 (#56), M10-2a (#57)
   - Files: `modules/m10-concurrency-patterns/pom.xml`, `modules/m10-concurrency-patterns/src/main/java/.../examples/**`, `modules/m10-concurrency-patterns/src/test/java/.../examples/**`
-- [ ] **M10-3** (#59) — [m10-concurrency-patterns] Lesson EN + TR + PDF + module README · `M`
+- [x] **M10-3** (#59) — [m10-concurrency-patterns] Lesson EN + TR + PDF + module README · `M`
   - Acceptance: Code blocks come from compiled example files (path cited)
   - Acceptance: EN/TR heading parity; Turkish characters correct
   - Acceptance: Both PDFs generated and committed; README links lesson, examples, assignments
   - Verify: `scripts/check-docs.sh` exit 0; `scripts/build-pdf.sh modules/m10-concurrency-patterns` and inspect PDFs
   - Depends on: M10-2a (#57), M10-2b (#58)
   - Files: `modules/m10-concurrency-patterns/lesson/lesson.en.md`, `modules/m10-concurrency-patterns/lesson/lesson.tr.md`, `modules/m10-concurrency-patterns/lesson/*.pdf`, `modules/m10-concurrency-patterns/README.md`
-- [ ] **M10-4** (#60) — [m10-concurrency-patterns] Assignments + starters + solutions · `M`
+- [x] **M10-4** (#60) — [m10-concurrency-patterns] Assignments + starters + solutions · `M`
   - Acceptance: Starters compile and fail their contract tests
   - Acceptance: Solutions pass the same contract tests
   - Acceptance: Briefs (EN/TR) state goal, steps, hints, and how to run the tests
