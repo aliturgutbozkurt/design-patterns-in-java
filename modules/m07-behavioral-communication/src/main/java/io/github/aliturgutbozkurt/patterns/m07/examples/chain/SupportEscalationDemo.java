@@ -11,8 +11,13 @@ import io.github.aliturgutbozkurt.patterns.m07.examples.chain.support.modern.Sup
 import io.github.aliturgutbozkurt.patterns.m07.examples.chain.support.modern.TicketHandler;
 import java.util.List;
 import java.util.Optional;
+import java.util.function.Function;
 
-/** Run: {@code java modules/m07-behavioral-communication/src/main/java/io/github/aliturgutbozkurt/patterns/m07/examples/chain/SupportEscalationDemo.java} */
+/**
+ * Run: {@code java modules/m07-behavioral-communication/src/main/java/io/github/aliturgutbozkurt/patterns/m07/examples/chain/SupportEscalationDemo.java}
+ *
+ * @see "m07 lesson, section Chain of Responsibility"
+ */
 public final class SupportEscalationDemo {
 
     private SupportEscalationDemo() {}
@@ -27,21 +32,21 @@ public final class SupportEscalationDemo {
         SupportHandler classic = new Helpdesk();
         classic.linkTo(new TechnicalSupport()).linkTo(new Engineering());
         System.out.println("classic chain (linked objects):");
-        tickets.forEach(ticket -> print(ticket, classic.handle(ticket)));
+        tickets.forEach(ticket -> print(ticket, classic::handle));
 
         TicketHandler modern = SupportLevels.helpdesk()
                 .orElse(SupportLevels.technicalSupport())
                 .orElse(SupportLevels.engineering());
         System.out.println("modern chain (composed functions):");
-        tickets.forEach(ticket -> print(ticket, modern.handle(ticket)));
+        tickets.forEach(ticket -> print(ticket, modern::handle));
 
         boolean same = tickets.stream().allMatch(ticket -> classic.handle(ticket).equals(modern.handle(ticket)));
         System.out.println("same resolutions: " + same);
     }
 
-    private static void print(Ticket ticket, Optional<Resolution> resolution) {
+    private static void print(Ticket ticket, Function<Ticket, Optional<Resolution>> chain) {
         System.out.println("  " + ticket.id() + " " + ticket.topic() + "/" + ticket.severity() + " -> "
-                + resolution.map(r -> r.handledBy() + " via " + r.escalationPath())
+                + chain.apply(ticket).map(r -> r.handledBy() + " via " + r.escalationPath())
                         .orElse("unresolved (end of chain)"));
     }
 }
