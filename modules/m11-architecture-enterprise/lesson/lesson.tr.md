@@ -222,7 +222,7 @@ formatter is created fresh: true
 forgotten binding, found only at run time: no binding for ReportRepository (resolving ReportService -> ReportRepository)
 ```
 
-### Gerçek dünyada kullanım
+### Gerçek dünyada kullanımı
 
 Spring'in `ApplicationContext`'i (önerdiği biçim kurucu enjeksiyonudur; singleton ve request kapsamları), Google
 Guice ve Dagger (Dagger bağlama kodunu derleme zamanında üretir — hatalar yeniden derleyiciye taşınır), uygulama
@@ -380,7 +380,7 @@ alan reloads, re-applies and saves: [BOOK-1 x 2, PEN-7 x 1] at version 3
 *Kötümser* kilitleme, ada işini bitirene kadar alan'ı bekletirdi; iyimser kilitleme ikisinin de çalışmasına izin
 verir ve çakışmayı yakalar — çakışmalar seyrekse daha iyi seçimdir.
 
-### Gerçek dünyada kullanım
+### Gerçek dünyada kullanımı
 
 Spring Data depoları (`CrudRepository`, `Specification` ile `JpaSpecificationExecutor`), JPA'nın `EntityManager`'ı ve
 `@Version`'ı, Jakarta Data (Jakarta EE 11), Micronaut Data — ve bunların üstündeki kodu test etmek için kullanılan her
@@ -603,7 +603,7 @@ after a restart: order-1 for alice, total 47.00
 PLACED order-2 total 8.75
 ```
 
-### Gerçek dünyada kullanım
+### Gerçek dünyada kullanımı
 
 Alistair Cockburn'ün altıgen mimarisi, Robert C. Martin'in *Clean Architecture*'ı ve Jeffrey Palermo'nun *Onion
 Architecture*'ı farklı çizimlerle aynı fikirdir. `domain` / `application` / `adapter` paketlerine ayrılmış Spring Boot
@@ -779,7 +779,7 @@ relayed 2: pending []
 consumer processed: [1 OrderPlaced order-1 4700, 2 OrderPaid order-1], duplicates ignored: 1
 ```
 
-### Gerçek dünyada kullanım
+### Gerçek dünyada kullanımı
 
 Spring'in `@TransactionalEventListener(phase = AFTER_COMMIT)`'i ve Spring Data'nın `@DomainEvents` /
 `AbstractAggregateRoot`'u, Axon Framework, Debezium'un outbox olay yönlendiricisi (outbox tablosunda değişiklik
@@ -1223,7 +1223,7 @@ declined: Optional.empty, audit [declined carol 700]
 doğrulamasından** (mockçu yaklaşım: hangi çağrıların yapıldığını kontrol et) daha iyi dayanır. Durumu tercih edin;
 mock'ları dış dünyaya giden komutlar için kullanın.
 
-### Gerçek dünyada kullanım
+### Gerçek dünyada kullanımı
 
 Mockito, EasyMock ve MockK (Kotlin); Spring'in `MockMvc`'si; Testcontainers (fake olarak gerçek bir veritabanı);
 WireMock (sahte bir HTTP sunucusu); JDK'nın kendisinde `java.time.Clock.fixed` ve `Clock.offset`.
@@ -1339,7 +1339,7 @@ Sınırlaması öğreticidir: **yalnızca bir jenerik tip argümanı olarak** g�
 tarayıcının okumadığı `Signature` özniteliğinde yaşar — bir test bu ıskalamayı doğrular. ArchUnit imzaları da
 okur; gerçek aracın o olmasının nedeni budur.
 
-### Gerçek dünyada kullanım
+### Gerçek dünyada kullanımı
 
 Spring, Quarkus ve birçok kurumsal kod tabanında ArchUnit; DDD ve altıgen mimari için jMolecules'ün ArchUnit
 kuralları; Spring Modulith'in `ApplicationModules.verify()`'ı; derleme zamanı denetimi olarak JPMS `module-info.java`
@@ -1381,7 +1381,7 @@ testlerin yapı için yaptığını yapar.
 | Test ikizleri | işbirlikçiler yavaş, pahalı ya da belirsizse | değer nesneleri | stub/spy olarak lambdalar, fake bir `Clock` |
 | Mimari kurallar | bir ekip bir yapıyı korumalıysa | tek paketli bir program | ArchUnit; nasıl çalıştığını görmek için Class-File API |
 
-## Quiz
+## Sınav
 
 1. Bileşim kökü ile Service Locator arasındaki fark nedir?
 2. Setter enjeksiyonunun neden *zamansal bağlaşıma* yol açtığı söylenir?
