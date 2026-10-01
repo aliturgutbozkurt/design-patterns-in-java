@@ -282,7 +282,7 @@ ağacı.
 
 ### İlgili kalıplar
 
-**Iterator** (m07) bir Composite'i gezer; **Visitor** (m08) klasik bir Composite'e işlem ekler — desen eşlemeli
+**Iterator** (m06) bir Composite'i gezer; **Visitor** (m08) klasik bir Composite'e işlem ekler — desen eşlemeli
 sealed tipler onun yerini alır; **Decorator** (m04) aynı özyinelemeli biçime sahiptir ama tam olarak bir çocuğu
 vardır; **Builder** (m03) büyük ağaçları kurmak için kullanışlıdır.
 

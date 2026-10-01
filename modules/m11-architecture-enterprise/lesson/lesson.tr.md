@@ -1,6 +1,6 @@
 # Modül 11 — Mimari ve Kurumsal Kalıplar
 
-> **13. Hafta** · Ön koşullar: m03 (bileşim kökü, `Clock` enjeksiyonu), m04 (Adapter, Facade), m06 (Strategy, Command), m07 (Observer ve tipli olay veri yolu, Chain of Responsibility), m08 (durum makineleri), m09 (record'lar, mühürlü sonuç tipleri), m01 (SOLID, bağlaşım) · Tahmini çalışma süresi: 7 saat
+> **13. Hafta** · Ön koşullar: m03 (bileşim kökü, `Clock` enjeksiyonu), m04 (Adapter), m05 (Facade), m06 (Strategy, Command), m07 (Observer ve tipli olay veri yolu, Chain of Responsibility), m08 (durum makineleri), m09 (record'lar, mühürlü sonuç tipleri), m01 (SOLID, bağlaşım) · Tahmini çalışma süresi: 7 saat
 >
 > Her örneği derlemeden çalıştırın: `java modules/m11-architecture-enterprise/src/main/java/io/github/aliturgutbozkurt/patterns/m11/examples/<path>/<Demo>.java` (JDK 27)
 
@@ -243,7 +243,7 @@ sunucularında Jakarta CDI, eklentiler için `java.util.ServiceLoader` ve nesnel
 **Factory Method / Abstract Factory** (Fabrika Metodu / Soyut Fabrika, m02) nesne oluşturur; DI onları *kimin*
 çağıracağına karar verir. Bağlamayla elde edilen **Singleton** (Tekil Nesne, m02) — kök başına tek örnek — statik
 alanlı Singleton'ın yerini alır. **Strategy** (Strateji, m06) nesneleri tipik enjekte edilen işbirlikçilerdir.
-**Facade** (Cephe, m04) çoğu zaman enjekte edilmiş bir grafiğin üstünde durur.
+**Facade** (Cephe, m05) çoğu zaman enjekte edilmiş bir grafiğin üstünde durur.
 
 ## Repository
 
@@ -620,7 +620,7 @@ uygulamaları, Quarkus ve Micronaut projeleri ve rolleri işaretleyen jMolecules
 
 ### İlgili kalıplar
 
-**Adapter** (m04) kelimenin tam anlamıyla dış halkadır. **Facade** (m04), bir giriş portunun dışarıdan görünüşüdür.
+**Adapter** (m04) kelimenin tam anlamıyla dış halkadır. **Facade** (m05), bir giriş portunun dışarıdan görünüşüdür.
 **Repository** en yaygın çıkış portudur. Bileşim kökündeki **Dependency Injection** hepsini birbirine takar;
 **mimari kurallar** (aşağıda) öyle kalmasını sağlar.
 

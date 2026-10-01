@@ -291,7 +291,7 @@ chosen by name), and every framework "policy" or "provider" interface, such as a
 
 **State** (m08) has the same structure, but the object switches its own state. **Template Method** varies steps
 through inheritance, Strategy varies the whole algorithm through composition. A strategy is often obtained from a
-**Factory** (m02). **Decorator** (m05) can wrap a strategy (`FreeOverThreshold` wraps another rule).
+**Factory** (m02). **Decorator** (m04) can wrap a strategy (`FreeOverThreshold` wraps another rule).
 
 ## Template Method
 

@@ -280,7 +280,7 @@ syntax tree inside `javac`.
 
 ### Related patterns
 
-**Iterator** (m07) walks a Composite; **Visitor** (m08) adds operations to a classic Composite — sealed types with
+**Iterator** (m06) walks a Composite; **Visitor** (m08) adds operations to a classic Composite — sealed types with
 pattern matching replace it; **Decorator** (m04) has the same recursive shape but exactly one child; **Builder**
 (m03) is handy for assembling large trees.
 

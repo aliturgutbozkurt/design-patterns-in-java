@@ -300,7 +300,7 @@ arayüzleri.
 
 **State** (Durum, m08) aynı yapıya sahiptir, ama nesne kendi durumunu kendisi değiştirir. **Template Method**
 adımları kalıtımla, Strategy ise bütün algoritmayı bileşimle değiştirir. Bir strateji çoğu zaman bir **fabrikadan**
-(m02) alınır. **Decorator** (Dekoratör, m05) bir stratejiyi sarmalayabilir (`FreeOverThreshold` başka bir kuralı
+(m02) alınır. **Decorator** (Dekoratör, m04) bir stratejiyi sarmalayabilir (`FreeOverThreshold` başka bir kuralı
 sarmalar).
 
 ## Template Method

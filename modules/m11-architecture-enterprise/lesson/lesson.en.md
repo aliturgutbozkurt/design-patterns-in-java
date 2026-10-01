@@ -1,6 +1,6 @@
 # Module 11 — Architecture & Enterprise Patterns
 
-> **Week 13** · Prerequisites: m03 (composition root, `Clock` injection), m04 (Adapter, Facade), m06 (Strategy, Command), m07 (Observer and the typed event bus, Chain of Responsibility), m08 (state machines), m09 (records, sealed result types), m01 (SOLID, coupling) · Estimated study time: 7 h
+> **Week 13** · Prerequisites: m03 (composition root, `Clock` injection), m04 (Adapter), m05 (Facade), m06 (Strategy, Command), m07 (Observer and the typed event bus, Chain of Responsibility), m08 (state machines), m09 (records, sealed result types), m01 (SOLID, coupling) · Estimated study time: 7 h
 >
 > Run every example without a build: `java modules/m11-architecture-enterprise/src/main/java/io/github/aliturgutbozkurt/patterns/m11/examples/<path>/<Demo>.java` (JDK 27)
 
@@ -234,7 +234,7 @@ that builds its objects by hand.
 
 **Factory Method / Abstract Factory** (m02) create objects; DI decides *who* calls them. **Singleton** (m02) by
 wiring (one instance per root) replaces Singleton by static field. **Strategy** (m06) objects are typical injected
-collaborators. **Facade** (m04) often sits on top of an injected graph.
+collaborators. **Facade** (m05) often sits on top of an injected graph.
 
 ## Repository
 
@@ -605,7 +605,7 @@ roles all follow it.
 
 ### Related patterns
 
-**Adapter** (m04) is literally the outer ring. **Facade** (m04) is what an inbound port looks like from the outside.
+**Adapter** (m04) is literally the outer ring. **Facade** (m05) is what an inbound port looks like from the outside.
 **Repository** is the most common outbound port. **Dependency Injection** in the composition root plugs it all
 together; **architecture rules** (below) keep it that way.
 
