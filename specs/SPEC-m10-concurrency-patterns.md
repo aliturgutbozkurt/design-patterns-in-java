@@ -224,10 +224,15 @@ Both graded assignments use **final APIs only**. Their starters and solutions mu
   `cheapestPicksLowestPricedQuote`, `cheapestTieGoesToEarlierProvider`, `cheapestIsEmptyWhenNoQuoteSucceeded`,
   `bestEffortReportsFailedProviderAndKeepsOthers`, `slowProviderIsReportedAsTimedOut` (provider blocks on a latch
   that is never opened, deadline 100 ms), `slowProviderIsInterruptedAfterDeadline` (provider counts down a latch in
-  its `catch (InterruptedException)`; test awaits it ≤ 5 s), `failFastThrowsNamingTheFailingProvider`,
+  its `catch (InterruptedException)`; test awaits it ≤ 5 s whenever the provider had started, because a task
+  cancelled before its thread ran cannot observe an interrupt), `failFastThrowsNamingTheFailingProvider`,
   `failFastInterruptsRemainingProviders`, `failFastDoesNotWaitForTheDeadline` (deadline 30 s, `@Timeout(5)` on the
   test), `emptyProviderListGivesEmptyComparison`, `resultsListIsImmutable`, `doesNotShutDownTheInjectedExecutor`,
   `rejectsNullOrBlankSku`.
+- **Contract plumbing:** `Ex01Contract.comparator(providers, deadline, policy, executor)` is the only factory; the
+  contract owns a virtual-thread executor and, after each test, opens the latch that "never answering" providers
+  wait for, then `shutdownNow()` + `awaitTermination(5 s)`. A failing provider used for fail-fast waits until the
+  hanging one has signalled that it started. `ProviderResult`'s records are nested in the sealed interface.
 
 ### ex02 — Bounded job queue with graceful shutdown
 
@@ -263,6 +268,10 @@ Both graded assignments use **final APIs only**. Their starters and solutions mu
   `shutdownNowReturnsJobsThatNeverStartedInSubmissionOrder`, `shutdownNowInterruptsRunningJobs`,
   `awaitTerminationReturnsFalseWhileJobsStillRun` (gated handler, 50 ms), `shutdownIsIdempotent`,
   `closeShutsDownAndAwaitsTermination`, `rejectsInvalidConstructorArguments`.
+- **Contract plumbing:** `Ex02Contract.newQueue(capacity, workers, handler, threadFactory)`; `JobOutcome` declares
+  `long jobId()` and nests its records; an interrupted handler is recorded as `Failed(id, "interrupted")`. Gated
+  handlers signal `entered` and wait at a gate that the test (or `@AfterEach`) opens; teardown calls
+  `shutdownNow()` + `awaitTermination(5 s)` on every queue the test created.
 
 ## Quiz topics
 
