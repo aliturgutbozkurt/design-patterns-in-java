@@ -236,6 +236,15 @@ the examples and tests rely on them:
   `commandFromHandlerIsDispatchedAfterCurrentEvent`, `closedSubscriptionReceivesNothing`, `eachEventIsDispatchedOnce`,
   `rejectsNullArguments`.
 
+**Implementation notes (M11-4, synced with the code):** ex01's adapter lives in `exercises.ex01.adapter` /
+`solutions.ex01.adapter`; the contract's `serviceDoesNotDependOnAdapters` imports the bound service's package and
+checks that the service class depends on nothing in `..adapter..` (it passes on the starter, which already uses ports
+only — the other 20 tests fail there). In ex02 the four event records are nested in the GIVEN `sealed interface
+OrderEvent`; the starters `Order` and `EventDispatcher` are a suggested shape (`Order.place/from/pay/ship/cancel/
+snapshot/pullEvents`, `EventDispatcher.subscribe/dispatch(List)`) that students may change — only
+`OrderLifecycleService` is bound by the contract. Briefs: `assignments/01-checkout-hexagon.{en,tr}.md`,
+`assignments/02-order-lifecycle-events.{en,tr}.md`.
+
 ## Quiz topics
 
 Composition root vs. Service Locator vs. Singleton; constructor vs. setter injection and temporal coupling; what a DI

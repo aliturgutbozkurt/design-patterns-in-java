@@ -490,7 +490,7 @@ Legend: size S = 1–2 units, M = 3–5 units · `Verify` must pass before ticki
   - Verify: `scripts/check-docs.sh` exit 0; `scripts/build-pdf.sh modules/m11-architecture-enterprise` and inspect PDFs
   - Depends on: M11-2a (#62), M11-2b (#63)
   - Files: `modules/m11-architecture-enterprise/lesson/lesson.en.md`, `modules/m11-architecture-enterprise/lesson/lesson.tr.md`, `modules/m11-architecture-enterprise/lesson/*.pdf`, `modules/m11-architecture-enterprise/README.md`
-- [ ] **M11-4** (#65) — [m11-architecture-enterprise] Assignments + starters + solutions · `M`
+- [x] **M11-4** (#65) — [m11-architecture-enterprise] Assignments + starters + solutions · `M`
   - Acceptance: Starters compile and fail their contract tests
   - Acceptance: Solutions pass the same contract tests
   - Acceptance: Briefs (EN/TR) state goal, steps, hints, and how to run the tests
