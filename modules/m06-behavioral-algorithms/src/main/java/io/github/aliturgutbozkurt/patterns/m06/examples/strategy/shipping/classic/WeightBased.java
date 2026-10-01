@@ -22,7 +22,7 @@ public final class WeightBased implements ShippingStrategy {
     @Override
     public BigDecimal cost(Parcel parcel) {
         BigDecimal weight = BigDecimal.valueOf(parcel.weightKg());
-        return baseFee.add(perKg.multiply(weight)).setScale(2, RoundingMode.HALF_UP);
+        return baseFee.add(perKg.multiply(weight)).setScale(2, RoundingMode.HALF_EVEN);
     }
 
     @Override

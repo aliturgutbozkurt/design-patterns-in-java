@@ -1,10 +1,11 @@
 # Glossary · Sözlük (EN ↔ TR)
 
 Rules for Turkish text (CLAUDE.md §7): **pattern names stay in English**; on first use in a lesson write the Turkish
-term in parentheses — e.g. "Strategy (Strateji)". Code identifiers are never translated. Use the terms below; if a term
+term in parentheses — e.g. "Strategy (Strateji)". (Owner decision 2026-10-01: this applies to the patterns a lesson
+teaches; passing mentions of other modules' patterns — e.g. in prerequisite lines — need no Turkish term.) Code identifiers are never translated. Use the terms below; if a term
 is missing, add it here in the same PR instead of inventing a new translation inline.
 
-Türkçe metin kuralları: **kalıp adları İngilizce kalır**; derste ilk geçtiği yerde Türkçesi parantez içinde yazılır.
+Türkçe metin kuralları: **kalıp adları İngilizce kalır**; derste ilk geçtiği yerde Türkçesi parantez içinde yazılır. (Sahip kararı, 2026-10-01: bu kural dersin işlediği kalıplar için geçerlidir; başka modüllerin kalıplarından geçerken söz edilen adlar — örneğin ön koşul satırlarında — Türkçe terim gerektirmez.)
 Kod tanımlayıcıları çevrilmez. Listede olmayan bir terim gerekiyorsa aynı PR'da buraya ekleyin.
 
 ## Design patterns · Tasarım kalıpları

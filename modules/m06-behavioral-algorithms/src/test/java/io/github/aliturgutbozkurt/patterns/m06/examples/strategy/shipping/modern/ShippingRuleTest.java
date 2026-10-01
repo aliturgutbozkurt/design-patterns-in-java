@@ -72,4 +72,11 @@ class ShippingRuleTest {
                 express (lambda, 9.90 + 1.00/kg) for 3.0 kg: 12.90
                 """);
     }
+
+    @Test
+    void weightBasedRuleRoundsHalfEvenLikeTheRestOfTheCourse() {
+        // 2.00 + 0.05 × 0.5 = 2.025 → HALF_EVEN gives 2.02 (HALF_UP would give 2.03)
+        ShippingRule cheapPerKg = ShippingRules.weightBased(new BigDecimal("2.00"), new BigDecimal("0.05"));
+        assertThat(cheapPerKg.cost(new Parcel(0.5, new BigDecimal("10.00")))).isEqualTo(new BigDecimal("2.02"));
+    }
 }

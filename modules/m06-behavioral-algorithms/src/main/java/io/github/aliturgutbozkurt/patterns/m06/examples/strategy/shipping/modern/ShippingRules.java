@@ -26,7 +26,7 @@ public final class ShippingRules {
         Objects.requireNonNull(baseFee, "baseFee");
         Objects.requireNonNull(perKg, "perKg");
         return parcel -> baseFee.add(perKg.multiply(BigDecimal.valueOf(parcel.weightKg())))
-                .setScale(2, RoundingMode.HALF_UP);
+                .setScale(2, RoundingMode.HALF_EVEN);
     }
 
     public static ShippingRule freeOver(BigDecimal threshold, ShippingRule otherwise) {

@@ -62,4 +62,11 @@ class ShippingStrategyTest {
                 checkout switched to per-kg: 11.60
                 """);
     }
+
+    @Test
+    void weightBasedRoundsHalfEvenLikeTheRestOfTheCourse() {
+        // 2.00 + 0.05 × 0.5 = 2.025 → HALF_EVEN gives 2.02 (HALF_UP would give 2.03)
+        var cheapPerKg = new WeightBased(new BigDecimal("2.00"), new BigDecimal("0.05"));
+        assertThat(cheapPerKg.cost(new Parcel(0.5, new BigDecimal("10.00")))).isEqualTo(new BigDecimal("2.02"));
+    }
 }

@@ -105,7 +105,7 @@ One class per algorithm. `FreeOverThreshold` even delegates to another strategy 
     @Override
     public BigDecimal cost(Parcel parcel) {
         BigDecimal weight = BigDecimal.valueOf(parcel.weightKg());
-        return baseFee.add(perKg.multiply(weight)).setScale(2, RoundingMode.HALF_UP);
+        return baseFee.add(perKg.multiply(weight)).setScale(2, RoundingMode.HALF_EVEN);
     }
 ```
 
