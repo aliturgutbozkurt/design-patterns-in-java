@@ -635,7 +635,7 @@ katmanı sınıfları (`OrderService.placeOrder`) depolar ve ağ geçitleri üze
 
 ### Tuzaklar ve ne zaman KULLANILMAMALI
 
-- **Tanrı nesnesi (god object).** Her kullanım durumu için bir metot kazanan cephe bütün uygulamaya dönüşür; onu
+- **Tanrı nesnesi (god object).** Her kullanım senaryosu için bir metot kazanan cephe bütün uygulamaya dönüşür; onu
   kullanım durumlarına göre bölün (`CheckoutFacade`, `ReturnsFacade`).
 - Alt sisteme doğrudan erişimi "temizlik için" **yasaklamayın** — ileri düzey istemcilerin buna ihtiyacı vardır.
 - Tek bir çağrıyı iletmekten ibaret tek metotlu bir cephe hiçbir şey katmaz.

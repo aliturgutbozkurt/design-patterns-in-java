@@ -826,13 +826,13 @@ hepsini modern Java ile işler:
 
 | Aile | Kalıp | Modül |
 |---|---|---|
-| Yaratımsal | Singleton, Factory Method, Abstract Factory | m02 |
-| Yaratımsal | Builder, Prototype | m03 |
-| Yapısal | Adapter, Decorator, Proxy | m04 |
-| Yapısal | Composite, Bridge, Facade, Flyweight | m05 |
-| Davranışsal | Strategy, Template Method, Command, Iterator | m06 |
-| Davranışsal | Observer, Mediator, Chain of Responsibility, Memento | m07 |
-| Davranışsal | State, Visitor, Interpreter | m08 |
+| Yaratımsal | Singleton (Tekil Nesne), Factory Method (Fabrika Metodu), Abstract Factory (Soyut Fabrika) | m02 |
+| Yaratımsal | Builder (İnşacı), Prototype (Prototip) | m03 |
+| Yapısal | Adapter (Adaptör), Decorator (Dekoratör), Proxy (Vekil) | m04 |
+| Yapısal | Composite (Bileşik), Bridge (Köprü), Facade (Cephe), Flyweight (Sinek Siklet) | m05 |
+| Davranışsal | Strategy (Strateji), Template Method (Şablon Metot), Command (Komut), Iterator (Yineleyici) | m06 |
+| Davranışsal | Observer (Gözlemci), Mediator (Arabulucu), Chain of Responsibility (Sorumluluk Zinciri), Memento (Hatıra) | m07 |
+| Davranışsal | State (Durum), Visitor (Ziyaretçi), Interpreter (Yorumlayıcı) | m08 |
 
 Bunların birkaçıyla bu modülde adını anmadan zaten karşılaştınız: `DiscountRule` bir **Strategy (Strateji)**,
 `ForwardingSet` bir **Decorator**'ın iskeleti, `InvoiceWorkflow` ise bir **Facade (Cephe)**'ye yakındır.

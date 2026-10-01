@@ -7,7 +7,7 @@
 Bir strateji oyunu dünyasını karelerden (tile) oluşan bir ızgara üzerine çizer. Her kare tipi "ağır" veri taşır —
 8 × 8 bir sprite, bir harita sembolü, bir hareket maliyeti — ve verilen `NaiveTileMap` her hücre için **yeni** bir
 `TileType` oluşturur: yalnızca beş çeşit arazi olmasına rağmen 256 × 256 bir harita bunlardan 65 536 tane tutar.
-**Flyweight (Sinek Siklet)** desenini uygulayın: arazi başına tek bir `TileType` paylaştıran (*içsel* durum)
+**Flyweight (Sinek Siklet)** kalıbını uygulayın: arazi başına tek bir `TileType` paylaştıran (*içsel* durum)
 iş parçacığı güvenli bir kayıt (registry) ve hücreleri yalnızca *hangi* paylaşılan tipin *hangi* konumda olduğunu
 hatırlayan (*dışsal* durum) bir harita yazın. Sonra kazancı, öncesi ve sonrası için farklı nesne sayısını sayarak
 ölçün.

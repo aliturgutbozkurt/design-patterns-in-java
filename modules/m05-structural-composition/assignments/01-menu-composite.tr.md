@@ -7,7 +7,7 @@
 Bir restoran menüsü bir ağaçtır: akşam yemeği menüsü alt menüleri (başlangıçlar, ana yemekler, tatlılar), alt
 menüler de yemekleri içerir — ama bir menü doğrudan bir yemek de içerebilir ve tek bir yemek de kendi başına geçerli
 bir "menü"dür. Ağaç, iki **record** gerçekleştirmesi olan **sealed** (mühürlü) bir arayüz olarak verilmiştir. Sizin
-işiniz modern Composite (Bileşik) deseninin diğer yarısı: ağaç işlemlerini (sayımlar, toplamlar, süzülmüş listeler,
+işiniz modern Composite (Bileşik) kalıbının diğer yarısı: ağaç işlemlerini (sayımlar, toplamlar, süzülmüş listeler,
 yol döndüren bir arama, girintili bir çıktı) sealed tip üzerinde **özyinelemeli, eksiksiz (exhaustive) `switch`
 ifadeleri** olarak yazmak.
 
