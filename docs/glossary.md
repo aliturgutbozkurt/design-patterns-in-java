@@ -68,6 +68,9 @@ Kod tanımlayıcıları çevrilmez. Listede olmayan bir terim gerekiyorsa aynı 
 | double dispatch | çift yönlendirme (double dispatch) |
 | invariant | değişmez (invariant) |
 | immutable / immutability | değişmez / değişmezlik |
+| value object | değer nesnesi |
+| defensive copy / unmodifiable view | savunmacı kopya / değiştirilemez görünüm (view) |
+| wither | wither (`withX` metodu, yeni değer döndürür) |
 | side effect | yan etki |
 | class diagram / sequence diagram | sınıf diyagramı / sıralama diyagramı |
 
@@ -85,6 +88,12 @@ Kod tanımlayıcıları çevrilmez. Listede olmayan bir terim gerekiyorsa aynı 
 | lambda expression / method reference | lambda ifadesi / metot referansı |
 | functional interface | fonksiyonel arayüz |
 | higher-order function | yüksek mertebeden fonksiyon |
+| function composition | fonksiyon bileşimi |
+| currying / partial application | currying / kısmi uygulama |
+| lazy evaluation | tembel değerlendirme |
+| memoization | bellekleme (memoization) |
+| errors as values; railway (fail-fast chain) | değer olarak hatalar; demiryolu (railway) zinciri |
+| "parse, don't validate" | doğrulama değil, ayrıştırma |
 | generic type | jenerik tip |
 | virtual thread | sanal iş parçacığı (virtual thread) |
 | platform thread | platform iş parçacığı |
