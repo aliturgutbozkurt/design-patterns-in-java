@@ -82,6 +82,9 @@ Kod tanımlayıcıları çevrilmez. Listede olmayan bir terim gerekiyorsa aynı 
 | Ports and Adapters / Hexagonal Architecture | Ports and Adapters (Portlar ve Adaptörler) / Altıgen Mimari | |
 | inbound / outbound port | giriş portu (inbound) / çıkış portu (outbound) | |
 | application service / use case | uygulama servisi / kullanım senaryosu (use case) | |
+| checkout | ödeme adımı (checkout) | PatternShop: doğrulama → tahsilat → sipariş |
+| order fulfilment | sipariş karşılama (fulfilment) | toplama (pick) → paketleme (pack) → gönderme (ship) |
+| promotion / coupon | promosyon / kupon | |
 | layered / onion architecture | katmanlı / soğan (onion) mimari | |
 | architecture erosion | mimari aşınma | |
 | anti-pattern | anti-kalıp | |
@@ -205,6 +208,15 @@ Kod tanımlayıcıları çevrilmez. Listede olmayan bir terim gerekiyorsa aynı 
 | assignment | ödev |
 | capstone project | bitirme projesi |
 | acceptance criteria | kabul kriterleri |
+| acceptance test / acceptance test suite | kabul testi / kabul testi takımı |
+| rubric / level descriptor | rubrik (değerlendirme ölçeği) / düzey tanımı |
+| automatic fail condition (gate) | otomatik başarısızlık koşulu (kapı, gate) |
+| pattern-justification table | kalıp gerekçe tablosu |
+| extension feature | genişletme özelliği |
+| milestone / feature freeze | kilometre taşı / özellik dondurma |
+| design defence | tasarım savunması |
+| academic integrity | akademik dürüstlük |
+| walkthrough guide | çözüm rehberi (walkthrough) |
 | refactoring | yeniden düzenleme (refactoring) |
 | build | derleme (build) |
 | spec-driven development | spesifikasyon güdümlü geliştirme (SDD) |
