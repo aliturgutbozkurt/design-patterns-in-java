@@ -755,9 +755,9 @@ ama her birine aynı şeyi yapar; Visitor ise *tipe özgü* bir şey yapar. **In
 ## İfade problemi
 
 m01'in
-["sealed tipler bilerek kapalıdır"](https://github.com/aliturgutbozkurt/design-patterns-in-java/blob/main/modules/m01-oop-solid-uml/lesson/lesson.tr.md)
+["sealed tipler bilerek kapalıdır"](../../m01-oop-solid-uml/lesson/lesson.tr.md)
 kenar notu ve m05'in
-[Composite bölümü](https://github.com/aliturgutbozkurt/design-patterns-in-java/blob/main/modules/m05-structural-composition/lesson/lesson.tr.md)
+[Composite bölümü](../../m05-structural-composition/lesson/lesson.tr.md)
 bu ödünleşimi adlandırmıştı. Bu modül onu tam boyutuyla gösteriyor. *Tiplerin* satır, *işlemlerin* sütun olduğu bir
 tablo düşünün:
 

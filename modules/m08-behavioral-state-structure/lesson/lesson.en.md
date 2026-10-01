@@ -750,9 +750,9 @@ coupling; with sealed types they are rarely needed.
 ## The expression problem
 
 m01's sidebar
-["sealed types are deliberately closed"](https://github.com/aliturgutbozkurt/design-patterns-in-java/blob/main/modules/m01-oop-solid-uml/lesson/lesson.en.md#sidebar-sealed-types-are-deliberately-closed)
+["sealed types are deliberately closed"](../../m01-oop-solid-uml/lesson/lesson.en.md#sidebar-sealed-types-are-deliberately-closed)
 and m05's
-[Composite section](https://github.com/aliturgutbozkurt/design-patterns-in-java/blob/main/modules/m05-structural-composition/lesson/lesson.en.md)
+[Composite section](../../m05-structural-composition/lesson/lesson.en.md)
 named the trade-off. This module shows it at full size. Think of a table with *types* as rows and *operations* as
 columns:
 
