@@ -462,35 +462,35 @@ Legend: size S = 1–2 units, M = 3–5 units · `Verify` must pass before ticki
   - Files: `modules/m10-concurrency-patterns/assignments/*.md`, `modules/m10-concurrency-patterns/src/main/java/.../{exercises,solutions}/**`, `modules/m10-concurrency-patterns/src/test/java/.../{exercises,solutions}/**`
 ## Phase 4 · M11 Architecture & Enterprise
 
-- [ ] **M11-1** (#61) — [m11-architecture-enterprise] Module spec · `S`
+- [x] **M11-1** (#61) — [m11-architecture-enterprise] Module spec · `S`
   - Acceptance: Spec follows the module-spec template and SPEC §2 scope
   - Acceptance: Every example and assignment has testable acceptance criteria
   - Acceptance: Approved by owner (comment on this issue)
   - Verify: Owner review
   - Depends on: M10-2b (#58)
   - Files: `specs/SPEC-m11-architecture-enterprise.md`
-- [ ] **M11-2a** (#62) — [m11-architecture-enterprise] DI, Repository & Ports-and-Adapters examples · `M`
+- [x] **M11-2a** (#62) — [m11-architecture-enterprise] DI, Repository & Ports-and-Adapters examples · `M`
   - Acceptance: Each example has a `main` with deterministic output and runs with `java <File>.java` (no build)
   - Acceptance: Each example has JUnit/AssertJ tests of its behaviour
   - Acceptance: Modern Java 27 idioms per CLAUDE.md §5; Javadoc on public types
   - Verify: `./mvnw -q -pl modules/m11-architecture-enterprise verify`; Run every demo with the source launcher
   - Depends on: M11-1 (#61)
   - Files: `modules/m11-architecture-enterprise/pom.xml`, `modules/m11-architecture-enterprise/src/main/java/.../examples/**`, `modules/m11-architecture-enterprise/src/test/java/.../examples/**`
-- [ ] **M11-2b** (#63) — [m11-architecture-enterprise] Domain events, anti-patterns, refactoring & ArchUnit examples · `M`
+- [x] **M11-2b** (#63) — [m11-architecture-enterprise] Domain events, anti-patterns, refactoring & ArchUnit examples · `M`
   - Acceptance: Each example has a `main` with deterministic output and runs with `java <File>.java` (no build)
   - Acceptance: Each example has JUnit/AssertJ tests of its behaviour
   - Acceptance: Modern Java 27 idioms per CLAUDE.md §5; Javadoc on public types
   - Verify: `./mvnw -q -pl modules/m11-architecture-enterprise verify`; Run every demo with the source launcher
   - Depends on: M11-1 (#61), M11-2a (#62)
   - Files: `modules/m11-architecture-enterprise/pom.xml`, `modules/m11-architecture-enterprise/src/main/java/.../examples/**`, `modules/m11-architecture-enterprise/src/test/java/.../examples/**`
-- [ ] **M11-3** (#64) — [m11-architecture-enterprise] Lesson EN + TR + PDF + module README · `M`
+- [x] **M11-3** (#64) — [m11-architecture-enterprise] Lesson EN + TR + PDF + module README · `M`
   - Acceptance: Code blocks come from compiled example files (path cited)
   - Acceptance: EN/TR heading parity; Turkish characters correct
   - Acceptance: Both PDFs generated and committed; README links lesson, examples, assignments
   - Verify: `scripts/check-docs.sh` exit 0; `scripts/build-pdf.sh modules/m11-architecture-enterprise` and inspect PDFs
   - Depends on: M11-2a (#62), M11-2b (#63)
   - Files: `modules/m11-architecture-enterprise/lesson/lesson.en.md`, `modules/m11-architecture-enterprise/lesson/lesson.tr.md`, `modules/m11-architecture-enterprise/lesson/*.pdf`, `modules/m11-architecture-enterprise/README.md`
-- [ ] **M11-4** (#65) — [m11-architecture-enterprise] Assignments + starters + solutions · `M`
+- [x] **M11-4** (#65) — [m11-architecture-enterprise] Assignments + starters + solutions · `M`
   - Acceptance: Starters compile and fail their contract tests
   - Acceptance: Solutions pass the same contract tests
   - Acceptance: Briefs (EN/TR) state goal, steps, hints, and how to run the tests

@@ -67,10 +67,28 @@ Kod tanımlayıcıları çevrilmez. Listede olmayan bir terim gerekiyorsa aynı 
 | Balking | Balking (Vazgeçme) | koşul yoksa hemen dön |
 | Immutable Object | Immutable Object (Değişmez Nesne) | |
 | Repository | Repository (Depo) | |
+| Specification | Specification (Belirtim) | sorgu nesnesi; `and` / `or` / `not` ile birleşir |
+| optimistic / pessimistic locking | iyimser / kötümser kilitleme | sürüm (version) karşılaştırması |
+| aggregate / aggregate root | aggregate (küme) / küme kökü (aggregate root) | DDD |
+| unit of work | iş birimi (unit of work) | önce commit, sonra olay dağıtımı |
+| domain event | alan olayı (domain event) | geçmiş zamanla adlandırılır: `OrderPlaced` |
+| transactional outbox | işlemsel giden kutusu (transactional outbox) | |
+| at-least-once delivery / idempotent consumer | en az bir kez teslim / idempotent tüketici | |
 | Dependency Injection | Dependency Injection (Bağımlılık Enjeksiyonu) | kısaltma: DI |
+| composition root | bileşim kökü (composition root) | nesne grafiğinin kurulduğu tek yer |
+| lifetime: application / per-request / transient | yaşam süresi: uygulama / istek başına / geçici | |
+| DI container | DI kapsayıcısı (container) | Spring, Guice, CDI |
+| Service Locator | Service Locator (Servis Bulucu) | anti-kalıp olarak |
 | Ports and Adapters / Hexagonal Architecture | Ports and Adapters (Portlar ve Adaptörler) / Altıgen Mimari | |
+| inbound / outbound port | giriş portu (inbound) / çıkış portu (outbound) | |
+| application service / use case | uygulama servisi / kullanım senaryosu (use case) | |
+| layered / onion architecture | katmanlı / soğan (onion) mimari | |
+| architecture erosion | mimari aşınma | |
 | anti-pattern | anti-kalıp | |
 | god object | tanrı nesnesi (god object) | |
+| god class | tanrı sınıf (god class) | |
+| anaemic / rich domain model | kansız (anaemic) / zengin alan modeli | |
+| speculative generality ("patternitis") | spekülatif genellik ("patternitis", kalıp hastalığı) | |
 
 ## Object-oriented design · Nesne yönelimli tasarım
 
@@ -180,6 +198,10 @@ Kod tanımlayıcıları çevrilmez. Listede olmayan bir terim gerekiyorsa aynı 
 |---|---|
 | unit test | birim testi |
 | test double (stub, fake, spy, mock) | test ikizi (stub, fake, spy, mock) |
+| dummy | dummy (yer tutucu ikiz) |
+| state / interaction verification | durum / etkileşim doğrulaması |
+| characterization test | karakterizasyon testi |
+| architecture rule / test | mimari kural / mimari test |
 | contract test | sözleşme testi |
 | starter code | başlangıç kodu |
 | reference solution | referans çözüm |

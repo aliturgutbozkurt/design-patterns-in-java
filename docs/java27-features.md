@@ -41,6 +41,7 @@ Legend: ✅ = compiled and ran on JDK 27 with no flags.
 | Unnamed variables & patterns (`_`) | [456](https://openjdk.org/jeps/456) | 22 | ✅ | m00, m08, m09 |
 | Launch multi-file source-code programs | [458](https://openjdk.org/jeps/458) | 22 | ✅ | every example ("run without a build") |
 | Markdown documentation comments (`///`) | [467](https://openjdk.org/jeps/467) | 23 | ✅ | m00 (shown once); course code keeps `/** */` for consistency |
+| Class-File API (`java.lang.classfile`) | [484](https://openjdk.org/jeps/484) | 24 | ✅ | m11 (`archcheck`: dependency-free bytecode dependency scanner; decision in SPEC-m11) |
 | Stream Gatherers | [485](https://openjdk.org/jeps/485) | 24 | ✅ | m06 (Iterator), m09 |
 | Scoped values | [506](https://openjdk.org/jeps/506) | 25 | ✅ | m10 (vs. `ThreadLocal`) |
 | Module import declarations | [511](https://openjdk.org/jeps/511) | 25 | ✅ | m00 (compact source files only) |

@@ -25,6 +25,7 @@
         <module>modules/m08-behavioral-state-structure</module>
         <module>modules/m09-functional-data-oriented</module>
         <module>modules/m10-concurrency-patterns</module>
+        <module>modules/m11-architecture-enterprise</module>
     </modules>
 
     <properties>
