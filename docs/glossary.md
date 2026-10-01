@@ -104,6 +104,9 @@ Kod tanımlayıcıları çevrilmez. Listede olmayan bir terim gerekiyorsa aynı 
 | state machine / state transition | durum makinesi / durum geçişi |
 | invariant | değişmez (invariant) |
 | immutable / immutability | değişmez / değişmezlik |
+| value object | değer nesnesi |
+| defensive copy / unmodifiable view | savunmacı kopya / değiştirilemez görünüm (view) |
+| wither | wither (`withX` metodu, yeni değer döndürür) |
 | side effect | yan etki |
 | class diagram / sequence diagram | sınıf diyagramı / sıralama diyagramı |
 | god class | her işi yapan sınıf (god class) |
@@ -132,6 +135,11 @@ Kod tanımlayıcıları çevrilmez. Listede olmayan bir terim gerekiyorsa aynı 
 | lambda expression / method reference | lambda ifadesi / metot referansı |
 | functional interface | fonksiyonel arayüz |
 | higher-order function | yüksek mertebeden fonksiyon |
+| function composition | fonksiyon bileşimi |
+| currying / partial application | currying / kısmi uygulama |
+| lazy evaluation | tembel değerlendirme |
+| errors as values; railway (fail-fast chain) | değer olarak hatalar; demiryolu (railway) zinciri |
+| "parse, don't validate" | doğrulama değil, ayrıştırma |
 | generic type | jenerik tip |
 | dynamic proxy / invocation handler | dinamik vekil / çağrı işleyici (InvocationHandler) |
 | double-checked locking | çift denetimli kilitleme (double-checked locking) |

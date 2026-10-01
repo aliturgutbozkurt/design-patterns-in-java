@@ -23,6 +23,7 @@
         <module>modules/m06-behavioral-algorithms</module>
         <module>modules/m07-behavioral-communication</module>
         <module>modules/m08-behavioral-state-structure</module>
+        <module>modules/m09-functional-data-oriented</module>
     </modules>
 
     <properties>

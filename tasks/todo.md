@@ -388,35 +388,35 @@ Legend: size S = 1–2 units, M = 3–5 units · `Verify` must pass before ticki
   - Files: `modules/m08-behavioral-state-structure/assignments/*.md`, `modules/m08-behavioral-state-structure/src/main/java/.../{exercises,solutions}/**`, `modules/m08-behavioral-state-structure/src/test/java/.../{exercises,solutions}/**`
 ## Phase 4 · M09 Functional & Data-Oriented
 
-- [ ] **M09-1** (#51) — [m09-functional-data-oriented] Module spec · `S`
+- [x] **M09-1** (#51) — [m09-functional-data-oriented] Module spec · `S`
   - Acceptance: Spec follows the module-spec template and SPEC §2 scope
   - Acceptance: Every example and assignment has testable acceptance criteria
   - Acceptance: Approved by owner (comment on this issue)
   - Verify: Owner review
   - Depends on: M08-2b (#48)
   - Files: `specs/SPEC-m09-functional-data-oriented.md`
-- [ ] **M09-2a** (#52) — [m09-functional-data-oriented] Data-oriented programming & Result type examples · `M`
+- [x] **M09-2a** (#52) — [m09-functional-data-oriented] Data-oriented programming & Result type examples · `M`
   - Acceptance: Each example has a `main` with deterministic output and runs with `java <File>.java` (no build)
   - Acceptance: Each example has JUnit/AssertJ tests of its behaviour
   - Acceptance: Modern Java 27 idioms per CLAUDE.md §5; Javadoc on public types
   - Verify: `./mvnw -q -pl modules/m09-functional-data-oriented verify`; Run every demo with the source launcher
   - Depends on: M09-1 (#51)
   - Files: `modules/m09-functional-data-oriented/pom.xml`, `modules/m09-functional-data-oriented/src/main/java/.../examples/**`, `modules/m09-functional-data-oriented/src/test/java/.../examples/**`
-- [ ] **M09-2b** (#53) — [m09-functional-data-oriented] Functional replacements for GoF patterns · `M`
+- [x] **M09-2b** (#53) — [m09-functional-data-oriented] Functional replacements for GoF patterns · `M`
   - Acceptance: Each example has a `main` with deterministic output and runs with `java <File>.java` (no build)
   - Acceptance: Each example has JUnit/AssertJ tests of its behaviour
   - Acceptance: Modern Java 27 idioms per CLAUDE.md §5; Javadoc on public types
   - Verify: `./mvnw -q -pl modules/m09-functional-data-oriented verify`; Run every demo with the source launcher
   - Depends on: M09-1 (#51), M09-2a (#52)
   - Files: `modules/m09-functional-data-oriented/pom.xml`, `modules/m09-functional-data-oriented/src/main/java/.../examples/**`, `modules/m09-functional-data-oriented/src/test/java/.../examples/**`
-- [ ] **M09-3** (#54) — [m09-functional-data-oriented] Lesson EN + TR + PDF + module README · `M`
+- [x] **M09-3** (#54) — [m09-functional-data-oriented] Lesson EN + TR + PDF + module README · `M`
   - Acceptance: Code blocks come from compiled example files (path cited)
   - Acceptance: EN/TR heading parity; Turkish characters correct
   - Acceptance: Both PDFs generated and committed; README links lesson, examples, assignments
   - Verify: `scripts/check-docs.sh` exit 0; `scripts/build-pdf.sh modules/m09-functional-data-oriented` and inspect PDFs
   - Depends on: M09-2a (#52), M09-2b (#53)
   - Files: `modules/m09-functional-data-oriented/lesson/lesson.en.md`, `modules/m09-functional-data-oriented/lesson/lesson.tr.md`, `modules/m09-functional-data-oriented/lesson/*.pdf`, `modules/m09-functional-data-oriented/README.md`
-- [ ] **M09-4** (#55) — [m09-functional-data-oriented] Assignments + starters + solutions · `M`
+- [x] **M09-4** (#55) — [m09-functional-data-oriented] Assignments + starters + solutions · `M`
   - Acceptance: Starters compile and fail their contract tests
   - Acceptance: Solutions pass the same contract tests
   - Acceptance: Briefs (EN/TR) state goal, steps, hints, and how to run the tests
