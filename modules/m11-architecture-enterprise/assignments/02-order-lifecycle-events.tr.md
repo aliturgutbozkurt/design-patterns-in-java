@@ -4,7 +4,7 @@
 
 ## Amaç
 
-Bir aggregate'in (küme kökü) dinleyicileri çağırmak yerine olanları **kaydetmesini** sağlayın, durumunu bir port
+Bir aggregate'in (küme) dinleyicileri çağırmak yerine olanları **kaydetmesini** sağlayın, durumunu bir port
 üzerinden commit edin ve kaydedilen **domain event'leri** (alan olayları) yalnızca commit başarılı olduktan sonra
 dağıtın. Üç parça yazacaksınız: `Order` aggregate'i (geçişler ve olaylar), süreç içi bir `EventDispatcher` (tipli
 abonelikler, hata işleyici, dağıtım sırasında doğan olaylar için bir kuyruk) ve bunları birleştiren
@@ -17,7 +17,7 @@ abonelikler, hata işleyici, dağıtım sırasında doğan olaylar için bir kuy
 - `exercises/ex02/OrderEvent.java` — sealed: `OrderPlaced(id, totalCents)`, `OrderPaid(id)`, `OrderShipped(id)`,
   `OrderCancelled(id, reason)` (record'lar) — **değiştirmeyin**
 - `exercises/ex02/OrderSnapshot.java` — record `(id, status, totalCents)`: deponun sakladığı — **değiştirmeyin**
-- `exercises/ex02/OrderStore.java` — dış port `load(OrderId)`, `commit(OrderSnapshot)` (istisna fırlatabilir) —
+- `exercises/ex02/OrderStore.java` — çıkış portu `load(OrderId)`, `commit(OrderSnapshot)` (istisna fırlatabilir) —
   **değiştirmeyin**
 - `exercises/ex02/Subscription.java` ve `exercises/ex02/OrderLifecycle.java` — **değiştirmeyin**
 - `exercises/ex02/Order.java`, `EventDispatcher.java`, `OrderLifecycleService.java` — kodunuz (`TODO(ex02)`

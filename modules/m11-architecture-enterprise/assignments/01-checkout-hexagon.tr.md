@@ -5,7 +5,7 @@
 ## Amaç
 
 Bitirme projesinin çekirdeğini kurun: bir sepeti **yalnızca portları** (çekirdeğin sahip olduğu arayüzleri)
-kullanarak ödemeye dönüştüren bir uygulama servisi ve bir dış (outbound) adaptör — siparişler için bellek içi bir
+kullanarak ödemeye dönüştüren bir uygulama servisi ve bir çıkış (outbound) adaptörü — siparişler için bellek içi bir
 **Repository (Depo)**. Servis hiçbir adaptör sınıfının adını anmadığı için aynı akış her katalog, ödeme sağlayıcısı,
 depo ya da olay yoluyla çalışır; sözleşmedeki bir ArchUnit kuralı bunu kanıtlar. İş kaynaklı retler mühürlü (sealed)
 bir sonuç tipinin değerleridir, altyapı hataları istisna olarak kalır ve sipariş, olay yayımlanmadan **önce**
@@ -16,13 +16,13 @@ kaydedilir.
 - `exercises/ex01/Sku.java`, `Money.java` (negatif olmayan kuruş; `plus`, `times`), `OrderId.java`, `CartItem.java`,
   `Product.java` (`price` ve `stock` ile), `OrderLine.java`, `Order.java` (toplamı satırların toplamına eşit
   olmalıdır), `OrderPlaced.java` — record'lar — **değiştirmeyin**
-- `exercises/ex01/CheckoutUseCase.java` — iç (inbound) port
+- `exercises/ex01/CheckoutUseCase.java` — giriş portu (inbound)
   `CheckoutResult checkout(String customer, List<CartItem> cart)` — **değiştirmeyin**
 - `exercises/ex01/CheckoutResult.java` — sealed: `Confirmed(Order)`, `Rejected(String reason)` — **değiştirmeyin**
 - `exercises/ex01/ProductCatalog.java`, `PaymentPort.java`, `OrderRepository.java`, `EventPublisher.java`,
-  `OrderIdGenerator.java` — dış portlar — **değiştirmeyin**
+  `OrderIdGenerator.java` — çıkış portları — **değiştirmeyin**
 - `exercises/ex01/CheckoutService.java` — uygulama servisiniz (`TODO(ex01)` işaretleri)
-- `exercises/ex01/adapter/InMemoryOrderRepository.java` — dış adaptörünüz (`TODO(ex01)` işaretleri)
+- `exercises/ex01/adapter/InMemoryOrderRepository.java` — çıkış adaptörünüz (`TODO(ex01)` işaretleri)
 
 ## Görevler
 

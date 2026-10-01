@@ -483,7 +483,7 @@ Legend: size S = 1–2 units, M = 3–5 units · `Verify` must pass before ticki
   - Verify: `./mvnw -q -pl modules/m11-architecture-enterprise verify`; Run every demo with the source launcher
   - Depends on: M11-1 (#61), M11-2a (#62)
   - Files: `modules/m11-architecture-enterprise/pom.xml`, `modules/m11-architecture-enterprise/src/main/java/.../examples/**`, `modules/m11-architecture-enterprise/src/test/java/.../examples/**`
-- [ ] **M11-3** (#64) — [m11-architecture-enterprise] Lesson EN + TR + PDF + module README · `M`
+- [x] **M11-3** (#64) — [m11-architecture-enterprise] Lesson EN + TR + PDF + module README · `M`
   - Acceptance: Code blocks come from compiled example files (path cited)
   - Acceptance: EN/TR heading parity; Turkish characters correct
   - Acceptance: Both PDFs generated and committed; README links lesson, examples, assignments
