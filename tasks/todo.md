@@ -50,7 +50,7 @@ Legend: size S = 1–2 units, M = 3–5 units · `Verify` must pass before ticki
   - Files: `README.md`, `README.tr.md`, `LICENSE`, `.github/ISSUE_TEMPLATE/*`, `docs/syllabus.*.md`
 
 ### ✅ Checkpoint: Foundation — CI green on 3 OSes; sample PDF renders Turkish; exercise profiles behave as specified
-- [ ] All tests pass · [ ] Docs check clean · [ ] Human review
+- [x] All tests pass · [x] Docs check clean · [ ] Human review
 
 ## Phase 2 · Pilot · M00 Setup & Modern Java
 
@@ -84,7 +84,7 @@ Legend: size S = 1–2 units, M = 3–5 units · `Verify` must pass before ticki
   - Files: `modules/m00-setup-and-modern-java/assignments/*.md`, `modules/m00-setup-and-modern-java/src/main/java/.../{exercises,solutions}/**`, `modules/m00-setup-and-modern-java/src/test/java/.../{exercises,solutions}/**`
 
 ### ✅ Checkpoint: Pilot — m00 meets Definition of Done; templates adjusted; **human review before scaling out**
-- [ ] All tests pass · [ ] Docs check clean · [ ] Human review
+- [x] All tests pass · [x] Docs check clean · [ ] Human review
 
 ## Phase 3 · M01 OOP, SOLID & UML
 
@@ -273,7 +273,7 @@ Legend: size S = 1–2 units, M = 3–5 units · `Verify` must pass before ticki
   - Files: `modules/m05-structural-composition/assignments/*.md`, `modules/m05-structural-composition/src/main/java/.../{exercises,solutions}/**`, `modules/m05-structural-composition/src/test/java/.../{exercises,solutions}/**`
 
 ### ✅ Checkpoint: Creational + Structural done — midterm-ready (W7)
-- [ ] All tests pass · [ ] Docs check clean · [ ] Human review
+- [x] All tests pass · [x] Docs check clean · [ ] Human review
 
 ## Phase 4 · M06 Behavioral I: Algorithms
 
@@ -499,7 +499,7 @@ Legend: size S = 1–2 units, M = 3–5 units · `Verify` must pass before ticki
   - Files: `modules/m11-architecture-enterprise/assignments/*.md`, `modules/m11-architecture-enterprise/src/main/java/.../{exercises,solutions}/**`, `modules/m11-architecture-enterprise/src/test/java/.../{exercises,solutions}/**`
 
 ### ✅ Checkpoint: All modules done — `./mvnw verify` + `check-docs.sh` green
-- [ ] All tests pass · [ ] Docs check clean · [ ] Human review
+- [x] All tests pass · [x] Docs check clean · [ ] Human review
 
 ## Phase 5 · Capstone
 
