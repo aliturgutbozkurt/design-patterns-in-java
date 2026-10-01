@@ -409,7 +409,7 @@ Legend: size S = 1–2 units, M = 3–5 units · `Verify` must pass before ticki
   - Verify: `./mvnw -q -pl modules/m09-functional-data-oriented verify`; Run every demo with the source launcher
   - Depends on: M09-1 (#51), M09-2a (#52)
   - Files: `modules/m09-functional-data-oriented/pom.xml`, `modules/m09-functional-data-oriented/src/main/java/.../examples/**`, `modules/m09-functional-data-oriented/src/test/java/.../examples/**`
-- [ ] **M09-3** (#54) — [m09-functional-data-oriented] Lesson EN + TR + PDF + module README · `M`
+- [x] **M09-3** (#54) — [m09-functional-data-oriented] Lesson EN + TR + PDF + module README · `M`
   - Acceptance: Code blocks come from compiled example files (path cited)
   - Acceptance: EN/TR heading parity; Turkish characters correct
   - Acceptance: Both PDFs generated and committed; README links lesson, examples, assignments
