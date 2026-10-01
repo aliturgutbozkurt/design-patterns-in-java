@@ -503,7 +503,7 @@ Legend: size S = 1–2 units, M = 3–5 units · `Verify` must pass before ticki
 
 ## Phase 5 · Capstone
 
-- [ ] **C1** (#66) — Capstone spec & rubric (EN/TR) · `M`
+- [x] **C1** (#66) — Capstone spec & rubric (EN/TR) · `M`
   - Acceptance: Brief and rubric in EN + TR
   - Acceptance: Every rubric line is objectively assessable
   - Acceptance: Owner approves domain & scope

@@ -1,6 +1,6 @@
 # Spec: capstone — PatternShop Capstone Project
 
-> Status: **DRAFT — awaiting owner approval** (capstone scope is "ask first", CLAUDE.md §9) · Parent: [SPEC.md](../SPEC.md) §2 row C,
+> Status: **APPROVED** (owner, 2026-10-01; capstone scope approved per CLAUDE.md §9) · Parent: [SPEC.md](../SPEC.md) §2 row C,
 > §9 criterion 6, §10 assumption 7 · Weeks: 9–14 · Tasks: C1–C7 (#66–#72)
 >
 > Student-facing documents written in C1: [capstone brief](../capstone/spec.en.md) ([TR](../capstone/spec.tr.md)) and
@@ -445,7 +445,9 @@ file adapter), real payment providers or network calls, authentication, multi-cu
 are VAT-inclusive TRY), DI frameworks, mocking libraries, preview features in mandatory code, auto-grading platform
 integration (SPEC.md §12, v1.1).
 
-## Open questions for the owner
+## Decisions (owner, 2026-10-01)
+
+All questions below were answered **yes**: the recommended defaults apply (build changes, published reference module, individual work, report in one language plus a one-page summary in the other).
 
 1. **Build changes and the ArchUnit test dependency for the capstone (ask first).** C2/C3 need: (a) `capstone/starter`
    and `capstone/reference` added to the parent `<modules>`; (b) in **both** capstone POMs the same test-scoped
