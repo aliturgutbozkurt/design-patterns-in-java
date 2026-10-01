@@ -27,16 +27,16 @@ testli ödevler ve referans çözümler bulunur.
 | 1 | m00 Kurulum ve Modern Java | JDK 27, derlemeden kod çalıştırma, record, sealed tipler, desen eşleme |
 | 2 | m01 OOP, SOLID ve UML | SOLID, kalıtım yerine bileşim, Mermaid ile UML |
 | 3 | m02 Yaratımsal I | Singleton, Static Factory, Factory Method, Abstract Factory |
-| 4 | m03 Yaratımsal II | Builder, Prototype, Object Pool |
+| 4 | m03 Yaratımsal II | Builder, Prototype, Object Pool, bir yaratım biçimi olarak bağımlılık enjeksiyonu |
 | 5 | m04 Yapısal I | Adapter, Decorator, Proxy |
 | 6 | m05 Yapısal II | Composite, Bridge, Facade, Flyweight |
 | 7 | — | Ara sınav |
 | 8 | m06 Davranışsal I | Strategy, Template Method, Command, Iterator |
 | 9 | m07 Davranışsal II | Observer, Mediator, Chain of Responsibility, Memento |
 | 10 | m08 Davranışsal III | State, Visitor, Interpreter |
-| 11 | m09 Fonksiyonel ve Veri Odaklı | Record + sealed tipler, Result tipleri, fonksiyon olarak kalıplar |
-| 12 | m10 Eşzamanlılık Kalıpları | Sanal iş parçacıkları, Producer–Consumer, Structured Concurrency, Scoped Values |
-| 13 | m11 Mimari | Dependency Injection, Repository, Altıgen mimari, anti-kalıplar |
+| 11 | m09 Fonksiyonel ve Veri Odaklı | Veri odaklı programlama, değişmezlik, Result tipleri, fonksiyon bileşimi, tembel değerlendirme |
+| 12 | m10 Eşzamanlılık Kalıpları | Sanal iş parçacıkları, Producer–Consumer, Guarded Suspension, Balking, Immutable Object, Scoped Values, `CompletableFuture`, Structured Concurrency |
+| 13 | m11 Mimari | Dependency Injection, Repository, Altıgen mimari, alan olayları, anti-kalıplar, test ikizleri, ArchUnit |
 | 9–14 | Bitirme projesi | PatternShop — en az 10 kalıp kullanan bir sipariş işleme sistemi |
 
 Ayrıntılı plan: [müfredat](docs/syllabus.tr.md).

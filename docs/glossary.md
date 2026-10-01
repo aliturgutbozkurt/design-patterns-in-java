@@ -195,7 +195,7 @@ Kod tanımlayıcıları çevrilmez. Listede olmayan bir terim gerekiyorsa aynı 
 | English | Türkçe |
 |---|---|
 | unit test | birim testi |
-| test double (stub, fake, spy, mock) | test ikizi (stub, fake, spy, mock) |
+| test double (stub, fake, spy, mock) | test ikizi (stub, fake, spy, mock); m01–m05 informally say "sahte nesne" before m11 names the kinds |
 | dummy | dummy (yer tutucu ikiz) |
 | state / interaction verification | durum / etkileşim doğrulaması |
 | architecture rule / test | mimari kural / mimari test |

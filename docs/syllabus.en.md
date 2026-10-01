@@ -27,16 +27,16 @@ By the end of the course students can:
 | 1 | m00 Setup & Modern Java | JDK 27, source launcher, records, sealed types, pattern matching, lambdas | m00 assignments |
 | 2 | m01 OOP, SOLID & UML | SOLID, composition over inheritance, UML class and sequence diagrams | m01 assignments |
 | 3 | m02 Creational I | Singleton, Static Factory Method, Factory Method, Abstract Factory, `ServiceLoader` | m02 assignments |
-| 4 | m03 Creational II | Builder, Prototype, Object Pool, composition root | m03 assignments |
+| 4 | m03 Creational II | Builder (incl. records and step builders), Prototype, Object Pool, dependency injection as creation (composition root) | m03 assignments |
 | 5 | m04 Structural I | Adapter, Decorator, Proxy (incl. dynamic proxies) | m04 assignments |
 | 6 | m05 Structural II | Composite, Bridge, Facade, Flyweight | m05 assignments |
 | 7 | — | **Midterm** (m00–m05) | — |
 | 8 | m06 Behavioral I | Strategy, Template Method, Command, Iterator, Stream Gatherers | m06 assignments |
 | 9 | m07 Behavioral II | Observer, Mediator, Chain of Responsibility, Memento | m07 assignments · **capstone starts** (spec) |
 | 10 | m08 Behavioral III | State, Visitor vs. pattern matching, Interpreter | m08 assignments · capstone spec due |
-| 11 | m09 Functional & Data-Oriented | Data-oriented programming, Result types, patterns as functions | m09 assignments |
-| 12 | m10 Concurrency Patterns | Virtual threads, Producer–Consumer, Structured Concurrency (preview), Scoped Values | m10 assignments |
-| 13 | m11 Architecture & Enterprise | Dependency Injection, Repository, Ports & Adapters, anti-patterns, ArchUnit | m11 assignments |
+| 11 | m09 Functional & Data-Oriented | Data-oriented programming, immutability, `Optional` and Result types, function composition and currying, lazy evaluation and memoisation, patterns that became language features | m09 assignments |
+| 12 | m10 Concurrency Patterns | Virtual threads (thread-per-task), Producer–Consumer, Guarded Suspension and Balking, Immutable Object, Scoped Values, `CompletableFuture` pipelines, Structured Concurrency (preview) | m10 assignments |
+| 13 | m11 Architecture & Enterprise | Dependency Injection, Repository, Ports & Adapters, domain events, anti-patterns and refactoring to patterns, test doubles, ArchUnit | m11 assignments |
 | 14 | Capstone | Presentations and design defence | capstone code + report due |
 
 ## Assessment (suggested)

@@ -27,16 +27,16 @@ assignments with tests, and reference solutions.
 | 1 | m00 Setup & Modern Java | JDK 27, running code without a build, records, sealed types, pattern matching |
 | 2 | m01 OOP, SOLID & UML | SOLID, composition over inheritance, UML with Mermaid |
 | 3 | m02 Creational I | Singleton, Static Factory, Factory Method, Abstract Factory |
-| 4 | m03 Creational II | Builder, Prototype, Object Pool |
+| 4 | m03 Creational II | Builder, Prototype, Object Pool, dependency injection as creation |
 | 5 | m04 Structural I | Adapter, Decorator, Proxy |
 | 6 | m05 Structural II | Composite, Bridge, Facade, Flyweight |
 | 7 | — | Midterm |
 | 8 | m06 Behavioral I | Strategy, Template Method, Command, Iterator |
 | 9 | m07 Behavioral II | Observer, Mediator, Chain of Responsibility, Memento |
 | 10 | m08 Behavioral III | State, Visitor, Interpreter |
-| 11 | m09 Functional & Data-Oriented | Records + sealed types, Result types, patterns as functions |
-| 12 | m10 Concurrency Patterns | Virtual threads, Producer–Consumer, Structured Concurrency, Scoped Values |
-| 13 | m11 Architecture | Dependency Injection, Repository, Hexagonal architecture, anti-patterns |
+| 11 | m09 Functional & Data-Oriented | Data-oriented programming, immutability, Result types, function composition, lazy evaluation |
+| 12 | m10 Concurrency Patterns | Virtual threads, Producer–Consumer, Guarded Suspension, Balking, Immutable Object, Scoped Values, `CompletableFuture`, Structured Concurrency |
+| 13 | m11 Architecture | Dependency Injection, Repository, Hexagonal architecture, domain events, anti-patterns, test doubles, ArchUnit |
 | 9–14 | Capstone | PatternShop — an order-processing system using ≥ 10 patterns |
 
 Full plan: [syllabus](docs/syllabus.en.md).

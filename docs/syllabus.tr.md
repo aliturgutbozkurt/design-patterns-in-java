@@ -27,16 +27,16 @@ Dersin sonunda öğrenciler:
 | 1 | m00 Kurulum ve Modern Java | JDK 27, kaynak kod başlatıcı, record, sealed tipler, desen eşleme, lambda | m00 ödevleri |
 | 2 | m01 OOP, SOLID ve UML | SOLID, kalıtım yerine bileşim, UML sınıf ve sıralama diyagramları | m01 ödevleri |
 | 3 | m02 Yaratımsal I | Singleton, Static Factory Method, Factory Method, Abstract Factory, `ServiceLoader` | m02 ödevleri |
-| 4 | m03 Yaratımsal II | Builder, Prototype, Object Pool, composition root | m03 ödevleri |
+| 4 | m03 Yaratımsal II | Builder (record'lar ve step builder dahil), Prototype, Object Pool, bir yaratım biçimi olarak bağımlılık enjeksiyonu (bileşim kökü) | m03 ödevleri |
 | 5 | m04 Yapısal I | Adapter, Decorator, Proxy (dinamik proxy dahil) | m04 ödevleri |
 | 6 | m05 Yapısal II | Composite, Bridge, Facade, Flyweight | m05 ödevleri |
 | 7 | — | **Ara sınav** (m00–m05) | — |
 | 8 | m06 Davranışsal I | Strategy, Template Method, Command, Iterator, Stream Gatherers | m06 ödevleri |
 | 9 | m07 Davranışsal II | Observer, Mediator, Chain of Responsibility, Memento | m07 ödevleri · **bitirme projesi başlar** (spesifikasyon) |
 | 10 | m08 Davranışsal III | State, Visitor ve desen eşleme, Interpreter | m08 ödevleri · bitirme spesifikasyonu teslimi |
-| 11 | m09 Fonksiyonel ve Veri Odaklı | Veri odaklı programlama, Result tipleri, fonksiyon olarak kalıplar | m09 ödevleri |
-| 12 | m10 Eşzamanlılık Kalıpları | Sanal iş parçacıkları, Producer–Consumer, Structured Concurrency (önizleme), Scoped Values | m10 ödevleri |
-| 13 | m11 Mimari ve Kurumsal | Dependency Injection, Repository, Portlar ve Adaptörler, anti-kalıplar, ArchUnit | m11 ödevleri |
+| 11 | m09 Fonksiyonel ve Veri Odaklı | Veri odaklı programlama, değişmezlik, `Optional` ve Result tipleri, fonksiyon bileşimi ve currying, tembel değerlendirme ve bellekleme, dil özelliğine dönüşen kalıplar | m09 ödevleri |
+| 12 | m10 Eşzamanlılık Kalıpları | Sanal iş parçacıkları (görev başına iş parçacığı), Producer–Consumer, Guarded Suspension ve Balking, Immutable Object, Scoped Values, `CompletableFuture` hatları, Structured Concurrency (önizleme) | m10 ödevleri |
+| 13 | m11 Mimari ve Kurumsal | Dependency Injection, Repository, Portlar ve Adaptörler, alan olayları, anti-kalıplar ve kalıplara doğru yeniden düzenleme, test ikizleri, ArchUnit | m11 ödevleri |
 | 14 | Bitirme projesi | Sunumlar ve tasarım savunması | bitirme kodu + raporu teslimi |
 
 ## Değerlendirme (önerilen)
