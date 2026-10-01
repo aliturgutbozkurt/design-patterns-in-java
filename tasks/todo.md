@@ -372,7 +372,7 @@ Legend: size S = 1–2 units, M = 3–5 units · `Verify` must pass before ticki
   - Verify: `./mvnw -q -pl modules/m08-behavioral-state-structure verify`; Run every demo with the source launcher
   - Depends on: M08-1 (#46), M08-2a (#47)
   - Files: `modules/m08-behavioral-state-structure/pom.xml`, `modules/m08-behavioral-state-structure/src/main/java/.../examples/**`, `modules/m08-behavioral-state-structure/src/test/java/.../examples/**`
-- [ ] **M08-3** (#49) — [m08-behavioral-state-structure] Lesson EN + TR + PDF + module README · `M`
+- [x] **M08-3** (#49) — [m08-behavioral-state-structure] Lesson EN + TR + PDF + module README · `M`
   - Acceptance: Code blocks come from compiled example files (path cited)
   - Acceptance: EN/TR heading parity; Turkish characters correct
   - Acceptance: Both PDFs generated and committed; README links lesson, examples, assignments
