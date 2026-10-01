@@ -86,7 +86,7 @@ Kod tanımlayıcıları çevrilmez. Listede olmayan bir terim gerekiyorsa aynı 
 | architecture erosion | mimari aşınma | |
 | anti-pattern | anti-kalıp | |
 | god object | tanrı nesnesi (god object) | |
-| god class | tanrı sınıf (god class) | |
+| god class | her işi yapan sınıf, tanrı sınıf (god class) | m01 uses the first, m11 the second |
 | anaemic / rich domain model | kansız (anaemic) / zengin alan modeli | |
 | speculative generality ("patternitis") | spekülatif genellik ("patternitis", kalıp hastalığı) | |
 
@@ -130,10 +130,8 @@ Kod tanımlayıcıları çevrilmez. Listede olmayan bir terim gerekiyorsa aynı 
 | wither | wither (`withX` metodu, yeni değer döndürür) |
 | side effect | yan etki |
 | class diagram / sequence diagram | sınıf diyagramı / sıralama diyagramı |
-| god class | her işi yapan sınıf (god class) |
 | role interface | rol arayüzü |
 | fragile base class | kırılgan taban sınıf |
-| composition root | bileşim kökü (composition root) |
 | characterization test | karakterizasyon testi |
 | optional operation | isteğe bağlı işlem (optional operation) |
 
@@ -200,7 +198,6 @@ Kod tanımlayıcıları çevrilmez. Listede olmayan bir terim gerekiyorsa aynı 
 | test double (stub, fake, spy, mock) | test ikizi (stub, fake, spy, mock) |
 | dummy | dummy (yer tutucu ikiz) |
 | state / interaction verification | durum / etkileşim doğrulaması |
-| characterization test | karakterizasyon testi |
 | architecture rule / test | mimari kural / mimari test |
 | contract test | sözleşme testi |
 | starter code | başlangıç kodu |
