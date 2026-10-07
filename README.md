@@ -1,6 +1,7 @@
 # Design Patterns in Java (Java 27)
 
 [![CI](https://github.com/aliturgutbozkurt/design-patterns-in-java/actions/workflows/ci.yml/badge.svg)](https://github.com/aliturgutbozkurt/design-patterns-in-java/actions/workflows/ci.yml)
+[![Release](https://img.shields.io/github/v/release/aliturgutbozkurt/design-patterns-in-java?label=release)](https://github.com/aliturgutbozkurt/design-patterns-in-java/releases/latest)
 [![Code: MIT](https://img.shields.io/badge/code-MIT-blue.svg)](LICENSE)
 [![Text: CC BY 4.0](https://img.shields.io/badge/text-CC%20BY%204.0-lightgrey.svg)](LICENSE-CONTENT.txt)
 
@@ -94,7 +95,7 @@ Or open the project in IntelliJ IDEA / VS Code / Eclipse and run the `main` meth
 ## For instructors
 
 - Lessons as PDF (English and Turkish) are in each module's `lesson/` folder and attached to every
-  [release](https://github.com/aliturgutbozkurt/design-patterns-in-java/releases).
+  [release](https://github.com/aliturgutbozkurt/design-patterns-in-java/releases/latest).
 - Suggested weekly plan and assessment weights: [syllabus](docs/syllabus.en.md).
 - Assignments come with contract tests; the same tests grade student code and the reference solution.
 

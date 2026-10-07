@@ -1,6 +1,7 @@
 # Java ile Tasarım Kalıpları (Java 27)
 
 [![CI](https://github.com/aliturgutbozkurt/design-patterns-in-java/actions/workflows/ci.yml/badge.svg)](https://github.com/aliturgutbozkurt/design-patterns-in-java/actions/workflows/ci.yml)
+[![Sürüm](https://img.shields.io/github/v/release/aliturgutbozkurt/design-patterns-in-java?label=s%C3%BCr%C3%BCm)](https://github.com/aliturgutbozkurt/design-patterns-in-java/releases/latest)
 [![Kod: MIT](https://img.shields.io/badge/kod-MIT-blue.svg)](LICENSE)
 [![Metin: CC BY 4.0](https://img.shields.io/badge/metin-CC%20BY%204.0-lightgrey.svg)](LICENSE-CONTENT.txt)
 
@@ -94,7 +95,7 @@ Ya da projeyi IntelliJ IDEA / VS Code / Eclipse ile açıp `main` metodunu çal�
 ## Eğitmenler için
 
 - Ders PDF'leri (İngilizce ve Türkçe) her modülün `lesson/` klasöründedir ve her
-  [sürüme](https://github.com/aliturgutbozkurt/design-patterns-in-java/releases) eklenir.
+  [sürüme](https://github.com/aliturgutbozkurt/design-patterns-in-java/releases/latest) eklenir.
 - Önerilen haftalık plan ve değerlendirme ağırlıkları: [müfredat](docs/syllabus.tr.md).
 - Ödevler sözleşme testleriyle gelir; aynı testler hem öğrenci kodunu hem referans çözümü değerlendirir.
 
