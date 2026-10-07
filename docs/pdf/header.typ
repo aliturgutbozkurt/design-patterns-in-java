@@ -20,3 +20,14 @@
 #show link: set text(fill: rgb("#1f5fa8"))
 // Long tables (capstone guide, rubric) may span pages instead of running over the footer.
 #show figure.where(kind: table): set block(breakable: true)
+// Inside table cells, inline code may wrap after "." or "(" and at camelCase humps, so long identifiers
+// (e.g. test names in the rubric's 8-column template) stay inside narrow columns. Font as `codefont` in defaults.yaml.
+// Very wide tables (8+ columns, e.g. the rubric's justification template) also use a smaller font so every column fits.
+#show table: it => {
+  show raw.where(block: false): r => {
+    show regex("[.(]|[a-z][A-Z]"): m => m.text.slice(0, 1) + sym.zws + m.text.slice(1)
+    highlight(fill: luma(240), extent: 1pt, text(font: "DejaVu Sans Mono", size: 1em, r.text))
+  }
+  let ncols = if type(it.columns) == int { it.columns } else { it.columns.len() }
+  if ncols >= 8 { text(size: 8.5pt, it) } else { it }
+}
