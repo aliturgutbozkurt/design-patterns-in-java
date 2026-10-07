@@ -37,9 +37,10 @@ testli ödevler ve referans çözümler bulunur.
 | 11 | m09 Fonksiyonel ve Veri Odaklı | Veri odaklı programlama, değişmezlik, Result tipleri, fonksiyon bileşimi, tembel değerlendirme |
 | 12 | m10 Eşzamanlılık Kalıpları | Sanal iş parçacıkları, Producer–Consumer, Guarded Suspension, Balking, Immutable Object, Scoped Values, `CompletableFuture`, Structured Concurrency |
 | 13 | m11 Mimari | Dependency Injection, Repository, Altıgen mimari, alan olayları, anti-kalıplar, test ikizleri, ArchUnit |
-| 9–14 | Bitirme projesi | PatternShop — en az 10 kalıp kullanan bir sipariş işleme sistemi |
+| 9–14 | [Bitirme projesi](capstone/README.md) | PatternShop — en az 10 kalıp kullanan bir sipariş işleme sistemi |
 
-Ayrıntılı plan: [müfredat](docs/syllabus.tr.md).
+Ayrıntılı plan: [müfredat](docs/syllabus.tr.md). Bitirme projesi: [proje tanımı](capstone/spec.tr.md) ·
+[değerlendirme rubriği](capstone/rubric.tr.md) · [çözüm rehberi](capstone/guide.tr.md) · [başlangıç ve referans](capstone/README.md).
 
 ## Başlarken
 
@@ -102,7 +103,7 @@ Ya da projeyi IntelliJ IDEA / VS Code / Eclipse ile açıp `main` metodunu çal�
 | Yol | İçerik |
 |---|---|
 | `modules/<modül>/` | ders (MD + PDF), örnekler, ödevler, çözümler, testler |
-| `capstone/` | bitirme projesi tanımı, değerlendirme ölçütleri, başlangıç kodu, referans çözüm |
+| [`capstone/`](capstone/README.md) | bitirme projesi tanımı, değerlendirme ölçütleri, çözüm rehberi (MD + PDF), kabul testleriyle başlangıç kodu, referans çözüm |
 | `docs/` | müfredat, sözlük (EN ↔ TR), Java 27 özellik notları, şablonlar |
 | `SPEC.md`, `tasks/` | dersin spesifikasyonu, planı ve görev listesi (SDD) |
 

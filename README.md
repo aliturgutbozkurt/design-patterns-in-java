@@ -37,9 +37,10 @@ assignments with tests, and reference solutions.
 | 11 | m09 Functional & Data-Oriented | Data-oriented programming, immutability, Result types, function composition, lazy evaluation |
 | 12 | m10 Concurrency Patterns | Virtual threads, Producer–Consumer, Guarded Suspension, Balking, Immutable Object, Scoped Values, `CompletableFuture`, Structured Concurrency |
 | 13 | m11 Architecture | Dependency Injection, Repository, Hexagonal architecture, domain events, anti-patterns, test doubles, ArchUnit |
-| 9–14 | Capstone | PatternShop — an order-processing system using ≥ 10 patterns |
+| 9–14 | [Capstone](capstone/README.md) | PatternShop — an order-processing system using ≥ 10 patterns |
 
-Full plan: [syllabus](docs/syllabus.en.md).
+Full plan: [syllabus](docs/syllabus.en.md). Capstone: [brief](capstone/spec.en.md) · [rubric](capstone/rubric.en.md) ·
+[walkthrough guide](capstone/guide.en.md) · [starter and reference](capstone/README.md).
 
 ## Getting started
 
@@ -102,7 +103,7 @@ Or open the project in IntelliJ IDEA / VS Code / Eclipse and run the `main` meth
 | Path | What |
 |---|---|
 | `modules/<module>/` | lesson (MD + PDF), examples, assignments, solutions, tests |
-| `capstone/` | capstone brief, rubric, starter code, reference solution |
+| [`capstone/`](capstone/README.md) | capstone brief, rubric, walkthrough guide (MD + PDF), starter code with acceptance tests, reference solution |
 | `docs/` | syllabus, glossary (EN ↔ TR), Java 27 feature notes, templates |
 | `SPEC.md`, `tasks/` | the course specification, plan and task list (spec-driven development) |
 
