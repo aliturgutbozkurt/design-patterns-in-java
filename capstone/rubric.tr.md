@@ -225,7 +225,7 @@ kalıplar için de satır ekleyin (en az on kalıba dahil edilmezler). İlk sat�
 
 | # | Kalıp (aile) | PatternShop'taki kuvvet / sorun | Katılımcılar (tipler ve `@PatternRole` rolleri) | Değerlendirilen alternatif ve neden seçilmediği | Modern Java biçimi | Onu gösteren test(ler) | Ders modülü |
 |-|:----|:------|:-------|:------|:----|:-----------|:--|
-| 1 | Strategy (Strateji) (davranışsal) | Dört promosyon türü aynı biçimde fiyatlandırılmalı ve fiyatlandırma hattına dokunmadan yeni türler eklenecek | `PromotionRule` (strateji), `BuyXGetYFreeRule`, `CategoryPercentOffRule`, … (somut stratejiler), `PricingPipeline` (bağlam) | Hattın içinde promosyon tanımı üzerinde `switch`: bugün daha kısa, ama her yeni tür hattı ve testlerini değiştirir | record'lardan oluşan sealed arayüz; her kural veri taşıdığı için lambda kullanılmadı | `PricingAcceptance.categoryPercentOffRoundsHalfUpPerLine`, `PromotionRuleTest.buyXGetYCountsWholeGroupsOnly` | m06 |
+| 1 | Strategy (Strateji) (davranışsal) | Dört promosyon türü aynı biçimde fiyatlandırılmalı ve fiyatlandırma hattına dokunmadan yeni türler eklenecek | `PromotionRule` (strateji), `BuyXGetYFreeRule`, `CategoryPercentOffRule`, … (somut stratejiler), `PricingPipeline` (bağlam) | Hattın içinde promosyon tanımı üzerinde `switch`: bugün daha kısa, ama her yeni tür hattı ve testlerini değiştirir | record'lardan oluşan sealed arayüz; her kural veri taşıdığı için lambda kullanılmadı | `PricingAcceptance.categoryPercentOffRoundsHalfEvenPerLine`, `PromotionRuleTest.buyXGetYCountsWholeGroupsOnly` | m06 |
 | 2 | | | | | | | |
 | … | | | | | | | |
 

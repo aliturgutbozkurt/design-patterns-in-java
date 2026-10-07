@@ -223,7 +223,7 @@ patterns if you like (they do not count towards the ten). The first row is an ex
 
 | # | Pattern (category) | Force / problem in PatternShop | Participants (types and `@PatternRole` roles) | Alternative considered and why not | Modern Java form | Test(s) that show it | Course module |
 |-|:----|:------|:-------|:------|:----|:-----------|:--|
-| 1 | Strategy (behavioural) | Four promotion kinds must be priced the same way, and new kinds will be added without touching the pricing pipeline | `PromotionRule` (strategy), `BuyXGetYFreeRule`, `CategoryPercentOffRule`, … (concrete strategies), `PricingPipeline` (context) | `switch` over the promotion spec inside the pipeline: shorter today, but every new kind changes the pipeline and its tests | sealed interface of records; lambdas not used because each rule carries data | `PricingAcceptance.categoryPercentOffRoundsHalfUpPerLine`, `PromotionRuleTest.buyXGetYCountsWholeGroupsOnly` | m06 |
+| 1 | Strategy (behavioural) | Four promotion kinds must be priced the same way, and new kinds will be added without touching the pricing pipeline | `PromotionRule` (strategy), `BuyXGetYFreeRule`, `CategoryPercentOffRule`, … (concrete strategies), `PricingPipeline` (context) | `switch` over the promotion spec inside the pipeline: shorter today, but every new kind changes the pipeline and its tests | sealed interface of records; lambdas not used because each rule carries data | `PricingAcceptance.categoryPercentOffRoundsHalfEvenPerLine`, `PromotionRuleTest.buyXGetYCountsWholeGroupsOnly` | m06 |
 | 2 | | | | | | | |
 | … | | | | | | | |
 

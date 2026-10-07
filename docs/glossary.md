@@ -195,6 +195,7 @@ Kod tanımlayıcıları çevrilmez. Listede olmayan bir terim gerekiyorsa aynı 
 | lexer / parser | sözcük çözümleyici (lexer) / ayrıştırıcı (parser) |
 | recursive descent | özyinelemeli iniş (recursive descent) |
 | operator precedence / associativity | operatör önceliği / birleşme yönü (associativity) |
+| half-even rounding (`RoundingMode.HALF_EVEN`, "banker's rounding") | yarımı çifte yuvarlama (HALF_EVEN): tam yarıda kalan tutar çift basamağa yuvarlanır |
 
 ## Testing & tooling · Test ve araçlar
 

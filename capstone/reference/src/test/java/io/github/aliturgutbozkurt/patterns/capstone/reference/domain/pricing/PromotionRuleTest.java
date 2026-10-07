@@ -44,13 +44,14 @@ class PromotionRuleTest {
     }
 
     @Test
-    void couponRoundsHalfUpOnceAndIsValidThroughItsLastDay() {
+    void couponRoundsHalfEvenOnceAndIsValidThroughItsLastDay() {
         CouponRule coupon = new CouponRule("AUTUMN5", 5, LocalDate.of(2026, 12, 31));
 
         PriceSheet result = coupon.applyTo(sheet(line("ELE-001", Category.ELECTRONICS, ProductType.PHYSICAL, 1,
-                "1039.91")));
+                "1030.10")));
 
-        assertThat(result.discounts()).containsExactly(new Discount("coupon AUTUMN5 5%", Money.of("52.00")));
+        assertThat(result.discounts()).as("5% of 1030.10 = 51.505 → 51.50 (HALF_EVEN; half-up would give 51.51)")
+                .containsExactly(new Discount("coupon AUTUMN5 5%", Money.of("51.50")));
         assertThat(coupon.isValidOn(LocalDate.of(2026, 12, 31))).isTrue();
         assertThat(coupon.isValidOn(LocalDate.of(2027, 1, 1))).isFalse();
     }

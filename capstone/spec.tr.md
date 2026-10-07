@@ -48,7 +48,7 @@ Kabul testlerinin denetlediği kurallar bunlardır. Birebir çıktı metinleri (
 bölümündedir. Bu metinle bir test arasında çelişki bulursanız bildirin — testi değiştirmeyin.
 
 **Para ve kimlikler.** Tüm fiyatlar KDV dahil Türk lirasıdır ve tam kuruş olarak saklanır (`Money`). `987.91` biçiminde
-yazdırılır. Kimlikler her mağaza örneği için üretilir: sepetler `cart-1`, `cart-2`, …; siparişler `order-1`,
+yazdırılır. Yüzdeler, dersteki tüm para tutarları gibi kuruşa **HALF_EVEN** kuralıyla yuvarlanır (`Money.percent`). Kimlikler her mağaza örneği için üretilir: sepetler `cart-1`, `cart-2`, …; siparişler `order-1`,
 `order-2`, … (bir sipariş numarasını yalnızca gerçekten oluşturulmuş bir sipariş tüketir). Saat (clock) enjekte
 edilir — `Instant.now()` doğrudan çağrılmaz. Geçersiz girdi (hatalı biçimli SKU, boş ad, pozitif olmayan adet,
 sepete eklenen bilinmeyen ürün, …) `IllegalArgumentException` ile; bilinmeyen bir sepet ya da bilinmeyen bir ürüne
@@ -78,10 +78,11 @@ düzenlemeler kaydedilmez. Geri alınacak / yinelenecek bir şey yokken geri alm
 1. Satır toplamı = adet × birim fiyat; *ara toplam* = satır toplamlarının toplamı.
 2. Bir SKU üzerinde **X al Y bedava**: her tam X + Y birimlik grupta Y birim bedavadır.
 3. **Kategori yüzde indirimi:** kategorideki her satır için, o satırın 2. adımdan sonra kalan tutarının yüzdesi;
-   satır başına, kuruşa yukarı yuvarlanarak (half-up).
+   satır başına, kuruşa **HALF_EVEN** kuralıyla yuvarlanarak (yarımı çifte yuvarlama: tam yarıda kalan tutar çift
+   kuruşa gider: 0.005 → 0.00, 0.015 → 0.02); dersin tamamında para için tek yuvarlama kuralı budur.
 4. **Eşik üstü tutar indirimi:** ara toplamdan 2–3. adımların indirimleri çıkarıldığında kalan tutar eşiğe eşit ya
    da büyükse tutar düşülür. Birden çok promosyon uygunsa yalnızca eşiği en yüksek olan uygulanır.
-5. **Kupon:** 4. adımdan sonra kalan tutarın yüzdesi, bir kez yukarı yuvarlanarak. Süresi dolmuş kupon indirim
+5. **Kupon:** 4. adımdan sonra kalan tutarın yüzdesi, bir kez HALF_EVEN kuralıyla yuvarlanarak. Süresi dolmuş kupon indirim
    vermez.
 6. Ürün toplamı hiçbir zaman 0.00'ın altına inmez: bir indirim kalan tutarla sınırlanır ve 0.00'lık indirimler
    listelenmez (toplam = ara toplam − indirimler + kargo).

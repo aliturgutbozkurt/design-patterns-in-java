@@ -46,6 +46,7 @@ These rules are what the acceptance tests check. Exact output texts (CLI, report
 If you find a contradiction between this brief and a test, report it — do not change the test.
 
 **Money and ids.** All prices are Turkish lira with VAT included, stored as whole kuruş (`Money`). Printed as `987.91`.
+Percentages are rounded to the kuruş **HALF_EVEN** (`Money.percent`), like all money in the course.
 Ids are generated per shop instance: carts `cart-1`, `cart-2`, …; orders `order-1`, `order-2`, … (an order number is
 used only by an order that was actually placed). The clock is injected — never call `Instant.now()` directly. Invalid input (a malformed SKU, a blank name, a
 non-positive quantity, an unknown product added to a cart, …) is rejected with an `IllegalArgumentException`; an
@@ -74,10 +75,11 @@ report `false` and change nothing.
 1. Line total = quantity × unit price; *subtotal* = sum of line totals.
 2. **Buy X get Y free** on a SKU: for every complete group of X + Y units, Y units are free.
 3. **Category percentage off:** for every line in the category, the percentage of what is left of that line after
-   step 2, rounded half-up to the kuruş, per line.
+   step 2, rounded to the kuruş per line with **HALF_EVEN** (a value exactly halfway goes to the even kuruş:
+   0.005 → 0.00, 0.015 → 0.02), the one rounding rule for money in the whole course.
 4. **Amount off over a threshold:** if subtotal minus the discounts of steps 2–3 is at least the threshold, subtract
    the amount. If several qualify, only the one with the highest threshold applies.
-5. **Coupon:** its percentage of what is left after step 4, rounded half-up once. An expired coupon gives no discount.
+5. **Coupon:** its percentage of what is left after step 4, rounded HALF_EVEN once. An expired coupon gives no discount.
 6. The merchandise total never goes below 0.00: a discount is capped at what is left, and discounts of 0.00 are not
    listed (total = subtotal − discounts + shipping).
 7. **Shipping:** 49.90 if the cart contains a physical product and the merchandise total is below 500.00; otherwise

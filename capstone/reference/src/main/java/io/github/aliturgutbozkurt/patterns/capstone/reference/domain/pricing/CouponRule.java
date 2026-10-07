@@ -6,7 +6,7 @@ import java.time.LocalDate;
 import java.util.Objects;
 
 /**
- * Step 5: {@code percent}% of what is left after step 4, rounded half-up once; valid up to and including
+ * Step 5: {@code percent}% of what is left after step 4, rounded half-even once; valid up to and including
  * {@code validUntil}.
  *
  * @param code       the code

@@ -1,6 +1,7 @@
 package io.github.aliturgutbozkurt.patterns.capstone.api.model;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.Objects;
 
 /**
@@ -51,12 +52,18 @@ public record Money(long kurus) implements Comparable<Money> {
         return new Money(Math.multiplyExact(kurus, factor));
     }
 
-    /** {@code percent}% of this amount (0–100), rounded half-up to the kuruş: 5% of 1039.91 is 52.00. */
+    /**
+     * {@code percent}% of this amount (0–100), rounded {@link RoundingMode#HALF_EVEN HALF_EVEN} to the kuruş, like
+     * all money in the course: 5% of 1039.91 (51.9955) is 52.00, 10% of 0.05 (0.005) is 0.00 and 10% of 0.15
+     * (0.015) is 0.02.
+     */
     public Money percent(int percent) {
         if (percent < 0 || percent > 100) {
             throw new IllegalArgumentException("percent out of range: " + percent);
         }
-        return new Money((Math.multiplyExact(kurus, percent) + 50) / 100);
+        return new Money(BigDecimal.valueOf(Math.multiplyExact(kurus, percent), 2)
+                .setScale(0, RoundingMode.HALF_EVEN)
+                .longValueExact());
     }
 
     /** The smaller of the two amounts. */

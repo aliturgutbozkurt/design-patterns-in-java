@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Objects;
 
 /**
- * Step 3: {@code percent}% of what is left of each line of {@code category} after step 2, rounded half-up per line.
+ * Step 3: {@code percent}% of what is left of each line of {@code category} after step 2, rounded half-even per line.
  *
  * @param category the category
  * @param percent  1–100

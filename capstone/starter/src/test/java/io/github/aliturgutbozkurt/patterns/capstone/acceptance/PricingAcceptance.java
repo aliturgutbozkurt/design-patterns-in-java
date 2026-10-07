@@ -78,13 +78,17 @@ public abstract class PricingAcceptance extends AcceptanceContract {
     }
 
     @Test
-    void categoryPercentOffRoundsHalfUpPerLine() {
+    void categoryPercentOffRoundsHalfEvenPerLine() {
         addProduct("BOK-101", "Pattern Pamphlet", Category.BOOKS, "0.05");
         addProduct("BOK-102", "Pattern Leaflet", Category.BOOKS, "0.15");
+        addProduct("BOK-103", "Pattern Flyer", Category.BOOKS, "0.25");
+        addProduct("BOK-104", "Pattern Bookmark", Category.BOOKS, "0.14");
 
-        PriceQuote perLine = quote(item("BOK-101", 1), item("BOK-102", 1));
-        assertThat(perLine.discounts()).as("0.005 → 0.01 and 0.015 → 0.02, not 10% of 0.20")
-                .containsExactly(discount("10% off BOOKS", "0.03"));
+        PriceQuote perLine = quote(item("BOK-101", 1), item("BOK-102", 1), item("BOK-103", 1), item("BOK-104", 1));
+        assertThat(perLine.discounts())
+                .as("0.005 → 0.00, 0.015 → 0.02, 0.025 → 0.02, 0.014 → 0.01 (HALF_EVEN per line); "
+                        + "half-up would give 0.07, half-down 0.04, 10% of the 0.59 total 0.06")
+                .containsExactly(discount("10% off BOOKS", "0.05"));
 
         shop().pricing().addPromotion(new PromotionSpec.BuyXGetYFree(sku("BOK-001"), 1, 1));
         PriceQuote afterStep2 = quote(item("BOK-001", 2), item("TOY-001", 1));

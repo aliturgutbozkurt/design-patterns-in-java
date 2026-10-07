@@ -136,7 +136,7 @@ GIVEN API instead of the student's code).
 | Package | Types |
 |---|---|
 | `api` | `PatternShop` (interface: `catalogue()`, `carts()`, `pricing()`, `checkout()`, `orders()`, `events()`, `fulfilment()`, `reports()`, `cli()`); `@FunctionalInterface PatternShopFactory` (`PatternShop create(ShopEnvironment env)`); record `ShopEnvironment(Clock clock, ExternalPaymentApi payments, WarehouseApi warehouse, NotificationGateway notifications, Consumer<Throwable> errors, ShopSettings settings)`; record `ShopSettings(String merchantId, int maxParallelOrders, int lowStockThreshold)` with `defaults()` = `("PATTERNSHOP", 4, 5)` |
-| `api.model` | records `Sku(String value)` (`[A-Z]{3}-\d{3}`), `Money(long kurus)` (non-negative; `of(String)`, `ZERO`, `plus`, `minus` (throws if negative), `times(int)`, `percent(int)` rounded half-up, `min`, `isZero`, `compareTo`, `toPlainString()` → `"987.91"`), `CustomerId(String value)` (non-blank), `CartId(String value)`, `OrderId(String value)` (`order-<n>`, `Comparable` by `n`; `of(long)`, `number()`), `Address(String recipient, String street, String city, String postalCode)` (`isComplete()`); enums `Category { BOOKS, ELECTRONICS, HOME, TOYS }`, `ProductType { PHYSICAL, DIGITAL }`, `OrderStatus { PLACED, PAID, SHIPPED, DELIVERED, CANCELLED }` |
+| `api.model` | records `Sku(String value)` (`[A-Z]{3}-\d{3}`), `Money(long kurus)` (non-negative; `of(String)`, `ZERO`, `plus`, `minus` (throws if negative), `times(int)`, `percent(int)` rounded HALF_EVEN, `min`, `isZero`, `compareTo`, `toPlainString()` → `"987.91"`), `CustomerId(String value)` (non-blank), `CartId(String value)`, `OrderId(String value)` (`order-<n>`, `Comparable` by `n`; `of(long)`, `number()`), `Address(String recipient, String street, String city, String postalCode)` (`isComplete()`); enums `Category { BOOKS, ELECTRONICS, HOME, TOYS }`, `ProductType { PHYSICAL, DIGITAL }`, `OrderStatus { PLACED, PAID, SHIPPED, DELIVERED, CANCELLED }` |
 | `api.catalogue` | `CatalogueUseCase` (`ProductView add(ProductSpec)`, `Optional<ProductView> find(Sku)`, `List<ProductView> search(ProductQuery)`, `ProductView restock(Sku, int quantity)`); records `ProductSpec(Sku, String name, Category, ProductType, Money price, int initialStock)`, `ProductView(Sku, String name, Category, ProductType, Money price, int stock)`, `ProductQuery(Set<Category> categories, long maxPriceKurus, String nameContains)` with `all()` and withers `inCategory` (adds a category; empty set = any), `priceAtMost` (inclusive), `nameContaining` (ignoring case) |
 | `api.cart` | `CartUseCase` (`CartId open(CustomerId)`, `CartView add(CartId, Sku, int)`, `CartView changeQuantity(CartId, Sku, int)`, `CartView remove(CartId, Sku)`, `CartView applyCoupon(CartId, String code)`, `CartView view(CartId)`, `boolean undo(CartId)`, `boolean redo(CartId)`); records `CartView(CartId id, CustomerId customer, List<CartLine> lines, String coupon, boolean open)` (`coupon` is `""` when none), `CartLine(Sku sku, int quantity)` |
 | `api.pricing` | `PricingUseCase` (`void addPromotion(PromotionSpec)`, `PriceQuote quote(CartId)`); `sealed interface PromotionSpec permits BuyXGetYFree(Sku sku, int buy, int free), CategoryPercentOff(Category category, int percent), AmountOffOver(Money threshold, Money off), Coupon(String code, int percent, LocalDate validUntil)` (records nested; a coupon is valid up to and including `validUntil` in the clock's zone); records `PriceQuote(List<QuoteLine> lines, Money subtotal, List<Adjustment> discounts, Money shipping, Money total)` (invariant `total = subtotal − Σ discounts + shipping`; a discount is capped at what is left; 0.00 discounts are not listed), `QuoteLine(Sku sku, String name, int quantity, Money unitPrice, Money lineTotal)`, `Adjustment(String label, Money amount)` |
@@ -252,7 +252,7 @@ coupon replaces the first).
 `false`; another cart is unaffected).
 
 **`PricingAcceptance` (12)** — `emptyCartQuotesZero`; `subtotalIsSumOfLineTotals`;
-`buyXGetYFreeDiscountsWholeGroupsOnly`; `categoryPercentOffRoundsHalfUpPerLine`;
+`buyXGetYFreeDiscountsWholeGroupsOnly`; `categoryPercentOffRoundsHalfEvenPerLine`;
 `amountOffOverThresholdUsesDiscountedSubtotal`; `onlyHighestQualifyingThresholdApplies`;
 `couponAppliesLastOnRemainingAmount`; `expiredCouponGivesNoDiscount` (clock advanced past `validUntil` after
 applying); `workedExampleFromTheBrief` (total 987.91, labels and amounts exactly as in brief §2.2);
@@ -549,6 +549,15 @@ All questions below were answered **yes**: the recommended defaults apply (build
 4. **"Bilingual report".** *Recommended default:* the report is written in English **or** Turkish (student's
    choice) and includes a one-page summary in the other language; terminology follows `docs/glossary.md`. A full
    report in both languages doubles the writing load without adding design content.
+
+**Later owner decision (R1 review, 2026-10-01): one rounding rule for money.** Money is rounded **HALF_EVEN**
+everywhere in the course (m06 shipping costs changed first). In the capstone the GIVEN `Money.percent` rounds
+HALF_EVEN (category percentage per line, coupon once); brief, guide and reference say so. The acceptance test
+`categoryPercentOffRoundsHalfUpPerLine` became `categoryPercentOffRoundsHalfEvenPerLine`: four BOOKS lines at 0.05,
+0.15, 0.25 and 0.14 give 0.00 + 0.02 + 0.02 + 0.01 = 0.05, which fails under half-up (0.07), half-down (0.04) and
+rounding the cart total once (0.06). The suite still has 12 tests (83 in all). The worked example (987.91), the CLI
+transcript and the report texts are unchanged: none of their percentages lands exactly on half a kuruş
+(5% of 1039.91 = 51.9955 → 52.00 under both rules).
 
 ## Success criteria
 
