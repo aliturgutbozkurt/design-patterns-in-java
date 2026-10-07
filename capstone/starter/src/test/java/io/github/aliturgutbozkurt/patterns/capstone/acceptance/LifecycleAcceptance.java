@@ -18,7 +18,10 @@ import java.time.Instant;
 import java.util.List;
 import org.junit.jupiter.api.Test;
 
-/** F6, F7 — the order lifecycle: PLACED → PAID → SHIPPED → DELIVERED, PAID → CANCELLED with refund (brief §2.2). */
+/**
+ * F6, F7 — the order lifecycle: PLACED → PAID → SHIPPED → DELIVERED, PAID → CANCELLED with refund (brief, Business
+ * rules).
+ */
 public abstract class LifecycleAcceptance extends AcceptanceContract {
 
     private OrderUseCase orders() {

@@ -11,7 +11,7 @@ import java.util.Set;
 /**
  * The catalogue's search criteria; combine them with {@link Specification#and}.
  *
- * @see "capstone guide §1 Pattern map — architectural patterns"
+ * @see "capstone guide, Pattern map — architectural patterns"
  */
 @PatternRole(value = DesignPattern.SPECIFICATION, role = "concrete specifications")
 public final class ProductSpecs {

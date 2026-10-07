@@ -4,7 +4,7 @@
 > §9 criterion 6, §10 assumption 7 · Weeks: 9–14 · Tasks: C1–C7 (#66–#72)
 >
 > Student-facing documents written in C1: [capstone brief](../capstone/spec.en.md) ([TR](../capstone/spec.tr.md)) and
-> [rubric](../capstone/rubric.en.md) ([TR](../capstone/rubric.tr.md)). **The business rules in brief §2.2 are
+> [rubric](../capstone/rubric.en.md) ([TR](../capstone/rubric.tr.md)). **The business rules in the brief's [Business rules](../capstone/spec.en.md#business-rules) are
 > normative** (students read them; the acceptance tests encode them). This file adds what the brief does not need to
 > say: Maven layout, the GIVEN API, the acceptance-test catalogue, fixtures, output formats, ArchUnit rules, the
 > reference design per slice and the C7 guide. If brief and this spec disagree, fix the brief and this spec in the
@@ -58,7 +58,7 @@ The capstone *applies* the modules; it does not repeat their examples. Bridges a
 
 ## Scope
 
-**Mandatory features** (brief §2.1; each has an acceptance suite below):
+**Mandatory features** (brief: [Mandatory features](../capstone/spec.en.md#mandatory-features); each has an acceptance suite below):
 
 | Id | Feature | Acceptance suite(s) |
 |---|---|---|
@@ -76,7 +76,7 @@ The capstone *applies* the modules; it does not repeat their examples. Bridges a
 | — | ≥ 10 patterns declared, minimum mix, a sealed record hierarchy in the student's code | `PatternInventoryAcceptance` |
 | — | Hexagonal layering | `ArchitectureRules` (default build) |
 
-**Extension features** (brief §2.3): two per student (three per pair, see open question 3) from a menu, specified in
+**Extension features** (brief: [Extension features](../capstone/spec.en.md#extension-features)): two per student (three per pair, see open question 3) from a menu, specified in
 the student's `SPEC.md` with their own acceptance criteria and tests. Not covered by the shipped suite; graded by
 the rubric (criterion C3). Structured Concurrency (preview) appears **only** as menu item E10.
 
@@ -125,7 +125,7 @@ All types are `public`, documented with Javadoc, and dependency-free. Records va
 Sealed results are the way business outcomes are reported; exceptions are reserved for programming errors and
 unknown ids where stated.
 
-Exception conventions (pinned in C2, stated in the use cases' Javadoc and in brief §2.2): invalid input →
+Exception conventions (pinned in C2, stated in the use cases' Javadoc and in the brief's [Business rules](../capstone/spec.en.md#business-rules)): invalid input →
 `IllegalArgumentException` (`duplicate SKU: BOK-001`, `unknown product: XXX-999` when adding to a cart,
 `unknown coupon: NOPE`, `expired coupon: SUMMER10`); the unknown target of an operation → `NoSuchElementException`
 (`unknown cart: cart-9`, `unknown product: XXX-999` on restock); any edit, undo or redo of a closed cart →
@@ -160,7 +160,7 @@ belongs there. The skeleton already satisfies `ArchitectureRules`.
 250.00 ×20, `BOK-002` "Java 27 in Action" BOOKS PHYSICAL 400.00 ×8, `TOY-001` "Pattern Puzzle" TOYS PHYSICAL 120.00 ×6,
 `HOM-001` "Hexagon Mug" HOME PHYSICAL 89.90 ×50, `ELE-001` "USB-C Hub" ELECTRONICS PHYSICAL 649.00 ×10, `DIG-001`
 "E-book Bundle" BOOKS DIGITAL 99.90; promotions `BuyXGetYFree(TOY-001, 2, 1)`, `CategoryPercentOff(BOOKS, 10)`,
-`AmountOffOver(1000.00, 100.00)`, `Coupon("AUTUMN5", 5, 2026-12-31)`. Fixed rule constants (brief §2.2): at most 10
+`AmountOffOver(1000.00, 100.00)`, `Coupon("AUTUMN5", 5, 2026-12-31)`. Fixed rule constants (brief: [Business rules](../capstone/spec.en.md#business-rules)): at most 10
 units per SKU per order, undo depth 20, shipping fee 49.90 below a merchandise total of 500.00.
 
 ## Output formats (pinned by the acceptance tests)
@@ -255,7 +255,7 @@ coupon replaces the first).
 `buyXGetYFreeDiscountsWholeGroupsOnly`; `categoryPercentOffRoundsHalfEvenPerLine`;
 `amountOffOverThresholdUsesDiscountedSubtotal`; `onlyHighestQualifyingThresholdApplies`;
 `couponAppliesLastOnRemainingAmount`; `expiredCouponGivesNoDiscount` (clock advanced past `validUntil` after
-applying); `workedExampleFromTheBrief` (total 987.91, labels and amounts exactly as in brief §2.2);
+applying); `workedExampleFromTheBrief` (total 987.91, labels and amounts exactly as in the brief's [Business rules](../capstone/spec.en.md#business-rules));
 `shippingFeeBelowThresholdFreeAtOrAbove` (499.99 → fee, 500.00 → free); `digitalOnlyCartHasNoShipping`;
 `discountsNeverMakeTheTotalNegative`.
 
@@ -384,7 +384,7 @@ checked against the seven rules; ports of later slices are placeholders in `conf
 | Promotion kinds | Strategy | `domain.pricing.PromotionRule` (sealed; one record per `PromotionSpec` kind) | m06 `strategy.shipping.modern` |
 | Price pipeline in fixed order | Decorator | `domain.pricing.PriceStep` wrapping steps: `BasePrices` → `LinePromotions` → `OrderPromotion` → `CouponDiscount` → `Shipping`; `PricingPipeline.standard()` builds the chain | m04 `decorator.coffee.modern`, m09 `composition.pricing` |
 | Order lifecycle | State (sealed) | `domain.order.OrderState` (sealed: `Placed`, `Paid`, `Shipped`, `Delivered`, `Cancelled` records, each with only the data valid in it) + exhaustive `switch` transitions returning `Transition` | m08 `state.order.sealed`, m09 `dop.order.modern` |
-| Checkout validation | Chain of Responsibility | `domain.checkout.CheckoutRule` (functional) chained collect-all after a fail-fast `NonEmptyCart`; rule order as brief §2.2 | m07 `chain.validation` |
+| Checkout validation | Chain of Responsibility | `domain.checkout.CheckoutRule` (functional) chained collect-all after a fail-fast `NonEmptyCart`; rule order as the brief's [Business rules](../capstone/spec.en.md#business-rules) | m07 `chain.validation` |
 
 *Implemented (C4):* each `PromotionRule` record is a concrete strategy with `PriceSheet applyTo(PriceSheet)`; the
 decorators share the abstract `PriceStepDecorator` (inner stage first, then `adjust`), and `PriceSheet` keeps per line
@@ -467,7 +467,7 @@ with the preview banner and the m10 run command; no preview code is compiled in 
   fails (all tests fail through `UnsupportedOperationException`, the inventory fails on zero patterns), which
   `scripts/check-starters.sh capstone/starter` proves.
 - The test-jar and `src/test/resources/acceptance/` contain no solution logic beyond fakes and expected outputs.
-- `capstone/starter/SPEC.md` and `capstone/starter/REPORT.md` ship as empty templates (brief §4, §9); the brief's
+- `capstone/starter/SPEC.md` and `capstone/starter/REPORT.md` ship as empty templates (brief: [Spec first: your SPEC.md](../capstone/spec.en.md#spec-first-your-specmd), [Deliverables](../capstone/spec.en.md#deliverables)); the brief's
   template is the source.
 
 ## C7 walkthrough guide and rubric mapping
@@ -488,15 +488,17 @@ with the preview banner and the m10 run command; no preview code is compiled in 
    weaker submission typically lacks.
 6. **Optional extension** — the Structured-Concurrency sketch (preview, `// snippet`, not compiled).
 
-*Implemented (C7):* the guide opens (before §1, without a heading, so the PDF's automatic section numbers match the
-`@see "capstone guide §N …"` references in the reference Javadoc) with how to read the reference and how to run it.
-§2 starts with the architecture overview (hexagon diagram, package table, composition root, and a verbatim CLI session
-of `Main --demo` including reports). Two sections were added before the optional extension, which therefore is §8:
-§6 **Testing approach** (acceptance contracts, architecture rules, concurrency tests with barriers instead of timing)
-and §7 **Common pitfalls**. §3 also names a limit of the reference (the unit of work's rollback is an in-memory undo log, not a durable transaction; R1 added it — before, a failure between checkout's saves left a partial change). 10 Mermaid
+*Implemented (C7):* the guide opens (before **Pattern map**, without a heading) with how to read the reference and
+how to run it. **Slice walkthrough** starts with the architecture overview (hexagon diagram, package table,
+composition root, and a verbatim CLI session of `Main --demo` including reports). Two sections were added before the
+optional extension, which therefore comes last: **Testing approach** (acceptance contracts, architecture rules,
+concurrency tests with barriers instead of timing) and **Common pitfalls**. **Trade-offs** also names a limit of the reference (the unit of work's rollback is an in-memory undo log, not a durable transaction; R1 added it — before, a failure between checkout's saves left a partial change). 10 Mermaid
 diagrams. `scripts/lib/check_docs.py` resolves `// file:` markers of `capstone/*.md` against both capstone modules
 (the guide quotes the reference and the starter's acceptance contracts), and `docs/pdf/header.typ` lets long tables
-break across pages.
+break across pages. Cross-references between the brief, rubric and guide name the section and link its heading
+anchor (e.g. "see [Business rules](../capstone/spec.en.md#business-rules)"), and Javadoc cites the section name
+(`@see "capstone guide, Pattern map — Strategy"`), because the Markdown headings carry no numbers (only the PDF
+numbers them); changed 2026-10-07, replacing "§N" references that did not resolve on GitHub.
 
 If the owner chooses the instructor-only branch in open question 2, the guide is merged together with the reference.
 
@@ -541,7 +543,7 @@ All questions below were answered **yes**: the recommended defaults apply (build
    and rely on what cannot be copied: the student's own SPEC.md (graded at W10, before most slices exist in their
    repo), two extension features not in the reference, the pattern-justification table, the oral defence (C10 asks
    about the student's own code), weekly commit history (rubric C8), and a similarity check against the reference
-   (brief §12: substantial copying → implementation part 0 and the institution's procedure). Alternative: keep
+   (brief: [Academic integrity and AI assistants](../capstone/spec.en.md#academic-integrity-and-ai-assistants): substantial copying → implementation part 0 and the institution's procedure). Alternative: keep
    `capstone/reference` on an instructor-only branch until W14 and merge it for the v1.0.0 release — stronger, but
    it delays SPEC.md §9.6 and CI coverage of the reference on `main`.
 3. **Team size.** *Recommended default:* individual work; pairs allowed on request at W9 with three extension

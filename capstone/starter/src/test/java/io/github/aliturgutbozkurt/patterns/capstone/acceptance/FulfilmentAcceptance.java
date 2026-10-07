@@ -19,8 +19,8 @@ import java.util.stream.IntStream;
 import org.junit.jupiter.api.Test;
 
 /**
- * F9 — concurrent fulfilment on virtual threads with a parallelism limit (brief §2.2 "Fulfilment"). Concurrency is
- * proven with barriers and latches in the {@link ScriptedWarehouse}, never with timing.
+ * F9 — concurrent fulfilment on virtual threads with a parallelism limit (brief, Business rules — Fulfilment).
+ * Concurrency is proven with barriers and latches in the {@link ScriptedWarehouse}, never with timing.
  */
 public abstract class FulfilmentAcceptance extends AcceptanceContract {
 

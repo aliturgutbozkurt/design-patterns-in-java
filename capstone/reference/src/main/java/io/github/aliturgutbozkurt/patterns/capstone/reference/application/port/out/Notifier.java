@@ -6,7 +6,7 @@ import io.github.aliturgutbozkurt.patterns.capstone.api.pattern.PatternRole;
 /**
  * Outbound port: sends a message to a customer or to {@code ops}; how (e-mail, SMS, …) is the adapter's business.
  *
- * @see "capstone guide §1 Pattern map — Observer"
+ * @see "capstone guide, Pattern map — Observer"
  */
 @PatternRole(value = DesignPattern.PORTS_AND_ADAPTERS, role = "outbound port")
 @FunctionalInterface

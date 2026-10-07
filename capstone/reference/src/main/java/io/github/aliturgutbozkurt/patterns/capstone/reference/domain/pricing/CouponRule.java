@@ -12,7 +12,7 @@ import java.util.Objects;
  * @param code       the code
  * @param percent    1–100
  * @param validUntil last valid day
- * @see "capstone guide §1 Pattern map — Strategy"
+ * @see "capstone guide, Pattern map — Strategy"
  */
 @PatternRole(value = DesignPattern.STRATEGY, role = "concrete strategy")
 public record CouponRule(String code, int percent, LocalDate validUntil) implements PromotionRule {

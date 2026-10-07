@@ -10,7 +10,7 @@ import java.util.Optional;
  * Renders a report in a fixed order — heading line, one line per row, total line — while subclasses decide what each
  * line looks like. Every line ends with {@code \n}.
  *
- * @see "capstone guide §1 Pattern map — Template Method"
+ * @see "capstone guide, Pattern map — Template Method"
  */
 @PatternRole(value = DesignPattern.TEMPLATE_METHOD, role = "abstract class (template method render)")
 public abstract class ReportRenderer {

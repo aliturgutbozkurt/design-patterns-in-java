@@ -13,7 +13,7 @@ import java.util.Objects;
  *
  * @param category the category
  * @param percent  1–100
- * @see "capstone guide §1 Pattern map — Strategy"
+ * @see "capstone guide, Pattern map — Strategy"
  */
 @PatternRole(value = DesignPattern.STRATEGY, role = "concrete strategy")
 public record CategoryPercentOffRule(Category category, int percent) implements PromotionRule {

@@ -9,7 +9,7 @@ import java.util.List;
 /**
  * Outbound port: has the warehouse pick, pack and ship one order. Blocking; safe to call from many threads at once.
  *
- * @see "capstone guide §1 Pattern map — Thread-per-task"
+ * @see "capstone guide, Pattern map — Thread-per-task"
  */
 @PatternRole(value = DesignPattern.PORTS_AND_ADAPTERS, role = "outbound port")
 @FunctionalInterface

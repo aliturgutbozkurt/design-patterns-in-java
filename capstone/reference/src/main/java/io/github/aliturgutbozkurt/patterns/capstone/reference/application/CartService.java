@@ -30,7 +30,7 @@ import java.util.function.Function;
  * Features F2 and F3: every successful edit is a {@link CartEdit} performed through the cart's {@link EditHistory}, so
  * it can be undone and redone; rejected edits throw before anything is recorded.
  *
- * @see "capstone guide §1 Pattern map — Command"
+ * @see "capstone guide, Pattern map — Command"
  */
 @PatternRole(value = DesignPattern.COMMAND, role = "client (creates the edit commands)")
 public final class CartService implements CartUseCase {

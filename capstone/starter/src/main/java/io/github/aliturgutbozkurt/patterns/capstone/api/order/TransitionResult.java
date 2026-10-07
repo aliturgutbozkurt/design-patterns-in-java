@@ -5,7 +5,7 @@ import java.util.Objects;
 /**
  * GIVEN — do not modify. The business outcome of a lifecycle transition.
  *
- * @see "capstone brief §2.2 — Order lifecycle (F7)"
+ * @see "capstone brief, Business rules — Order lifecycle (F7)"
  */
 public sealed interface TransitionResult {
 

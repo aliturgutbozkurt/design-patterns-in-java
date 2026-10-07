@@ -8,7 +8,7 @@ import java.util.Objects;
  * GIVEN — do not modify. A non-negative amount of Turkish lira (VAT included) in whole kuruş; prints as {@code 987.91}.
  *
  * @param kurus the amount in kuruş (1/100 lira), never negative
- * @see "capstone brief §2.2 — Money and ids"
+ * @see "capstone brief, Business rules — Money and ids"
  */
 public record Money(long kurus) implements Comparable<Money> {
 

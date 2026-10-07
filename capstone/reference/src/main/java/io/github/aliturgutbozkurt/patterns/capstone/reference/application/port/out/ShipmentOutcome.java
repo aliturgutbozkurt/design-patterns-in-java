@@ -5,7 +5,7 @@ import java.util.Objects;
 /**
  * What the warehouse did with one order.
  *
- * @see "capstone guide §1 Pattern map — Thread-per-task"
+ * @see "capstone guide, Pattern map — Thread-per-task"
  */
 public sealed interface ShipmentOutcome {
 

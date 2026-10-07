@@ -8,7 +8,7 @@ import java.util.Objects;
 /**
  * GIVEN — do not modify. The reports, one per {@link ReportRequest}.
  *
- * @see "capstone brief §2.2 — Reports (F10); SPEC-capstone, Output formats"
+ * @see "capstone brief, Business rules — Reports (F10); SPEC-capstone, Output formats"
  */
 public sealed interface Report {
 

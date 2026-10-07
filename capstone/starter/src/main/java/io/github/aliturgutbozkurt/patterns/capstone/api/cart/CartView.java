@@ -13,7 +13,7 @@ import java.util.Objects;
  * @param lines    the lines in the order they were first added
  * @param coupon   the applied coupon code, {@code ""} when none
  * @param open     {@code false} after a successful checkout
- * @see "capstone brief §2.2 — Cart (F2)"
+ * @see "capstone brief, Business rules — Cart (F2)"
  */
 public record CartView(CartId id, CustomerId customer, List<CartLine> lines, String coupon, boolean open) {
 

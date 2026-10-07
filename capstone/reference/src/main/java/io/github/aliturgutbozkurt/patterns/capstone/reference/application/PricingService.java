@@ -35,7 +35,7 @@ import java.util.Objects;
 /**
  * Feature F4: registers promotions and prices carts through the {@link PricingPipeline}.
  *
- * @see "capstone guide §2 Slice walkthrough — C4"
+ * @see "capstone guide, Slice walkthrough — C4"
  */
 @PatternRole(value = DesignPattern.PORTS_AND_ADAPTERS, role = "application service behind an inbound port")
 public final class PricingService implements PricingUseCase {

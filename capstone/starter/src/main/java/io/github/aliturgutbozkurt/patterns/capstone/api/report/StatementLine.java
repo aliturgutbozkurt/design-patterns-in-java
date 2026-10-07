@@ -13,7 +13,7 @@ import java.util.Objects;
  * @param date   the day it was placed (clock's time zone)
  * @param status its current status
  * @param total  the amount charged
- * @see "capstone brief §2.2 — Reports (F10)"
+ * @see "capstone brief, Business rules — Reports (F10)"
  */
 public record StatementLine(OrderId order, LocalDate date, OrderStatus status, Money total) {
 

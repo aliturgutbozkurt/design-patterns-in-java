@@ -3,10 +3,10 @@ package io.github.aliturgutbozkurt.patterns.capstone.reference.domain.pricing;
 import java.util.List;
 
 /**
- * Builds the pricing stages in the fixed order of brief §2.2 by wrapping them: base prices → line promotions → order
- * promotion → coupon → shipping.
+ * Builds the pricing stages in the fixed order of the brief's Business rules by wrapping them: base prices → line
+ * promotions → order promotion → coupon → shipping.
  *
- * @see "capstone guide §1 Pattern map — Decorator"
+ * @see "capstone guide, Pattern map — Decorator"
  */
 public final class PricingPipeline {
 

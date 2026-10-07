@@ -10,7 +10,7 @@ import java.util.Objects;
  * @param lineTotal      quantity × unit price (step 1)
  * @param afterFreeUnits what is left after step 2 — the base of category percentages (step 3)
  * @param left           what is left after every line discount so far
- * @see "capstone guide §2 Slice walkthrough — C4"
+ * @see "capstone guide, Slice walkthrough — C4"
  */
 public record PricedLine(BasketLine item, Money lineTotal, Money afterFreeUnits, Money left) {
 

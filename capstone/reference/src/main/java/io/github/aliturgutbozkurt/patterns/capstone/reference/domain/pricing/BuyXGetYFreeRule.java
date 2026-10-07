@@ -14,7 +14,7 @@ import java.util.Objects;
  * @param sku  the product
  * @param buy  units paid per group, ≥ 1
  * @param free free units per group, ≥ 1
- * @see "capstone guide §1 Pattern map — Strategy"
+ * @see "capstone guide, Pattern map — Strategy"
  */
 @PatternRole(value = DesignPattern.STRATEGY, role = "concrete strategy")
 public record BuyXGetYFreeRule(Sku sku, int buy, int free) implements PromotionRule {

@@ -9,7 +9,7 @@ import java.util.Objects;
 /**
  * GIVEN — do not modify. The domain events of PatternShop.
  *
- * @see "capstone brief §2.2 — Events and notifications (F8)"
+ * @see "capstone brief, Business rules — Events and notifications (F8)"
  */
 public sealed interface ShopEvent {
 

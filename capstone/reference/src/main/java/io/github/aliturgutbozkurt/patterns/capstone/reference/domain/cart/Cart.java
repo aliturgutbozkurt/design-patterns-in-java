@@ -9,14 +9,14 @@ import java.util.Objects;
 
 /**
  * The cart aggregate as an immutable value: every edit returns a new cart, which makes undo a matter of keeping the
- * right edits (brief §2.2 "Cart"). Edits of a closed cart throw {@link IllegalStateException}.
+ * right edits (brief, Business rules — Cart). Edits of a closed cart throw {@link IllegalStateException}.
  *
  * @param id       the cart
  * @param customer its owner
  * @param items    lines in the order they were first added
  * @param coupon   the applied coupon code, {@code ""} when none
  * @param open     {@code false} after checkout
- * @see "capstone guide §2 Slice walkthrough — C3"
+ * @see "capstone guide, Slice walkthrough — C3"
  */
 public record Cart(CartId id, CustomerId customer, List<CartItem> items, String coupon, boolean open) {
 

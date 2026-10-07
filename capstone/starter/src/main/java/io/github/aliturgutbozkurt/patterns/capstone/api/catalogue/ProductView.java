@@ -15,7 +15,7 @@ import java.util.Objects;
  * @param type     physical or digital
  * @param price    unit price (list price)
  * @param stock    units in stock, never negative
- * @see "capstone brief §2.2 — Catalogue (F1)"
+ * @see "capstone brief, Business rules — Catalogue (F1)"
  */
 public record ProductView(Sku sku, String name, Category category, ProductType type, Money price, int stock) {
 

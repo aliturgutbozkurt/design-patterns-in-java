@@ -13,7 +13,7 @@ import java.util.concurrent.CopyOnWriteArrayList;
 /**
  * Promotions in a copy-on-write list: added rarely, read on every quote.
  *
- * @see "capstone guide §1 Pattern map — architectural patterns"
+ * @see "capstone guide, Pattern map — architectural patterns"
  */
 @PatternRole(value = DesignPattern.REPOSITORY, role = "in-memory repository (outbound adapter)")
 public final class InMemoryPromotionRepository implements PromotionRepository {

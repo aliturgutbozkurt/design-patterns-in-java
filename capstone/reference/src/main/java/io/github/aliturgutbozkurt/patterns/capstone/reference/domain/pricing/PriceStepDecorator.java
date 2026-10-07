@@ -7,7 +7,7 @@ import java.util.Objects;
 /**
  * A stage that wraps another stage: it lets the inner stage price the basket first, then adjusts the result.
  *
- * @see "capstone guide §1 Pattern map — Decorator"
+ * @see "capstone guide, Pattern map — Decorator"
  */
 @PatternRole(value = DesignPattern.DECORATOR, role = "decorator")
 public abstract class PriceStepDecorator implements PriceStep {

@@ -17,7 +17,7 @@ import java.util.function.Consumer;
  * @param notifications the notification gateway
  * @param errors        receives exceptions thrown by event handlers
  * @param settings      merchant id and limits
- * @see "capstone brief §6 — What you are given"
+ * @see "capstone brief, What you are given"
  */
 public record ShopEnvironment(Clock clock, ExternalPaymentApi payments, WarehouseApi warehouse,
                               NotificationGateway notifications, Consumer<Throwable> errors, ShopSettings settings) {

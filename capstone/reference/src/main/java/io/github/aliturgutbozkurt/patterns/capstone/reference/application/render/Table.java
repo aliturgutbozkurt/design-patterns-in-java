@@ -20,7 +20,7 @@ import java.util.Objects;
  * @param columns the CSV header names
  * @param rows    one list of fields per row
  * @param total   the total row's fields, empty when the report has none
- * @see "capstone guide §1 Pattern map — Template Method"
+ * @see "capstone guide, Pattern map — Template Method"
  */
 public record Table(String title, List<String> columns, List<List<String>> rows, List<String> total) {
 

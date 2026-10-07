@@ -27,7 +27,7 @@ import java.util.List;
 import java.util.Optional;
 import org.junit.jupiter.api.Test;
 
-/** F8 — domain events after commit, typed subscribers, notifications, low-stock alerts (brief §2.2). */
+/** F8 — domain events after commit, typed subscribers, notifications, low-stock alerts (brief, Business rules). */
 public abstract class EventsAcceptance extends AcceptanceContract {
 
     private <E extends ShopEvent> List<E> record(Class<E> type) {

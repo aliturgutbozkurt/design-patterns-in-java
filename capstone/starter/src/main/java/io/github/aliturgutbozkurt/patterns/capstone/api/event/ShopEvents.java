@@ -10,7 +10,7 @@ import java.util.function.Consumer;
  * receives all). If a handler throws, the exception goes to {@code ShopEnvironment.errors()}, the other handlers still
  * run and the operation still succeeds.
  *
- * @see "capstone brief §2.2 — Events and notifications (F8)"
+ * @see "capstone brief, Business rules — Events and notifications (F8)"
  */
 public interface ShopEvents {
 

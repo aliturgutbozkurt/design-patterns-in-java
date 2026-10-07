@@ -10,7 +10,7 @@ import java.util.Objects;
 /**
  * Outbound adapter: the {@link Notifier} port over the external notification gateway.
  *
- * @see "capstone guide §1 Pattern map — architectural patterns"
+ * @see "capstone guide, Pattern map — architectural patterns"
  */
 @PatternRole(value = DesignPattern.PORTS_AND_ADAPTERS, role = "outbound adapter")
 public final class GatewayNotifier implements Notifier {

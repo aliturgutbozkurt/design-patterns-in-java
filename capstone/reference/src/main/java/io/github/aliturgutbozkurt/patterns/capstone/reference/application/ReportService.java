@@ -40,7 +40,7 @@ import java.util.stream.IntStream;
  * the sealed reports are rendered by the template-method renderers. No Visitor is needed: the compiler checks that
  * every request kind is handled.
  *
- * @see "capstone guide §2 Slice walkthrough — C6"
+ * @see "capstone guide, Slice walkthrough — C6"
  */
 @PatternRole(value = DesignPattern.PORTS_AND_ADAPTERS, role = "application service behind an inbound port")
 public final class ReportService implements ReportUseCase {

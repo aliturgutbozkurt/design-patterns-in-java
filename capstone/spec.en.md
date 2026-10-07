@@ -295,15 +295,15 @@ export JAVA_HOME=$(/usr/libexec/java_home -v 27)            # macOS; on Linux/Wi
 java -cp capstone/starter/target/classes io.github.aliturgutbozkurt.patterns.capstone.shop.config.Main --demo
 ```
 
-Work feature by feature: make one suite green, commit, move on. The order in §10 follows the module timeline.
+Work feature by feature: make one suite green, commit, move on. The weekly order in [Timeline (W9–W14)](#timeline-w9w14) follows the modules.
 
 ## Deliverables
 
 All in your fork of the course repository, under `capstone/starter/`, on a tag `capstone-final`:
 
 1. **Code** — `src/main` and `src/test`; `./mvnw -q -pl capstone/starter verify` and the `-Pexercises` run green.
-2. **`SPEC.md`** — your specification (template §4.1) with the final change log.
-3. **Tests** — own unit tests and extension acceptance tests (§7).
+2. **`SPEC.md`** — your specification ([SPEC.md template](#specmd-template)) with the final change log.
+3. **Tests** — own unit tests and extension acceptance tests (see [Testing expectations](#testing-expectations)).
 4. **`REPORT.md`** — 6–10 pages: design overview with the hexagon diagram, the pattern-justification table, the
    modern-Java and concurrency decisions, what you would change, and an AI-usage statement. Written in English
    **or** Turkish, with a one-page summary in the other language (terms per `docs/glossary.md`).
@@ -314,7 +314,7 @@ All in your fork of the course repository, under `capstone/starter/`, on a tag `
 
 | Week | Course module | Capstone work | Milestone |
 |---|---|---|---|
-| W9 | m07 Observer, Chain, … | Read the brief, fork, run the starter, read m11 §Ports and Adapters ahead; draft `SPEC.md`; choose extensions | **M0** starter builds; `verify` green |
+| W9 | m07 Observer, Chain, … | Read the brief, fork, run the starter, read m11 [Ports and Adapters](../modules/m11-architecture-enterprise/lesson/lesson.en.md#ports-and-adapters) ahead; draft `SPEC.md`; choose extensions | **M0** starter builds; `verify` green |
 | W10 | m08 State, sealed types | Finish `SPEC.md`; catalogue, cart, undo | **M1 — `SPEC.md` due** (graded, feedback within one week) |
 | W11 | m09 data-oriented | Pricing (Strategy + Decorator), order lifecycle (State), validation (Chain) | **M2** Catalogue, Cart, Undo, Pricing suites green |
 | W12 | m10 concurrency | Checkout facade, payment adapter, events and notifications | **M3** Checkout, Lifecycle, Events suites green |

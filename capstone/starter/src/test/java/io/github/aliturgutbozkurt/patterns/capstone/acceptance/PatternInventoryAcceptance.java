@@ -18,7 +18,7 @@ import java.util.stream.Collectors;
 import org.junit.jupiter.api.Test;
 
 /**
- * The pattern requirement of brief §3, as far as bytecode can show it: the {@code @PatternRole} declarations in the
+ * The brief's Pattern requirements, as far as bytecode can show them: the {@code @PatternRole} declarations in the
  * application's production classes. Whether each pattern is real and justified is graded by the rubric (C2, C4).
  */
 public abstract class PatternInventoryAcceptance extends AcceptanceContract {

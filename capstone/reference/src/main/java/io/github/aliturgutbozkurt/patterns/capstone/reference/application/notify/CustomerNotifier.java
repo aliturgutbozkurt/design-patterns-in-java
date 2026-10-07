@@ -16,7 +16,7 @@ import java.util.Objects;
  * Tells customers about their orders: confirmed (on payment), shipped (with the tracking code), cancelled (with the
  * reason). Reacts to committed events, so it can read the order it is told about.
  *
- * @see "capstone guide §1 Pattern map — Observer"
+ * @see "capstone guide, Pattern map — Observer"
  */
 @PatternRole(value = DesignPattern.OBSERVER, role = "concrete observer")
 public final class CustomerNotifier {

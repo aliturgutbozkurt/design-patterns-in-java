@@ -13,7 +13,7 @@ import io.github.aliturgutbozkurt.patterns.capstone.reference.domain.order.Order
 /**
  * Maps domain objects to the GIVEN views the inbound ports return.
  *
- * @see "capstone guide §2 Slice walkthrough — C3"
+ * @see "capstone guide, Slice walkthrough — C3"
  */
 public final class Views {
 

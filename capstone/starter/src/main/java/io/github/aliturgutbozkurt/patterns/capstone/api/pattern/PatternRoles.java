@@ -9,7 +9,7 @@ import java.lang.annotation.Target;
 /**
  * GIVEN — do not modify. Container of repeated {@link PatternRole}s (written by the compiler, not by you).
  *
- * @see "capstone brief §3 — Pattern requirements"
+ * @see "capstone brief, Pattern requirements"
  */
 @Documented
 @Retention(RetentionPolicy.RUNTIME)

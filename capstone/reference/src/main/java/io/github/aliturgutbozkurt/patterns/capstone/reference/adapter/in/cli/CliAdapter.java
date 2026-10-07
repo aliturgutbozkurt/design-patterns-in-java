@@ -21,7 +21,7 @@ import java.util.stream.Collectors;
  * {@link CliCommand}; the adapter only splits the line, looks the command up and maps failures to {@code USAGE …}
  * (bad arguments) or {@code ERROR …} (rejected by a use case) — it never throws for bad input.
  *
- * @see "capstone guide §1 Pattern map — Command"
+ * @see "capstone guide, Pattern map — Command"
  */
 @PatternRole(value = DesignPattern.COMMAND, role = "invoker (command table)")
 @PatternRole(value = DesignPattern.PORTS_AND_ADAPTERS, role = "inbound adapter")

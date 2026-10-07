@@ -8,7 +8,7 @@ import io.github.aliturgutbozkurt.patterns.capstone.api.pattern.PatternRole;
  * Outbound port: charging and refunding in the shop's own terms (money values, sealed outcomes) — the target
  * interface the payment adapter implements.
  *
- * @see "capstone guide §1 Pattern map — Adapter"
+ * @see "capstone guide, Pattern map — Adapter"
  */
 @PatternRole(value = DesignPattern.ADAPTER, role = "target")
 public interface PaymentPort {

@@ -10,7 +10,7 @@ import java.util.Objects;
 /**
  * What one {@link UnitOfWork} transaction did: the events it raised, in order, and how to undo the writes it made.
  *
- * @see "capstone guide §1 Pattern map — Observer"
+ * @see "capstone guide, Pattern map — Observer"
  */
 public final class Changes {
 

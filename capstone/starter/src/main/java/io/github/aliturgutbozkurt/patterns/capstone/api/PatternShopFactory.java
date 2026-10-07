@@ -4,7 +4,7 @@ package io.github.aliturgutbozkurt.patterns.capstone.api;
  * GIVEN — do not modify. Builds a shop from its environment; your composition root implements it, and it is the only
  * way the acceptance tests create your shop.
  *
- * @see "capstone brief §6 — What you are given"
+ * @see "capstone brief, What you are given"
  */
 @FunctionalInterface
 public interface PatternShopFactory {

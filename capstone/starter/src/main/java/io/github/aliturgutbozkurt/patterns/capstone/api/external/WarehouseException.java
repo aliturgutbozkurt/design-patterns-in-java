@@ -3,7 +3,7 @@ package io.github.aliturgutbozkurt.patterns.capstone.api.external;
 /**
  * GIVEN — do not modify. A warehouse operation failed; the message says why.
  *
- * @see "capstone brief §2.2 — Fulfilment (F9)"
+ * @see "capstone brief, Business rules — Fulfilment (F9)"
  */
 public class WarehouseException extends RuntimeException {
 

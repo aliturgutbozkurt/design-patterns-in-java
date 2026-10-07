@@ -13,7 +13,7 @@ import java.util.Objects;
  * @param subtotal  sum of the line totals
  * @param discounts the discounts so far, in step order (none of 0.00)
  * @param shipping  the shipping fee
- * @see "capstone guide §2 Slice walkthrough — C4"
+ * @see "capstone guide, Slice walkthrough — C4"
  */
 public record PriceSheet(List<PricedLine> lines, Money subtotal, List<Discount> discounts, Money shipping) {
 

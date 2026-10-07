@@ -14,7 +14,7 @@ import io.github.aliturgutbozkurt.patterns.capstone.api.report.ReportUseCase;
  * GIVEN — do not modify. One running shop: its inbound ports, one per feature. All of them share the same state; every
  * call returns the same port object.
  *
- * @see "capstone brief §6 — What you are given"
+ * @see "capstone brief, What you are given"
  */
 public interface PatternShop {
 

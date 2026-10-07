@@ -22,8 +22,8 @@ import java.util.List;
 import org.junit.jupiter.api.Test;
 
 /**
- * F4 — pricing and promotions in the fixed order of brief §2.2 (demo promotions: buy 2 get 1 free on TOY-001, 10% off
- * BOOKS, 100.00 off over 1000.00, coupon AUTUMN5 5% until 2026-12-31).
+ * F4 — pricing and promotions in the fixed order of the brief's Business rules (demo promotions: buy 2 get 1 free on
+ * TOY-001, 10% off BOOKS, 100.00 off over 1000.00, coupon AUTUMN5 5% until 2026-12-31).
  */
 public abstract class PricingAcceptance extends AcceptanceContract {
 

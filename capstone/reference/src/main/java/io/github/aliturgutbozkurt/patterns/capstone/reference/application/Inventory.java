@@ -14,7 +14,7 @@ import java.util.Objects;
  * Stock bookkeeping shared by checkout (reserve) and cancellation (release); raises {@code StockLow} on a crossing.
  * Call it inside a transaction.
  *
- * @see "capstone guide §2 Slice walkthrough — C5"
+ * @see "capstone guide, Slice walkthrough — C5"
  */
 public final class Inventory {
 

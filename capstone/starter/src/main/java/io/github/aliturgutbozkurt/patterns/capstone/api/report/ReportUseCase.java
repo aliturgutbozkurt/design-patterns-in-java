@@ -3,7 +3,7 @@ package io.github.aliturgutbozkurt.patterns.capstone.api.report;
 /**
  * GIVEN — do not modify. Inbound port of feature F10: run a report and render it.
  *
- * @see "capstone brief §2.2 — Reports (F10); SPEC-capstone, Output formats"
+ * @see "capstone brief, Business rules — Reports (F10); SPEC-capstone, Output formats"
  */
 public interface ReportUseCase {
 

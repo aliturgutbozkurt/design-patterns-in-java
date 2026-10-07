@@ -5,7 +5,7 @@ package io.github.aliturgutbozkurt.patterns.capstone.api.cli;
  * several lines joined with {@code \n}). Never throws for bad input: unknown commands, usage errors and use-case
  * exceptions become {@code ERROR …} / {@code USAGE …} responses.
  *
- * @see "capstone brief §2.2 — CLI (F11); SPEC-capstone, Output formats"
+ * @see "capstone brief, Business rules — CLI (F11); SPEC-capstone, Output formats"
  */
 @FunctionalInterface
 public interface CommandLine {

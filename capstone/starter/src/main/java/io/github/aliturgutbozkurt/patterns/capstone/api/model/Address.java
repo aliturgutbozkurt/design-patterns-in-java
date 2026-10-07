@@ -10,7 +10,7 @@ import java.util.Objects;
  * @param street     street and number
  * @param city       city
  * @param postalCode postal code, passed to the warehouse when shipping
- * @see "capstone brief §2.2 — Checkout"
+ * @see "capstone brief, Business rules — Checkout"
  */
 public record Address(String recipient, String street, String city, String postalCode) {
 

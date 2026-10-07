@@ -8,7 +8,7 @@ import java.util.Optional;
 /**
  * TEXT: the title, then fields joined with {@code " | "}, then the total.
  *
- * @see "capstone guide §1 Pattern map — Template Method"
+ * @see "capstone guide, Pattern map — Template Method"
  */
 @PatternRole(value = DesignPattern.TEMPLATE_METHOD, role = "concrete class")
 public final class TextRenderer extends ReportRenderer {

@@ -10,7 +10,7 @@ import java.util.Objects;
  * @param cart            the cart to buy
  * @param shippingAddress where to ship (may be incomplete — that is a validation result, not an exception)
  * @param cardToken       the payment provider's card token; blank means missing
- * @see "capstone brief §2.2 — Checkout (F5, F6)"
+ * @see "capstone brief, Business rules — Checkout (F5, F6)"
  */
 public record CheckoutRequest(CartId cart, Address shippingAddress, String cardToken) {
 

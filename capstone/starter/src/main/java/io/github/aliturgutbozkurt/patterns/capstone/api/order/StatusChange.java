@@ -10,7 +10,7 @@ import java.util.Objects;
  * @param status the status entered
  * @param at     the clock's instant
  * @param note   see {@link OrderView#history()}
- * @see "capstone brief §2.2 — Order lifecycle (F7)"
+ * @see "capstone brief, Business rules — Order lifecycle (F7)"
  */
 public record StatusChange(OrderStatus status, Instant at, String note) {
 

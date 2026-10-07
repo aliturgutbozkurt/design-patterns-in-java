@@ -304,15 +304,15 @@ export JAVA_HOME=$(/usr/libexec/java_home -v 27)            # macOS; Linux/Windo
 java -cp capstone/starter/target/classes io.github.aliturgutbozkurt.patterns.capstone.shop.config.Main --demo
 ```
 
-Özellik özellik çalışın: bir takımı yeşile çevirin, commit edin, devam edin. §10'daki sıra modül takvimini izler.
+Özellik özellik çalışın: bir takımı yeşile çevirin, commit edin, devam edin. [Zaman çizelgesi (9.–14. haftalar)](#zaman-çizelgesi-914-haftalar) bölümündeki haftalık sıra modülleri izler.
 
 ## Teslim edilecekler
 
 Hepsi ders deposunun kendi çatalınızda (fork), `capstone/starter/` altında, `capstone-final` etiketinde:
 
 1. **Kod** — `src/main` ve `src/test`; `./mvnw -q -pl capstone/starter verify` ve `-Pexercises` çalıştırması yeşil.
-2. **`SPEC.md`** — spesifikasyonunuz (§4.1 şablonu), son değişiklik günlüğüyle.
-3. **Testler** — kendi birim testleriniz ve genişletme kabul testleriniz (§7).
+2. **`SPEC.md`** — spesifikasyonunuz ([SPEC.md şablonu](#specmd-şablonu)), son değişiklik günlüğüyle.
+3. **Testler** — kendi birim testleriniz ve genişletme kabul testleriniz (bkz. [Test beklentileri](#test-beklentileri)).
 4. **`REPORT.md`** — 6–10 sayfa: altıgen diyagramıyla tasarım özeti, kalıp gerekçe tablosu, modern Java ve
    eşzamanlılık kararları, neyi değiştirirdiniz, yapay zekâ kullanım beyanı. İngilizce **ya da** Türkçe yazılır;
    diğer dilde bir sayfalık özet içerir (terimler `docs/glossary.md`'ye göre).
@@ -323,7 +323,7 @@ Hepsi ders deposunun kendi çatalınızda (fork), `capstone/starter/` altında, 
 
 | Hafta | Ders modülü | Bitirme projesi çalışması | Kilometre taşı |
 |---|---|---|---|
-| 9 | m07 Observer, Chain, … | Metni okuyun, çatallayın, başlangıç kodunu çalıştırın, m11 §Ports and Adapters'ı önden okuyun; `SPEC.md` taslağı; genişletmeleri seçin | **M0** başlangıç kodu derleniyor; `verify` yeşil |
+| 9 | m07 Observer, Chain, … | Metni okuyun, çatallayın, başlangıç kodunu çalıştırın, m11 [Ports and Adapters](../modules/m11-architecture-enterprise/lesson/lesson.tr.md#ports-and-adapters) bölümünü önden okuyun; `SPEC.md` taslağı; genişletmeleri seçin | **M0** başlangıç kodu derleniyor; `verify` yeşil |
 | 10 | m08 State, sealed tipler | `SPEC.md`'yi bitirin; katalog, sepet, geri alma | **M1 — `SPEC.md` teslimi** (notlanır, bir hafta içinde geri bildirim) |
 | 11 | m09 veri odaklı | Fiyatlandırma (Strategy + Decorator), sipariş yaşam döngüsü (State), doğrulama (Chain) | **M2** Catalogue, Cart, Undo, Pricing takımları yeşil |
 | 12 | m10 eşzamanlılık | Ödeme adımı Facade'ı, ödeme adaptörü, olaylar ve bildirimler | **M3** Checkout, Lifecycle, Events takımları yeşil |

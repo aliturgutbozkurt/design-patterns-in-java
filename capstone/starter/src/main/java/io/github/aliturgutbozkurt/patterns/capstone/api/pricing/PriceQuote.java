@@ -13,7 +13,7 @@ import java.util.Objects;
  * @param discounts the applied discounts in step order (steps 2–5)
  * @param shipping  shipping fee (step 7)
  * @param total     what the customer pays
- * @see "capstone brief §2.2 — Pricing (F4)"
+ * @see "capstone brief, Business rules — Pricing (F4)"
  */
 public record PriceQuote(List<QuoteLine> lines, Money subtotal, List<Adjustment> discounts, Money shipping,
                          Money total) {

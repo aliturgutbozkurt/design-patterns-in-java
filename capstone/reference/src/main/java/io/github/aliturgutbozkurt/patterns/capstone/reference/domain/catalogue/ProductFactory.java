@@ -11,7 +11,7 @@ import io.github.aliturgutbozkurt.patterns.capstone.api.pattern.PatternRole;
  * Creates the right {@link Product} for a {@link ProductType}: one constant per type, each carrying its creation step
  * (a constructor reference), so callers never branch on the type.
  *
- * @see "capstone guide §1 Pattern map — Factory Method"
+ * @see "capstone guide, Pattern map — Factory Method"
  */
 @PatternRole(value = DesignPattern.FACTORY_METHOD, role = "creator: one constant per product type with its factory method")
 public enum ProductFactory {

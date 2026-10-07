@@ -18,7 +18,7 @@ import java.util.function.Consumer;
  * queued and delivered after the current one (per thread, so concurrent callers never mix their queues). A handler
  * that throws is reported to the error sink; the other handlers still run.
  *
- * @see "capstone guide §1 Pattern map — Observer"
+ * @see "capstone guide, Pattern map — Observer"
  */
 @PatternRole(value = DesignPattern.OBSERVER, role = "subject (typed event bus)")
 @PatternRole(value = DesignPattern.DOMAIN_EVENTS, role = "dispatcher")

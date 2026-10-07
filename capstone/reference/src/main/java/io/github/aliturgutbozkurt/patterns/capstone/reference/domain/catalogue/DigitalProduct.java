@@ -13,7 +13,7 @@ import java.util.Objects;
  * @param name     non-blank name
  * @param category category
  * @param price    positive unit price
- * @see "capstone guide §2 Slice walkthrough — C3"
+ * @see "capstone guide, Slice walkthrough — C3"
  */
 public record DigitalProduct(Sku sku, String name, Category category, Money price) implements Product {
 

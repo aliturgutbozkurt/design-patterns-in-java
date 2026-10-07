@@ -36,7 +36,7 @@ import java.util.concurrent.Semaphore;
  * events were dispatched, so a committed shipment is never left untold. Thread safety: workers share no mutable state except through the unit of work's lock and the
  * thread-safe repositories; results are joined through the futures.
  *
- * @see "capstone guide §1 Pattern map — Thread-per-task"
+ * @see "capstone guide, Pattern map — Thread-per-task"
  */
 @PatternRole(value = DesignPattern.THREAD_PER_TASK, role = "one virtual thread per order, bounded by a semaphore")
 public final class FulfilmentService implements FulfilmentUseCase {

@@ -11,7 +11,7 @@ import java.util.Optional;
 /**
  * Outbound port: where products live. Implementations are thread-safe.
  *
- * @see "capstone guide §1 Pattern map — architectural patterns"
+ * @see "capstone guide, Pattern map — architectural patterns"
  */
 @PatternRole(value = DesignPattern.REPOSITORY, role = "repository (outbound port)")
 public interface ProductRepository {

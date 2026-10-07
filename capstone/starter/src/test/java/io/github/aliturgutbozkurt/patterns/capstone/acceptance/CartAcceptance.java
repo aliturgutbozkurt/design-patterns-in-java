@@ -16,7 +16,7 @@ import java.util.List;
 import java.util.NoSuchElementException;
 import org.junit.jupiter.api.Test;
 
-/** F2 — cart: open, add (merge), change quantity, remove, coupon (brief §2.2 "Cart"). */
+/** F2 — cart: open, add (merge), change quantity, remove, coupon (brief, Business rules — Cart). */
 public abstract class CartAcceptance extends AcceptanceContract {
 
     private CartUseCase carts() {

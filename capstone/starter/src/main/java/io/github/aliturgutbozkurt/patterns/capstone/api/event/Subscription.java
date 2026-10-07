@@ -3,7 +3,7 @@ package io.github.aliturgutbozkurt.patterns.capstone.api.event;
 /**
  * GIVEN — do not modify. A handle on one subscription.
  *
- * @see "capstone brief §2.2 — Events and notifications (F8)"
+ * @see "capstone brief, Business rules — Events and notifications (F8)"
  */
 @FunctionalInterface
 public interface Subscription {

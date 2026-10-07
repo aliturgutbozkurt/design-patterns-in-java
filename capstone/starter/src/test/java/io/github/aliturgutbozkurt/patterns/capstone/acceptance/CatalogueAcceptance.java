@@ -23,7 +23,7 @@ import java.util.List;
 import java.util.NoSuchElementException;
 import org.junit.jupiter.api.Test;
 
-/** F1 — catalogue: add, find, search, restock (brief §2.2 "Catalogue"). */
+/** F1 — catalogue: add, find, search, restock (brief, Business rules — Catalogue). */
 public abstract class CatalogueAcceptance extends AcceptanceContract {
 
     private CatalogueUseCase catalogue() {

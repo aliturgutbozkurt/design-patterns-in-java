@@ -13,7 +13,7 @@ import java.util.Set;
  * @param categories    the allowed categories; empty means any category
  * @param maxPriceKurus the highest allowed price in kuruş (inclusive)
  * @param nameContains  text the name must contain, ignoring case; empty means any name
- * @see "capstone brief §2.2 — Catalogue (F1)"
+ * @see "capstone brief, Business rules — Catalogue (F1)"
  */
 public record ProductQuery(Set<Category> categories, long maxPriceKurus, String nameContains) {
 

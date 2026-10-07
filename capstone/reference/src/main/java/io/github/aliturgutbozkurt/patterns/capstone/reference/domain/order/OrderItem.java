@@ -13,7 +13,7 @@ import java.util.Objects;
  * @param type      physical or digital
  * @param quantity  units, ≥ 1
  * @param unitPrice list price
- * @see "capstone guide §2 Slice walkthrough — C3"
+ * @see "capstone guide, Slice walkthrough — C3"
  */
 public record OrderItem(Sku sku, String name, ProductType type, int quantity, Money unitPrice) {
 

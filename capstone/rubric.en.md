@@ -30,7 +30,7 @@ If **any** of the following holds on the tagged commit, the implementation part 
 | G4 | A given test, fixture, test resource, architecture rule or GIVEN API type was modified, deleted, disabled (`@Disabled`, removed tag, Surefire exclusion) or weakened | `git diff` against the published starter for `capstone/starter/src/test/**/acceptance/**`, the `*ExerciseTest` and `ShopArchitectureTest` bindings, `src/test/resources/acceptance/**` and `…/capstone/api/**` |
 
 The only allowed build change is the one extension E10 needs (`--enable-preview` isolated as in m10); all given tests
-must still pass without preview. Academic-integrity violations are handled separately (brief §12).
+must still pass without preview. Academic-integrity violations are handled separately (brief: [Academic integrity and AI assistants](spec.en.md#academic-integrity-and-ai-assistants)).
 
 ## Criteria and weights
 

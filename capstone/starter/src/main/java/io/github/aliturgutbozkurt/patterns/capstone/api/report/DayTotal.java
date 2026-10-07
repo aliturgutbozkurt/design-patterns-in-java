@@ -10,7 +10,7 @@ import java.util.Objects;
  * @param day     the day
  * @param orders  orders placed that day (not cancelled)
  * @param revenue sum of their totals
- * @see "capstone brief §2.2 — Reports (F10)"
+ * @see "capstone brief, Business rules — Reports (F10)"
  */
 public record DayTotal(LocalDate day, int orders, Money revenue) {
 

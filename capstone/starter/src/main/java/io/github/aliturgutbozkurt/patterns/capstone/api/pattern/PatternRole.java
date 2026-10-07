@@ -16,7 +16,7 @@ import java.lang.annotation.Target;
  * record CategoryPercentOffRule(Category category, int percent) implements PromotionRule { … }
  * }</pre>
  *
- * @see "capstone brief §3 — Pattern requirements"
+ * @see "capstone brief, Pattern requirements"
  */
 @Documented
 @Retention(RetentionPolicy.RUNTIME)

@@ -9,7 +9,7 @@ import static io.github.aliturgutbozkurt.patterns.capstone.api.pattern.PatternCa
 /**
  * GIVEN — do not modify. Every pattern taught in m02–m11, with its family.
  *
- * @see "capstone brief §3 — Pattern requirements"
+ * @see "capstone brief, Pattern requirements"
  */
 public enum DesignPattern {
     SINGLETON(CREATIONAL),

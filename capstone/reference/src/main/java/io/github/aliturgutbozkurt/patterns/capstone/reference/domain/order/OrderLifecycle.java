@@ -11,10 +11,11 @@ import io.github.aliturgutbozkurt.patterns.capstone.reference.domain.order.Trans
 import io.github.aliturgutbozkurt.patterns.capstone.reference.domain.order.Transition.Refused;
 
 /**
- * The allowed transitions of brief §2.2 (F7), one exhaustive {@code switch} per event: {@code PLACED → PAID},
- * {@code PAID → SHIPPED}, {@code SHIPPED → DELIVERED}, {@code PAID → CANCELLED}. Every other combination is refused.
+ * The allowed transitions of the brief's Business rules (F7), one exhaustive {@code switch} per event:
+ * {@code PLACED → PAID}, {@code PAID → SHIPPED}, {@code SHIPPED → DELIVERED}, {@code PAID → CANCELLED}. Every other
+ * combination is refused.
  *
- * @see "capstone guide §1 Pattern map — State"
+ * @see "capstone guide, Pattern map — State"
  */
 @PatternRole(value = DesignPattern.STATE, role = "transitions per state (exhaustive switch)")
 public final class OrderLifecycle {

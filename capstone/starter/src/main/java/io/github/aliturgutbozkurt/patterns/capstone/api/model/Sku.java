@@ -7,7 +7,7 @@ import java.util.regex.Pattern;
  * GIVEN — do not modify. A stock-keeping unit: three capital letters, a dash and three digits ({@code BOK-001}).
  *
  * @param value the code
- * @see "capstone brief §2.2 — Catalogue"
+ * @see "capstone brief, Business rules — Catalogue"
  */
 public record Sku(String value) {
 

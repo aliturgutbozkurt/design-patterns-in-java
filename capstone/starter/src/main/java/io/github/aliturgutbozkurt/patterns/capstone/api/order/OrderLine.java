@@ -13,7 +13,7 @@ import java.util.Objects;
  * @param type      physical or digital
  * @param quantity  units, at least 1
  * @param unitPrice list price at checkout
- * @see "capstone brief §2.2 — Order lifecycle (F7)"
+ * @see "capstone brief, Business rules — Order lifecycle (F7)"
  */
 public record OrderLine(Sku sku, String name, ProductType type, int quantity, Money unitPrice) {
 

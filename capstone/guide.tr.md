@@ -8,7 +8,7 @@ Bu çözüm rehberi (walkthrough), PatternShop'u kurmanın **bir** yolunu açık
 [`capstone/reference`](reference/) içindeki referans çözümü. Proje tanımındaki hangi zorlamanın (force) hangi kalıbı
 gerektirdiğini, referansın bunlara Java 27 ile nasıl yanıt verdiğini, hangi alternatiflerin neden reddedildiğini ve
 her rubrik ölçütünün nasıl karşılanabileceğini gösterir. Tek iyi tasarım bu değildir ve kopyalanacak bir şablon da
-değildir: proje tanımı (§12) referanstan kopyalamayı akademik dürüstlük ihlali sayar ve savunmada *sizin* kodunuz
+değildir: proje tanımı ([Akademik dürüstlük ve yapay zekâ asistanları](spec.tr.md#akademik-dürüstlük-ve-yapay-zekâ-asistanları)) referanstan kopyalamayı akademik dürüstlük ihlali sayar ve savunmada *sizin* kodunuz
 sorulur. Referansı modül örneklerini kullandığınız gibi kullanın — okuyun, çalıştırın, onunla tartışın, sonra kendi
 kararlarınızı verip nedenlerini yazın.
 
@@ -25,11 +25,13 @@ kararlarınızı verip nedenlerini yazın.
    paketin yanındaki birim testleri.
 
 Her katılımcı tip `@PatternRole` taşır; bu yüzden `grep -rn "@PatternRole" capstone/reference/src/main` bütün kalıp
-envanterini listeler ve her Javadoc bu rehbere işaret eden bir `@see "capstone guide §…"` ile biter.
+envanterini listeler ve her Javadoc bu rehberin bir bölümünü adıyla anan bir `@see "capstone guide, <bölüm> …"` ile biter.
 
-**İçindekiler.** §1 Kalıp haritası · §2 Dilim dilim çözüm (önce mimari, sonra C3–C6) · §3 Ödünleşimler ·
-§4 SDD çıktıları · §5 Rubrik eşlemesi · §6 Test yaklaşımı · §7 Sık yapılan hatalar · §8 İsteğe bağlı genişletme:
-Structured Concurrency (yapılandırılmış eşzamanlılık).
+**İçindekiler.** [Kalıp haritası](#kalıp-haritası) · [Dilim dilim çözüm](#dilim-dilim-çözüm) (önce mimari, sonra
+C3–C6) · [Ödünleşimler](#ödünleşimler) · [SDD çıktıları](#sdd-çıktıları) · [Rubrik eşlemesi](#rubrik-eşlemesi) ·
+[Test yaklaşımı](#test-yaklaşımı) · [Sık yapılan hatalar](#sık-yapılan-hatalar) ·
+[İsteğe bağlı genişletme: Structured Concurrency](#i̇steğe-bağlı-genişletme-structured-concurrency)
+(yapılandırılmış eşzamanlılık).
 
 Referansı depo kökünden JDK 27 ile derleyip çalıştırın:
 
@@ -69,7 +71,7 @@ tanımının eşzamanlılık kalıbı olarak saymadığı Immutable Object (Değ
 
 ### Alternatifler, modern Java biçimi ve testler
 
-Rubriğin gerekçe tablosu (rubrik §5) bunları zorlamayla aynı satıra koyar; uzun test adları okunabilir kalsın diye
+Rubriğin gerekçe tablosu ([rubrik](rubric.tr.md#kalıp-gerekçe-tablosu-şablonu)) bunları zorlamayla aynı satıra koyar; uzun test adları okunabilir kalsın diye
 burada liste olarak verildiler. Sizin tablonuzda hepsi, kalıp başına bir satırda olmalı.
 
 1. **Static Factory Method.** *Reddedilen:* çağrı noktasında `new CartId("cart-" + n)` — biçim iki servise sızar ve
@@ -86,7 +88,7 @@ burada liste olarak verildiler. Sizin tablonuzda hepsi, kalıp başına bir sat�
    tutar metinleri; ArchUnit kural 2 de bunu yasaklar. *Modern biçim:* record'lardan oluşan mühürlü `PaymentOutcome`;
    durum kodu üzerinde `switch`. *Testler:* `ExternalPaymentAdapterTest` → `translatesStatusCodesIntoOutcomes`;
    `CheckoutAcceptance` → `chargesTheQuotedTotalExactlyOnceInProviderFormat`.
-5. **Decorator.** *Reddedilen:* yedi bloklu tek bir `price()` metodu ya da `Function.andThen` (bkz. §3). *Modern
+5. **Decorator.** *Reddedilen:* yedi bloklu tek bir `price()` metodu ya da `Function.andThen` (bkz. [Fiyatlandırma için Decorator zinciri ve fonksiyon bileşimi](#fiyatlandırma-için-decorator-zinciri-ve-fonksiyon-bileşimi)). *Modern
    biçim:* `final` şablonlu soyut dekoratör, fiyat çizelgesi için record'lar. *Testler:* `PricingPipelineTest` →
    `eachDecoratorAddsExactlyItsStep`, `decoratorsCanBeLeftOutOrReordered`.
 6. **Facade.** *Reddedilen:* CLI'ın altı servisi sırayla çağırması — adımların sırası ve hata durumunda iade bir
@@ -99,10 +101,10 @@ burada liste olarak verildiler. Sizin tablonuzda hepsi, kalıp başına bir sat�
    karışımı ve kural sırası denetim akışına gömülür. *Modern biçim:* `and` / `andThen` varsayılan metotlu
    `@FunctionalInterface`; kurallar lambda'dır. *Testler:* `CheckoutRulesTest` →
    `andCollectsWhileAndThenStopsAtTheFirstFailure`; `CheckoutAcceptance` → `collectsAllValidationErrorsInRuleOrder`.
-9. **State.** *Reddedilen:* `enum OrderStatus` artı null olabilen alanlar (bkz. §3). *Modern biçim:* record'lardan
+9. **State.** *Reddedilen:* `enum OrderStatus` artı null olabilen alanlar (bkz. [Mühürlü durum ve enum durum](#mühürlü-durum-ve-enum-durum)). *Modern biçim:* record'lardan
    oluşan mühürlü arayüz, record desenli ve korumalı kapsayıcı `switch`. *Testler:* `OrderLifecycleTest` →
    `forbiddenTransitionsAreRefusedWithTheCurrentStatus`.
-10. **Command.** *Reddedilen:* sepetin Memento (Hatıra) anlık görüntüleri (bkz. §3). *Modern biçim:* `applyTo`'su
+10. **Command.** *Reddedilen:* sepetin Memento (Hatıra) anlık görüntüleri (bkz. [Geri alma için Command ve Memento](#geri-alma-için-command-ve-memento)). *Modern biçim:* `applyTo`'su
     tersini döndüren mühürlü record'lar; CLI komutları bir `Map` içindeki lambda'lardır. *Testler:* `CartEditTest` →
     `everyEditReturnsAnInverseThatRestoresTheCartExactly`; `UndoAcceptance` → `undoRestoresRemovedLineAtItsPosition`.
 11. **Observer.** *Reddedilen:* bildirimciyi ödeme adımından çağırmak — ödeme adımı her tepkiye bağımlı olur ve
@@ -113,7 +115,7 @@ burada liste olarak verildiler. Sizin tablonuzda hepsi, kalıp başına bir sat�
     tekrarlanırdı; Strategy — paylaşılan *iskelettir*, tek bir algoritma değil. *Modern biçim:* `final` şablon metot,
     isteğe bağlı toplam için `Optional`. *Testler:* `ReportRendererTest` → `theTemplateFixesTheOrderOfTheParts`.
 13. **Görev başına iş parçacığı.** *Reddedilen:* 4 platform iş parçacıklı sabit bir havuz ya da Producer–Consumer
-    (Üretici–Tüketici) (bkz. §3). *Modern biçim:* try-with-resources içinde `Executors.newVirtualThreadPerTaskExecutor()`, `Semaphore`.
+    (Üretici–Tüketici) (bkz. [Karşılama için semafor ve Producer–Consumer](#karşılama-için-semafor-ve-producerconsumer)). *Modern biçim:* try-with-resources içinde `Executors.newVirtualThreadPerTaskExecutor()`, `Semaphore`.
     *Testler:* `FulfilmentAcceptance` → `neverExceedsMaxParallelOrders`; `FulfilmentServiceTest` →
     `runsOrdersInParallelOnVirtualThreadsButNeverAboveTheLimit`.
 
@@ -137,7 +139,7 @@ C2'deki Mükemmel düzeyi, gerekçesiyle reddettiğiniz en az bir kalıp ister. 
 |---|---|---|
 | Singleton (Tekil Nesne) | olay dağıtıcısı, kimlik dizileri, depolar | Her `create(env)` çağrısında bir mağaza: kabul test kiti her test için yeni bir mağaza kurar ve statik bir örnek sepetleri ve kimlikleri testler arasında sızdırırdı. ArchUnit kural 7 zaten final olmayan statik alanları yasaklar. Bileşim kökü, küresel durum olmadan "mağaza başına bir tane" sağlar. |
 | Visitor (Ziyaretçi) | mühürlü `Report` / `ReportRequest` tipleri üzerindeki raporlar | Hiyerarşiler mühürlü ve işlemler tek yerde; record desenli kapsayıcı bir `switch`, hiç `accept` metodu olmadan aynı derleyici denetimli eksiksizliği verir (m08 "Visitor ve desen eşleme"). |
-| Memento | sepet düzenlemelerini geri alma | Bkz. §3: ters komutlar satır konumlarını daha az bellekle geri getirir ve yinelemeyi bedavaya getirir. |
+| Memento | sepet düzenlemelerini geri alma | Bkz. [Geri alma için Command ve Memento](#geri-alma-için-command-ve-memento): ters komutlar satır konumlarını daha az bellekle geri getirir ve yinelemeyi bedavaya getirir. |
 | Abstract Factory (Soyut Fabrika) | adaptörlerin oluşturulması | Her çalıştırmada tam olarak bir aile vardır (simülasyon ya da test sahteleri) ve onu `create(env)` çağıranı seçer; fabrika bileşim kökünün *kendisidir*. |
 | Proxy (Vekil) | ödeme yeniden denemeleri, günlükleme | Bunu isteyen bir gereksinim yok; yeniden deneyen bir Decorator ya da Proxy'nin yerini hak edeceği yer E8'dir (ödeme dayanıklılığı). |
 
@@ -289,7 +291,7 @@ ERROR unknown command: cart fly
 USAGE cart add <cart> <sku> <qty>
 ```
 
-§1'deki kalıpların neredeyse hepsi burada görünür: geri alma `HOM-001`'i kaldırdı (Command), fiyat teklifi beş
+[Kalıp haritası](#kalıp-haritası) bölümündeki kalıpların neredeyse hepsi burada görünür: geri alma `HOM-001`'i kaldırdı (Command), fiyat teklifi beş
 fiyatlandırma aşamasını sırasıyla gösterir (Strategy üzerinde Decorator), reddedilen kart bir istisna değil bir iş
 sonucu üretti (Adapter + Facade) ve iki `NOTIFY` satırı `PLACED`'den *önce* yazıldı — gözlemciler sipariş commit
 edildikten sonra ama `checkout` dönmeden önce çalıştı (commit sonrası alan olayları). Karşılama bir sanal iş
@@ -440,7 +442,7 @@ kurucusunun doğrulamasına bırakır.
         }
 ```
 
-`CheckoutService.place` (§2 C5) onu her satır için bir `item(…)` çağrısıyla kullanır. Builder'ın `Clock`'u değil,
+`CheckoutService.place` ([C5](#c5--ödeme-ödeme-adımı-olaylar-ve-geri-alma)) onu her satır için bir `item(…)` çağrısıyla kullanır. Builder'ın `Clock`'u değil,
 saatin *anını* aldığına dikkat edin: alan zamanı asla kendisi okumaz.
 **Alternatifler.** Record üzerinde bir "wither" zinciri, her biri geçerli olması gereken yedi ara sipariş üretirdi.
 Teleskop kurucu hangi argümanın ne olduğunu gizler. **Modül:** m03 `builder`.
@@ -584,7 +586,7 @@ Somut bir strateji, verisi ve algoritmasıyla bir record'dur; proje tanımındak
 
 VERİLEN `PromotionSpec` (çağıranın kaydettiği) bir kurala (alanın yürüttüğü), `PricingService.toRule` içindeki record
 desenli tek bir kapsayıcı `switch` ile eşlenir — sınırın iki yanında birer mühürlü tip. **Alternatifler.** Decorator ile
-fonksiyon bileşimi karşılaştırması için bkz. §3. **Modüller:** m06 `strategy.shipping.modern`, m04
+fonksiyon bileşimi karşılaştırması için bkz. [Fiyatlandırma için Decorator zinciri ve fonksiyon bileşimi](#fiyatlandırma-için-decorator-zinciri-ve-fonksiyon-bileşimi). **Modüller:** m06 `strategy.shipping.modern`, m04
 `decorator.coffee.modern`, m09 `composition.pricing`.
 
 #### State: `OrderState` ve `OrderLifecycle`
@@ -630,7 +632,7 @@ uygulayarak değiştirir.
 ```
 
 Her yasak durum tek tek listelenir — `default` yok — böylece altıncı bir durum (E9 iadeler: `RETURN_REQUESTED`),
-ele alınana dek her `switch`'in derlenmesini engeller. **Alternatifler.** Bkz. §3 (mühürlü record'lar, enum ve klasik
+ele alınana dek her `switch`'in derlenmesini engeller. **Alternatifler.** Bkz. [Mühürlü durum ve enum durum](#mühürlü-durum-ve-enum-durum) (mühürlü record'lar, enum ve klasik
 State nesneleri). **Modüller:** m08 `state.order.sealed`, m09 `dop.order.modern`.
 
 #### Chain of Responsibility: `CheckoutRules`
@@ -1066,7 +1068,7 @@ ki yinelemenin ihtiyacı tam olarak budur.
 `RestoreItem`, yalnızca bir çıkarmanın tersi olarak var olan beşinci bir record'dur — VERİLEN API'de "konuma ekle"
 diye bir kullanım senaryosu yoktur. CLI, Command'ı ikinci kez, bir komut *tablosu* olarak kullanır: bir
 `Map<String, CliCommand>`'in her girdisi; argümanlarını ayrıştıran, bir kullanım senaryosunu çağıran ve yanıtı
-biçimlendiren bir lambda'dır (§2 C6). **Alternatifler.** Bkz. §3 (Command ve Memento). **Modül:** m06
+biçimlendiren bir lambda'dır ([C6](#c6--karşılama-raporlar-ve-cli)). **Alternatifler.** Bkz. [Geri alma için Command ve Memento](#geri-alma-için-command-ve-memento). **Modül:** m06
 `command.spreadsheet.modern`.
 
 ### C6 — Karşılama, raporlar ve CLI
@@ -1151,8 +1153,9 @@ değişken bir durumu paylaşmaz; her biri değişmez bir `Order` alır; (2) pay
 parçacığı güvenli depolar ve kilidi her gönderimin commit'ini sıraya koyan `UnitOfWork`'tür; (3) commit siparişi
 yeniden okur ve yaşam döngüsüne yeniden sorar; böylece depodayken iptal edilen bir sipariş gönderilmez, *reddedilir*;
 (4) sonuçlar `Future.get()` üzerinden geri gelir (bir happens-before kenarı) ve olaylar, yürütücünün `close()`
-çağrısı her görevi bekledikten sonra çağıranın iş parçacığında dağıtılır. **Alternatifler.** Bkz. §3 (semafor ve
-Producer–Consumer); §8 Structured Concurrency sürümünü gösterir. **Modüller:** m10
+çağrısı her görevi bekledikten sonra çağıranın iş parçacığında dağıtılır. **Alternatifler.** Bkz. [Karşılama için semafor ve Producer–Consumer](#karşılama-için-semafor-ve-producerconsumer);
+[İsteğe bağlı genişletme: Structured Concurrency](#i̇steğe-bağlı-genişletme-structured-concurrency) bu sürümü
+gösterir. **Modüller:** m10
 `threadpertask`, `producerconsumer.fulfilment`.
 
 #### Template Method: `ReportRenderer`
@@ -1216,7 +1219,7 @@ classDiagram
 
 Görüntülenen çıktı yukarıdaki oturumdadır (`report sales`, `report top 3 --csv`, `report inventory`).
 **Alternatifler.** Strategy (biçim başına bir biçimlendirici nesne) de işe yarardı, ama burada paylaşılan şey
-*iskelettir* ve bu Template Method'un zorlamasıdır; raporlar üzerinde bir Visitor §1'de reddedildi. **Modül:** m06
+*iskelettir* ve bu Template Method'un zorlamasıdır; raporlar üzerinde bir Visitor [Bilerek kullanılmayan kalıplar](#bilerek-kullanılmayan-kalıplar) bölümünde reddedildi. **Modül:** m06
 `templatemethod`.
 
 #### CLI: bir komut tablosu
@@ -1294,7 +1297,7 @@ karşılama döngüsü olan genişletmeler) Producer–Consumer daha uygundur.
 
 ### Neden Singleton yok, neden Visitor yok
 
-Bkz. §1 "Bilerek kullanılmayan kalıplar". Kısaca: her `create(env)` için bir nesne grafiği, kabul test kitinin kesin
+Bkz. [Bilerek kullanılmayan kalıplar](#bilerek-kullanılmayan-kalıplar). Kısaca: her `create(env)` için bir nesne grafiği, kabul test kitinin kesin
 bir gereksinimidir; hiyerarşi kapalıyken mühürlü tipler ve kapsayıcı `switch`, Visitor'ın çift yönlendirmesini
 (double dispatch) gereksiz kılar.
 
@@ -1321,7 +1324,7 @@ değerlendirilir:
 
 | Adım | Üreteceğiniz çıktı | Ne zaman | Rubrik |
 |---|---|---|---|
-| Belirle (specify) | proje tanımının şablonundan (§4.1) `capstone/starter/SPEC.md`: kapsam, genişletme kabul kriterleri, alan ve altıgen diyagramları, kalıp planı, eşzamanlılık tasarımı, sınırlar, kilometre taşları | 9.–10. hafta (10. haftada değerlendirilir) | C1, C2 |
+| Belirle (specify) | proje tanımındaki [SPEC.md şablonu](spec.tr.md#specmd-şablonu) bölümünden `capstone/starter/SPEC.md`: kapsam, genişletme kabul kriterleri, alan ve altıgen diyagramları, kalıp planı, eşzamanlılık tasarımı, sınırlar, kilometre taşları | 9.–10. hafta (10. haftada değerlendirilir) | C1, C2 |
 | Planla (plan) | `SPEC.md`'nizin §9 Kilometre taşları bölümü: bağımlılık sırasıyla haftada bir takım ya da genişletme | en geç 10. hafta | C1 (g) |
 | Kur (build) | ince dikey dilimler: bir kabul takımını yeşile çevir, commit et (Conventional Commits), devam et | 10.–13. hafta | C3–C8 |
 | Test et (test) | kalıp başına kendi birim testleriniz, kriterlerinin adını taşıyan genişletme kabul testleri | her dilimle | C7 |
@@ -1414,7 +1417,7 @@ genellikle eksik olan.
   `SPEC-capstone.md`. *Siz:* 10. haftaya kadar on bölümün hepsiyle kendi `SPEC.md`'niz, Given/When/Then biçiminde
   genişletme kriterleri, her sapmayı açıklayan bir değişiklik günlüğü. *Zayıf:* geç teslim; test edilebilir kriteri
   olmayan genişletmeler; artık kodla uyuşmayan son spesifikasyon.
-- **C2 Gerekçe tablosu (10).** *Referans:* bu rehberin §1'i — 13 eksiksiz satır ve reddedilen 5 kalıp. *Siz:*
+- **C2 Gerekçe tablosu (10).** *Referans:* bu rehberin [Kalıp haritası](#kalıp-haritası) bölümü — 13 eksiksiz satır ve reddedilen 5 kalıp. *Siz:*
   *kendi* kodunuz için zorlama, katılımcılar, alternatif ve testle kendi tablonuz. *Zayıf:* "zorlaması" bir
   PatternShop sorunu yerine kalıbın ders kitabındaki amacı olan satırlar; reddedilmiş kalıp yok.
 - **C3 Genişletmeler (10).** *Referans:* yok — referans yalnızca zorunlu bölümü uygular. *Siz:* her kriteri
@@ -1441,10 +1444,10 @@ genellikle eksik olan.
   `TODO(capstone)` yok. *Siz:* 9.–13. haftalarda haftalık Conventional Commits; yorum satırına alınmış kod yok.
   *Zayıf:* 14. haftada tek bir "son" commit; başlangıç kodundan kalan TODO'lar.
 - **C9 Rapor (12).** *Referans:* *içerik* için model bu rehberdir — altıgen, tablo, modern Java kararları,
-  eşzamanlılık argümanı, sınırlar (§3 "Her değişiklik için tek kilit"). *Siz:* EN ya da TR 6–10 sayfalık
+  eşzamanlılık argümanı, sınırlar ([Her değişiklik için tek kilit](#her-değişiklik-için-tek-kilit)). *Siz:* EN ya da TR 6–10 sayfalık
   `REPORT.md`, diğer dilde bir sayfalık özet, yapay zekâ kullanım beyanı, her iddia için bir dosya yolu. *Zayıf:*
   sınırlar üzerine düşünme yok; yapay zekâ beyanı yok; diğer dilde özet yok.
-- **C10 Savunma (13).** *Referans:* §2'deki oturum hazır bir demo senaryosudur — ödeme adımı, karşılama, bir rapor.
+- **C10 Savunma (13).** *Referans:* [Bir bakışta altıgen](#bir-bakışta-altıgen) bölümündeki oturum hazır bir demo senaryosudur — ödeme adımı, karşılama, bir rapor.
   *Siz:* canlı bir CLI demosu, derinlemesine üç kalıp ve bir ödünleşim içeren 10 dakikalık bir konuşma, ardından
   *kendi* kodunuz hakkında dört soru. *Zayıf:* hiç prova edilmemiş bir demo; adı verilen bir kalıbın katılımcılarının
   nerede olduğunu bilmemek.
@@ -1452,7 +1455,7 @@ genellikle eksik olan.
 Dört savunma sorusunun türü tahmin edilebilir: *adı verilen bir kalıbın katılımcılarını bulun* (`@PatternRole`
 grep'iyle yanıtlayın), *adı verilen bir testin neyi kanıtladığını açıklayın*, *bir değişiklik isteğini taslak olarak
 anlatın* (örn. "beşinci bir promosyon türü ekleyin" → bir record, `toRule` içinde bir `case`, hatta değişiklik yok) ve
-*karşılamanın neden iş parçacığı güvenli olduğunu açıklayın* (§2 C6'daki dört maddelik argüman).
+*karşılamanın neden iş parçacığı güvenli olduğunu açıklayın* ([C6](#c6--karşılama-raporlar-ve-cli) bölümündeki dört maddelik argüman).
 
 ## Test yaklaşımı
 

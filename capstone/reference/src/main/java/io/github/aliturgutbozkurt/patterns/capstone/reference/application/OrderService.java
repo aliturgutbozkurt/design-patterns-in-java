@@ -29,7 +29,7 @@ import java.util.Optional;
 /**
  * Feature F7: reading orders and the customer-initiated transitions, each committed with its event.
  *
- * @see "capstone guide §2 Slice walkthrough — C5"
+ * @see "capstone guide, Slice walkthrough — C5"
  */
 @PatternRole(value = DesignPattern.PORTS_AND_ADAPTERS, role = "application service behind an inbound port")
 public final class OrderService implements OrderUseCase {

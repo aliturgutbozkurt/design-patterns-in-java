@@ -10,10 +10,10 @@ import io.github.aliturgutbozkurt.patterns.capstone.api.pricing.PromotionSpec;
 import java.time.LocalDate;
 
 /**
- * GIVEN — do not modify. The sample catalogue and promotions of brief §2.2, added through the public use cases. The
- * acceptance tests and {@code Main --demo} start from it.
+ * GIVEN — do not modify. The sample catalogue and promotions of the brief's Business rules, added through the public
+ * use cases. The acceptance tests and {@code Main --demo} start from it.
  *
- * @see "capstone brief §2.2 — Pricing (F4), worked example"
+ * @see "capstone brief, Business rules — Pricing (F4), worked example"
  */
 public final class DemoData {
 

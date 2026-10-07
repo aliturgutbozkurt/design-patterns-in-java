@@ -16,7 +16,7 @@ import java.util.Objects;
  * @param type         physical or digital
  * @param price        unit price
  * @param initialStock units in stock (physical, ≥ 0) or 0 (digital)
- * @see "capstone brief §2.2 — Catalogue (F1)"
+ * @see "capstone brief, Business rules — Catalogue (F1)"
  */
 public record ProductSpec(Sku sku, String name, Category category, ProductType type, Money price, int initialStock) {
 

@@ -8,7 +8,7 @@ import java.util.Objects;
  * @param recipient who receives it
  * @param subject   e.g. {@code Order order-1 confirmed}
  * @param body      the text
- * @see "capstone brief §2.2 — Events and notifications (F8)"
+ * @see "capstone brief, Business rules — Events and notifications (F8)"
  */
 public record Notification(String recipient, String subject, String body) {
 

@@ -12,7 +12,7 @@ import io.github.aliturgutbozkurt.patterns.capstone.api.cart.CartView;
 import io.github.aliturgutbozkurt.patterns.capstone.api.model.CartId;
 import org.junit.jupiter.api.Test;
 
-/** F3 — undo / redo of cart edits, per cart, depth 20 (brief §2.2 "Undo / redo"). */
+/** F3 — undo / redo of cart edits, per cart, depth 20 (brief, Business rules — Undo / redo). */
 public abstract class UndoAcceptance extends AcceptanceContract {
 
     private CartUseCase carts() {

@@ -3,7 +3,7 @@ package io.github.aliturgutbozkurt.patterns.capstone.api.fulfilment;
 /**
  * GIVEN — do not modify. Inbound port of feature F9: ship every order that is {@code PAID} at the moment of the call.
  *
- * @see "capstone brief §2.2 — Fulfilment (F9)"
+ * @see "capstone brief, Business rules — Fulfilment (F9)"
  */
 public interface FulfilmentUseCase {
 

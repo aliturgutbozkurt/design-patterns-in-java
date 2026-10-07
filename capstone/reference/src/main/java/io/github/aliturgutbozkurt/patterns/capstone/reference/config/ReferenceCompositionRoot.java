@@ -33,7 +33,7 @@ import java.util.Objects;
  * static state), wires the services to the outbound adapters and the environment, subscribes the observers, and
  * returns the inbound ports.
  *
- * @see "capstone guide §1 Pattern map — architectural patterns"
+ * @see "capstone guide, Pattern map — architectural patterns"
  */
 @PatternRole(value = DesignPattern.DEPENDENCY_INJECTION, role = "composition root")
 public final class ReferenceCompositionRoot implements PatternShopFactory {

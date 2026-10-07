@@ -11,7 +11,7 @@ import java.util.Objects;
  * (adapted from modules/m07-…/chain/validation/Validator.java): {@link #and} runs both and collects every reason,
  * {@link #andThen} runs the next link only if this one passed (fail fast).
  *
- * @see "capstone guide §1 Pattern map — Chain of Responsibility"
+ * @see "capstone guide, Pattern map — Chain of Responsibility"
  */
 @PatternRole(value = DesignPattern.CHAIN_OF_RESPONSIBILITY, role = "handler")
 @FunctionalInterface

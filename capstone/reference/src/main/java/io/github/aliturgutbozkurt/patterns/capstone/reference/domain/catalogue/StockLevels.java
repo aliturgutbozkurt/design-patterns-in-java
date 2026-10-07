@@ -4,10 +4,10 @@ import io.github.aliturgutbozkurt.patterns.capstone.api.event.ShopEvent.StockLow
 import java.util.Optional;
 
 /**
- * The low-stock rule of brief §2.2: an alert when the stock drops from at least the threshold to below it — once per
- * crossing, because staying low or rising does not cross.
+ * The low-stock rule of the brief's Business rules: an alert when the stock drops from at least the threshold to below
+ * it — once per crossing, because staying low or rising does not cross.
  *
- * @see "capstone guide §2 Slice walkthrough — C5"
+ * @see "capstone guide, Slice walkthrough — C5"
  */
 public final class StockLevels {
 

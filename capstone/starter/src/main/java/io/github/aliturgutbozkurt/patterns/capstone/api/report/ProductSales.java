@@ -12,7 +12,7 @@ import java.util.Objects;
  * @param name    its name
  * @param units   units sold
  * @param revenue units × list price
- * @see "capstone brief §2.2 — Reports (F10)"
+ * @see "capstone brief, Business rules — Reports (F10)"
  */
 public record ProductSales(int rank, Sku sku, String name, int units, Money revenue) {
 

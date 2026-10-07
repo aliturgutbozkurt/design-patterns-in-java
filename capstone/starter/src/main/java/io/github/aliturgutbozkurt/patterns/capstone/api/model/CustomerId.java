@@ -6,7 +6,7 @@ import java.util.Objects;
  * GIVEN — do not modify. Identifies a customer; also the recipient of the customer's notifications.
  *
  * @param value a non-blank id such as {@code alice}
- * @see "capstone brief §2.2 — Money and ids"
+ * @see "capstone brief, Business rules — Money and ids"
  */
 public record CustomerId(String value) {
 

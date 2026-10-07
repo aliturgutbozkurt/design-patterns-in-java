@@ -25,7 +25,7 @@ import java.util.Objects;
  * @param placedAt        the clock's instant at checkout
  * @param state           the current lifecycle state
  * @param history         every status change, oldest first
- * @see "capstone guide §1 Pattern map — Builder, State"
+ * @see "capstone guide, Pattern map — Builder, State"
  */
 @PatternRole(value = DesignPattern.BUILDER, role = "product")
 @PatternRole(value = DesignPattern.STATE, role = "context")
@@ -66,7 +66,7 @@ public record Order(OrderId id, CustomerId customer, List<OrderItem> items, Mone
     /**
      * Collects the parts of an order step by step and validates them once, in {@link #build()}.
      *
-     * @see "capstone guide §1 Pattern map — Builder"
+     * @see "capstone guide, Pattern map — Builder"
      */
     @PatternRole(value = DesignPattern.BUILDER, role = "builder")
     public static final class Builder {

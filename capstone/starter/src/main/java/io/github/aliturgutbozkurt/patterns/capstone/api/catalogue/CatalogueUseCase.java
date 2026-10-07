@@ -8,7 +8,7 @@ import java.util.Optional;
 /**
  * GIVEN — do not modify. Inbound port of feature F1: the product catalogue.
  *
- * @see "capstone brief §2.2 — Catalogue (F1)"
+ * @see "capstone brief, Business rules — Catalogue (F1)"
  */
 public interface CatalogueUseCase {
 

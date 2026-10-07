@@ -5,7 +5,7 @@ import java.util.Objects;
 /**
  * The business outcome of a payment call.
  *
- * @see "capstone guide §1 Pattern map — Adapter"
+ * @see "capstone guide, Pattern map — Adapter"
  */
 public sealed interface PaymentOutcome {
 

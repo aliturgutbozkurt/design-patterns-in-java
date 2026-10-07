@@ -25,7 +25,7 @@ import java.util.List;
  *      io.github.aliturgutbozkurt.patterns.capstone.reference.config.Main --demo
  * </pre>
  *
- * @see "capstone guide §2 Slice walkthrough — C6"
+ * @see "capstone guide, Slice walkthrough — C6"
  */
 public final class Main {
 

@@ -7,10 +7,10 @@ import java.time.LocalDate;
 import java.util.Objects;
 
 /**
- * GIVEN — do not modify. The four kinds of promotion, as data. How each is priced is the shop's business (brief §2.2,
- * steps 2–5).
+ * GIVEN — do not modify. The four kinds of promotion, as data. How each is priced is the shop's business (brief,
+ * Business rules, steps 2–5).
  *
- * @see "capstone brief §2.2 — Pricing (F4)"
+ * @see "capstone brief, Business rules — Pricing (F4)"
  */
 public sealed interface PromotionSpec {
 

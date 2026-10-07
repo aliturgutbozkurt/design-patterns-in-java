@@ -7,7 +7,7 @@ import java.util.Objects;
 /**
  * GIVEN — do not modify. The reports a user can ask for.
  *
- * @see "capstone brief §2.2 — Reports (F10)"
+ * @see "capstone brief, Business rules — Reports (F10)"
  */
 public sealed interface ReportRequest {
 

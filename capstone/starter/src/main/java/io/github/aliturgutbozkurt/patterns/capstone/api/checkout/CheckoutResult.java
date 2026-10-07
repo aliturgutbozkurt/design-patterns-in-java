@@ -8,7 +8,7 @@ import java.util.Objects;
 /**
  * GIVEN — do not modify. The business outcome of a checkout.
  *
- * @see "capstone brief §2.2 — Checkout (F5, F6)"
+ * @see "capstone brief, Business rules — Checkout (F5, F6)"
  */
 public sealed interface CheckoutResult {
 

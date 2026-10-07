@@ -12,7 +12,7 @@ import java.util.Objects;
  * @param quantity  units
  * @param unitPrice list price
  * @param lineTotal {@code quantity × unitPrice}
- * @see "capstone brief §2.2 — Pricing (F4), step 1"
+ * @see "capstone brief, Business rules — Pricing (F4), step 1"
  */
 public record QuoteLine(Sku sku, String name, int quantity, Money unitPrice, Money lineTotal) {
 

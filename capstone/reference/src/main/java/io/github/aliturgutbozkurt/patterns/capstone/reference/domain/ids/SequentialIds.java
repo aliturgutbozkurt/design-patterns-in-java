@@ -12,7 +12,7 @@ import java.util.function.LongFunction;
  * named static factories say which sequence you get and hide how its ids are formatted.
  *
  * @param <T> the id type
- * @see "capstone guide §1 Pattern map — Static Factory Method"
+ * @see "capstone guide, Pattern map — Static Factory Method"
  */
 @PatternRole(value = DesignPattern.STATIC_FACTORY_METHOD, role = "named constructors forCarts() and forOrders()")
 public final class SequentialIds<T> {

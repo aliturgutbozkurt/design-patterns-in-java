@@ -12,7 +12,7 @@ import java.util.Objects;
  * @param coupon        the cart's coupon code, {@code ""} when none
  * @param couponExpired whether that coupon is past its last valid day
  * @param cardToken     the card token, blank when missing
- * @see "capstone guide §1 Pattern map — Chain of Responsibility"
+ * @see "capstone guide, Pattern map — Chain of Responsibility"
  */
 public record CheckoutCandidate(List<CandidateLine> lines, Address address, String coupon, boolean couponExpired,
                                 String cardToken) {

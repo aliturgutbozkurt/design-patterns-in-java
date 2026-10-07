@@ -12,9 +12,10 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
 
 /**
- * The seven hexagonal-architecture rules of brief §5, checked on the application's production classes (imported once
- * per binding). They run in every build, are green on the skeleton and must stay green. Rules over packages that may
- * still be empty allow an empty selection, so an unfinished project is not red for having no adapters yet.
+ * The seven hexagonal-architecture rules of the brief (Architecture rules), checked on the application's production
+ * classes (imported once per binding). They run in every build, are green on the skeleton and must stay green. Rules
+ * over packages that may still be empty allow an empty selection, so an unfinished project is not red for having no
+ * adapters yet.
  */
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public abstract class ArchitectureRules extends AcceptanceContract {

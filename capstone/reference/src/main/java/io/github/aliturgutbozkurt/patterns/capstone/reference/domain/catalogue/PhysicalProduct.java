@@ -14,7 +14,7 @@ import java.util.Objects;
  * @param category category
  * @param price    positive unit price
  * @param stock    units in stock, ≥ 0
- * @see "capstone guide §2 Slice walkthrough — C3"
+ * @see "capstone guide, Slice walkthrough — C3"
  */
 public record PhysicalProduct(Sku sku, String name, Category category, Money price, int stock) implements Product {
 

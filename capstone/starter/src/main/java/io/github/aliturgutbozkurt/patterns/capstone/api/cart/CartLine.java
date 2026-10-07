@@ -8,7 +8,7 @@ import java.util.Objects;
  *
  * @param sku      the product
  * @param quantity units, at least 1
- * @see "capstone brief §2.2 — Cart (F2)"
+ * @see "capstone brief, Business rules — Cart (F2)"
  */
 public record CartLine(Sku sku, int quantity) {
 

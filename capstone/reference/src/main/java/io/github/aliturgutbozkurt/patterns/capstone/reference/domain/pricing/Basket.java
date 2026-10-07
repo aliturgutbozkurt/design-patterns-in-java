@@ -10,7 +10,7 @@ import java.util.Objects;
  * @param lines  the lines in cart order
  * @param coupon the coupon code or {@code ""}
  * @param today  the clock's date (decides whether the coupon is still valid)
- * @see "capstone guide §2 Slice walkthrough — C4"
+ * @see "capstone guide, Slice walkthrough — C4"
  */
 public record Basket(List<BasketLine> lines, String coupon, LocalDate today) {
 

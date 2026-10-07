@@ -7,7 +7,7 @@
 This guide explains **one** way to build PatternShop: the reference solution in
 [`capstone/reference`](reference/). It shows which forces in the brief call for which pattern, how the reference
 answers them in Java 27, which alternatives were rejected and why, and how each rubric criterion can be met. It is
-not the only good design, and it is not a template to copy: the brief (§12) treats copying from the reference as an
+not the only good design, and it is not a template to copy: the brief ([Academic integrity and AI assistants](spec.en.md#academic-integrity-and-ai-assistants)) treats copying from the reference as an
 integrity violation, and the defence asks about *your* code. Use the reference the way you used the module examples —
 read it, run it, argue with it, then make your own decisions and write down why.
 
@@ -24,10 +24,12 @@ read it, run it, argue with it, then make your own decisions and write down why.
    rules) and the unit tests next to each package.
 
 Every participant type carries `@PatternRole`, so `grep -rn "@PatternRole" capstone/reference/src/main` lists the
-whole pattern inventory, and every Javadoc ends with `@see "capstone guide §…"` pointing into this guide.
+whole pattern inventory, and every Javadoc ends with `@see "capstone guide, <section> …"` naming a section of this guide.
 
-**Contents.** §1 Pattern map · §2 Slice walkthrough (architecture, then C3–C6) · §3 Trade-offs · §4 SDD artefacts ·
-§5 Rubric mapping · §6 Testing approach · §7 Common pitfalls · §8 Optional extension: Structured Concurrency.
+**Contents.** [Pattern map](#pattern-map) · [Slice walkthrough](#slice-walkthrough) (architecture, then C3–C6) ·
+[Trade-offs](#trade-offs) · [SDD artefacts](#sdd-artefacts) · [Rubric mapping](#rubric-mapping) ·
+[Testing approach](#testing-approach) · [Common pitfalls](#common-pitfalls) ·
+[Optional extension: Structured Concurrency](#optional-extension-structured-concurrency).
 
 Build and run the reference from the repository root on JDK 27:
 
@@ -67,7 +69,7 @@ Immutable Object, which the brief does not count as the concurrency pattern. Pat
 
 ### Alternatives, modern Java form and tests
 
-The rubric's justification table (rubric §5) puts these in the same row as the force; here they follow as a list so
+The rubric's justification table ([rubric](rubric.en.md#pattern-justification-table-template)) puts these in the same row as the force; here they follow as a list so
 that the long test names stay readable. Your own table needs all of it, one row per pattern.
 
 1. **Static Factory Method.** *Rejected:* `new CartId("cart-" + n)` at the call site — the format leaks into two
@@ -84,7 +86,7 @@ that the long test names stay readable. Your own table needs all of it, one row 
    the core, and ArchUnit rule 2 forbids it. *Modern form:* sealed `PaymentOutcome` of records; `switch` on the
    status. *Tests:* `ExternalPaymentAdapterTest` → `translatesStatusCodesIntoOutcomes`; `CheckoutAcceptance` →
    `chargesTheQuotedTotalExactlyOnceInProviderFormat`.
-5. **Decorator.** *Rejected:* one `price()` method with seven blocks, or `Function.andThen` (see §3). *Modern form:*
+5. **Decorator.** *Rejected:* one `price()` method with seven blocks, or `Function.andThen` (see [Decorator chain vs. function composition for pricing](#decorator-chain-vs-function-composition-for-pricing)). *Modern form:*
    abstract decorator with a `final` template, records for the price sheet. *Tests:* `PricingPipelineTest` →
    `eachDecoratorAddsExactlyItsStep`, `decoratorsCanBeLeftOutOrReordered`.
 6. **Facade.** *Rejected:* letting the CLI call six services in order — the order of the steps and the
@@ -97,10 +99,10 @@ that the long test names stay readable. Your own table needs all of it, one row 
    rule order are buried in control flow. *Modern form:* `@FunctionalInterface` with `and` / `andThen` default
    methods; the rules are lambdas. *Tests:* `CheckoutRulesTest` → `andCollectsWhileAndThenStopsAtTheFirstFailure`;
    `CheckoutAcceptance` → `collectsAllValidationErrorsInRuleOrder`.
-9. **State.** *Rejected:* `enum OrderStatus` plus nullable fields (see §3). *Modern form:* sealed interface of
+9. **State.** *Rejected:* `enum OrderStatus` plus nullable fields (see [Sealed state vs. enum state](#sealed-state-vs-enum-state)). *Modern form:* sealed interface of
    records, exhaustive `switch` with record patterns and guards. *Tests:* `OrderLifecycleTest` →
    `forbiddenTransitionsAreRefusedWithTheCurrentStatus`.
-10. **Command.** *Rejected:* Memento snapshots of the cart (see §3). *Modern form:* sealed records whose `applyTo`
+10. **Command.** *Rejected:* Memento snapshots of the cart (see [Command vs. Memento for undo](#command-vs-memento-for-undo)). *Modern form:* sealed records whose `applyTo`
     returns the inverse; CLI commands are lambdas in a `Map`. *Tests:* `CartEditTest` →
     `everyEditReturnsAnInverseThatRestoresTheCartExactly`; `UndoAcceptance` → `undoRestoresRemovedLineAtItsPosition`.
 11. **Observer.** *Rejected:* calling the notifier from checkout — checkout would depend on every reaction, and a
@@ -110,7 +112,7 @@ that the long test names stay readable. Your own table needs all of it, one row 
 12. **Template Method.** *Rejected:* two independent renderers — the line order and the trailing newline would be
     duplicated; Strategy — the *skeleton* is shared, not one algorithm. *Modern form:* `final` template method,
     `Optional` for the optional total. *Tests:* `ReportRendererTest` → `theTemplateFixesTheOrderOfTheParts`.
-13. **Thread-per-task.** *Rejected:* a fixed pool of 4 platform threads, or Producer–Consumer (see §3). *Modern
+13. **Thread-per-task.** *Rejected:* a fixed pool of 4 platform threads, or Producer–Consumer (see [Semaphore vs. Producer–Consumer for fulfilment](#semaphore-vs-producerconsumer-for-fulfilment)). *Modern
     form:* `Executors.newVirtualThreadPerTaskExecutor()` in try-with-resources, `Semaphore`. *Tests:*
     `FulfilmentAcceptance` → `neverExceedsMaxParallelOrders`; `FulfilmentServiceTest` →
     `runsOrdersInParallelOnVirtualThreadsButNeverAboveTheLimit`.
@@ -136,7 +138,7 @@ The rubric's Excellent level in C2 asks for at least one pattern you rejected wi
 |---|---|---|
 | Singleton | the event dispatcher, the id sequences, the repositories | One shop per `create(env)` call: the acceptance kit builds a fresh shop per test, and a static instance would leak carts and ids between tests. ArchUnit rule 7 forbids non-final static fields anyway. The composition root gives "one per shop" without global state. |
 | Visitor | reports over the sealed `Report` / `ReportRequest` types | The hierarchies are sealed and the operations live in one place, so an exhaustive `switch` with record patterns gives the same compiler-checked completeness with no `accept` methods (m08 "Visitor vs. pattern matching"). |
-| Memento | undo of cart edits | See §3: inverse commands restore line positions with less memory and make redo free. |
+| Memento | undo of cart edits | See [Command vs. Memento for undo](#command-vs-memento-for-undo): inverse commands restore line positions with less memory and make redo free. |
 | Abstract Factory | creating the adapters | There is exactly one family per run (simulated or test fakes), chosen by the caller of `create(env)`; the composition root *is* the factory. |
 | Proxy | payment retries, logging | No requirement asks for it; E8 (payment resilience) is where a retrying Decorator or Proxy would earn its place. |
 
@@ -287,7 +289,7 @@ ERROR unknown command: cart fly
 USAGE cart add <cart> <sku> <qty>
 ```
 
-Almost every pattern of §1 is visible in it: the undo removed `HOM-001` (Command), the quote shows the five pricing
+Almost every pattern of the [Pattern map](#pattern-map) is visible in it: the undo removed `HOM-001` (Command), the quote shows the five pricing
 stages in order (Decorator over Strategy), the declined card produced a business result, not an exception
 (Adapter + Facade), and the two `NOTIFY` lines are printed *before* `PLACED` — the observers ran after the order was
 committed but before `checkout` returned (domain events after commit). The fulfilment ran on a virtual thread, the
@@ -438,7 +440,7 @@ constructor validate everything.
         }
 ```
 
-`CheckoutService.place` (in §2 C5) uses it with one `item(…)` call per line. Note that the builder takes the
+`CheckoutService.place` (in [C5](#c5--payment-checkout-events-and-undo)) uses it with one `item(…)` call per line. Note that the builder takes the
 clock's *instant*, not the `Clock`: the domain never reads the time itself.
 **Alternatives.** A "wither" chain on the record would create seven intermediate orders, each of which would have to
 be valid. A telescoping constructor hides which argument is which. **Module:** m03 `builder`.
@@ -580,7 +582,7 @@ the `min(line.left())`:
 
 The GIVEN `PromotionSpec` (what the caller registers) is mapped to a rule (what the domain executes) by one
 exhaustive `switch` with record patterns in `PricingService.toRule` — a sealed type on each side of the boundary.
-**Alternatives.** See §3 for Decorator vs. function composition. **Modules:** m06 `strategy.shipping.modern`, m04
+**Alternatives.** See [Decorator chain vs. function composition for pricing](#decorator-chain-vs-function-composition-for-pricing). **Modules:** m06 `strategy.shipping.modern`, m04
 `decorator.coffee.modern`, m09 `composition.pricing`.
 
 #### State: `OrderState` and `OrderLifecycle`
@@ -626,7 +628,7 @@ an `Allowed` transition.
 ```
 
 Every forbidden case is listed — no `default` — so a sixth state (E9 returns: `RETURN_REQUESTED`) makes every switch
-fail to compile until it is handled. **Alternatives.** See §3 (sealed records vs. enum vs. classic State objects).
+fail to compile until it is handled. **Alternatives.** See [Sealed state vs. enum state](#sealed-state-vs-enum-state) (sealed records vs. enum vs. classic State objects).
 **Modules:** m08 `state.order.sealed`, m09 `dop.order.modern`.
 
 #### Chain of Responsibility: `CheckoutRules`
@@ -1060,7 +1062,7 @@ what redo needs.
 Because `applyTo` throws *before* anything is pushed, a failed edit is never recorded. `RestoreItem` is a fifth
 record that exists only as the inverse of a removal — the GIVEN API has no "insert at position" use case. The CLI
 uses Command a second time, as a command *table*: each entry of a `Map<String, CliCommand>` is a lambda that parses
-its arguments, calls a use case and formats the answer (§2 C6). **Alternatives.** See §3 (Command vs. Memento).
+its arguments, calls a use case and formats the answer ([C6](#c6--fulfilment-reports-and-the-cli)). **Alternatives.** See [Command vs. Memento for undo](#command-vs-memento-for-undo).
 **Module:** m06 `command.spreadsheet.modern`.
 
 ### C6 — Fulfilment, reports and the CLI
@@ -1145,8 +1147,8 @@ of their own; each gets an immutable `Order`; (2) the only shared objects are th
 repositories and the `UnitOfWork`, whose lock serialises the commit of each shipment; (3) the commit re-reads the
 order and asks the lifecycle again, so an order cancelled while it was in the warehouse is *refused*, not shipped;
 (4) results travel back through `Future.get()` (a happens-before edge), and events are dispatched on the caller's
-thread after the executor's `close()` has waited for every task. **Alternatives.** See §3 (Semaphore vs.
-Producer–Consumer); §8 shows the Structured-Concurrency variant. **Modules:** m10 `threadpertask`,
+thread after the executor's `close()` has waited for every task. **Alternatives.** See [Semaphore vs. Producer–Consumer for fulfilment](#semaphore-vs-producerconsumer-for-fulfilment);
+[Optional extension: Structured Concurrency](#optional-extension-structured-concurrency) shows the variant. **Modules:** m10 `threadpertask`,
 `producerconsumer.fulfilment`.
 
 #### Template Method: `ReportRenderer`
@@ -1210,7 +1212,7 @@ The request side uses the same modern idiom — one exhaustive `switch` over the
 
 The rendered output is in the session above (`report sales`, `report top 3 --csv`, `report inventory`).
 **Alternatives.** Strategy (one formatter object per format) would also work, but here the *skeleton* is what is
-shared, which is Template Method's force; a Visitor over the reports was rejected in §1. **Module:** m06
+shared, which is Template Method's force; a Visitor over the reports was rejected in [Patterns deliberately not used](#patterns-deliberately-not-used). **Module:** m06
 `templatemethod`.
 
 #### The CLI: a command table
@@ -1289,7 +1291,7 @@ with a background fulfilment loop).
 
 ### Why no Singleton and no Visitor
 
-See §1 "Patterns deliberately not used". In short: one object graph per `create(env)` is a hard requirement of the
+See [Patterns deliberately not used](#patterns-deliberately-not-used). In short: one object graph per `create(env)` is a hard requirement of the
 acceptance kit, and sealed types with exhaustive `switch` make Visitor's double dispatch unnecessary when the
 hierarchy is closed.
 
@@ -1314,7 +1316,7 @@ The capstone is graded as a spec-driven project, the same workflow the course re
 
 | Step | Artefact you produce | When | Rubric |
 |---|---|---|---|
-| Specify | `capstone/starter/SPEC.md` from the brief's template (§4.1): scope, extension acceptance criteria, domain and hexagon diagrams, pattern plan, concurrency design, boundaries, milestones | W9–W10 (graded at W10) | C1, C2 |
+| Specify | `capstone/starter/SPEC.md` from the brief's [SPEC.md template](spec.en.md#specmd-template): scope, extension acceptance criteria, domain and hexagon diagrams, pattern plan, concurrency design, boundaries, milestones | W9–W10 (graded at W10) | C1, C2 |
 | Plan | §9 Milestones of your `SPEC.md`: one suite or extension per week, in dependency order | W10 | C1 (g) |
 | Build | thin vertical slices: make one acceptance suite green, commit (Conventional Commits), move on | W10–W13 | C3–C8 |
 | Test | own unit tests per pattern, extension acceptance tests named after their criteria | with every slice | C7 |
@@ -1406,7 +1408,7 @@ submissions typically lack.
   "Implemented (C3…C6)" notes. *You:* your own `SPEC.md` with all ten sections by W10, extension criteria in
   Given/When/Then, a change log that explains every deviation. *Weaker:* late submission; extensions without testable
   criteria; a final spec that no longer matches the code.
-- **C2 Justification table (10).** *Reference:* §1 of this guide — 13 complete rows and 5 rejected patterns. *You:*
+- **C2 Justification table (10).** *Reference:* the [Pattern map](#pattern-map) of this guide — 13 complete rows and 5 rejected patterns. *You:*
   your own table with force, participants, alternative and test, for *your* code. *Weaker:* rows whose "force" is the
   pattern's textbook intent instead of a PatternShop problem; no rejected pattern.
 - **C3 Extensions (10).** *Reference:* none — it implements only the mandatory part. *You:* two extensions, each
@@ -1431,17 +1433,17 @@ submissions typically lack.
   `TODO(capstone)`. *You:* weekly Conventional Commits in W9–W13; no commented-out code. *Weaker:* a single "final"
   commit in W14; leftover starter TODOs.
 - **C9 Report (12).** *Reference:* this guide is the model for the *content* — hexagon, table, modern-Java decisions,
-  concurrency argument, limits (§3 "One lock for every change"). *You:* `REPORT.md`, 6–10 pages in EN or TR with a
+  concurrency argument, limits ([One lock for every change](#one-lock-for-every-change)). *You:* `REPORT.md`, 6–10 pages in EN or TR with a
   one-page summary in the other language, an AI-usage statement, a file path for every claim. *Weaker:* no reflection
   on limits; no AI statement; no summary in the other language.
-- **C10 Defence (13).** *Reference:* the session in §2 is a ready demo script — checkout, fulfilment, one report.
+- **C10 Defence (13).** *Reference:* the session in [The hexagon at a glance](#the-hexagon-at-a-glance) is a ready demo script — checkout, fulfilment, one report.
   *You:* a 10-minute talk with a live CLI demo, three patterns in depth and one trade-off, then four questions about
   *your* code. *Weaker:* a demo that was never rehearsed; not knowing where a named pattern's participants are.
 
 The four defence questions are predictable in kind: *locate the participants of a named pattern* (answer with the
 `@PatternRole` grep), *explain what a named test proves*, *sketch a change request* (e.g. "add a fifth promotion
 kind" → one record, one `case` in `toRule`, no pipeline change), and *explain why fulfilment is thread-safe* (the
-four-point argument in §2 C6).
+four-point argument in [C6](#c6--fulfilment-reports-and-the-cli)).
 
 ## Testing approach
 

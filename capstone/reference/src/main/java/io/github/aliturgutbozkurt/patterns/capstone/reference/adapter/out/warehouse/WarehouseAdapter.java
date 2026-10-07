@@ -15,7 +15,7 @@ import java.util.Objects;
  * Outbound adapter: drives the warehouse's three blocking calls for one order and turns a
  * {@link WarehouseException} into a {@link ShipmentOutcome.Failed} with its message.
  *
- * @see "capstone guide §1 Pattern map — architectural patterns"
+ * @see "capstone guide, Pattern map — architectural patterns"
  */
 @PatternRole(value = DesignPattern.PORTS_AND_ADAPTERS, role = "outbound adapter")
 public final class WarehouseAdapter implements Warehouse {

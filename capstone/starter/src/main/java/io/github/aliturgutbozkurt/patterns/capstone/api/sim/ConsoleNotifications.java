@@ -9,7 +9,7 @@ import java.util.function.Consumer;
  * GIVEN — do not modify. Writes each notification as one line {@code NOTIFY <recipient> | <subject> | <body>} to a
  * sink (e.g. {@code System.out::println}).
  *
- * @see "capstone brief §2.2 — Events and notifications (F8)"
+ * @see "capstone brief, Business rules — Events and notifications (F8)"
  */
 public final class ConsoleNotifications implements NotificationGateway {
 

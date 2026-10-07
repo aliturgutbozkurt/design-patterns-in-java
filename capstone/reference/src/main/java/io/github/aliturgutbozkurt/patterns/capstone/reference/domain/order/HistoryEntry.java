@@ -10,7 +10,7 @@ import java.util.Objects;
  * @param status the status entered
  * @param at     the clock's instant
  * @param note   payment reference, tracking code, reason or {@code ""}
- * @see "capstone guide §1 Pattern map — State"
+ * @see "capstone guide, Pattern map — State"
  */
 public record HistoryEntry(OrderStatus status, Instant at, String note) {
 

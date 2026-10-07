@@ -5,10 +5,10 @@ import io.github.aliturgutbozkurt.patterns.capstone.api.pattern.PatternRole;
 import java.util.List;
 
 /**
- * The checkout rules of brief §2.2 as chain links, and the standard chain: {@code empty cart} alone (fail fast),
- * otherwise every rule in this order, collecting all reasons.
+ * The checkout rules of the brief's Business rules as chain links, and the standard chain: {@code empty cart} alone
+ * (fail fast), otherwise every rule in this order, collecting all reasons.
  *
- * @see "capstone guide §1 Pattern map — Chain of Responsibility"
+ * @see "capstone guide, Pattern map — Chain of Responsibility"
  */
 @PatternRole(value = DesignPattern.CHAIN_OF_RESPONSIBILITY, role = "concrete handlers and chain assembly")
 public final class CheckoutRules {

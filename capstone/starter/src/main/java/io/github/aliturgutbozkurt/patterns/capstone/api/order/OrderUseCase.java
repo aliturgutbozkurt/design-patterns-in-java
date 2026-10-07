@@ -9,7 +9,7 @@ import java.util.Optional;
  * GIVEN — do not modify. Inbound port of feature F7: reading orders and the customer-initiated transitions. Business
  * outcomes are {@link TransitionResult}s, never exceptions.
  *
- * @see "capstone brief §2.2 — Order lifecycle (F7)"
+ * @see "capstone brief, Business rules — Order lifecycle (F7)"
  */
 public interface OrderUseCase {
 

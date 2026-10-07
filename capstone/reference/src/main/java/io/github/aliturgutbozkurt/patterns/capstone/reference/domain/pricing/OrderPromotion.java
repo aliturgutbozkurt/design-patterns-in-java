@@ -8,7 +8,7 @@ import java.util.List;
 /**
  * Step 4: of the amount-off rules whose threshold is reached, only the one with the highest threshold applies.
  *
- * @see "capstone guide §1 Pattern map — Decorator"
+ * @see "capstone guide, Pattern map — Decorator"
  */
 @PatternRole(value = DesignPattern.DECORATOR, role = "concrete decorator")
 public final class OrderPromotion extends PriceStepDecorator {

@@ -9,7 +9,7 @@ import java.util.List;
  * @param result the transaction's result
  * @param events the raised events in order
  * @param <T>    the result type
- * @see "capstone guide §1 Pattern map — Observer"
+ * @see "capstone guide, Pattern map — Observer"
  */
 public record Committed<T>(T result, List<ShopEvent> events) {
 

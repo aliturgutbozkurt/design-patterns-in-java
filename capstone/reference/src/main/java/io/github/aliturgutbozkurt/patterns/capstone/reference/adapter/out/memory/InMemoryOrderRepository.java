@@ -14,7 +14,7 @@ import java.util.concurrent.ConcurrentSkipListMap;
 /**
  * Orders in a concurrent map sorted by order number ({@code order-2} before {@code order-10}).
  *
- * @see "capstone guide §1 Pattern map — architectural patterns"
+ * @see "capstone guide, Pattern map — architectural patterns"
  */
 @PatternRole(value = DesignPattern.REPOSITORY, role = "in-memory repository (outbound adapter)")
 public final class InMemoryOrderRepository implements OrderRepository {

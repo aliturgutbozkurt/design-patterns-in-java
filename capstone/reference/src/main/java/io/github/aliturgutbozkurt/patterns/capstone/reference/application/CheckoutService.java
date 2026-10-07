@@ -44,7 +44,7 @@ import java.util.Objects;
  * refunded before the failure propagates (compensation; adapted from modules/m05-…/facade/checkout/CheckoutFacade.java)
  * and the unit of work undoes the writes already made.
  *
- * @see "capstone guide §1 Pattern map — Facade"
+ * @see "capstone guide, Pattern map — Facade"
  */
 @PatternRole(value = DesignPattern.FACADE, role = "facade (with compensation)")
 public final class CheckoutService implements CheckoutUseCase {

@@ -8,7 +8,7 @@ import java.util.Objects;
  * A query criterion as a composable object (adapted from modules/m11-…/repository/catalog/Specification.java).
  *
  * @param <T> the type of the candidates
- * @see "capstone guide §1 Pattern map — architectural patterns"
+ * @see "capstone guide, Pattern map — architectural patterns"
  */
 @PatternRole(value = DesignPattern.SPECIFICATION, role = "specification")
 @FunctionalInterface

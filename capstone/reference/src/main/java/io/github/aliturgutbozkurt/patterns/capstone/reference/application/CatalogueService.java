@@ -23,7 +23,7 @@ import java.util.Optional;
 /**
  * Feature F1: the catalogue use case over the product repository.
  *
- * @see "capstone guide §2 Slice walkthrough — C3"
+ * @see "capstone guide, Slice walkthrough — C3"
  */
 @PatternRole(value = DesignPattern.PORTS_AND_ADAPTERS, role = "application service behind an inbound port")
 public final class CatalogueService implements CatalogueUseCase {

@@ -14,7 +14,7 @@
 |---|---|
 | [`starter/`](starter/) | Your project: GIVEN API (`…capstone.api`, do not modify), skeleton (`…capstone.shop`), 83 acceptance tests in 11 suites, 7 architecture rules, [`SPEC.md`](starter/SPEC.md) and [`REPORT.md`](starter/REPORT.md) templates · Sizin projeniz: VERİLEN API (değiştirmeyin), iskelet, 11 takımda 83 kabul testi, 7 mimari kural, `SPEC.md` ve `REPORT.md` şablonları |
 | [`starter/src/test/resources/acceptance/`](starter/src/test/resources/acceptance/) | Expected CLI transcript and report texts · Beklenen CLI dökümü ve rapor metinleri |
-| [`reference/`](reference/) | Reference solution (13 counted patterns), explained in the guide — read it, do not copy it (brief §12) · Referans çözüm (13 sayılan kalıp), rehberde açıklanır — okuyun, kopyalamayın (proje tanımı §12) |
+| [`reference/`](reference/) | Reference solution (13 counted patterns), explained in the guide — read it, do not copy it (brief: [Academic integrity](spec.en.md#academic-integrity-and-ai-assistants)) · Referans çözüm (13 sayılan kalıp), rehberde açıklanır — okuyun, kopyalamayın (proje tanımı: [Akademik dürüstlük](spec.tr.md#akademik-dürüstlük-ve-yapay-zekâ-asistanları)) |
 
 ## Build & test · Derleme ve test
 

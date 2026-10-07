@@ -1,4 +1,4 @@
-<!-- Report template for the capstone brief §9 and rubric C9 (capstone/rubric.en.md). Write it in English OR Turkish,
+<!-- Report template for the capstone brief, section "Deliverables", and rubric C9 (capstone/rubric.en.md). Write it in English OR Turkish,
      6–10 pages, terms as in docs/glossary.md; every claim about the code points to a file path. Replace every <…>. -->
 # PatternShop — Report — <your name(s)>
 
@@ -9,7 +9,7 @@ What the system does, the main decisions in a few paragraphs, and the hexagon as
 `domain`, `application`, `adapter.in.*`, `adapter.out.*`, `config`, the ports between them).
 
 ## 2. Pattern-justification table
-The complete table from the rubric §5 (may be the updated table of your `SPEC.md` §5), plus at least one pattern
+The complete table from the rubric's [Pattern-justification table template](../rubric.en.md#pattern-justification-table-template) (may be the updated table of your `SPEC.md` §5), plus at least one pattern
 you deliberately did not use and why.
 
 | # | Pattern (category) | Force / problem in PatternShop | Participants (types and `@PatternRole` roles) | Alternative considered and why not | Modern Java form | Test(s) that show it | Course module |

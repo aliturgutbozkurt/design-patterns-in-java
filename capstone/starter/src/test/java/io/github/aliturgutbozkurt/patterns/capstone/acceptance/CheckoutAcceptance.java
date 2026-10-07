@@ -32,7 +32,7 @@ import java.util.ArrayList;
 import java.util.List;
 import org.junit.jupiter.api.Test;
 
-/** F5, F6 — checkout: validation chain, payment through the external API, placing the order (brief §2.2). */
+/** F5, F6 — checkout: validation chain, payment through the external API, placing the order (brief, Business rules). */
 public abstract class CheckoutAcceptance extends AcceptanceContract {
 
     private CheckoutResult checkout(CartId cart, Address address, String cardToken) {

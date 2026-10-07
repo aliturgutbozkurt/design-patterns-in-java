@@ -6,7 +6,7 @@ import java.util.Objects;
  * The outcome of asking the lifecycle for a transition: allowed (with the next state and the history note) or
  * refused (with the reason the customer sees).
  *
- * @see "capstone guide §1 Pattern map — State"
+ * @see "capstone guide, Pattern map — State"
  */
 public sealed interface Transition {
 

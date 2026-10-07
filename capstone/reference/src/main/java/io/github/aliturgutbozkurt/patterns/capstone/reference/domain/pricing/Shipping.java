@@ -7,7 +7,7 @@ import io.github.aliturgutbozkurt.patterns.capstone.api.pattern.PatternRole;
 /**
  * Step 7: 49.90 when something must be shipped and the merchandise total is below 500.00 — the outermost stage.
  *
- * @see "capstone guide §1 Pattern map — Decorator"
+ * @see "capstone guide, Pattern map — Decorator"
  */
 @PatternRole(value = DesignPattern.DECORATOR, role = "concrete decorator")
 public final class Shipping extends PriceStepDecorator {

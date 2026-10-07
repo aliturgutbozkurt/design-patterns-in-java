@@ -11,7 +11,7 @@ import java.util.Objects;
  * GIVEN — do not modify. A deterministic, thread-safe stand-in for the warehouse: every call blocks for 20 ms; the
  * parcel of {@code order-7} is {@code PCL-7} and its tracking code {@code TRK-0007}, whatever the thread interleaving.
  *
- * @see "capstone brief §2.2 — Fulfilment (F9)"
+ * @see "capstone brief, Business rules — Fulfilment (F9)"
  */
 public final class SimulatedWarehouse implements WarehouseApi {
 

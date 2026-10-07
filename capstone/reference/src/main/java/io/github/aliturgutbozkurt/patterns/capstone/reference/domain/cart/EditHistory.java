@@ -10,7 +10,7 @@ import java.util.Optional;
  * The undo and redo stacks of one cart: performs edits, keeps the inverses of the last {@value #DEPTH} and replays
  * them. Not thread-safe; the cart service changes it only inside a transaction.
  *
- * @see "capstone guide §1 Pattern map — Command"
+ * @see "capstone guide, Pattern map — Command"
  */
 @PatternRole(value = DesignPattern.COMMAND, role = "invoker (undo/redo history)")
 public final class EditHistory {

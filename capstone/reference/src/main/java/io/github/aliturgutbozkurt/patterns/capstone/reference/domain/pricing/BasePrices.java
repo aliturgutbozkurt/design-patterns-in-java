@@ -6,7 +6,7 @@ import io.github.aliturgutbozkurt.patterns.capstone.api.pattern.PatternRole;
 /**
  * Step 1: line totals and subtotal — the innermost stage.
  *
- * @see "capstone guide §1 Pattern map — Decorator"
+ * @see "capstone guide, Pattern map — Decorator"
  */
 @PatternRole(value = DesignPattern.DECORATOR, role = "concrete component")
 public final class BasePrices implements PriceStep {

@@ -21,7 +21,7 @@ import java.util.Objects;
  * @param placedAt         the clock's instant at checkout
  * @param history          every status change, oldest first; notes: the payment reference for {@code PAID}, the
  *                         tracking code for {@code SHIPPED}, the reason for {@code CANCELLED}, otherwise {@code ""}
- * @see "capstone brief §2.2 — Order lifecycle (F7)"
+ * @see "capstone brief, Business rules — Order lifecycle (F7)"
  */
 public record OrderView(OrderId id, CustomerId customer, List<OrderLine> lines, Money total, OrderStatus status,
                         String paymentReference, String trackingCode, Instant placedAt, List<StatusChange> history) {

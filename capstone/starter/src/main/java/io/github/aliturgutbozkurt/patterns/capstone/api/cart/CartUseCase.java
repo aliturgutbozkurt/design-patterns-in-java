@@ -13,7 +13,7 @@ import java.util.NoSuchElementException;
  * {@link IllegalStateException} ({@code cart closed: cart-1}). A rejected edit throws
  * {@link IllegalArgumentException}, leaves the cart unchanged and is not recorded in the history.
  *
- * @see "capstone brief §2.2 — Cart (F2), Undo / redo (F3)"
+ * @see "capstone brief, Business rules — Cart (F2), Undo / redo (F3)"
  */
 public interface CartUseCase {
 

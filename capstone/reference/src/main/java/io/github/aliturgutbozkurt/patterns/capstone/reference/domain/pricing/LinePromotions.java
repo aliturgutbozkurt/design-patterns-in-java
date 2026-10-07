@@ -7,7 +7,7 @@ import java.util.List;
 /**
  * Steps 2 and 3: every buy-X-get-Y-free rule, then every category rule, in registration order.
  *
- * @see "capstone guide §1 Pattern map — Decorator"
+ * @see "capstone guide, Pattern map — Decorator"
  */
 @PatternRole(value = DesignPattern.DECORATOR, role = "concrete decorator")
 public final class LinePromotions extends PriceStepDecorator {

@@ -14,7 +14,7 @@ import java.util.concurrent.atomic.AtomicInteger;
  * token (e.g. {@value #DECLINED}) → 402. An approved idempotency key is answered with the same reference again.
  * Refunding an approved, not yet refunded reference → 200; anything else → 404.
  *
- * @see "capstone brief §2.2 — Checkout (F5, F6)"
+ * @see "capstone brief, Business rules — Checkout (F5, F6)"
  */
 public final class SimulatedPaymentApi implements ExternalPaymentApi {
 

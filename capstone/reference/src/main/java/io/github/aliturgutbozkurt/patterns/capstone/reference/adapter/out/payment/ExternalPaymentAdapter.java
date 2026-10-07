@@ -14,7 +14,7 @@ import java.util.Objects;
  * the merchant id, and status codes become sealed outcomes (200 approved, 402 declined, anything else unavailable).
  * Adapted from modules/m04-…/adapter/payment/LegacyPaymentAdapter.java.
  *
- * @see "capstone guide §1 Pattern map — Adapter"
+ * @see "capstone guide, Pattern map — Adapter"
  */
 @PatternRole(value = DesignPattern.ADAPTER, role = "adapter (adaptee: the GIVEN ExternalPaymentApi)")
 public final class ExternalPaymentAdapter implements PaymentPort {

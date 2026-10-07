@@ -10,7 +10,7 @@ import java.util.Objects;
  * has no payment reference, only shipped and delivered orders have a tracking code), and the transitions in
  * {@link OrderLifecycle} are exhaustive switches over these records.
  *
- * @see "capstone guide §1 Pattern map — State"
+ * @see "capstone guide, Pattern map — State"
  */
 @PatternRole(value = DesignPattern.STATE, role = "state (sealed interface of records)")
 public sealed interface OrderState {

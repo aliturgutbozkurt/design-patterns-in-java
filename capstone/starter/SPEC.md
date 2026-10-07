@@ -1,4 +1,4 @@
-<!-- Template from the capstone brief §4.1 (capstone/spec.en.md). Replace every <…> and keep the ten sections. -->
+<!-- Template from the capstone brief, section "SPEC.md template" (capstone/spec.en.md#specmd-template). Replace every <…> and keep the ten sections. -->
 # PatternShop — <your name(s)>
 
 > Status: draft | approved (W10) | final (W14) · Change log at the end

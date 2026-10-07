@@ -8,7 +8,7 @@ import java.util.Objects;
  * @param merchantId        sent to the payment provider
  * @param maxParallelOrders how many orders fulfilment may process at once, at least 1
  * @param lowStockThreshold stock below this is low ({@code StockLow}, inventory report), at least 0
- * @see "capstone brief §2.2"
+ * @see "capstone brief, Business rules"
  */
 public record ShopSettings(String merchantId, int maxParallelOrders, int lowStockThreshold) {
 

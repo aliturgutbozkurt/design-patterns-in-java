@@ -10,7 +10,7 @@ import java.util.stream.Collectors;
  * CSV: the column names as header, one row per entry, no title and no total; fields with a comma or a quote are
  * quoted RFC-4180 style.
  *
- * @see "capstone guide §1 Pattern map — Template Method"
+ * @see "capstone guide, Pattern map — Template Method"
  */
 @PatternRole(value = DesignPattern.TEMPLATE_METHOD, role = "concrete class")
 public final class CsvRenderer extends ReportRenderer {

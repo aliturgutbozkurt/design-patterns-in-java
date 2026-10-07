@@ -10,7 +10,7 @@ import java.util.Objects;
 /**
  * Tells {@code ops} when a product's stock drops below the threshold.
  *
- * @see "capstone guide §1 Pattern map — Observer"
+ * @see "capstone guide, Pattern map — Observer"
  */
 @PatternRole(value = DesignPattern.OBSERVER, role = "concrete observer")
 public final class StockAlerts {

@@ -13,7 +13,7 @@ import java.util.concurrent.ConcurrentHashMap;
 /**
  * Carts in a concurrent map; carts are immutable values.
  *
- * @see "capstone guide §1 Pattern map — architectural patterns"
+ * @see "capstone guide, Pattern map — architectural patterns"
  */
 @PatternRole(value = DesignPattern.REPOSITORY, role = "in-memory repository (outbound adapter)")
 public final class InMemoryCartRepository implements CartRepository {

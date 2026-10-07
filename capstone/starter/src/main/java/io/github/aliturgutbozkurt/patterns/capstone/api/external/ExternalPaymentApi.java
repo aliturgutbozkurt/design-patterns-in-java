@@ -7,7 +7,7 @@ package io.github.aliturgutbozkurt.patterns.capstone.api.external;
  * <p>Status codes: 200 approved, 402 declined, 5xx provider unavailable. Amounts are decimal strings with two fraction
  * digits ({@code "987.91"}), the currency is {@code "TRY"}.
  *
- * @see "capstone brief §2.2 — Checkout (F5, F6)"
+ * @see "capstone brief, Business rules — Checkout (F5, F6)"
  */
 public interface ExternalPaymentApi {
 

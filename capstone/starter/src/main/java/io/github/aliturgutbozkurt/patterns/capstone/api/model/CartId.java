@@ -6,7 +6,7 @@ import java.util.Objects;
  * GIVEN — do not modify. Identifies a cart; the shop generates {@code cart-1}, {@code cart-2}, … per instance.
  *
  * @param value a non-blank id
- * @see "capstone brief §2.2 — Money and ids"
+ * @see "capstone brief, Business rules — Money and ids"
  */
 public record CartId(String value) {
 

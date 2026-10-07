@@ -10,7 +10,7 @@ import java.util.Objects;
  *
  * @param threshold the minimum discounted subtotal
  * @param off       the amount subtracted (capped at what is left)
- * @see "capstone guide §1 Pattern map — Strategy"
+ * @see "capstone guide, Pattern map — Strategy"
  */
 @PatternRole(value = DesignPattern.STRATEGY, role = "concrete strategy")
 public record AmountOffOverRule(Money threshold, Money off) implements PromotionRule {

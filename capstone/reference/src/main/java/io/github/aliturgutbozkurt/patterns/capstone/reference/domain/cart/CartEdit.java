@@ -11,7 +11,7 @@ import java.util.Objects;
  * modules/m06-…/command/spreadsheet/modern/SheetEditor.java). {@link RestoreItem} exists only as the inverse of a
  * removal: it puts a line back at its old position.
  *
- * @see "capstone guide §1 Pattern map — Command"
+ * @see "capstone guide, Pattern map — Command"
  */
 @PatternRole(value = DesignPattern.COMMAND, role = "command (sealed records; apply returns the inverse)")
 public sealed interface CartEdit {

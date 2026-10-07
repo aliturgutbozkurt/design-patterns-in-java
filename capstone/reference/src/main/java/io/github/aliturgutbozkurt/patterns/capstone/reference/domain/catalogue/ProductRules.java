@@ -3,7 +3,7 @@ package io.github.aliturgutbozkurt.patterns.capstone.reference.domain.catalogue;
 import io.github.aliturgutbozkurt.patterns.capstone.api.model.Money;
 import java.util.Objects;
 
-/** The rules every product shares (brief §2.2 "Catalogue"). */
+/** The rules every product shares (brief, Business rules — Catalogue). */
 final class ProductRules {
 
     private ProductRules() {

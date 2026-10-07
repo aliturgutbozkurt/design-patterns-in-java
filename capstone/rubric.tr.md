@@ -31,7 +31,7 @@ alır** (50 puan). C1, C2, C9 ve C10 yine değerlendirilir.
 
 İzin verilen tek derleme değişikliği E10 genişletmesinin gerektirdiğidir (m10'daki gibi yalıtılmış
 `--enable-preview`); verilen tüm testler önizleme olmadan da geçmelidir. Akademik dürüstlük ihlalleri ayrıca ele
-alınır (proje tanımı §12).
+alınır (proje tanımı: [Akademik dürüstlük ve yapay zekâ asistanları](spec.tr.md#akademik-dürüstlük-ve-yapay-zekâ-asistanları)).
 
 ## Ölçütler ve ağırlıklar
 

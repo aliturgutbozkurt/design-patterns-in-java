@@ -8,7 +8,7 @@ import java.util.List;
  *
  * @param shipped the orders now {@code SHIPPED}
  * @param failed  the orders that stay {@code PAID}, with the reason
- * @see "capstone brief §2.2 — Fulfilment (F9)"
+ * @see "capstone brief, Business rules — Fulfilment (F9)"
  */
 public record FulfilmentReport(List<OrderId> shipped, List<FulfilmentFailure> failed) {
 

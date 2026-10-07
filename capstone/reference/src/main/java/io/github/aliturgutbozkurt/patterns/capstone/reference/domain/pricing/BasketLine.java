@@ -15,7 +15,7 @@ import java.util.Objects;
  * @param type      physical or digital
  * @param quantity  units, ≥ 1
  * @param unitPrice list price
- * @see "capstone guide §2 Slice walkthrough — C4"
+ * @see "capstone guide, Slice walkthrough — C4"
  */
 public record BasketLine(Sku sku, String name, Category category, ProductType type, int quantity, Money unitPrice) {
 

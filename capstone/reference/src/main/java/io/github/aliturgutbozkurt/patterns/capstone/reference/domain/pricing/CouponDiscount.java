@@ -7,7 +7,7 @@ import java.util.List;
 /**
  * Step 5: the cart's coupon, if it is still valid today; an expired coupon gives nothing.
  *
- * @see "capstone guide §1 Pattern map — Decorator"
+ * @see "capstone guide, Pattern map — Decorator"
  */
 @PatternRole(value = DesignPattern.DECORATOR, role = "concrete decorator")
 public final class CouponDiscount extends PriceStepDecorator {

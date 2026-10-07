@@ -16,7 +16,7 @@ import java.util.concurrent.ConcurrentSkipListMap;
  * Products in a concurrent sorted map keyed by SKU text, so every query comes back sorted by SKU. Products are
  * immutable, so handing them out is safe.
  *
- * @see "capstone guide §1 Pattern map — architectural patterns"
+ * @see "capstone guide, Pattern map — architectural patterns"
  */
 @PatternRole(value = DesignPattern.REPOSITORY, role = "in-memory repository (outbound adapter)")
 public final class InMemoryProductRepository implements ProductRepository {

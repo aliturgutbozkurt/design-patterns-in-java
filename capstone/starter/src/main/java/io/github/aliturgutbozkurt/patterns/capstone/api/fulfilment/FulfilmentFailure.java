@@ -8,7 +8,7 @@ import java.util.Objects;
  *
  * @param order  the order (it stays {@code PAID})
  * @param reason the warehouse exception's message
- * @see "capstone brief §2.2 — Fulfilment (F9)"
+ * @see "capstone brief, Business rules — Fulfilment (F9)"
  */
 public record FulfilmentFailure(OrderId order, String reason) {
 

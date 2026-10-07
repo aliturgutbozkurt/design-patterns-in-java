@@ -16,7 +16,7 @@ import java.util.function.Function;
  * change leaves nothing half done. A transaction started inside another one joins it; only the outermost dispatches
  * and rolls back.
  *
- * @see "capstone guide §1 Pattern map — Observer"
+ * @see "capstone guide, Pattern map — Observer"
  */
 @PatternRole(value = DesignPattern.DOMAIN_EVENTS, role = "unit of work (commit, then dispatch)")
 public final class UnitOfWork {

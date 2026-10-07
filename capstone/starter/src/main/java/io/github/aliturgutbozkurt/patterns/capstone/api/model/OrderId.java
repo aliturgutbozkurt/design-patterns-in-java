@@ -8,7 +8,7 @@ import java.util.regex.Pattern;
  * comes before {@code order-10}).
  *
  * @param value the id, e.g. {@code order-1}
- * @see "capstone brief §2.2 — Money and ids"
+ * @see "capstone brief, Business rules — Money and ids"
  */
 public record OrderId(String value) implements Comparable<OrderId> {
 

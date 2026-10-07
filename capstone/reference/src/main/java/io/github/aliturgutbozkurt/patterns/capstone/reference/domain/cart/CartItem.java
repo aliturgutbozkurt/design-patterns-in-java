@@ -8,7 +8,7 @@ import java.util.Objects;
  *
  * @param sku      the product
  * @param quantity units, ≥ 1
- * @see "capstone guide §2 Slice walkthrough — C3"
+ * @see "capstone guide, Slice walkthrough — C3"
  */
 public record CartItem(Sku sku, int quantity) {
 
