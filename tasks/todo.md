@@ -546,11 +546,11 @@ Legend: size S = 1–2 units, M = 3–5 units · `Verify` must pass before ticki
   - Files: `capstone/guide.en.md`, `capstone/guide.tr.md`, `capstone/*.pdf`
 
 ### ✅ Checkpoint: Capstone — reference passes acceptance + ArchUnit tests; rubric published
-- [ ] All tests pass · [ ] Docs check clean · [ ] Human review
+- [x] All tests pass · [x] Docs check clean · [ ] Human review
 
 ## Phase 6 · Release v1.0
 
-- [ ] **R1** (#73) — Full course review pass · `M`
+- [x] **R1** (#73) — Full course review pass · `M`
   - Acceptance: No open critical/major findings
   - Acceptance: All demos run
   - Acceptance: `check-docs.sh` clean
