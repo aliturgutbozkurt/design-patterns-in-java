@@ -31,7 +31,8 @@ public abstract class FulfilmentAcceptance extends AcceptanceContract {
     }
 
     private static List<String> operations(List<ScriptedWarehouse.Call> calls) {
-        return calls.stream().map(call -> call.operation() + " " + String.join(" ", call.arguments()).strip()).toList();
+        return calls.stream().map(call -> (call.operation() + " " + String.join(" ", call.arguments())).strip())
+                .toList();
     }
 
     @Test
