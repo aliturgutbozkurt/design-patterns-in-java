@@ -5,18 +5,22 @@ import io.github.aliturgutbozkurt.patterns.capstone.api.PatternShopFactory;
 import io.github.aliturgutbozkurt.patterns.capstone.api.ShopEnvironment;
 import io.github.aliturgutbozkurt.patterns.capstone.api.pattern.DesignPattern;
 import io.github.aliturgutbozkurt.patterns.capstone.api.pattern.PatternRole;
+import io.github.aliturgutbozkurt.patterns.capstone.reference.adapter.in.cli.CliAdapter;
 import io.github.aliturgutbozkurt.patterns.capstone.reference.adapter.out.memory.InMemoryCartRepository;
 import io.github.aliturgutbozkurt.patterns.capstone.reference.adapter.out.memory.InMemoryOrderRepository;
 import io.github.aliturgutbozkurt.patterns.capstone.reference.adapter.out.memory.InMemoryProductRepository;
 import io.github.aliturgutbozkurt.patterns.capstone.reference.adapter.out.memory.InMemoryPromotionRepository;
 import io.github.aliturgutbozkurt.patterns.capstone.reference.adapter.out.notification.GatewayNotifier;
 import io.github.aliturgutbozkurt.patterns.capstone.reference.adapter.out.payment.ExternalPaymentAdapter;
+import io.github.aliturgutbozkurt.patterns.capstone.reference.adapter.out.warehouse.WarehouseAdapter;
 import io.github.aliturgutbozkurt.patterns.capstone.reference.application.CartService;
 import io.github.aliturgutbozkurt.patterns.capstone.reference.application.CatalogueService;
 import io.github.aliturgutbozkurt.patterns.capstone.reference.application.CheckoutService;
+import io.github.aliturgutbozkurt.patterns.capstone.reference.application.FulfilmentService;
 import io.github.aliturgutbozkurt.patterns.capstone.reference.application.Inventory;
 import io.github.aliturgutbozkurt.patterns.capstone.reference.application.OrderService;
 import io.github.aliturgutbozkurt.patterns.capstone.reference.application.PricingService;
+import io.github.aliturgutbozkurt.patterns.capstone.reference.application.ReportService;
 import io.github.aliturgutbozkurt.patterns.capstone.reference.application.events.EventDispatcher;
 import io.github.aliturgutbozkurt.patterns.capstone.reference.application.events.UnitOfWork;
 import io.github.aliturgutbozkurt.patterns.capstone.reference.application.notify.CustomerNotifier;
@@ -34,33 +38,40 @@ import java.util.Objects;
 @PatternRole(value = DesignPattern.DEPENDENCY_INJECTION, role = "composition root")
 public final class ReferenceCompositionRoot implements PatternShopFactory {
 
+    /** The outbound adapters and the event infrastructure of one shop. */
+    private record Infrastructure(InMemoryProductRepository products, InMemoryCartRepository carts,
+                                  InMemoryOrderRepository orders, InMemoryPromotionRepository promotions,
+                                  ExternalPaymentAdapter payments, EventDispatcher dispatcher, UnitOfWork unitOfWork) {
+    }
+
     @Override
     public PatternShop create(ShopEnvironment env) {
         Objects.requireNonNull(env, "env");
-        var products = new InMemoryProductRepository();
-        var carts = new InMemoryCartRepository();
-        var orders = new InMemoryOrderRepository();
-        var promotions = new InMemoryPromotionRepository();
-        var payments = new ExternalPaymentAdapter(env.payments(), env.settings().merchantId());
-        var notifier = new GatewayNotifier(env.notifications());
         var dispatcher = new EventDispatcher(env.errors());
-        var unitOfWork = new UnitOfWork(dispatcher);
-        var inventory = new Inventory(products, env.settings().lowStockThreshold());
-        var pricing = new PricingService(promotions, carts, products, env.clock());
-
-        new CustomerNotifier(orders, notifier).subscribeTo(dispatcher);
+        var infra = new Infrastructure(new InMemoryProductRepository(), new InMemoryCartRepository(),
+                new InMemoryOrderRepository(), new InMemoryPromotionRepository(),
+                new ExternalPaymentAdapter(env.payments(), env.settings().merchantId()), dispatcher,
+                new UnitOfWork(dispatcher));
+        var notifier = new GatewayNotifier(env.notifications());
+        new CustomerNotifier(infra.orders(), notifier).subscribeTo(dispatcher);
         new StockAlerts(notifier).subscribeTo(dispatcher);
+        return services(env, infra);
+    }
 
-        return new ReferenceShop(
-                new CatalogueService(products, unitOfWork),
-                new CartService(carts, products, promotions, SequentialIds.forCarts(), env.clock(), unitOfWork),
-                pricing,
-                new CheckoutService(carts, orders, pricing, payments, inventory, SequentialIds.forOrders(),
-                        env.clock(), unitOfWork),
-                new OrderService(orders, payments, inventory, env.clock(), unitOfWork),
-                dispatcher,
-                PendingSlices.fulfilment(),
-                PendingSlices.reports(),
-                PendingSlices.cli());
+    private static PatternShop services(ShopEnvironment env, Infrastructure infra) {
+        var inventory = new Inventory(infra.products(), env.settings().lowStockThreshold());
+        var pricing = new PricingService(infra.promotions(), infra.carts(), infra.products(), env.clock());
+        var catalogue = new CatalogueService(infra.products(), infra.unitOfWork());
+        var carts = new CartService(infra.carts(), infra.products(), infra.promotions(), SequentialIds.forCarts(),
+                env.clock(), infra.unitOfWork());
+        var checkout = new CheckoutService(infra.carts(), infra.orders(), pricing, infra.payments(), inventory,
+                SequentialIds.forOrders(), env.clock(), infra.unitOfWork());
+        var orders = new OrderService(infra.orders(), infra.payments(), inventory, env.clock(), infra.unitOfWork());
+        var fulfilment = new FulfilmentService(infra.orders(), new WarehouseAdapter(env.warehouse()), env.clock(),
+                infra.unitOfWork(), env.settings().maxParallelOrders());
+        var reports = new ReportService(infra.orders(), infra.products(), env.clock(),
+                env.settings().lowStockThreshold());
+        return new ReferenceShop(catalogue, carts, pricing, checkout, orders, infra.dispatcher(), fulfilment, reports,
+                new CliAdapter(catalogue, carts, pricing, checkout, orders, fulfilment, reports));
     }
 }

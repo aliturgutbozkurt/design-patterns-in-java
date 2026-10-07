@@ -531,7 +531,7 @@ Legend: size S = 1–2 units, M = 3–5 units · `Verify` must pass before ticki
   - Verify: `./mvnw -q -pl capstone/reference -am verify`
   - Depends on: C4 (#69)
   - Files: `capstone/reference/**`
-- [ ] **C6** (#71) — Reference slice 4: concurrent fulfilment, reporting, ArchUnit rules · `M`
+- [x] **C6** (#71) — Reference slice 4: concurrent fulfilment, reporting, ArchUnit rules · `M`
   - Acceptance: All acceptance tests pass
   - Acceptance: ArchUnit rules pass
   - Acceptance: ≥ 10 distinct patterns documented in code

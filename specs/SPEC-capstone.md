@@ -426,6 +426,20 @@ through fulfilment (verified: all their other tests pass in C5).
 | CLI | Command (command table), inbound adapter | `adapter.in.cli.CliAdapter implements CommandLine` (`Map<String, CliCommand>`) | m06 `command.*`, m11 `CommandLineAdapter` |
 | Architecture | Ports & Adapters | packages as above; `ReferenceArchitectureTest` | m11 `hexagonal.shop`, architecture tests |
 
+*Implemented (C6):* the outbound port `Warehouse` ships one whole order (`ship(order, physicalItems, postalCode)` →
+sealed `ShipmentOutcome`); `WarehouseAdapter` drives pick → pack → ship and turns a `WarehouseException` into
+`Failed(message)`. `FulfilmentService` submits one task per paid order to a virtual-thread-per-task executor (closed
+by try-with-resources, so the call returns only when all tasks are done), each task holds a `Semaphore` permit while
+it talks to the warehouse, commits through `UnitOfWork.runDeferred` (re-reading the order, so an order cancelled
+meanwhile is refused, not shipped) and returns its events; the caller joins the futures in order-number order and
+dispatches the events. Reports: `ReportService.run` is an exhaustive switch with record patterns over the sealed
+requests; `render.Table.of(Report)` does the same over the sealed reports; `ReportRenderer.render` is the template
+method (heading → rows → total), `TextRenderer` / `CsvRenderer` the concrete classes. CLI: `CliAdapter` (invoker) looks
+commands up in a table built by `CliCommands`, `CliArgs` parses arguments (`UsageException` → `USAGE …`), use-case
+exceptions become `ERROR …`. C6 also binds Lifecycle and Events (see C5) and removes the C3–C5 placeholders.
+Counted patterns: 13 + Immutable Object, as planned. The Structured-Concurrency variant stays a C7 guide snippet;
+nothing in `capstone/*` is compiled with `--enable-preview`.
+
 Counted patterns in the reference (13): Static Factory Method, Factory Method, Builder; Adapter, Decorator, Facade;
 Strategy, Chain of Responsibility, State, Command, Observer, Template Method; Thread-per-task. Plus Immutable Object
 (not counted for the concurrency minimum) and five architectural patterns.
