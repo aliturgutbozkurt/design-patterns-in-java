@@ -516,7 +516,7 @@ Legend: size S = 1–2 units, M = 3–5 units · `Verify` must pass before ticki
   - Verify: `scripts/check-starters.sh capstone/starter`
   - Depends on: C1 (#66)
   - Files: `capstone/starter/**`
-- [ ] **C3** (#68) — Reference slice 1: domain, builders, factories, repository · `M`
+- [x] **C3** (#68) — Reference slice 1: domain, builders, factories, repository · `M`
   - Acceptance: Acceptance tests for catalogue & cart pass
   - Verify: `./mvnw -q -pl capstone/reference -am verify`
   - Depends on: C2 (#67)

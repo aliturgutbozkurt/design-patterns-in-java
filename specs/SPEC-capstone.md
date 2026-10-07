@@ -370,6 +370,12 @@ used, e.g. Singleton, Visitor, Memento).
 | Order assembly | Builder | `domain.order.Order.builder()` (lines, customer, address, clock) | m03 `builder.*` |
 | Persistence | Repository, Specification | `application.port.out.{ProductRepository, CartRepository, OrderRepository}`; `adapter.out.memory.*` (thread-safe, return copies); `domain.catalogue.ProductSpecs` | m11 `repository.catalog`, `repository.orders` |
 | Wiring | DI (composition root) | `config.ReferenceCompositionRoot implements PatternShopFactory`; `config.Main` | m03 `di`, m11 `di.lifetimes` |
+| Promotions as data (needed in C3: `DemoData.seed` registers promotions, the cart validates coupons) | Repository | `application.port.out.PromotionRepository` + `adapter.out.memory.InMemoryPromotionRepository`; `domain.pricing.PromotionRule` records (behaviour added in C4); `application.PricingService.addPromotion` | m11 `repository.*` |
+| Transactions | — | `application.events.UnitOfWork`: one lock around every state change (C5 adds dispatch after commit) | m11 `events.aggregate` |
+
+*Implemented (C3):* `Order.builder()` takes the clock's instant (`placedAt(Instant)`) rather than the clock, so the
+domain never reads time itself. `ReferenceArchitectureTest` is bound already in C3 (not only in C6) so every slice is
+checked against the seven rules; ports of later slices are placeholders in `config.PendingSlices` until their slice.
 
 **C4 — pricing, lifecycle, validation** (acceptance: Pricing; lifecycle and validation by unit tests until C5)
 
