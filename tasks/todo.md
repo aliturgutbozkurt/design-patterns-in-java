@@ -521,7 +521,7 @@ Legend: size S = 1–2 units, M = 3–5 units · `Verify` must pass before ticki
   - Verify: `./mvnw -q -pl capstone/reference -am verify`
   - Depends on: C2 (#67)
   - Files: `capstone/reference/**`
-- [ ] **C4** (#69) — Reference slice 2: pricing strategies/decorators, order state machine, validation chain · `M`
+- [x] **C4** (#69) — Reference slice 2: pricing strategies/decorators, order state machine, validation chain · `M`
   - Acceptance: Acceptance tests for pricing, lifecycle and validation pass
   - Verify: `./mvnw -q -pl capstone/reference -am verify`
   - Depends on: C3 (#68)

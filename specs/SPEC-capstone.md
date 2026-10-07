@@ -386,6 +386,14 @@ checked against the seven rules; ports of later slices are placeholders in `conf
 | Order lifecycle | State (sealed) | `domain.order.OrderState` (sealed: `Placed`, `Paid`, `Shipped`, `Delivered`, `Cancelled` records, each with only the data valid in it) + exhaustive `switch` transitions returning `Transition` | m08 `state.order.sealed`, m09 `dop.order.modern` |
 | Checkout validation | Chain of Responsibility | `domain.checkout.CheckoutRule` (functional) chained collect-all after a fail-fast `NonEmptyCart`; rule order as brief §2.2 | m07 `chain.validation` |
 
+*Implemented (C4):* each `PromotionRule` record is a concrete strategy with `PriceSheet applyTo(PriceSheet)`; the
+decorators share the abstract `PriceStepDecorator` (inner stage first, then `adjust`), and `PriceSheet` keeps per line
+what is left after step 2 so category percentages always use that base. Transitions live in `domain.order.OrderLifecycle`
+(one exhaustive `switch` per event, `Transition` = sealed `Allowed`/`Refused`); `OrderState.Cancelled` derives
+`refunded()` from the payment reference (`FREE` → no refund). The chain is `CheckoutRules.standard()` =
+`nonEmptyCart().andThen(addressForPhysicalItems().and(quantityLimit()).and(stockAvailable()).and(couponNotExpired()).and(cardTokenPresent()))`
+over a `CheckoutCandidate` value.
+
 **C5 — events, payment, checkout, undo** (acceptance: Checkout end-to-end, Events, Undo)
 
 | Concern | Pattern(s) | Reference types | Builds on |
