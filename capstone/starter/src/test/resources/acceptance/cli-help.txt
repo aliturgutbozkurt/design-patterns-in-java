@@ -1,0 +1,21 @@
+Commands:
+  product list [CATEGORY]
+  cart open <customer>
+  cart add <cart> <sku> <qty>
+  cart qty <cart> <sku> <qty>
+  cart remove <cart> <sku>
+  cart coupon <cart> <code>
+  cart undo <cart>
+  cart redo <cart>
+  cart show <cart>
+  quote <cart>
+  checkout <cart> <card-token> <recipient>;<street>;<city>;<postal-code>
+  order show <order>
+  order cancel <order> <reason…>
+  order deliver <order>
+  fulfil
+  report sales <from> <to> [--csv]
+  report top <n> [--csv]
+  report customer <customer> [--csv]
+  report inventory [--csv]
+  help

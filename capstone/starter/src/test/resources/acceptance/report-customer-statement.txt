@@ -1,0 +1,4 @@
+Statement for alice
+order-1 | 2026-11-16 | PAID | 987.91
+order-3 | 2026-11-17 | CANCELLED | 649.00
+Total spent | 987.91

@@ -1,0 +1,7 @@
+Inventory
+BOK-001 | Design Patterns Handbook | 18 | no
+BOK-002 | Java 27 in Action | 7 | no
+BOK-003 | Patterns, "Applied" | 9 | no
+ELE-001 | USB-C Hub | 10 | no
+HOM-001 | Hexagon Mug | 48 | no
+TOY-001 | Pattern Puzzle | 3 | yes
