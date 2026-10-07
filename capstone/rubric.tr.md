@@ -2,7 +2,7 @@
 
 > 100 puan · Proje tanımı: [spec.tr.md](spec.tr.md) · English: [rubric.en.md](rubric.en.md)
 
-## 1. Değerlendirme nasıl yapılır
+## Değerlendirme nasıl yapılır
 
 - Rubrikte **üç grupta 10 ölçüt** vardır. Gruplar, bitirme projesinin ders notundaki %40'lık payının izlencedeki
   dağılımına karşılık gelir: spesifikasyon ve tasarım 25 puan (%10), uygulama ve testler 50 puan (%20), rapor ve
@@ -17,7 +17,7 @@
   `./mvnw -q -pl capstone/starter verify`, `./mvnw -q -pl capstone/starter test -Pexercises` ve
   `./mvnw -q -pl capstone/starter verify -Pcoverage`.
 
-## 2. Otomatik başarısızlık koşulları
+## Otomatik başarısızlık koşulları
 
 Etiketli commit'te aşağıdakilerden **herhangi biri** geçerliyse uygulama bölümü başarısız olur: **C3–C8 ölçütleri 0
 alır** (50 puan). C1, C2, C9 ve C10 yine değerlendirilir.
@@ -33,7 +33,7 @@ alır** (50 puan). C1, C2, C9 ve C10 yine değerlendirilir.
 `--enable-preview`); verilen tüm testler önizleme olmadan da geçmelidir. Akademik dürüstlük ihlalleri ayrıca ele
 alınır (proje tanımı §12).
 
-## 3. Ölçütler ve ağırlıklar
+## Ölçütler ve ağırlıklar
 
 | Grup | Kimlik | Ölçüt | Puan |
 |---|---|---|---|
@@ -49,7 +49,7 @@ alınır (proje tanımı §12).
 | | C10 | Sunum ve savunma | 13 |
 | | | **Toplam** | **100** |
 
-## 4. Düzey tanımları
+## Düzey tanımları
 
 ### C1 — Öğrencinin SPEC.md dosyası (15)
 
@@ -218,14 +218,14 @@ her üye bir bölümü sunar ve soruların en az ikisini yanıtlar.
 | Yeterli | 6 | a–d'den en az ikisi ve dört sorunun ikisi doğru yanıtlanmış |
 | Yetersiz | 3 | Diğer durumlar (sunum yapılmış) |
 
-## 5. Kalıp gerekçe tablosu şablonu
+## Kalıp gerekçe tablosu şablonu
 
 Bu tabloyu `SPEC.md` (§5) ve `REPORT.md` içine kopyalayın. Sayılan her kalıp için bir satır; isterseniz mimari
 kalıplar için de satır ekleyin (en az on kalıba dahil edilmezler). İlk satır beklenen derinliğe bir örnektir.
 
 | # | Kalıp (aile) | PatternShop'taki kuvvet / sorun | Katılımcılar (tipler ve `@PatternRole` rolleri) | Değerlendirilen alternatif ve neden seçilmediği | Modern Java biçimi | Onu gösteren test(ler) | Ders modülü |
-|---|---|---|---|---|---|---|---|
-| 1 | Strategy (Strateji) (davranışsal) | Dört promosyon türü aynı biçimde fiyatlandırılmalı ve fiyatlandırma hattına dokunmadan yeni türler eklenecek | `PromotionRule` (strateji), `BuyXGetYRule`, `CategoryPercentOffRule`, … (somut stratejiler), `PricingPipeline` (bağlam) | Hattın içinde promosyon tanımı üzerinde `switch`: bugün daha kısa, ama her yeni tür hattı ve testlerini değiştirir | record'lardan oluşan sealed arayüz; her kural veri taşıdığı için lambda kullanılmadı | `PricingAcceptance.categoryPercentOffRoundsHalfUpPerLine`, `PromotionRuleTest.buyXGetYCountsWholeGroups` | m06 |
+|-|:----|:------|:-------|:------|:----|:-----------|:--|
+| 1 | Strategy (Strateji) (davranışsal) | Dört promosyon türü aynı biçimde fiyatlandırılmalı ve fiyatlandırma hattına dokunmadan yeni türler eklenecek | `PromotionRule` (strateji), `BuyXGetYFreeRule`, `CategoryPercentOffRule`, … (somut stratejiler), `PricingPipeline` (bağlam) | Hattın içinde promosyon tanımı üzerinde `switch`: bugün daha kısa, ama her yeni tür hattı ve testlerini değiştirir | record'lardan oluşan sealed arayüz; her kural veri taşıdığı için lambda kullanılmadı | `PricingAcceptance.categoryPercentOffRoundsHalfUpPerLine`, `PromotionRuleTest.buyXGetYCountsWholeGroupsOnly` | m06 |
 | 2 | | | | | | | |
 | … | | | | | | | |
 
@@ -235,7 +235,7 @@ kalıplar için de satır ekleyin (en az on kalıba dahil edilmezler). İlk sat�
 |---|---|---|
 | | | |
 
-## 6. Değerlendirme formu
+## Değerlendirme formu
 
 | Kimlik | Ölçüt | En çok | Düzey | Puan | Kanıt (dosyalar, komutlar, notlar) |
 |---|---|---|---|---|---|

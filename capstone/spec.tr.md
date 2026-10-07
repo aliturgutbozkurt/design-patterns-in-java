@@ -4,7 +4,7 @@
 > · Sunumlar: 14. hafta · Değerlendirme: [rubrik](rubric.tr.md) · English: [spec.en.md](spec.en.md) · Eğitmenler için
 > mühendislik spesifikasyonu: [SPEC-capstone.md](../specs/SPEC-capstone.md)
 
-## 1. Genel bakış
+## Genel bakış
 
 Modüllerde her kalıbı birkaç sınıfın içinde gördünüz. Bitirme projesinde (capstone) bunları küçük ama eksiksiz tek bir
 sistemde birleştiriyorsunuz: **PatternShop**, bir çevrim içi mağazanın sipariş işleme çekirdeği. Komut satırında
@@ -23,9 +23,9 @@ Tek bir doğru tasarım yoktur. Kabul testleri *davranışı* denetler; rubrik *
 ödüllendirir. Hiçbir sorunu çözmediği yerde kullanılan bir kalıp puan kaybettirir (m11'deki "patternitis", kalıp
 hastalığı).
 
-## 2. Ne yapacaksınız
+## Ne yapacaksınız
 
-### 2.1 Zorunlu özellikler
+### Zorunlu özellikler
 
 | Kimlik | Özellik | Kısaca |
 |---|---|---|
@@ -41,7 +41,7 @@ hastalığı).
 | F10 | Raporlar | Günlük satış, en çok satanlar, müşteri ekstresi, envanter — sealed (mühürlü) tipler olarak; metin ve CSV çıktısı |
 | F11 | Komut satırı arayüzü | Yukarıdakilerin hepsi için satır tabanlı bir CLI |
 
-### 2.2 İş kuralları
+### İş kuralları
 
 Kabul testlerinin denetlediği kurallar bunlardır. Birebir çıktı metinleri (CLI, raporlar) başlangıç kodunun
 [test kaynaklarında](starter/src/test/resources/acceptance/) ve [SPEC-capstone.md, "Output formats"](../specs/SPEC-capstone.md#output-formats-pinned-by-the-acceptance-tests)
@@ -146,7 +146,7 @@ sırasıyla; harcanan toplam iptal edilenleri içermez), envanter (fiziksel ür�
 katalog ve promosyonlarla başlar. Bilinmeyen komutlar `ERROR unknown command: <word>`, hatalı argümanlar komutun
 `USAGE` satırını yazdırır.
 
-### 2.3 Genişletme özellikleri
+### Genişletme özellikleri
 
 **İki** tane (ikili çalışmada üç) seçin ve kendi kabul kriterleri ve testleriyle `SPEC.md` dosyanızda tanımlayın.
 Her biri yalnızca kod değil, gerekçelendirebileceğiniz bir tasarım kararı eklemelidir.
@@ -165,7 +165,7 @@ Her biri yalnızca kod değil, gerekçelendirebileceğiniz bir tasarım kararı 
 | E10 | Yapılandırılmış eşzamanlılık (Structured Concurrency) ile karşılama (**önizleme**, isteğe bağlı) — m10'daki gibi yalıtılmış; varsayılan yol final API'lerde kalır; verilen tüm testler `--enable-preview` olmadan geçmelidir | Structured Concurrency |
 | E11 | 10. hafta spesifikasyon incelemesinde onaylanan kendi fikriniz | — |
 
-## 3. Kalıp gereksinimleri
+## Kalıp gereksinimleri
 
 - Yaratımsal, yapısal, davranışsal ve eşzamanlılık ailelerinden **en az 10 farklı kalıp**; bunların en az **2'si
   yaratımsal, 2'si yapısal, 3'ü davranışsal ve 1'i eşzamanlılık** kalıbı olmalıdır. Immutable Object (Değişmez Nesne)
@@ -188,15 +188,15 @@ record CategoryPercentOffRule(Category category, int percent) implements Promoti
 ```
 
 - Her kalıp, `SPEC.md` dosyanızın ve raporunuzun **kalıp gerekçe tablosunda** yer alır (şablon
-  [rubrikte](rubric.tr.md#5-kalıp-gerekçe-tablosu-şablonu)).
+  [rubrikte](rubric.tr.md#kalıp-gerekçe-tablosu-şablonu)).
 
-## 4. Önce spesifikasyon: SPEC.md dosyanız
+## Önce spesifikasyon: SPEC.md dosyanız
 
 Üretim kodu yazmadan önce `capstone/starter/SPEC.md` dosyasını yazın. 10. haftada (rubrik C1) ve sonda, değişiklik
 günlüğüyle birlikte yeniden değerlendirilir. Aşağıdaki şablonu kullanın; kısa ve somut tutun — kabul kriterleri
 denetlenebilir olmalıdır.
 
-### 4.1 SPEC.md şablonu
+### SPEC.md şablonu
 
 ```markdown
 # PatternShop — <adınız / adlarınız>
@@ -239,7 +239,7 @@ Her zaman / Önce sor / Asla. Bu metnin sessiz kaldığı yerlerde yaptığını
 | Tarih | Değişiklik | Neden |
 ```
 
-## 5. Mimari kurallar
+## Mimari kurallar
 
 Kodunuz `io.github.aliturgutbozkurt.patterns.capstone.shop` altında `domain`, `application`, `adapter.in.*`,
 `adapter.out.*` ve `config` paketlerinde yaşar (Ports and Adapters, m11). Başlangıç kodu, her derlemede çalışan ve
@@ -258,7 +258,7 @@ bir kural uygulama bölümünü başarısız kılar:
 
 Kendi kurallarınızı ekleyebilirsiniz; verilenleri silemez ya da zayıflatamazsınız.
 
-## 6. Size verilenler
+## Size verilenler
 
 `capstone/starter` içinde:
 
@@ -274,7 +274,7 @@ Kendi kurallarınızı ekleyebilirsiniz; verilenleri silemez ya da zayıflatamaz
   ve beklenen CLI dökümü ile rapor metinleri.
 - **Şablonlar:** `SPEC.md` ve `REPORT.md`.
 
-## 7. Test beklentileri
+## Test beklentileri
 
 - Verilen **83 kabul testinin** ve **7 mimari kuralın** hepsi geçer. Onları asla değiştirmeyin, silmeyin, devre dışı
   bırakmayın ya da zayıflatmayın; VERİLEN API'yi de asla değiştirmeyin (değerlendiriciler başlangıç koduyla
@@ -287,7 +287,7 @@ Kendi kurallarınızı ekleyebilirsiniz; verilenleri silemez ya da zayıflatamaz
   da barrier kullanın).
 - Kapsam hedefi: `domain` ve `application` için ≥ %80 satır kapsamı (`-Pcoverage`, JaCoCo).
 
-## 8. Kabul testlerini çalıştırma
+## Kabul testlerini çalıştırma
 
 Her komutu depo kökünden, JDK 27 ile çalıştırın:
 
@@ -305,7 +305,7 @@ java -cp capstone/starter/target/classes io.github.aliturgutbozkurt.patterns.cap
 
 Özellik özellik çalışın: bir takımı yeşile çevirin, commit edin, devam edin. §10'daki sıra modül takvimini izler.
 
-## 9. Teslim edilecekler
+## Teslim edilecekler
 
 Hepsi ders deposunun kendi çatalınızda (fork), `capstone/starter/` altında, `capstone-final` etiketinde:
 
@@ -318,7 +318,7 @@ Hepsi ders deposunun kendi çatalınızda (fork), `capstone/starter/` altında, 
 5. **Sunum** — 14. haftada 10 dakika + 5 dakika soru: canlı CLI gösterimi, üç kalıbın derinlemesine anlatımı,
    yaptığınız bir ödünleşim (trade-off). Slaytlar `presentation.pdf` olarak.
 
-## 10. Zaman çizelgesi (9.–14. haftalar)
+## Zaman çizelgesi (9.–14. haftalar)
 
 | Hafta | Ders modülü | Bitirme projesi çalışması | Kilometre taşı |
 |---|---|---|---|
@@ -333,7 +333,7 @@ Hepsi ders deposunun kendi çatalınızda (fork), `capstone/starter/` altında, 
 (rubrik C8). `SPEC.md` 10. haftadan sonra değişebilir; her değişikliği nedeniyle birlikte değişiklik günlüğüne
 yazın.
 
-## 11. Değerlendirme
+## Değerlendirme
 
 100 puan, ayrıntısı [rubrikte](rubric.tr.md): spesifikasyon ve tasarım 25 (C1–C2), uygulama ve testler 50 (C3–C8),
 rapor ve savunma 25 (C9–C10). Ders izlencesinde bitirme projesi dersin notunun %40'ıdır
@@ -344,7 +344,7 @@ verilen herhangi bir kabul testi kırmızı; herhangi bir mimari kural kırmız�
 VERİLEN API tipi değiştirilmiş, silinmiş, devre dışı bırakılmış veya zayıflatılmış. Rubrik bu koşulların tamamını
 listeler.
 
-## 12. Akademik dürüstlük ve yapay zekâ asistanları
+## Akademik dürüstlük ve yapay zekâ asistanları
 
 - Eğitmeniniz 9. haftada bir ikiliyi onaylamadıysa bitirme projesi **bireysel** bir çalışmadır.
 - Ders **modüllerindeki** kodu (örnekler ve kendi ödev çözümleriniz) yeniden kullanabilirsiniz; bunu

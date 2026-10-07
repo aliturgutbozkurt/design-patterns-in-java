@@ -4,7 +4,7 @@
 > · Grading: [rubric](rubric.en.md) · Türkçe: [spec.tr.md](spec.tr.md) · Engineering spec for instructors:
 > [SPEC-capstone.md](../specs/SPEC-capstone.md)
 
-## 1. Overview
+## Overview
 
 In the modules you met each pattern inside a few classes. In the capstone you combine them in one small, complete
 system: **PatternShop**, the order-processing core of an online shop. It runs on the command line, keeps all data in
@@ -21,9 +21,9 @@ memory and has no UI and no database. What makes it interesting is the design:
 There is no single right design. The acceptance tests check *behaviour*; the rubric rewards *well-justified design*.
 A pattern used where it solves nothing costs points (remember "patternitis" from m11).
 
-## 2. What you build
+## What you build
 
-### 2.1 Mandatory features
+### Mandatory features
 
 | Id | Feature | In short |
 |---|---|---|
@@ -39,7 +39,7 @@ A pattern used where it solves nothing costs points (remember "patternitis" from
 | F10 | Reports | Daily sales, top products, customer statement, inventory — as sealed types, rendered as text and CSV |
 | F11 | Command-line interface | A line-based CLI over all of the above |
 
-### 2.2 Business rules
+### Business rules
 
 These rules are what the acceptance tests check. Exact output texts (CLI, reports) are in the
 [test resources of the starter](starter/src/test/resources/acceptance/) and in [SPEC-capstone.md, "Output formats"](../specs/SPEC-capstone.md#output-formats-pinned-by-the-acceptance-tests).
@@ -140,7 +140,7 @@ sealed types; each report renders as text or CSV.
 sample catalogue and promotions. Unknown commands print `ERROR unknown command: <word>`, wrong arguments print the
 command's `USAGE` line.
 
-### 2.3 Extension features
+### Extension features
 
 Choose **two** (pairs: three) and specify them in your `SPEC.md` with your own acceptance criteria and tests.
 Each one must add a design decision you can justify — not just code.
@@ -159,7 +159,7 @@ Each one must add a design decision you can justify — not just code.
 | E10 | Fulfilment with Structured Concurrency (**preview**, optional) — isolated as in m10, default path stays on final APIs, all given tests must pass without `--enable-preview` | Structured Concurrency |
 | E11 | Your own idea, approved at the W10 spec review | — |
 
-## 3. Pattern requirements
+## Pattern requirements
 
 - **At least 10 distinct patterns** from the creational, structural, behavioural and concurrency families, with at
   least **2 creational, 2 structural, 3 behavioural and 1 concurrency** pattern. Immutable Object does not count as
@@ -180,15 +180,15 @@ record CategoryPercentOffRule(Category category, int percent) implements Promoti
 ```
 
 - Every pattern appears in the **pattern-justification table** of your `SPEC.md` and report (template in the
-  [rubric](rubric.en.md#5-pattern-justification-table-template)).
+  [rubric](rubric.en.md#pattern-justification-table-template)).
 
-## 4. Spec first: your SPEC.md
+## Spec first: your SPEC.md
 
 Before you write production code, write `capstone/starter/SPEC.md`. It is graded at W10 (rubric C1) and again at the
 end, together with its change log. Use the template below; keep it short and concrete — acceptance criteria must be
 checkable.
 
-### 4.1 SPEC.md template
+### SPEC.md template
 
 ```markdown
 # PatternShop — <your name(s)>
@@ -231,7 +231,7 @@ Your plan for W10–W13 (which features and patterns per week).
 | Date | Change | Why |
 ```
 
-## 5. Architecture rules
+## Architecture rules
 
 Your code lives under `io.github.aliturgutbozkurt.patterns.capstone.shop` in the packages `domain`, `application`,
 `adapter.in.*`, `adapter.out.*` and `config` (Ports & Adapters, m11). The starter ships seven ArchUnit rules that run
@@ -250,7 +250,7 @@ fails the implementation part:
 
 You may add your own rules; you may not delete or weaken the given ones.
 
-## 6. What you are given
+## What you are given
 
 In `capstone/starter`:
 
@@ -266,7 +266,7 @@ In `capstone/starter`:
   expected CLI transcript and report texts.
 - **Templates:** `SPEC.md` and `REPORT.md`.
 
-## 7. Testing expectations
+## Testing expectations
 
 - All **83 given acceptance tests** and all **7 architecture rules** pass. Never modify, delete, disable or weaken
   them, and never modify the GIVEN API (graders diff against the starter).
@@ -277,7 +277,7 @@ In `capstone/starter`:
 - Tests are deterministic: injected clock, no `sleep` to wait for threads (use latches or barriers as in m10).
 - Coverage goal: ≥ 80 % line coverage of `domain` and `application` (`-Pcoverage`, JaCoCo).
 
-## 8. Running the acceptance tests
+## Running the acceptance tests
 
 Run every command from the repository root on JDK 27:
 
@@ -295,7 +295,7 @@ java -cp capstone/starter/target/classes io.github.aliturgutbozkurt.patterns.cap
 
 Work feature by feature: make one suite green, commit, move on. The order in §10 follows the module timeline.
 
-## 9. Deliverables
+## Deliverables
 
 All in your fork of the course repository, under `capstone/starter/`, on a tag `capstone-final`:
 
@@ -308,7 +308,7 @@ All in your fork of the course repository, under `capstone/starter/`, on a tag `
 5. **Presentation** — 10 minutes + 5 minutes of questions in W14: a live CLI demo, three patterns in depth, one
    trade-off you made. Slides as `presentation.pdf`.
 
-## 10. Timeline (W9–W14)
+## Timeline (W9–W14)
 
 | Week | Course module | Capstone work | Milestone |
 |---|---|---|---|
@@ -322,7 +322,7 @@ All in your fork of the course repository, under `capstone/starter/`, on a tag `
 Commit at least once a week from W9 to W13 — the history is part of the evidence that the work is yours (rubric C8).
 `SPEC.md` may change after W10; record each change in the change log with its reason.
 
-## 11. Grading
+## Grading
 
 100 points, detailed in the [rubric](rubric.en.md): specification and design 25 (C1–C2), implementation and tests 50
 (C3–C8), report and defence 25 (C9–C10). In the syllabus the capstone is 40 % of the course grade
@@ -332,7 +332,7 @@ Commit at least once a week from W9 to W13 — the history is part of the eviden
 acceptance test is red; any architecture rule is red; or a given test, rule or GIVEN API type was modified, deleted,
 disabled or weakened. The rubric lists these gates in full.
 
-## 12. Academic integrity and AI assistants
+## Academic integrity and AI assistants
 
 - The capstone is **individual** work unless your instructor approved a pair in W9.
 - You may reuse code from the course **modules** (examples and your own assignment solutions); mark it with a comment

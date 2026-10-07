@@ -2,7 +2,7 @@
 
 > 100 points · Brief: [spec.en.md](spec.en.md) · Türkçe: [rubric.tr.md](rubric.tr.md)
 
-## 1. How grading works
+## How grading works
 
 - The rubric has **10 criteria in three groups**. The groups match the syllabus split of the capstone's 40 % of the
   course grade: specification and design 25 points (10 %), implementation and tests 50 points (20 %), report and
@@ -17,7 +17,7 @@
   `./mvnw -q -pl capstone/starter verify`, `./mvnw -q -pl capstone/starter test -Pexercises` and
   `./mvnw -q -pl capstone/starter verify -Pcoverage`.
 
-## 2. Automatic fail conditions
+## Automatic fail conditions
 
 If **any** of the following holds on the tagged commit, the implementation part fails: **criteria C3–C8 score 0**
 (50 points). C1, C2, C9 and C10 are still graded.
@@ -32,7 +32,7 @@ If **any** of the following holds on the tagged commit, the implementation part 
 The only allowed build change is the one extension E10 needs (`--enable-preview` isolated as in m10); all given tests
 must still pass without preview. Academic-integrity violations are handled separately (brief §12).
 
-## 3. Criteria and weights
+## Criteria and weights
 
 | Group | Id | Criterion | Points |
 |---|---|---|---|
@@ -48,7 +48,7 @@ must still pass without preview. Academic-integrity violations are handled separ
 | | C10 | Presentation and defence | 13 |
 | | | **Total** | **100** |
 
-## 4. Level descriptors
+## Level descriptors
 
 ### C1 — Student SPEC.md (15)
 
@@ -216,14 +216,14 @@ thread-safe. Pairs: each member presents a part and answers at least two of the 
 | Adequate | 6 | At least two of a–d, and two of four questions answered correctly |
 | Insufficient | 3 | Otherwise (presentation given) |
 
-## 5. Pattern-justification table template
+## Pattern-justification table template
 
 Copy this table into `SPEC.md` (§5) and `REPORT.md`. One row per counted pattern; add rows for architectural
 patterns if you like (they do not count towards the ten). The first row is an example of the expected depth.
 
 | # | Pattern (category) | Force / problem in PatternShop | Participants (types and `@PatternRole` roles) | Alternative considered and why not | Modern Java form | Test(s) that show it | Course module |
-|---|---|---|---|---|---|---|---|
-| 1 | Strategy (behavioural) | Four promotion kinds must be priced the same way, and new kinds will be added without touching the pricing pipeline | `PromotionRule` (strategy), `BuyXGetYRule`, `CategoryPercentOffRule`, … (concrete strategies), `PricingPipeline` (context) | `switch` over the promotion spec inside the pipeline: shorter today, but every new kind changes the pipeline and its tests | sealed interface of records; lambdas not used because each rule carries data | `PricingAcceptance.categoryPercentOffRoundsHalfUpPerLine`, `PromotionRuleTest.buyXGetYCountsWholeGroups` | m06 |
+|-|:----|:------|:-------|:------|:----|:-----------|:--|
+| 1 | Strategy (behavioural) | Four promotion kinds must be priced the same way, and new kinds will be added without touching the pricing pipeline | `PromotionRule` (strategy), `BuyXGetYFreeRule`, `CategoryPercentOffRule`, … (concrete strategies), `PricingPipeline` (context) | `switch` over the promotion spec inside the pipeline: shorter today, but every new kind changes the pipeline and its tests | sealed interface of records; lambdas not used because each rule carries data | `PricingAcceptance.categoryPercentOffRoundsHalfUpPerLine`, `PromotionRuleTest.buyXGetYCountsWholeGroupsOnly` | m06 |
 | 2 | | | | | | | |
 | … | | | | | | | |
 
@@ -233,7 +233,7 @@ patterns if you like (they do not count towards the ten). The first row is an ex
 |---|---|---|
 | | | |
 
-## 6. Grading sheet
+## Grading sheet
 
 | Id | Criterion | Max | Level | Points | Evidence (files, commands, notes) |
 |---|---|---|---|---|---|
