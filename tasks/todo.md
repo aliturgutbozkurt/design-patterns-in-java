@@ -538,7 +538,7 @@ Legend: size S = 1–2 units, M = 3–5 units · `Verify` must pass before ticki
   - Verify: `./mvnw -q -pl capstone/reference -am verify`
   - Depends on: C5 (#70), M11-4 (#65)
   - Files: `capstone/reference/**`
-- [ ] **C7** (#72) — Capstone walkthrough guide (EN/TR + PDF) · `M`
+- [x] **C7** (#72) — Capstone walkthrough guide (EN/TR + PDF) · `M`
   - Acceptance: EN/TR parity, PDFs generated
   - Acceptance: Pattern map links to code
   - Verify: `scripts/check-docs.sh`; `scripts/build-pdf.sh capstone`
