@@ -28,6 +28,7 @@
         <module>modules/m11-architecture-enterprise</module>
         <!-- Capstone (SPEC-capstone, Decisions §1a): the starter with the acceptance contracts, then the reference. -->
         <module>capstone/starter</module>
+        <module>capstone/reference</module>
     </modules>
 
     <properties>
