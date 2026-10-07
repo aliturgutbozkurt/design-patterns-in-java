@@ -94,6 +94,10 @@ public abstract class CheckoutAcceptance extends AcceptanceContract {
                 .withMessage("cart closed: cart-1");
         assertThatIllegalStateException().isThrownBy(() -> carts.remove(cart, sku("BOK-001")))
                 .withMessage("cart closed: cart-1");
+        assertThatIllegalStateException().as("undo of a closed cart").isThrownBy(() -> carts.undo(cart))
+                .withMessage("cart closed: cart-1");
+        assertThatIllegalStateException().as("redo of a closed cart, even with nothing to redo")
+                .isThrownBy(() -> carts.redo(cart)).withMessage("cart closed: cart-1");
     }
 
     @Test

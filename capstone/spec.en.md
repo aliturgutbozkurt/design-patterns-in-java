@@ -49,8 +49,8 @@ If you find a contradiction between this brief and a test, report it — do not 
 Ids are generated per shop instance: carts `cart-1`, `cart-2`, …; orders `order-1`, `order-2`, … (an order number is
 used only by an order that was actually placed). The clock is injected — never call `Instant.now()` directly. Invalid input (a malformed SKU, a blank name, a
 non-positive quantity, an unknown product added to a cart, …) is rejected with an `IllegalArgumentException`; an
-unknown cart, or a restock of an unknown product, with a `NoSuchElementException`; any edit of a closed cart with an
-`IllegalStateException`. The exact messages are in the Javadoc of the GIVEN use cases.
+unknown cart, or a restock of an unknown product, with a `NoSuchElementException`; any edit, undo or redo of a closed
+cart with an `IllegalStateException`. The exact messages are in the Javadoc of the GIVEN use cases.
 
 **Catalogue (F1).** A SKU looks like `BOK-001` (three capitals, dash, three digits). Name must not be blank, price
 must be positive, a physical product's stock must be ≥ 0, a digital product has unlimited stock (its stock is given

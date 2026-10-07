@@ -52,7 +52,8 @@ yazdırılır. Kimlikler her mağaza örneği için üretilir: sepetler `cart-1`
 `order-2`, … (bir sipariş numarasını yalnızca gerçekten oluşturulmuş bir sipariş tüketir). Saat (clock) enjekte
 edilir — `Instant.now()` doğrudan çağrılmaz. Geçersiz girdi (hatalı biçimli SKU, boş ad, pozitif olmayan adet,
 sepete eklenen bilinmeyen ürün, …) `IllegalArgumentException` ile; bilinmeyen bir sepet ya da bilinmeyen bir ürüne
-stok ekleme `NoSuchElementException` ile; kapalı bir sepetteki her düzenleme `IllegalStateException` ile reddedilir.
+stok ekleme `NoSuchElementException` ile; kapalı bir sepetteki her düzenleme, geri alma ve yineleme `IllegalStateException` ile
+reddedilir.
 Birebir mesajlar GIVEN kullanım senaryolarının Javadoc'undadır.
 
 **Katalog (F1).** Bir SKU `BOK-001` biçimindedir (üç büyük harf, tire, üç rakam). Ad boş olamaz, fiyat pozitif

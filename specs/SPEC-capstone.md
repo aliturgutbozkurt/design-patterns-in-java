@@ -261,7 +261,7 @@ applying); `workedExampleFromTheBrief` (total 987.91, labels and amounts exactly
 
 **`CheckoutAcceptance` (14)** — `validCheckoutPlacesAPaidOrder`; `chargesTheQuotedTotalExactlyOnceInProviderFormat`
 (one `authorize("PATTERNSHOP", token, "987.91", "TRY", "cart-1")`); `checkoutReservesStockAndClosesTheCart`
-(edits afterwards → `IllegalStateException("cart closed: cart-1")`); `rejectsEmptyCart`;
+(edits, undo and redo afterwards → `IllegalStateException("cart closed: cart-1")`); `rejectsEmptyCart`;
 `rejectsMissingAddressOnlyForPhysicalItems`; `rejectsQuantityAboveLimitPerSku`;
 `rejectsInsufficientStockNamingTheSku`; `rejectsExpiredCouponAndMissingCardToken`;
 `collectsAllValidationErrorsInRuleOrder`; `invalidCheckoutNeverCallsThePaymentApi`;

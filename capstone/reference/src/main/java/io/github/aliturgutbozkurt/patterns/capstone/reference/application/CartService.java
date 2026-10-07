@@ -123,7 +123,8 @@ public final class CartService implements CartUseCase {
 
     private boolean step(CartId id, BiFunction<EditHistory, Cart, Optional<Cart>> step) {
         return unitOfWork.run(_ -> {
-            Optional<Cart> changed = step.apply(histories.get(id), load(id));
+            Cart current = load(id).requireOpen(); // a closed cart refuses undo and redo, even with nothing to replay
+            Optional<Cart> changed = step.apply(histories.get(id), current);
             changed.ifPresent(carts::save);
             return changed.isPresent();
         });
