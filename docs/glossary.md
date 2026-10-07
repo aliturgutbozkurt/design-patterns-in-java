@@ -41,6 +41,7 @@ Kod tanımlayıcıları çevrilmez. Listede olmayan bir terim gerekiyorsa aynı 
 | invoker / receiver (Command) | çağırıcı / alıcı | |
 | macro command | makro komut | |
 | undo / redo | geri alma / yineleme (undo/redo) | |
+| inverse command (undo by applying the inverse) | ters komut (inverse) | `apply` tersini döndürür; capstone `CartEdit` |
 | Interpreter | Interpreter (Yorumlayıcı) | |
 | Iterator | Iterator (Yineleyici) | |
 | external / internal iteration | dış / iç yineleme | |
@@ -175,6 +176,7 @@ Kod tanımlayıcıları çevrilmez. Listede olmayan bir terim gerekiyorsa aynı 
 | monitor / condition (variable) | monitör / koşul (değişkeni) |
 | copy-on-write / safe publication | yazarken kopyalama (copy-on-write) / güvenli yayınlama |
 | fan-out / fan-in | dağıtma / toplama (fan-out / fan-in) |
+| semaphore / permit | semafor (`Semaphore`) / izin (permit) |
 | deadline / timeout / cancellation | son süre (deadline) / zaman aşımı (timeout) / iptal |
 | subtask / owner thread / joiner | alt görev / sahip iş parçacığı / birleştirici (joiner) |
 | structured concurrency | yapılandırılmış eşzamanlılık |
@@ -218,6 +220,11 @@ Kod tanımlayıcıları çevrilmez. Listede olmayan bir terim gerekiyorsa aynı 
 | design defence | tasarım savunması |
 | academic integrity | akademik dürüstlük |
 | walkthrough guide | çözüm rehberi (walkthrough) |
+| force (the pressure a pattern answers) | zorlama (force) |
+| trade-off | ödünleşim (trade-off) |
+| vertical slice | dikey dilim (slice) |
+| change log | değişiklik günlüğü |
+| CLI transcript | CLI dökümü (transcript) |
 | refactoring | yeniden düzenleme (refactoring) |
 | build | derleme (build) |
 | spec-driven development | spesifikasyon güdümlü geliştirme (SDD) |

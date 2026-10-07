@@ -445,7 +445,9 @@ Strategy, Chain of Responsibility, State, Command, Observer, Template Method; Th
 (not counted for the concurrency minimum) and five architectural patterns.
 
 **Optional extension, not in the reference build:** a Structured-Concurrency variant of `FulfilmentService`
-(`StructuredTaskScope.open(Joiner.awaitAll())`, preview in JDK 27, JEP 533). The C7 guide shows it as a `// snippet`
+(`StructuredTaskScope.open(Joiner.allUntil(_ -> false))`, preview in JDK 27, JEP 533 — JDK 27 has no
+`Joiner.awaitAll()`; `allUntil` with a never-true predicate waits for every subtask and `join()` returns them in fork
+order; the sketch was checked with `java --enable-preview --source 27` in C7). The C7 guide shows it as a `// snippet`
 with the preview banner and the m10 run command; no preview code is compiled in `capstone/*`, so no POM needs
 `--enable-preview` (docs/java27-features.md: "Capstone uses it only in an optional extension").
 
@@ -485,6 +487,16 @@ with the preview banner and the m10 run command; no preview code is compiled in 
 5. **Rubric mapping** — for each rubric criterion C1–C10, where the reference shows the "excellent" level and what a
    weaker submission typically lacks.
 6. **Optional extension** — the Structured-Concurrency sketch (preview, `// snippet`, not compiled).
+
+*Implemented (C7):* the guide opens (before §1, without a heading, so the PDF's automatic section numbers match the
+`@see "capstone guide §N …"` references in the reference Javadoc) with how to read the reference and how to run it.
+§2 starts with the architecture overview (hexagon diagram, package table, composition root, and a verbatim CLI session
+of `Main --demo` including reports). Two sections were added before the optional extension, which therefore is §8:
+§6 **Testing approach** (acceptance contracts, architecture rules, concurrency tests with barriers instead of timing)
+and §7 **Common pitfalls**. §3 also names a limit of the reference (the unit of work has no rollback). 10 Mermaid
+diagrams. `scripts/lib/check_docs.py` resolves `// file:` markers of `capstone/*.md` against both capstone modules
+(the guide quotes the reference and the starter's acceptance contracts), and `docs/pdf/header.typ` lets long tables
+break across pages.
 
 If the owner chooses the instructor-only branch in open question 2, the guide is merged together with the reference.
 
