@@ -34,7 +34,7 @@ Build and run the reference from the repository root on JDK 27:
 ```bash
 export JAVA_HOME=$(/usr/libexec/java_home -v 27)            # macOS; on Linux/Windows point JAVA_HOME at JDK 27
 
-./mvnw -q -pl capstone/reference -am verify                  # 83 acceptance tests + 7 rules + 69 unit tests
+./mvnw -q -pl capstone/reference -am verify                  # 83 acceptance tests + 7 rules + 70 unit tests
 ./mvnw -q -pl capstone/reference -am package -DskipTests
 java -cp capstone/starter/target/classes:capstone/reference/target/classes \
      io.github.aliturgutbozkurt.patterns.capstone.reference.config.Main --demo
@@ -1112,17 +1112,33 @@ sequenceDiagram
                 .toList(); // in order-number order
         Semaphore permits = new Semaphore(maxParallelOrders);
         List<Committed<Outcome>> results = new ArrayList<>();
+        RuntimeException crash = null;
         try (ExecutorService executor = Executors.newVirtualThreadPerTaskExecutor()) {
             List<Future<Committed<Outcome>>> futures = paid.stream()
                     .map(order -> executor.submit(() -> fulfil(order, permits))).toList();
             for (Future<Committed<Outcome>> future : futures) {
-                results.add(join(future));
+                try {
+                    results.add(join(future));
+                } catch (RuntimeException e) { // keep joining: the other orders' shipments are already committed
+                    if (crash == null) {
+                        crash = e;
+                    } else {
+                        crash.addSuppressed(e);
+                    }
+                }
             }
         }
         results.forEach(result -> unitOfWork.dispatch(result.events())); // caller thread, order-number order
+        if (crash != null) {
+            throw crash; // after the committed shipments were dispatched, so no observer misses one
+        }
         return report(results.stream().map(Committed::result).toList());
     }
 ```
+
+A task that crashes with a bug (not a warehouse failure, which is a `Failed` outcome) does not hide the others: the
+loop keeps joining, dispatches the committed shipments and only then rethrows
+(`FulfilmentServiceTest.aCrashingTaskStillLetsTheShippedOrdersTellTheirObserversBeforeTheFailureIsReported`).
 
 **Why it is thread-safe** — the argument your `SPEC.md` §6 and the defence need: (1) workers share no mutable state
 of their own; each gets an immutable `Order`; (2) the only shared objects are the `Semaphore`, the thread-safe
@@ -1407,7 +1423,7 @@ submissions typically lack.
   (`PaymentPort`, `Warehouse`, `Notifier`); sealed outcomes for business results, exceptions for infrastructure.
   *You:* (a)–(c) plus **one ArchUnit rule of your own** (d) and a hexagon diagram that matches your packages (e).
   *Weaker:* no own rule; a port named after a technology (`HttpPaymentClient`); adapters created inside services.
-- **C7 Test quality (7).** *Reference:* 69 unit tests next to the code, hand-written doubles
+- **C7 Test quality (7).** *Reference:* 70 unit tests next to the code, hand-written doubles
   (`FailingOrderRepository`, `CountingWarehouse`), barrier-based concurrency tests. *You:* one behaviour test per
   valid pattern, at least 80 % coverage of `domain` and `application`, extension tests listed next to their
   criteria. *Weaker:* `Thread.sleep` in concurrency tests; Mockito; test names like `test1`.
@@ -1435,7 +1451,7 @@ four-point argument in §2 C6).
 |---|---|---|---|
 | Acceptance (given) | course staff | behaviour of the mandatory features through the GIVEN API | 11 suites, 83 tests, bound by `*ReferenceTest` |
 | Architecture (given + own) | course staff, plus one of yours (C6 d) | dependency direction, no cycles, no global state | `ReferenceArchitectureTest` (7 rules) |
-| Unit (own) | you | each pattern's behaviour in isolation, with hand-written doubles | 69 tests in 23 classes |
+| Unit (own) | you | each pattern's behaviour in isolation, with hand-written doubles | 70 tests in 23 classes |
 
 ### Acceptance contracts
 

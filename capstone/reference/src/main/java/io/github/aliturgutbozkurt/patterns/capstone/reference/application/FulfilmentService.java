@@ -32,7 +32,8 @@ import java.util.concurrent.Semaphore;
  * Feature F9: ships every paid order, one virtual thread per order (thread-per-task), with a {@link Semaphore} that
  * lets at most {@code maxParallelOrders} talk to the warehouse at once. Each order's outcome is committed on its own
  * thread; the {@code OrderShipped} events are collected and dispatched on the caller's thread after the run, in
- * order-number order. Thread safety: workers share no mutable state except through the unit of work's lock and the
+ * order-number order. A task that crashes (a bug, not a warehouse failure) is reported after the other orders'
+ * events were dispatched, so a committed shipment is never left untold. Thread safety: workers share no mutable state except through the unit of work's lock and the
  * thread-safe repositories; results are joined through the futures.
  *
  * @see "capstone guide §1 Pattern map — Thread-per-task"
@@ -75,14 +76,26 @@ public final class FulfilmentService implements FulfilmentUseCase {
                 .toList(); // in order-number order
         Semaphore permits = new Semaphore(maxParallelOrders);
         List<Committed<Outcome>> results = new ArrayList<>();
+        RuntimeException crash = null;
         try (ExecutorService executor = Executors.newVirtualThreadPerTaskExecutor()) {
             List<Future<Committed<Outcome>>> futures = paid.stream()
                     .map(order -> executor.submit(() -> fulfil(order, permits))).toList();
             for (Future<Committed<Outcome>> future : futures) {
-                results.add(join(future));
+                try {
+                    results.add(join(future));
+                } catch (RuntimeException e) { // keep joining: the other orders' shipments are already committed
+                    if (crash == null) {
+                        crash = e;
+                    } else {
+                        crash.addSuppressed(e);
+                    }
+                }
             }
         }
         results.forEach(result -> unitOfWork.dispatch(result.events())); // caller thread, order-number order
+        if (crash != null) {
+            throw crash; // after the committed shipments were dispatched, so no observer misses one
+        }
         return report(results.stream().map(Committed::result).toList());
     }
 

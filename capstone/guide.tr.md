@@ -36,7 +36,7 @@ Referansı depo kökünden JDK 27 ile derleyip çalıştırın:
 ```bash
 export JAVA_HOME=$(/usr/libexec/java_home -v 27)            # macOS; on Linux/Windows point JAVA_HOME at JDK 27
 
-./mvnw -q -pl capstone/reference -am verify                  # 83 acceptance tests + 7 rules + 69 unit tests
+./mvnw -q -pl capstone/reference -am verify                  # 83 acceptance tests + 7 rules + 70 unit tests
 ./mvnw -q -pl capstone/reference -am package -DskipTests
 java -cp capstone/starter/target/classes:capstone/reference/target/classes \
      io.github.aliturgutbozkurt.patterns.capstone.reference.config.Main --demo
@@ -1118,17 +1118,33 @@ sequenceDiagram
                 .toList(); // in order-number order
         Semaphore permits = new Semaphore(maxParallelOrders);
         List<Committed<Outcome>> results = new ArrayList<>();
+        RuntimeException crash = null;
         try (ExecutorService executor = Executors.newVirtualThreadPerTaskExecutor()) {
             List<Future<Committed<Outcome>>> futures = paid.stream()
                     .map(order -> executor.submit(() -> fulfil(order, permits))).toList();
             for (Future<Committed<Outcome>> future : futures) {
-                results.add(join(future));
+                try {
+                    results.add(join(future));
+                } catch (RuntimeException e) { // keep joining: the other orders' shipments are already committed
+                    if (crash == null) {
+                        crash = e;
+                    } else {
+                        crash.addSuppressed(e);
+                    }
+                }
             }
         }
         results.forEach(result -> unitOfWork.dispatch(result.events())); // caller thread, order-number order
+        if (crash != null) {
+            throw crash; // after the committed shipments were dispatched, so no observer misses one
+        }
         return report(results.stream().map(Committed::result).toList());
     }
 ```
+
+Bir hata (bug) yüzünden çöken bir görev — `Failed` sonucu olan depo hatası değil — diğerlerini gizlemez: döngü
+beklemeyi sürdürür, commit edilmiş gönderimleri dağıtır ve hatayı ancak ondan sonra yeniden fırlatır
+(`FulfilmentServiceTest.aCrashingTaskStillLetsTheShippedOrdersTellTheirObserversBeforeTheFailureIsReported`).
 
 **Neden iş parçacığı güvenli** — `SPEC.md` §6'nızın ve savunmanın ihtiyaç duyduğu argüman: (1) işçiler kendilerine ait
 değişken bir durumu paylaşmaz; her biri değişmez bir `Order` alır; (2) paylaşılan tek nesneler `Semaphore`, iş
@@ -1417,7 +1433,7 @@ genellikle eksik olan.
   *Siz:* (a)–(c) artı **kendinize ait bir ArchUnit kuralı** (d) ve paketlerinizle uyuşan bir altıgen diyagramı (e).
   *Zayıf:* kendine ait kural yok; bir teknolojiye göre adlandırılmış port (`HttpPaymentClient`); servislerin içinde
   oluşturulan adaptörler.
-- **C7 Test kalitesi (7).** *Referans:* kodun yanında 69 birim testi, elle yazılmış test ikizleri
+- **C7 Test kalitesi (7).** *Referans:* kodun yanında 70 birim testi, elle yazılmış test ikizleri
   (`FailingOrderRepository`, `CountingWarehouse`), bariyer tabanlı eşzamanlılık testleri. *Siz:* geçerli her kalıp
   için bir davranış testi, `domain` ve `application` için en az %80 kapsam, kriterlerinin yanında listelenen
   genişletme testleri. *Zayıf:* eşzamanlılık testlerinde `Thread.sleep`; Mockito; `test1` gibi test adları.
@@ -1446,7 +1462,7 @@ anlatın* (örn. "beşinci bir promosyon türü ekleyin" → bir record, `toRule
 |---|---|---|---|
 | Kabul (verilen) | ders ekibi | zorunlu özelliklerin VERİLEN API üzerinden davranışı | 11 takım, 83 test, `*ReferenceTest` ile bağlanır |
 | Mimari (verilen + kendi) | ders ekibi, artı sizden bir tane (C6 d) | bağımlılık yönü, döngü yok, küresel durum yok | `ReferenceArchitectureTest` (7 kural) |
-| Birim (kendi) | siz | her kalıbın tek başına davranışı, elle yazılmış ikizlerle | 23 sınıfta 69 test |
+| Birim (kendi) | siz | her kalıbın tek başına davranışı, elle yazılmış ikizlerle | 23 sınıfta 70 test |
 
 ### Kabul sözleşmeleri
 

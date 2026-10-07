@@ -1,6 +1,7 @@
 package io.github.aliturgutbozkurt.patterns.capstone.reference.application;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatIllegalStateException;
 
 import io.github.aliturgutbozkurt.patterns.capstone.api.event.ShopEvent;
 import io.github.aliturgutbozkurt.patterns.capstone.api.event.ShopEvent.OrderShipped;
@@ -47,12 +48,17 @@ class FulfilmentServiceTest {
         final AtomicInteger peak = new AtomicInteger();
         final List<Boolean> virtualThreads = new CopyOnWriteArrayList<>();
         final Set<OrderId> failing = ConcurrentHashMap.newKeySet();
+        final Set<OrderId> crashing = ConcurrentHashMap.newKeySet();
         CyclicBarrier barrier;
 
         @Override
         public ShipmentOutcome ship(OrderId order, List<OrderItem> physicalItems, String postalCode) {
             peak.accumulateAndGet(inFlight.incrementAndGet(), Math::max);
             virtualThreads.add(Thread.currentThread().isVirtual());
+            if (crashing.contains(order)) {
+                inFlight.decrementAndGet();
+                throw new IllegalStateException("adapter bug");
+            }
             try {
                 if (barrier != null) {
                     barrier.await(5, TimeUnit.SECONDS);
@@ -128,5 +134,21 @@ class FulfilmentServiceTest {
         assertThat(events).containsExactly(new OrderShipped(first, "TRK-1"), new OrderShipped(third, "DIGITAL"));
         assertThat(eventThreads).containsOnly(Thread.currentThread());
         assertThat(warehouse.virtualThreads).as("the digital order never reached the warehouse").hasSize(2);
+    }
+
+    @Test
+    void aCrashingTaskStillLetsTheShippedOrdersTellTheirObserversBeforeTheFailureIsReported() {
+        OrderId first = paidOrder(1, ProductType.PHYSICAL);
+        OrderId second = paidOrder(2, ProductType.PHYSICAL);
+        OrderId third = paidOrder(3, ProductType.PHYSICAL);
+        warehouse.crashing.add(second);
+
+        assertThatIllegalStateException().isThrownBy(() -> service(4).fulfilPaidOrders())
+                .withMessage("fulfilment task failed").havingCause().withMessage("adapter bug");
+
+        assertThat(orders.find(first).orElseThrow().status()).isEqualTo(OrderStatus.SHIPPED);
+        assertThat(orders.find(third).orElseThrow().status()).isEqualTo(OrderStatus.SHIPPED);
+        assertThat(events).as("committed shipments are not silently lost")
+                .containsExactly(new OrderShipped(first, "TRK-1"), new OrderShipped(third, "TRK-3"));
     }
 }
