@@ -97,7 +97,7 @@ public final class OrderService implements OrderUseCase {
                 instanceof PaymentOutcome.Approved)) {
             return new Refused("refund failed");
         }
-        inventory.release(order.items());
+        inventory.release(order.items(), changes);
         return commit(order, allowed, new OrderCancelled(order.id(), reason, refunded), changes);
     }
 

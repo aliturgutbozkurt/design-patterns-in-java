@@ -41,7 +41,8 @@ import java.util.Objects;
 /**
  * Features F5 and F6: one simple call over validation, pricing, payment, stock, orders and carts — validate → quote →
  * charge → commit → dispatch (after the unit of work). If the commit fails after the card was charged, the charge is
- * refunded before the failure propagates (compensation; adapted from modules/m05-…/facade/checkout/CheckoutFacade.java).
+ * refunded before the failure propagates (compensation; adapted from modules/m05-…/facade/checkout/CheckoutFacade.java)
+ * and the unit of work undoes the writes already made.
  *
  * @see "capstone guide §1 Pattern map — Facade"
  */
@@ -127,7 +128,9 @@ public final class CheckoutService implements CheckoutUseCase {
             case Transition.Refused refused -> throw new IllegalStateException(refused.reason());
         };
         orders.save(paid);
+        changes.onRollback(() -> orders.remove(paid.id()));
         carts.save(cart.closed());
+        changes.onRollback(() -> carts.save(cart));
         changes.raise(new OrderPlaced(paid.id(), paid.customer(), paid.total()));
         changes.raise(new OrderPaid(paid.id(), reference));
         inventory.reserve(paid.items(), changes);

@@ -493,7 +493,7 @@ with the preview banner and the m10 run command; no preview code is compiled in 
 §2 starts with the architecture overview (hexagon diagram, package table, composition root, and a verbatim CLI session
 of `Main --demo` including reports). Two sections were added before the optional extension, which therefore is §8:
 §6 **Testing approach** (acceptance contracts, architecture rules, concurrency tests with barriers instead of timing)
-and §7 **Common pitfalls**. §3 also names a limit of the reference (the unit of work has no rollback). 10 Mermaid
+and §7 **Common pitfalls**. §3 also names a limit of the reference (the unit of work's rollback is an in-memory undo log, not a durable transaction; R1 added it — before, a failure between checkout's saves left a partial change). 10 Mermaid
 diagrams. `scripts/lib/check_docs.py` resolves `// file:` markers of `capstone/*.md` against both capstone modules
 (the guide quotes the reference and the starter's acceptance contracts), and `docs/pdf/header.typ` lets long tables
 break across pages.

@@ -36,7 +36,7 @@ Referansı depo kökünden JDK 27 ile derleyip çalıştırın:
 ```bash
 export JAVA_HOME=$(/usr/libexec/java_home -v 27)            # macOS; on Linux/Windows point JAVA_HOME at JDK 27
 
-./mvnw -q -pl capstone/reference -am verify                  # 83 acceptance tests + 7 rules + 65 unit tests
+./mvnw -q -pl capstone/reference -am verify                  # 83 acceptance tests + 7 rules + 69 unit tests
 ./mvnw -q -pl capstone/reference -am package -DskipTests
 java -cp capstone/starter/target/classes:capstone/reference/target/classes \
      io.github.aliturgutbozkurt.patterns.capstone.reference.config.Main --demo
@@ -945,6 +945,11 @@ döndükten ve kilit bırakıldıktan sonra dağıtılır.
         try {
             T result = work.apply(changes);
             return new Committed<>(result, outer == null ? changes.events() : List.of());
+        } catch (RuntimeException failure) {
+            if (outer == null) {
+                changes.rollBack(failure);
+            }
+            throw failure;
         } finally {
             if (outer == null) {
                 current.remove();
@@ -955,7 +960,8 @@ döndükten ve kilit bırakıldıktan sonra dağıtılır.
 ```
 
 İş bir istisna fırlatırsa `runDeferred` hiç dönmez, dolayısıyla hiçbir şey dağıtılmaz
-(`UnitOfWorkTest.failedWorkDispatchesNothing`). Dağıtıcı, bir işleyicinin yayımladığı olayları kuyruğa alır ve
+(`UnitOfWorkTest.failedWorkDispatchesNothing`); işin `changes.onRollback(…)` ile kaydettiği her yazma da en yeniden
+başlayarak geri alınır (`UnitOfWorkTest.failedWorkUndoesItsWritesNewestFirst`). Dağıtıcı, bir işleyicinin yayımladığı olayları kuyruğa alır ve
 başarısız bir işleyiciyi yakalayıp ortamın hata kanalına bildirir:
 
 ```java
@@ -1282,10 +1288,13 @@ bir gereksinimidir; hiyerarşi kapalıyken mühürlü tipler ve kapsayıcı `swi
 sadelik için iş hacminden vazgeçmektir: doğrulama, tahsilat ve commit hiçbir zaman başka bir değişiklikle iç içe
 geçemez; böylece kayıp güncelleme ve stokun iki kez ayrılması olmaz. Bellek içi bir mağaza için kabul edilebilirdir,
 gerçek bir mağaza için edilemez (onun yerini bir veritabanı işlemi artı iyimser sürümleme, m11, alırdı). İş biriminin
-**yapmadığı** şeye de dikkat edin: geri sarma (rollback) yoktur. `CheckoutService.place` önce siparişi kaydeder;
-böylece başarısız bir kayıt geride hiçbir şey bırakmaz; kayıtların *arasında* oluşan bir hata ise geride yarım bir
-değişiklik bırakırdı (ve kart iade edilmiş olurdu). Gerçek bir depolama üç kaydı atomik yapardı. Bu tür sınırları
-raporunuzda adlandırın — rubrik C9 (e) bunları ister.
+geri sarmasının (rollback) nereye kadar gittiğine de dikkat edin: her yazma kendi geri alma adımını kaydeder
+(`changes.onRollback`); böylece ödeme adımındaki kayıtların *arasında* oluşan bir hata — sipariş kaydedilmiş, sepet
+kapatılmış, stoğun yarısı ayrılmış — geri alınır ve kart iade edilir
+(`CheckoutServiceTest.failureHalfwayThroughTheCommitUndoesEveryWriteAndRefunds`). Bu, kalıcı bir işlem değil, bellek
+içi bir geri alma günlüğüdür: geri alma adımlarının kendisi de başarısız olabilir (hata gizlenmez, asıl hataya
+eklenir) ve gönderilmiş bir iade gibi dış bir etki geri alınamaz. Gerçek bir depolama kayıtları atomik yapardı. Bu tür
+sınırları raporunuzda adlandırın — rubrik C9 (e) bunları ister.
 
 ## SDD çıktıları
 
@@ -1408,7 +1417,7 @@ genellikle eksik olan.
   *Siz:* (a)–(c) artı **kendinize ait bir ArchUnit kuralı** (d) ve paketlerinizle uyuşan bir altıgen diyagramı (e).
   *Zayıf:* kendine ait kural yok; bir teknolojiye göre adlandırılmış port (`HttpPaymentClient`); servislerin içinde
   oluşturulan adaptörler.
-- **C7 Test kalitesi (7).** *Referans:* kodun yanında 65 birim testi, elle yazılmış test ikizleri
+- **C7 Test kalitesi (7).** *Referans:* kodun yanında 69 birim testi, elle yazılmış test ikizleri
   (`FailingOrderRepository`, `CountingWarehouse`), bariyer tabanlı eşzamanlılık testleri. *Siz:* geçerli her kalıp
   için bir davranış testi, `domain` ve `application` için en az %80 kapsam, kriterlerinin yanında listelenen
   genişletme testleri. *Zayıf:* eşzamanlılık testlerinde `Thread.sleep`; Mockito; `test1` gibi test adları.
@@ -1437,7 +1446,7 @@ anlatın* (örn. "beşinci bir promosyon türü ekleyin" → bir record, `toRule
 |---|---|---|---|
 | Kabul (verilen) | ders ekibi | zorunlu özelliklerin VERİLEN API üzerinden davranışı | 11 takım, 83 test, `*ReferenceTest` ile bağlanır |
 | Mimari (verilen + kendi) | ders ekibi, artı sizden bir tane (C6 d) | bağımlılık yönü, döngü yok, küresel durum yok | `ReferenceArchitectureTest` (7 kural) |
-| Birim (kendi) | siz | her kalıbın tek başına davranışı, elle yazılmış ikizlerle | 23 sınıfta 65 test |
+| Birim (kendi) | siz | her kalıbın tek başına davranışı, elle yazılmış ikizlerle | 23 sınıfta 69 test |
 
 ### Kabul sözleşmeleri
 

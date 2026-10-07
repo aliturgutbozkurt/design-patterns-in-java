@@ -46,6 +46,48 @@ class UnitOfWorkTest {
     }
 
     @Test
+    void failedWorkUndoesItsWritesNewestFirst() {
+        List<String> undone = new ArrayList<>();
+
+        assertThatIllegalStateException().isThrownBy(() -> unitOfWork.run(changes -> {
+            changes.onRollback(() -> undone.add("first write"));
+            changes.onRollback(() -> undone.add("second write"));
+            throw new IllegalStateException("third write failed");
+        })).withMessage("third write failed");
+
+        assertThat(undone).containsExactly("second write", "first write");
+    }
+
+    @Test
+    void anUndoThatFailsIsAttachedToTheOriginalFailure() {
+        List<String> undone = new ArrayList<>();
+
+        assertThatIllegalStateException().isThrownBy(() -> unitOfWork.run(changes -> {
+            changes.onRollback(() -> undone.add("first write"));
+            changes.onRollback(() -> {
+                throw new IllegalStateException("undo failed");
+            });
+            throw new IllegalStateException("commit failed");
+        })).withMessage("commit failed")
+                .satisfies(failure -> assertThat(failure.getSuppressed()).extracting(Throwable::getMessage)
+                        .containsExactly("undo failed"));
+
+        assertThat(undone).as("the remaining undos still run").containsExactly("first write");
+    }
+
+    @Test
+    void committedWorkKeepsItsWrites() {
+        List<String> undone = new ArrayList<>();
+
+        unitOfWork.run(changes -> {
+            changes.onRollback(() -> undone.add("write"));
+            return null;
+        });
+
+        assertThat(undone).isEmpty();
+    }
+
+    @Test
     void nestedWorkJoinsTheOuterTransaction() {
         unitOfWork.run(outer -> {
             outer.raise(event);

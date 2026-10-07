@@ -34,7 +34,7 @@ Build and run the reference from the repository root on JDK 27:
 ```bash
 export JAVA_HOME=$(/usr/libexec/java_home -v 27)            # macOS; on Linux/Windows point JAVA_HOME at JDK 27
 
-./mvnw -q -pl capstone/reference -am verify                  # 83 acceptance tests + 7 rules + 65 unit tests
+./mvnw -q -pl capstone/reference -am verify                  # 83 acceptance tests + 7 rules + 69 unit tests
 ./mvnw -q -pl capstone/reference -am package -DskipTests
 java -cp capstone/starter/target/classes:capstone/reference/target/classes \
      io.github.aliturgutbozkurt.patterns.capstone.reference.config.Main --demo
@@ -940,6 +940,11 @@ returned and the lock was released.
         try {
             T result = work.apply(changes);
             return new Committed<>(result, outer == null ? changes.events() : List.of());
+        } catch (RuntimeException failure) {
+            if (outer == null) {
+                changes.rollBack(failure);
+            }
+            throw failure;
         } finally {
             if (outer == null) {
                 current.remove();
@@ -949,7 +954,9 @@ returned and the lock was released.
     }
 ```
 
-If the work throws, `runDeferred` never returns, so nothing is dispatched (`UnitOfWorkTest.failedWorkDispatchesNothing`).
+If the work throws, `runDeferred` never returns, so nothing is dispatched (`UnitOfWorkTest.failedWorkDispatchesNothing`),
+and every write the work registered with `changes.onRollback(…)` is undone, newest first
+(`UnitOfWorkTest.failedWorkUndoesItsWritesNewestFirst`).
 The dispatcher queues events that a handler publishes and catches a failing handler, reporting it to the
 environment's error sink:
 
@@ -1275,10 +1282,13 @@ hierarchy is closed.
 `UnitOfWork` serialises **every** state change, and checkout holds the lock while it calls the payment provider.
 That trades throughput for simplicity: validation, charge and commit can never interleave with another change, so
 there is no lost update and no double reservation of stock. It is acceptable for an in-memory shop and would not be
-for a real one (a database transaction plus optimistic versioning, m11, would replace it). Note also what the unit of
-work does **not** do: it has no rollback. `CheckoutService.place` saves the order first, so a failing save leaves
-nothing behind; a failure *between* the saves would leave a partial change behind (and the card refunded). A real
-store would make the three saves atomic. Name such limits in your report — rubric C9 (e) asks for them.
+for a real one (a database transaction plus optimistic versioning, m11, would replace it). Note also how far the unit of
+work's rollback goes: every write registers its undo (`changes.onRollback`), so a failure *between* the saves of
+checkout — order saved, cart closed, half the stock reserved — is undone and the card refunded
+(`CheckoutServiceTest.failureHalfwayThroughTheCommitUndoesEveryWriteAndRefunds`). It is an in-memory undo log, not a
+durable transaction: the undos themselves can fail (they are attached to the failure, not hidden), and an external
+effect such as a refund already sent cannot be taken back. A real store would make the saves atomic. Name such limits
+in your report — rubric C9 (e) asks for them.
 
 ## SDD artefacts
 
@@ -1397,7 +1407,7 @@ submissions typically lack.
   (`PaymentPort`, `Warehouse`, `Notifier`); sealed outcomes for business results, exceptions for infrastructure.
   *You:* (a)–(c) plus **one ArchUnit rule of your own** (d) and a hexagon diagram that matches your packages (e).
   *Weaker:* no own rule; a port named after a technology (`HttpPaymentClient`); adapters created inside services.
-- **C7 Test quality (7).** *Reference:* 65 unit tests next to the code, hand-written doubles
+- **C7 Test quality (7).** *Reference:* 69 unit tests next to the code, hand-written doubles
   (`FailingOrderRepository`, `CountingWarehouse`), barrier-based concurrency tests. *You:* one behaviour test per
   valid pattern, at least 80 % coverage of `domain` and `application`, extension tests listed next to their
   criteria. *Weaker:* `Thread.sleep` in concurrency tests; Mockito; test names like `test1`.
@@ -1425,7 +1435,7 @@ four-point argument in §2 C6).
 |---|---|---|---|
 | Acceptance (given) | course staff | behaviour of the mandatory features through the GIVEN API | 11 suites, 83 tests, bound by `*ReferenceTest` |
 | Architecture (given + own) | course staff, plus one of yours (C6 d) | dependency direction, no cycles, no global state | `ReferenceArchitectureTest` (7 rules) |
-| Unit (own) | you | each pattern's behaviour in isolation, with hand-written doubles | 65 tests in 23 classes |
+| Unit (own) | you | each pattern's behaviour in isolation, with hand-written doubles | 69 tests in 23 classes |
 
 ### Acceptance contracts
 

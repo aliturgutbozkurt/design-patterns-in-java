@@ -18,6 +18,9 @@ public interface OrderRepository {
     /** Inserts or replaces the order with the same id. */
     void save(Order order);
 
+    /** Removes the order with this id, if any (used only to roll back a failed transaction). */
+    void remove(OrderId id);
+
     /** The order with this id, if any. */
     Optional<Order> find(OrderId id);
 

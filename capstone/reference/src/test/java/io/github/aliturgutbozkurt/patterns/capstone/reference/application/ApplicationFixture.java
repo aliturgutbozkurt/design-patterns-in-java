@@ -63,7 +63,11 @@ final class ApplicationFixture {
     }
 
     CheckoutService checkout(OrderRepository orders) {
-        return new CheckoutService(carts, orders, pricing, payments, inventory, SequentialIds.forOrders(), clock,
+        return checkout(orders, inventory);
+    }
+
+    CheckoutService checkout(OrderRepository orders, Inventory stock) {
+        return new CheckoutService(carts, orders, pricing, payments, stock, SequentialIds.forOrders(), clock,
                 unitOfWork);
     }
 

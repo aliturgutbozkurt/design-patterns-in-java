@@ -27,6 +27,11 @@ public final class InMemoryOrderRepository implements OrderRepository {
     }
 
     @Override
+    public void remove(OrderId id) {
+        orders.remove(Objects.requireNonNull(id, "id"));
+    }
+
+    @Override
     public Optional<Order> find(OrderId id) {
         return Optional.ofNullable(orders.get(id));
     }

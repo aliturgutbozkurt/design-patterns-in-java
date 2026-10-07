@@ -37,16 +37,18 @@ public final class Inventory {
             if (products.find(item.sku()).orElseThrow() instanceof PhysicalProduct before) {
                 PhysicalProduct after = before.reserved(item.quantity());
                 products.save(after);
+                changes.onRollback(() -> products.save(before));
                 StockLevels.alert(before, after, lowStockThreshold).ifPresent(changes::raise);
             }
         }
     }
 
     /** Puts the physical lines back into stock. */
-    public void release(List<OrderItem> items) {
+    public void release(List<OrderItem> items, Changes changes) {
         for (OrderItem item : items) {
-            if (products.find(item.sku()).orElseThrow() instanceof PhysicalProduct product) {
-                products.save(product.restocked(item.quantity()));
+            if (products.find(item.sku()).orElseThrow() instanceof PhysicalProduct before) {
+                products.save(before.restocked(item.quantity()));
+                changes.onRollback(() -> products.save(before));
             }
         }
     }

@@ -12,7 +12,9 @@ import java.util.function.Function;
  * The transaction boundary of the shop: every change of state runs inside {@link #run}, one at a time, and the events
  * it raised are dispatched only after it committed and released the lock — so a subscriber sees the stored state, may
  * itself change state, and a failed change notifies no one (adapted from modules/m11-…/events/aggregate/UnitOfWork.java).
- * A transaction started inside another one joins it; only the outermost dispatches.
+ * If the work throws, the writes it registered with {@link Changes#onRollback} are undone, newest first, so a failed
+ * change leaves nothing half done. A transaction started inside another one joins it; only the outermost dispatches
+ * and rolls back.
  *
  * @see "capstone guide §1 Pattern map — Observer"
  */
@@ -45,6 +47,11 @@ public final class UnitOfWork {
         try {
             T result = work.apply(changes);
             return new Committed<>(result, outer == null ? changes.events() : List.of());
+        } catch (RuntimeException failure) {
+            if (outer == null) {
+                changes.rollBack(failure);
+            }
+            throw failure;
         } finally {
             if (outer == null) {
                 current.remove();
