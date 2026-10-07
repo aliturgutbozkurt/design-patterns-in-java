@@ -35,7 +35,7 @@ public final class ReferenceCompositionRoot implements PatternShopFactory {
         return new ReferenceShop(
                 new CatalogueService(products, unitOfWork),
                 new CartService(carts, products, promotions, SequentialIds.forCarts(), env.clock(), unitOfWork),
-                new PricingService(promotions),
+                new PricingService(promotions, carts, products, env.clock()),
                 PendingSlices.checkout(),
                 PendingSlices.orders(),
                 PendingSlices.events(),
