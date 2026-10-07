@@ -1,0 +1,4 @@
+rank,sku,name,units,revenue
+1,TOY-001,Pattern Puzzle,3,360.00
+2,BOK-001,Design Patterns Handbook,2,500.00
+3,HOM-001,Hexagon Mug,2,179.80

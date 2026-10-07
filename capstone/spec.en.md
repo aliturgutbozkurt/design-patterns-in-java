@@ -41,13 +41,16 @@ A pattern used where it solves nothing costs points (remember "patternitis" from
 
 ### 2.2 Business rules
 
-These rules are what the acceptance tests check. Exact output texts (CLI, reports) are in the test resources of the
-starter and in [SPEC-capstone.md, "Output formats"](../specs/SPEC-capstone.md#output-formats-pinned-by-the-acceptance-tests).
+These rules are what the acceptance tests check. Exact output texts (CLI, reports) are in the
+[test resources of the starter](starter/src/test/resources/acceptance/) and in [SPEC-capstone.md, "Output formats"](../specs/SPEC-capstone.md#output-formats-pinned-by-the-acceptance-tests).
 If you find a contradiction between this brief and a test, report it — do not change the test.
 
 **Money and ids.** All prices are Turkish lira with VAT included, stored as whole kuruş (`Money`). Printed as `987.91`.
 Ids are generated per shop instance: carts `cart-1`, `cart-2`, …; orders `order-1`, `order-2`, … (an order number is
-used only by an order that was actually placed). The clock is injected — never call `Instant.now()` directly.
+used only by an order that was actually placed). The clock is injected — never call `Instant.now()` directly. Invalid input (a malformed SKU, a blank name, a
+non-positive quantity, an unknown product added to a cart, …) is rejected with an `IllegalArgumentException`; an
+unknown cart, or a restock of an unknown product, with a `NoSuchElementException`; any edit of a closed cart with an
+`IllegalStateException`. The exact messages are in the Javadoc of the GIVEN use cases.
 
 **Catalogue (F1).** A SKU looks like `BOK-001` (three capitals, dash, three digits). Name must not be blank, price
 must be positive, a physical product's stock must be ≥ 0, a digital product has unlimited stock (its stock is given
@@ -57,7 +60,8 @@ restocked, by a positive quantity.
 **Cart (F2).** Adding a SKU that is already in the cart increases its quantity; the line keeps its first position.
 Quantities must be positive; changing a quantity to 0 removes the line. Unknown products are rejected and the cart
 stays unchanged. Stock is **not** checked while shopping, only at checkout. A cart holds at most one coupon; it is
-validated when applied (unknown or expired coupons are rejected); applying another valid coupon replaces the first.
+validated when applied (unknown or expired coupons are rejected; a coupon is valid up to and including its `validUntil` day in the clock's
+time zone); applying another valid coupon replaces the first.
 After a successful checkout the cart is closed and every further edit is rejected.
 
 **Undo / redo (F3).** Every successful edit (add, change quantity, remove, coupon) can be undone; undo restores the
@@ -74,7 +78,8 @@ report `false` and change nothing.
 4. **Amount off over a threshold:** if subtotal minus the discounts of steps 2–3 is at least the threshold, subtract
    the amount. If several qualify, only the one with the highest threshold applies.
 5. **Coupon:** its percentage of what is left after step 4, rounded half-up once. An expired coupon gives no discount.
-6. The merchandise total never goes below 0.00.
+6. The merchandise total never goes below 0.00: a discount is capped at what is left, and discounts of 0.00 are not
+   listed (total = subtotal − discounts + shipping).
 7. **Shipping:** 49.90 if the cart contains a physical product and the merchandise total is below 500.00; otherwise
    0.00. Total = merchandise total + shipping.
 
@@ -106,7 +111,7 @@ closes the cart and records `PLACED` and `PAID` with the clock's time and the pr
 is placed without calling the payment API (reference `FREE`).
 
 **Order lifecycle (F7).** Allowed: `PAID → SHIPPED` (fulfilment only), `SHIPPED → DELIVERED`,
-`PAID → CANCELLED`. Cancelling needs a non-blank reason, refunds the payment through the external API and restocks
+`PAID → CANCELLED`. Cancelling needs a non-blank reason (otherwise `missing reason`), refunds the payment through the external API and restocks
 physical products; if the refund fails the result is `refund failed` and nothing changes. Anything else is refused
 with `cannot cancel SHIPPED order`, `cannot deliver PAID order`, …; an unknown id with `unknown order: <id>`.
 Business outcomes are results (sealed types), not exceptions.
@@ -115,7 +120,7 @@ Business outcomes are results (sealed types), not exceptions.
 `OrderCancelled`, `StockLow`) are dispatched only **after** the change is stored, in the order they were raised; a
 subscriber therefore sees the new state. Subscribers receive only their event type (a subscriber of `ShopEvent`
 receives all). A subscriber that throws is reported to the environment's error sink; the other subscribers still run
-and the operation still succeeds. Customers get a notification with the subject `Order order-1 confirmed` (on
+and the operation still succeeds. Customers (recipient: the customer id) get a notification with the subject `Order order-1 confirmed` (on
 payment), `Order order-1 shipped` (with the tracking code) and `Order order-1 cancelled` (with the reason). When a
 product's stock drops from at least 5 to below 5, `StockLow` is published and `ops` is notified — once per crossing.
 
@@ -127,7 +132,7 @@ tracking code `DIGITAL`. Results — and the `OrderShipped` events, dispatched o
 are in order-number order (`order-2` before `order-10`). The call returns only when all work is finished.
 
 **Reports (F10).** Daily sales (every day of the range, also days without orders; cancelled orders excluded), top
-products (by units, then SKU; list prices), a customer statement (all orders in placement order; total spent
+products (by units, then SKU; list prices; cancelled orders excluded), a customer statement (all orders in placement order; total spent
 excludes cancelled orders), inventory (physical products by SKU, `low` when stock < 5). Requests and reports are
 sealed types; each report renders as text or CSV.
 

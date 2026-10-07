@@ -1,0 +1,73 @@
+# Expected CLI transcript (CliAcceptance.scriptedSessionProducesTheExpectedTranscript), on a shop seeded with DemoData,
+# clock 2026-11-16T09:00+03:00, the payment sandbox and the scripted warehouse. A line "> command" is one call of
+# CommandLine.execute; the lines below it, up to the next "> ", are its exact response. Lines starting with # are notes.
+> product list TOYS
+TOY-001 | Pattern Puzzle | TOYS | PHYSICAL | 120.00 | 6
+> cart open alice
+CART cart-1
+> cart add cart-1 BOK-001 2
+cart-1 alice open | BOK-001 x2
+> cart add cart-1 BOK-002 1
+cart-1 alice open | BOK-001 x2, BOK-002 x1
+> cart add cart-1 TOY-001 3
+cart-1 alice open | BOK-001 x2, BOK-002 x1, TOY-001 x3
+> cart add cart-1 HOM-001 1
+cart-1 alice open | BOK-001 x2, BOK-002 x1, TOY-001 x3, HOM-001 x1
+> cart undo cart-1
+cart-1 alice open | BOK-001 x2, BOK-002 x1, TOY-001 x3
+> cart add cart-1 DIG-001 1
+cart-1 alice open | BOK-001 x2, BOK-002 x1, TOY-001 x3, DIG-001 x1
+> cart redo cart-1
+NOTHING TO REDO
+> cart coupon cart-1 AUTUMN5
+cart-1 alice open | BOK-001 x2, BOK-002 x1, TOY-001 x3, DIG-001 x1 | coupon AUTUMN5
+> quote cart-1
+subtotal 1359.90
+- buy 2 get 1 free: TOY-001 120.00
+- 10% off BOOKS 99.99
+- 100.00 off over 1000.00 100.00
+- coupon AUTUMN5 5% 52.00
+shipping 0.00
+total 987.91
+> cart open bob
+CART cart-2
+> cart add cart-2 ELE-001 11
+cart-2 bob open | ELE-001 x11
+> checkout cart-2 tok_visa_ok Bob;;Ankara;06100
+REJECTED missing address; quantity limit exceeded: ELE-001; insufficient stock: ELE-001
+> checkout cart-1 tok_declined Alice Doe;Bagdat Cd. 1;Istanbul;34710
+REJECTED payment declined
+> checkout cart-1 tok_visa_ok Alice Doe;Bagdat Cd. 1;Istanbul;34710
+PLACED order-1 987.91 txn-1
+> cart show cart-1
+cart-1 alice closed | BOK-001 x2, BOK-002 x1, TOY-001 x3, DIG-001 x1 | coupon AUTUMN5
+> order show order-1
+order-1 alice PAID 987.91 | BOK-001 x2, BOK-002 x1, TOY-001 x3, DIG-001 x1
+> fulfil
+SHIPPED order-1 TRK-0001
+> fulfil
+NOTHING TO FULFIL
+> order deliver order-1
+DELIVERED order-1
+> order cancel order-1 changed my mind
+REFUSED cannot cancel DELIVERED order
+> report sales 2026-11-16 2026-11-17
+Daily sales 2026-11-16 .. 2026-11-17
+2026-11-16 | 1 | 987.91
+2026-11-17 | 0 | 0.00
+Total | 1 | 987.91
+> report top 2 --csv
+rank,sku,name,units,revenue
+1,TOY-001,Pattern Puzzle,3,360.00
+2,BOK-001,Design Patterns Handbook,2,500.00
+> report customer alice
+Statement for alice
+order-1 | 2026-11-16 | DELIVERED | 987.91
+Total spent | 987.91
+> report inventory
+Inventory
+BOK-001 | Design Patterns Handbook | 18 | no
+BOK-002 | Java 27 in Action | 7 | no
+ELE-001 | USB-C Hub | 10 | no
+HOM-001 | Hexagon Mug | 50 | no
+TOY-001 | Pattern Puzzle | 3 | yes

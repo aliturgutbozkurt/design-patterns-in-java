@@ -125,21 +125,29 @@ All types are `public`, documented with Javadoc, and dependency-free. Records va
 Sealed results are the way business outcomes are reported; exceptions are reserved for programming errors and
 unknown ids where stated.
 
+Exception conventions (pinned in C2, stated in the use cases' Javadoc and in brief §2.2): invalid input →
+`IllegalArgumentException` (`duplicate SKU: BOK-001`, `unknown product: XXX-999` when adding to a cart,
+`unknown coupon: NOPE`, `expired coupon: SUMMER10`); the unknown target of an operation → `NoSuchElementException`
+(`unknown cart: cart-9`, `unknown product: XXX-999` on restock); any edit, undo or redo of a closed cart →
+`IllegalStateException("cart closed: cart-1")`. Business-request records (`ProductSpec`, `CheckoutRequest`) reject
+only `null`; the business rules they carry are the student's code (otherwise the acceptance tests would test the
+GIVEN API instead of the student's code).
+
 | Package | Types |
 |---|---|
 | `api` | `PatternShop` (interface: `catalogue()`, `carts()`, `pricing()`, `checkout()`, `orders()`, `events()`, `fulfilment()`, `reports()`, `cli()`); `@FunctionalInterface PatternShopFactory` (`PatternShop create(ShopEnvironment env)`); record `ShopEnvironment(Clock clock, ExternalPaymentApi payments, WarehouseApi warehouse, NotificationGateway notifications, Consumer<Throwable> errors, ShopSettings settings)`; record `ShopSettings(String merchantId, int maxParallelOrders, int lowStockThreshold)` with `defaults()` = `("PATTERNSHOP", 4, 5)` |
-| `api.model` | records `Sku(String value)` (`[A-Z]{3}-\d{3}`), `Money(long kurus)` (non-negative; `of(String)`, `ZERO`, `plus`, `minus` (throws if negative), `times(int)`, `percent(int)` rounded half-up, `min`, `isZero`, `compareTo`, `toPlainString()` → `"987.91"`), `CustomerId(String value)` (non-blank), `CartId(String value)`, `OrderId(String value)` (`order-<n>`, `Comparable` by `n`), `Address(String recipient, String street, String city, String postalCode)` (`isComplete()`); enums `Category { BOOKS, ELECTRONICS, HOME, TOYS }`, `ProductType { PHYSICAL, DIGITAL }`, `OrderStatus { PLACED, PAID, SHIPPED, DELIVERED, CANCELLED }` |
-| `api.catalogue` | `CatalogueUseCase` (`ProductView add(ProductSpec)`, `Optional<ProductView> find(Sku)`, `List<ProductView> search(ProductQuery)`, `ProductView restock(Sku, int quantity)`); records `ProductSpec(Sku, String name, Category, ProductType, Money price, int initialStock)`, `ProductView(Sku, String name, Category, ProductType, Money price, int stock)`, `ProductQuery(Set<Category> categories, long maxPriceKurus, String nameContains)` with `all()` and withers `inCategory`, `priceAtMost`, `nameContaining` |
+| `api.model` | records `Sku(String value)` (`[A-Z]{3}-\d{3}`), `Money(long kurus)` (non-negative; `of(String)`, `ZERO`, `plus`, `minus` (throws if negative), `times(int)`, `percent(int)` rounded half-up, `min`, `isZero`, `compareTo`, `toPlainString()` → `"987.91"`), `CustomerId(String value)` (non-blank), `CartId(String value)`, `OrderId(String value)` (`order-<n>`, `Comparable` by `n`; `of(long)`, `number()`), `Address(String recipient, String street, String city, String postalCode)` (`isComplete()`); enums `Category { BOOKS, ELECTRONICS, HOME, TOYS }`, `ProductType { PHYSICAL, DIGITAL }`, `OrderStatus { PLACED, PAID, SHIPPED, DELIVERED, CANCELLED }` |
+| `api.catalogue` | `CatalogueUseCase` (`ProductView add(ProductSpec)`, `Optional<ProductView> find(Sku)`, `List<ProductView> search(ProductQuery)`, `ProductView restock(Sku, int quantity)`); records `ProductSpec(Sku, String name, Category, ProductType, Money price, int initialStock)`, `ProductView(Sku, String name, Category, ProductType, Money price, int stock)`, `ProductQuery(Set<Category> categories, long maxPriceKurus, String nameContains)` with `all()` and withers `inCategory` (adds a category; empty set = any), `priceAtMost` (inclusive), `nameContaining` (ignoring case) |
 | `api.cart` | `CartUseCase` (`CartId open(CustomerId)`, `CartView add(CartId, Sku, int)`, `CartView changeQuantity(CartId, Sku, int)`, `CartView remove(CartId, Sku)`, `CartView applyCoupon(CartId, String code)`, `CartView view(CartId)`, `boolean undo(CartId)`, `boolean redo(CartId)`); records `CartView(CartId id, CustomerId customer, List<CartLine> lines, String coupon, boolean open)` (`coupon` is `""` when none), `CartLine(Sku sku, int quantity)` |
-| `api.pricing` | `PricingUseCase` (`void addPromotion(PromotionSpec)`, `PriceQuote quote(CartId)`); `sealed interface PromotionSpec permits BuyXGetYFree(Sku sku, int buy, int free), CategoryPercentOff(Category category, int percent), AmountOffOver(Money threshold, Money off), Coupon(String code, int percent, LocalDate validUntil)` (records nested); records `PriceQuote(List<QuoteLine> lines, Money subtotal, List<Adjustment> discounts, Money shipping, Money total)`, `QuoteLine(Sku sku, String name, int quantity, Money unitPrice, Money lineTotal)`, `Adjustment(String label, Money amount)` |
+| `api.pricing` | `PricingUseCase` (`void addPromotion(PromotionSpec)`, `PriceQuote quote(CartId)`); `sealed interface PromotionSpec permits BuyXGetYFree(Sku sku, int buy, int free), CategoryPercentOff(Category category, int percent), AmountOffOver(Money threshold, Money off), Coupon(String code, int percent, LocalDate validUntil)` (records nested; a coupon is valid up to and including `validUntil` in the clock's zone); records `PriceQuote(List<QuoteLine> lines, Money subtotal, List<Adjustment> discounts, Money shipping, Money total)` (invariant `total = subtotal − Σ discounts + shipping`; a discount is capped at what is left; 0.00 discounts are not listed), `QuoteLine(Sku sku, String name, int quantity, Money unitPrice, Money lineTotal)`, `Adjustment(String label, Money amount)` |
 | `api.checkout` | `CheckoutUseCase` (`CheckoutResult checkout(CheckoutRequest)`); record `CheckoutRequest(CartId cart, Address shippingAddress, String cardToken)`; `sealed interface CheckoutResult permits Placed(OrderId order, Money total, String paymentReference), Rejected(List<String> reasons)` |
-| `api.order` | `OrderUseCase` (`Optional<OrderView> find(OrderId)`, `List<OrderView> ordersOf(CustomerId)`, `TransitionResult cancel(OrderId, String reason)`, `TransitionResult markDelivered(OrderId)`); records `OrderView(OrderId id, CustomerId customer, List<OrderLine> lines, Money total, OrderStatus status, String paymentReference, String trackingCode, Instant placedAt, List<StatusChange> history)` (`trackingCode` is `""` until shipped), `OrderLine(Sku sku, String name, ProductType type, int quantity, Money unitPrice)`, `StatusChange(OrderStatus status, Instant at, String note)`; `sealed interface TransitionResult permits Done(OrderView order), Refused(String reason)` |
+| `api.order` | `OrderUseCase` (`Optional<OrderView> find(OrderId)`, `List<OrderView> ordersOf(CustomerId)`, `TransitionResult cancel(OrderId, String reason)`, `TransitionResult markDelivered(OrderId)`); records `OrderView(OrderId id, CustomerId customer, List<OrderLine> lines, Money total, OrderStatus status, String paymentReference, String trackingCode, Instant placedAt, List<StatusChange> history)` (`trackingCode` is `""` until shipped), `OrderLine(Sku sku, String name, ProductType type, int quantity, Money unitPrice)`, `StatusChange(OrderStatus status, Instant at, String note)` (note: payment reference for `PAID`, tracking code for `SHIPPED`, reason for `CANCELLED`, else `""`); `cancel` refuses in the order `unknown order: <id>` → `cannot cancel <STATUS> order` → `missing reason` (blank reason) → `refund failed`; `sealed interface TransitionResult permits Done(OrderView order), Refused(String reason)` |
 | `api.event` | `ShopEvents` (`<E extends ShopEvent> Subscription subscribe(Class<E> type, Consumer<? super E> handler)`); `Subscription` (`close()`, idempotent); `sealed interface ShopEvent permits OrderPlaced(OrderId, CustomerId, Money total), OrderPaid(OrderId, String paymentReference), OrderShipped(OrderId, String trackingCode), OrderDelivered(OrderId), OrderCancelled(OrderId, String reason, boolean refunded), StockLow(Sku, int remaining)` |
 | `api.fulfilment` | `FulfilmentUseCase` (`FulfilmentReport fulfilPaidOrders()`); records `FulfilmentReport(List<OrderId> shipped, List<FulfilmentFailure> failed)`, `FulfilmentFailure(OrderId order, String reason)` |
 | `api.report` | `ReportUseCase` (`Report run(ReportRequest)`, `String render(Report, ReportFormat)`); `sealed interface ReportRequest permits DailySales(LocalDate from, LocalDate to), TopProducts(int limit), CustomerStatement(CustomerId customer), InventoryStatus()`; `sealed interface Report permits DailySalesReport(List<DayTotal> days, int orders, Money revenue), TopProductsReport(List<ProductSales> rows), CustomerStatementReport(CustomerId customer, List<StatementLine> lines, Money totalSpent), InventoryReport(List<StockLine> lines)`; row records `DayTotal(LocalDate day, int orders, Money revenue)`, `ProductSales(int rank, Sku sku, String name, int units, Money revenue)`, `StatementLine(OrderId order, LocalDate date, OrderStatus status, Money total)`, `StockLine(Sku sku, String name, int stock, boolean low)`; `enum ReportFormat { TEXT, CSV }` |
 | `api.cli` | `CommandLine` (`String execute(String line)`) |
 | `api.external` | `ExternalPaymentApi` (`GatewayResponse authorize(String merchantId, String cardToken, String amount, String currency, String idempotencyKey)`, `GatewayResponse refund(String merchantId, String reference, String amount, String currency)`); record `GatewayResponse(int status, String reference, String message)` (200 approved, 402 declined, 5xx unavailable); `WarehouseApi` (`void pick(String orderRef, String sku, int quantity)`, `String pack(String orderRef)` → parcel id, `String ship(String parcelId, String postalCode)` → tracking code; all blocking, may throw `WarehouseException`); `WarehouseException extends RuntimeException`; `NotificationGateway` (`void send(Notification)`); record `Notification(String recipient, String subject, String body)` |
-| `api.sim` | `SimulatedPaymentApi` (token `tok_visa_ok` → 200 `txn-<n>`, `tok_declined` → 402, `tok_unavailable` → 503; refunds of known references → 200), `SimulatedWarehouse` (parcel `PCL-<n>`, tracking `TRK-<4 digits>`, fixed 20 ms latency), `ConsoleNotifications` (`Consumer<String>` sink), `DemoData` (`seed(PatternShop)`: the sample catalogue and promotions below, through the public use cases) |
+| `api.sim` | `SimulatedPaymentApi` (token `tok_visa_ok` → 200 `txn-<n>`, `tok_declined` (and any other token) → 402, `tok_unavailable` → 503; an approved idempotency key gets the same reference again; refunds of approved, not yet refunded references → 200, else 404), `SimulatedWarehouse` (parcel `PCL-<n>`, tracking `TRK-<4 digits>` with n = the order number, so output is deterministic under any interleaving; fixed 20 ms latency), `ConsoleNotifications` (`Consumer<String>` sink, one line `NOTIFY <recipient> | <subject> | <body>`), `DemoData` (`seed(PatternShop)`: the sample catalogue and promotions below, through the public use cases) |
 | `api.pattern` | `@Retention(RUNTIME) @Target(TYPE) @Repeatable(PatternRoles.class) @interface PatternRole { DesignPattern value(); String role(); }`, `PatternRoles`; `enum PatternCategory { CREATIONAL, STRUCTURAL, BEHAVIOURAL, CONCURRENCY, ARCHITECTURAL }`; `enum DesignPattern` (with `category()`): every pattern of m02–m11 — SINGLETON, STATIC_FACTORY_METHOD, FACTORY_METHOD, ABSTRACT_FACTORY, BUILDER, PROTOTYPE, OBJECT_POOL; ADAPTER, BRIDGE, COMPOSITE, DECORATOR, FACADE, FLYWEIGHT, PROXY; CHAIN_OF_RESPONSIBILITY, COMMAND, INTERPRETER, ITERATOR, MEDIATOR, MEMENTO, OBSERVER, STATE, STRATEGY, TEMPLATE_METHOD, VISITOR; THREAD_PER_TASK, PRODUCER_CONSUMER, GUARDED_SUSPENSION, BALKING, IMMUTABLE_OBJECT, STRUCTURED_CONCURRENCY, SCOPED_VALUE; DEPENDENCY_INJECTION, REPOSITORY, SPECIFICATION, PORTS_AND_ADAPTERS, DOMAIN_EVENTS |
 
 **Student skeleton (starter `src/main`, `shop`):** `config.ShopCompositionRoot implements PatternShopFactory` whose
@@ -162,10 +170,12 @@ units per SKU per order, undo depth 20, shipping fee 49.90 below a merchandise t
   report has one. Titles: `Daily sales <from> .. <to>`, `Top <n> products`, `Statement for <customer>`, `Inventory`.
   Rows: `<day> | <orders> | <revenue>`; `<rank> | <sku> | <name> | <units> | <revenue>`;
   `<order> | <date> | <status> | <total>`; `<sku> | <name> | <stock> | <yes/no>`. Totals: `Total | <orders> |
-  <revenue>` (daily sales), `Total spent | <money>` (statement). Lines end with `\n`, including the last.
+  <revenue>` (daily sales), `Total spent | <money>` (statement). Lines end with `\n`, including the last. In
+  `Top <n> products`, n is the number of rows (the report record does not carry the requested limit); the title of
+  daily sales uses the first and last day of `days`.
 - **Reports, CSV:** a header of lower-case column names (`day,orders,revenue`; `rank,sku,name,units,revenue`;
   `order,date,status,total`; `sku,name,stock,low`), one row per entry, no title and no total line; fields that contain
-  `,` or `"` are quoted RFC-4180 style.
+  `,` or `"` are quoted RFC-4180 style; `low` is `yes`/`no` as in TEXT; every line ends with `\n`.
 - **CLI** (`CommandLine.execute`, one command per call, output without trailing newline, multi-line output joined
   with `\n`): `help` → `Commands:` followed by one usage line per command, in this order:
   `product list [CATEGORY]`, `cart open <customer>`, `cart add <cart> <sku> <qty>`, `cart qty <cart> <sku> <qty>`,
@@ -178,13 +188,21 @@ units per SKU per order, undo depth 20, shipping fee 49.90 below a merchandise t
   lines, coupon part omitted when none, `closed` instead of `open`); `NOTHING TO UNDO` / `NOTHING TO REDO`; quote as
   lines `subtotal <m>`, `- <label> <m>` per discount, `shipping <m>`, `total <m>`; `PLACED order-1 987.91 txn-1` /
   `REJECTED <reason>; <reason>`; order view `order-1 alice PAID 987.91 | BOK-001 x2, TOY-001 x3`;
-  `CANCELLED order-1` / `DELIVERED order-1` / `REFUSED <reason>`; fulfilment `SHIPPED order-1 TRK-0001` and
-  `FAILED order-2 <reason>` lines in order-number order, or `NOTHING TO FULFIL`; reports as rendered. Errors:
-  `ERROR unknown command: <word>`; wrong arity or unparsable argument → `USAGE <usage line of that command>`;
-  exceptions from use cases → `ERROR <message>`.
+  `CANCELLED order-1` / `DELIVERED order-1` / `REFUSED <reason>`; `order show` of an unknown order →
+  `ERROR unknown order: order-9`; product list one line per product
+  `BOK-001 | Design Patterns Handbook | BOOKS | PHYSICAL | 250.00 | 20` (sorted by SKU) or `NO PRODUCTS`;
+  fulfilment `SHIPPED order-1 TRK-0001` and
+  `FAILED order-2 <reason>` lines in order-number order, or `NOTHING TO FULFIL`; reports as rendered (without the
+  final newline). `help` lists the usage lines indented by two spaces. Errors: `ERROR unknown command: <word>`, where
+  the command word of the groups `product`, `cart`, `order` and `report` is the group plus its sub-command
+  (`ERROR unknown command: cart fly`); wrong arity or unparsable argument (not an int, a malformed SKU or order id, an
+  unknown category, a bad date, an address without exactly four `;`-separated fields, an unknown flag) →
+  `USAGE <usage line of that command>`; exceptions from use cases → `ERROR <message>`. A blank line gives `""`.
 
 C2 stores the expected CLI transcript and the expected report texts as test resources
-(`src/test/resources/acceptance/*.txt`) and the brief links to them as the authoritative examples.
+(`src/test/resources/acceptance/*.txt`: `cli-help.txt`, `cli-session.txt`, `report-{daily-sales,top-products,
+customer-statement,inventory}.txt` and their `.csv.txt` twins) and the brief links to them as the authoritative
+examples.
 
 ## Test fixtures (starter `src/test`, package `acceptance`)
 
@@ -195,12 +213,17 @@ C2 stores the expected CLI transcript and the expected report texts as test reso
 - `SandboxPaymentApi` — `ExternalPaymentApi` with the `api.sim` token semantics plus a call log (operation,
   arguments) and `failRefunds()`.
 - `ScriptedWarehouse` — `WarehouseApi` that records each call with `Thread.currentThread().isVirtual()`, tracks
-  current/peak orders in flight, can hold calls on a latch or a `CyclicBarrier` (always with a 5 s timeout so a broken
-  implementation fails instead of hanging), and can fail a chosen order. Tracking codes `TRK-0001`, … by order number.
+  current/peak orders in flight (from an order's first call until `ship` returns or a call fails), can hold calls on a
+  latch or a `CyclicBarrier` (`holdPicksAt`, `holdOrderUntil(order, latch)`, `shippedSignal(order)`; always with a 5 s
+  timeout so a broken implementation fails instead of hanging), and can fail a chosen order (`failOrder`). Parcels
+  `PCL-<n>`, tracking codes `TRK-0001`, … by order number.
+- `ExpectedOutput` — reads the expected outputs from the test resources (also inside the test-jar).
 - `RecordingNotifications`, `RecordingErrors` — spies.
 - Abstract contracts: `AcceptanceContract` (base: `protected abstract PatternShopFactory factory()`,
   `protected abstract String applicationRootPackage()`), the per-feature `*Acceptance` classes, `ArchitectureRules`,
-  `PatternInventoryAcceptance`. Every test has `@Timeout(10)`.
+  `PatternInventoryAcceptance`. Every test has `@Timeout(10)` (on the base class, inherited). The kit is created
+  lazily on first use (`kit()`, or `kitWith(settings)` for other settings), so `ArchitectureRules` and the inventory
+  never build a shop.
 
 Bindings: starter `shop.<Feature>ExerciseTest extends <Feature>Acceptance` with `@Tag("exercise")`, factory
 `new ShopCompositionRoot()`, root `…capstone.shop`; starter `shop.ShopArchitectureTest extends ArchitectureRules`
@@ -296,7 +319,9 @@ at a barrier inside `pick` — impossible sequentially); `neverExceedsMaxParalle
 ## Architecture rules (ArchUnit, `ArchitectureRules`)
 
 `<root>` is the binding's `applicationRootPackage()`; classes are imported once with
-`ImportOption.DoNotIncludeTests`. The rules follow m11's `HexagonalShopArchitectureTest` (same ArchUnit idioms,
+`ImportOption.DoNotIncludeTests`. Rules over packages a project may not have yet (domain, application, adapters,
+cycles, static fields) use `allowEmptyShould(true)`, because ArchUnit 1.x fails a rule that selects no classes and
+the skeleton has only `config`; a non-empty selection is checked in full. The rules follow m11's `HexagonalShopArchitectureTest` (same ArchUnit idioms,
 already verified on JDK 27 / class file 71):
 
 1. `domainDependsOnlyOnJdkAndApiValues` — `<root>.domain..` depends only on `java.lang..`, `java.util..`,
@@ -345,6 +370,12 @@ used, e.g. Singleton, Visitor, Memento).
 | Order assembly | Builder | `domain.order.Order.builder()` (lines, customer, address, clock) | m03 `builder.*` |
 | Persistence | Repository, Specification | `application.port.out.{ProductRepository, CartRepository, OrderRepository}`; `adapter.out.memory.*` (thread-safe, return copies); `domain.catalogue.ProductSpecs` | m11 `repository.catalog`, `repository.orders` |
 | Wiring | DI (composition root) | `config.ReferenceCompositionRoot implements PatternShopFactory`; `config.Main` | m03 `di`, m11 `di.lifetimes` |
+| Promotions as data (needed in C3: `DemoData.seed` registers promotions, the cart validates coupons) | Repository | `application.port.out.PromotionRepository` + `adapter.out.memory.InMemoryPromotionRepository`; `domain.pricing.PromotionRule` records (behaviour added in C4); `application.PricingService.addPromotion` | m11 `repository.*` |
+| Transactions | — | `application.events.UnitOfWork`: one lock around every state change (C5 adds dispatch after commit) | m11 `events.aggregate` |
+
+*Implemented (C3):* `Order.builder()` takes the clock's instant (`placedAt(Instant)`) rather than the clock, so the
+domain never reads time itself. `ReferenceArchitectureTest` is bound already in C3 (not only in C6) so every slice is
+checked against the seven rules; ports of later slices are placeholders in `config.PendingSlices` until their slice.
 
 **C4 — pricing, lifecycle, validation** (acceptance: Pricing; lifecycle and validation by unit tests until C5)
 
@@ -354,6 +385,14 @@ used, e.g. Singleton, Visitor, Memento).
 | Price pipeline in fixed order | Decorator | `domain.pricing.PriceStep` wrapping steps: `BasePrices` → `LinePromotions` → `OrderPromotion` → `CouponDiscount` → `Shipping`; `PricingPipeline.standard()` builds the chain | m04 `decorator.coffee.modern`, m09 `composition.pricing` |
 | Order lifecycle | State (sealed) | `domain.order.OrderState` (sealed: `Placed`, `Paid`, `Shipped`, `Delivered`, `Cancelled` records, each with only the data valid in it) + exhaustive `switch` transitions returning `Transition` | m08 `state.order.sealed`, m09 `dop.order.modern` |
 | Checkout validation | Chain of Responsibility | `domain.checkout.CheckoutRule` (functional) chained collect-all after a fail-fast `NonEmptyCart`; rule order as brief §2.2 | m07 `chain.validation` |
+
+*Implemented (C4):* each `PromotionRule` record is a concrete strategy with `PriceSheet applyTo(PriceSheet)`; the
+decorators share the abstract `PriceStepDecorator` (inner stage first, then `adjust`), and `PriceSheet` keeps per line
+what is left after step 2 so category percentages always use that base. Transitions live in `domain.order.OrderLifecycle`
+(one exhaustive `switch` per event, `Transition` = sealed `Allowed`/`Refused`); `OrderState.Cancelled` derives
+`refunded()` from the payment reference (`FREE` → no refund). The chain is `CheckoutRules.standard()` =
+`nonEmptyCart().andThen(addressForPhysicalItems().and(quantityLimit()).and(stockAvailable()).and(couponNotExpired()).and(cardTokenPresent()))`
+over a `CheckoutCandidate` value.
 
 **C5 — events, payment, checkout, undo** (acceptance: Checkout end-to-end, Events, Undo)
 
@@ -365,6 +404,19 @@ used, e.g. Singleton, Visitor, Memento).
 | Checkout orchestration | Facade (+ compensation) | `application.CheckoutService`: validate → quote → charge → commit → dispatch; if commit fails after a charge it refunds | m05 `facade.checkout` |
 | Cart undo/redo | Command | `domain.cart.CartEdit` (sealed: `AddItem`, `ChangeQuantity`, `RemoveItem`, `ApplyCoupon`); `apply` returns the inverse edit; `domain.cart.EditHistory` (two `ArrayDeque`s, depth 20) | m06 `command.spreadsheet.modern` |
 
+*Implemented (C5):* `CartEdit` has a fifth record, `RestoreItem(position, item)`, the inverse of a removal (and of a
+change to 0), so undo puts the line back at its old position; `CartService` (client) performs every edit through the
+cart's `EditHistory` (invoker). Events are raised into the transaction's `Changes` collector of the
+`UnitOfWork` (not stored inside the aggregates): `run` commits under one lock, releases it and then dispatches;
+`runDeferred` hands the events back (fulfilment, C6); nested runs join the outer transaction. `EventDispatcher`
+keeps its re-entrancy queue per thread. `PaymentPort` (`charge`, `refund` → sealed `PaymentOutcome`) is the Adapter's
+target. Checkout holds the unit-of-work lock across the charge (single writer: validation, charge and commit cannot be
+interleaved with another change — a deliberate trade-off of throughput for simplicity in an in-memory shop), prices
+before validating (pricing has no side effects) and refunds when the commit fails after a charge. `Inventory` holds the
+stock bookkeeping that checkout (reserve, `StockLow` on a crossing) and cancellation (release) share. **Bindings:**
+Checkout and Undo are bound in C5; Lifecycle and Events are bound in C6, because three tests of each ship orders
+through fulfilment (verified: all their other tests pass in C5).
+
 **C6 — fulfilment, reports, CLI, architecture** (acceptance: all; ArchUnit; inventory)
 
 | Concern | Pattern(s) | Reference types | Builds on |
@@ -373,6 +425,20 @@ used, e.g. Singleton, Visitor, Memento).
 | Reports | sealed types + pattern matching; Template Method | `application.ReportService` (exhaustive `switch` over `ReportRequest` with record patterns); rendering in `application.render.ReportRenderer` (template: title → rows → total) with `TextRenderer`, `CsvRenderer` | m08 `visitor.cart.modern`, m06 `templatemethod.*` |
 | CLI | Command (command table), inbound adapter | `adapter.in.cli.CliAdapter implements CommandLine` (`Map<String, CliCommand>`) | m06 `command.*`, m11 `CommandLineAdapter` |
 | Architecture | Ports & Adapters | packages as above; `ReferenceArchitectureTest` | m11 `hexagonal.shop`, architecture tests |
+
+*Implemented (C6):* the outbound port `Warehouse` ships one whole order (`ship(order, physicalItems, postalCode)` →
+sealed `ShipmentOutcome`); `WarehouseAdapter` drives pick → pack → ship and turns a `WarehouseException` into
+`Failed(message)`. `FulfilmentService` submits one task per paid order to a virtual-thread-per-task executor (closed
+by try-with-resources, so the call returns only when all tasks are done), each task holds a `Semaphore` permit while
+it talks to the warehouse, commits through `UnitOfWork.runDeferred` (re-reading the order, so an order cancelled
+meanwhile is refused, not shipped) and returns its events; the caller joins the futures in order-number order and
+dispatches the events. Reports: `ReportService.run` is an exhaustive switch with record patterns over the sealed
+requests; `render.Table.of(Report)` does the same over the sealed reports; `ReportRenderer.render` is the template
+method (heading → rows → total), `TextRenderer` / `CsvRenderer` the concrete classes. CLI: `CliAdapter` (invoker) looks
+commands up in a table built by `CliCommands`, `CliArgs` parses arguments (`UsageException` → `USAGE …`), use-case
+exceptions become `ERROR …`. C6 also binds Lifecycle and Events (see C5) and removes the C3–C5 placeholders.
+Counted patterns: 13 + Immutable Object, as planned. The Structured-Concurrency variant stays a C7 guide snippet;
+nothing in `capstone/*` is compiled with `--enable-preview`.
 
 Counted patterns in the reference (13): Static Factory Method, Factory Method, Builder; Adapter, Decorator, Facade;
 Strategy, Chain of Responsibility, State, Command, Observer, Template Method; Thread-per-task. Plus Immutable Object
