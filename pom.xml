@@ -26,6 +26,8 @@
         <module>modules/m09-functional-data-oriented</module>
         <module>modules/m10-concurrency-patterns</module>
         <module>modules/m11-architecture-enterprise</module>
+        <!-- Capstone (SPEC-capstone, Decisions §1a): the starter with the acceptance contracts, then the reference. -->
+        <module>capstone/starter</module>
     </modules>
 
     <properties>
