@@ -557,7 +557,7 @@ Legend: size S = 1–2 units, M = 3–5 units · `Verify` must pass before ticki
   - Verify: `./mvnw -q verify`, `scripts/check-starters.sh`, `scripts/check-docs.sh`
   - Depends on: C7 (#72)
   - Files: `(many — fixes only)`
-- [ ] **R2** (#74) — Release v1.0.0 with PDFs · `S`
+- [x] **R2** (#74) — Release v1.0.0 with PDFs · `S`
   - Acceptance: Release page lists all PDFs (EN+TR per module + capstone)
   - Acceptance: README badges/links point to release
   - Verify: Download each PDF from the release page
