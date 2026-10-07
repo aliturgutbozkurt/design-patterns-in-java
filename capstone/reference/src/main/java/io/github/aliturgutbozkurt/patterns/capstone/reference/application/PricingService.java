@@ -78,6 +78,12 @@ public final class PricingService implements PricingUseCase {
         return PricingPipeline.standard(promotions.all()).price(basket);
     }
 
+    /** Whether the cart's coupon is past its last valid day today (an expired coupon fails checkout). */
+    public boolean couponExpired(Cart cart) {
+        return !cart.coupon().isEmpty() && promotions.coupon(cart.coupon())
+                .map(coupon -> !coupon.isValidOn(LocalDate.now(clock))).orElse(false);
+    }
+
     private BasketLine basketLine(CartItem item) {
         Product product = products.find(item.sku())
                 .orElseThrow(() -> new IllegalStateException("product vanished: " + item.sku().value()));

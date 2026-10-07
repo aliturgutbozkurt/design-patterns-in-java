@@ -404,6 +404,19 @@ over a `CheckoutCandidate` value.
 | Checkout orchestration | Facade (+ compensation) | `application.CheckoutService`: validate → quote → charge → commit → dispatch; if commit fails after a charge it refunds | m05 `facade.checkout` |
 | Cart undo/redo | Command | `domain.cart.CartEdit` (sealed: `AddItem`, `ChangeQuantity`, `RemoveItem`, `ApplyCoupon`); `apply` returns the inverse edit; `domain.cart.EditHistory` (two `ArrayDeque`s, depth 20) | m06 `command.spreadsheet.modern` |
 
+*Implemented (C5):* `CartEdit` has a fifth record, `RestoreItem(position, item)`, the inverse of a removal (and of a
+change to 0), so undo puts the line back at its old position; `CartService` (client) performs every edit through the
+cart's `EditHistory` (invoker). Events are raised into the transaction's `Changes` collector of the
+`UnitOfWork` (not stored inside the aggregates): `run` commits under one lock, releases it and then dispatches;
+`runDeferred` hands the events back (fulfilment, C6); nested runs join the outer transaction. `EventDispatcher`
+keeps its re-entrancy queue per thread. `PaymentPort` (`charge`, `refund` → sealed `PaymentOutcome`) is the Adapter's
+target. Checkout holds the unit-of-work lock across the charge (single writer: validation, charge and commit cannot be
+interleaved with another change — a deliberate trade-off of throughput for simplicity in an in-memory shop), prices
+before validating (pricing has no side effects) and refunds when the commit fails after a charge. `Inventory` holds the
+stock bookkeeping that checkout (reserve, `StockLow` on a crossing) and cancellation (release) share. **Bindings:**
+Checkout and Undo are bound in C5; Lifecycle and Events are bound in C6, because three tests of each ship orders
+through fulfilment (verified: all their other tests pass in C5).
+
 **C6 — fulfilment, reports, CLI, architecture** (acceptance: all; ArchUnit; inventory)
 
 | Concern | Pattern(s) | Reference types | Builds on |

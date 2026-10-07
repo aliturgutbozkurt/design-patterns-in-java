@@ -526,7 +526,7 @@ Legend: size S = 1–2 units, M = 3–5 units · `Verify` must pass before ticki
   - Verify: `./mvnw -q -pl capstone/reference -am verify`
   - Depends on: C3 (#68)
   - Files: `capstone/reference/**`
-- [ ] **C5** (#70) — Reference slice 3: events/observers, payment adapter, checkout facade, undo commands · `M`
+- [x] **C5** (#70) — Reference slice 3: events/observers, payment adapter, checkout facade, undo commands · `M`
   - Acceptance: Acceptance tests for checkout end-to-end pass
   - Verify: `./mvnw -q -pl capstone/reference -am verify`
   - Depends on: C4 (#69)

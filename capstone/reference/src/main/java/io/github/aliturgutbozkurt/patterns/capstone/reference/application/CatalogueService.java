@@ -40,7 +40,7 @@ public final class CatalogueService implements CatalogueUseCase {
     public ProductView add(ProductSpec spec) {
         Product product = ProductFactory.forType(spec.type())
                 .create(spec.sku(), spec.name(), spec.category(), spec.price(), spec.initialStock());
-        return unitOfWork.run(() -> {
+        return unitOfWork.run(_ -> {
             if (products.find(spec.sku()).isPresent()) {
                 throw new IllegalArgumentException("duplicate SKU: " + spec.sku().value());
             }
@@ -64,7 +64,7 @@ public final class CatalogueService implements CatalogueUseCase {
 
     @Override
     public ProductView restock(Sku sku, int quantity) {
-        return unitOfWork.run(() -> {
+        return unitOfWork.run(_ -> {
             PhysicalProduct restocked = switch (products.find(sku).orElseThrow(() -> unknown(sku))) {
                 case PhysicalProduct physical -> physical.restocked(quantity);
                 case DigitalProduct _ -> throw new IllegalArgumentException(
