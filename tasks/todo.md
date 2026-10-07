@@ -510,7 +510,7 @@ Legend: size S = 1–2 units, M = 3–5 units · `Verify` must pass before ticki
   - Verify: Owner review
   - Depends on: M08-1 (#46)
   - Files: `capstone/spec.en.md`, `capstone/spec.tr.md`, `capstone/rubric.en.md`, `capstone/rubric.tr.md`
-- [ ] **C2** (#67) — Capstone starter skeleton + acceptance tests · `M`
+- [x] **C2** (#67) — Capstone starter skeleton + acceptance tests · `M`
   - Acceptance: Starter compiles; acceptance tests fail
   - Acceptance: Tests cover every mandatory feature in the brief
   - Verify: `scripts/check-starters.sh capstone/starter`
@@ -518,24 +518,24 @@ Legend: size S = 1–2 units, M = 3–5 units · `Verify` must pass before ticki
   - Files: `capstone/starter/**`
 - [ ] **C3** (#68) — Reference slice 1: domain, builders, factories, repository · `M`
   - Acceptance: Acceptance tests for catalogue & cart pass
-  - Verify: `./mvnw -q -pl capstone/reference verify`
+  - Verify: `./mvnw -q -pl capstone/reference -am verify`
   - Depends on: C2 (#67)
   - Files: `capstone/reference/**`
 - [ ] **C4** (#69) — Reference slice 2: pricing strategies/decorators, order state machine, validation chain · `M`
   - Acceptance: Acceptance tests for pricing, lifecycle and validation pass
-  - Verify: `./mvnw -q -pl capstone/reference verify`
+  - Verify: `./mvnw -q -pl capstone/reference -am verify`
   - Depends on: C3 (#68)
   - Files: `capstone/reference/**`
 - [ ] **C5** (#70) — Reference slice 3: events/observers, payment adapter, checkout facade, undo commands · `M`
   - Acceptance: Acceptance tests for checkout end-to-end pass
-  - Verify: `./mvnw -q -pl capstone/reference verify`
+  - Verify: `./mvnw -q -pl capstone/reference -am verify`
   - Depends on: C4 (#69)
   - Files: `capstone/reference/**`
 - [ ] **C6** (#71) — Reference slice 4: concurrent fulfilment, reporting, ArchUnit rules · `M`
   - Acceptance: All acceptance tests pass
   - Acceptance: ArchUnit rules pass
   - Acceptance: ≥ 10 distinct patterns documented in code
-  - Verify: `./mvnw -q -pl capstone/reference verify`
+  - Verify: `./mvnw -q -pl capstone/reference -am verify`
   - Depends on: C5 (#70), M11-4 (#65)
   - Files: `capstone/reference/**`
 - [ ] **C7** (#72) — Capstone walkthrough guide (EN/TR + PDF) · `M`

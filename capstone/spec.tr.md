@@ -43,14 +43,17 @@ hastalığı).
 
 ### 2.2 İş kuralları
 
-Kabul testlerinin denetlediği kurallar bunlardır. Birebir çıktı metinleri (CLI, raporlar) başlangıç kodunun test
-kaynaklarında ve [SPEC-capstone.md, "Output formats"](../specs/SPEC-capstone.md#output-formats-pinned-by-the-acceptance-tests)
+Kabul testlerinin denetlediği kurallar bunlardır. Birebir çıktı metinleri (CLI, raporlar) başlangıç kodunun
+[test kaynaklarında](starter/src/test/resources/acceptance/) ve [SPEC-capstone.md, "Output formats"](../specs/SPEC-capstone.md#output-formats-pinned-by-the-acceptance-tests)
 bölümündedir. Bu metinle bir test arasında çelişki bulursanız bildirin — testi değiştirmeyin.
 
 **Para ve kimlikler.** Tüm fiyatlar KDV dahil Türk lirasıdır ve tam kuruş olarak saklanır (`Money`). `987.91` biçiminde
 yazdırılır. Kimlikler her mağaza örneği için üretilir: sepetler `cart-1`, `cart-2`, …; siparişler `order-1`,
 `order-2`, … (bir sipariş numarasını yalnızca gerçekten oluşturulmuş bir sipariş tüketir). Saat (clock) enjekte
-edilir — `Instant.now()` doğrudan çağrılmaz.
+edilir — `Instant.now()` doğrudan çağrılmaz. Geçersiz girdi (hatalı biçimli SKU, boş ad, pozitif olmayan adet,
+sepete eklenen bilinmeyen ürün, …) `IllegalArgumentException` ile; bilinmeyen bir sepet ya da bilinmeyen bir ürüne
+stok ekleme `NoSuchElementException` ile; kapalı bir sepetteki her düzenleme `IllegalStateException` ile reddedilir.
+Birebir mesajlar GIVEN kullanım senaryolarının Javadoc'undadır.
 
 **Katalog (F1).** Bir SKU `BOK-001` biçimindedir (üç büyük harf, tire, üç rakam). Ad boş olamaz, fiyat pozitif
 olmalıdır, fiziksel ürünün stoğu ≥ 0 olmalıdır, dijital ürünün stoğu sınırsızdır (0 olarak verilir ve gösterilir).
@@ -60,7 +63,7 @@ stok eklenebilir.
 **Sepet (F2).** Sepette zaten bulunan bir SKU eklenince adedi artar; satır ilk konumunu korur. Adetler pozitif
 olmalıdır; adedi 0 yapmak satırı çıkarır. Bilinmeyen ürünler reddedilir ve sepet değişmez. Stok alışveriş sırasında
 **denetlenmez**, yalnızca ödeme adımında. Bir sepette en çok bir kupon olur; kupon uygulanırken doğrulanır (bilinmeyen
-ya da süresi dolmuş kupon reddedilir); geçerli başka bir kupon uygulamak öncekinin yerini alır. Başarılı bir ödeme
+ya da süresi dolmuş kupon reddedilir; kupon, saatin saat diliminde `validUntil` günü dahil geçerlidir); geçerli başka bir kupon uygulamak öncekinin yerini alır. Başarılı bir ödeme
 adımından sonra sepet kapanır ve sonraki her düzenleme reddedilir.
 
 **Geri alma / yineleme (F3).** Her başarılı düzenleme (ekleme, adet değiştirme, çıkarma, kupon) geri alınabilir;
@@ -79,7 +82,8 @@ düzenlemeler kaydedilmez. Geri alınacak / yinelenecek bir şey yokken geri alm
    da büyükse tutar düşülür. Birden çok promosyon uygunsa yalnızca eşiği en yüksek olan uygulanır.
 5. **Kupon:** 4. adımdan sonra kalan tutarın yüzdesi, bir kez yukarı yuvarlanarak. Süresi dolmuş kupon indirim
    vermez.
-6. Ürün toplamı hiçbir zaman 0.00'ın altına inmez.
+6. Ürün toplamı hiçbir zaman 0.00'ın altına inmez: bir indirim kalan tutarla sınırlanır ve 0.00'lık indirimler
+   listelenmez (toplam = ara toplam − indirimler + kargo).
 7. **Kargo:** sepette fiziksel ürün varsa ve ürün toplamı 500.00'ın altındaysa 49.90; aksi halde 0.00.
    Toplam = ürün toplamı + kargo.
 
@@ -111,7 +115,7 @@ stoğu ayırır (fiziksel ürünler), sepeti kapatır ve saatin zamanı ile sağ
 durumlarını kaydeder. Toplamı 0.00 olan sipariş, ödeme API'si çağrılmadan oluşturulur (referans `FREE`).
 
 **Sipariş yaşam döngüsü (F7).** İzin verilenler: `PAID → SHIPPED` (yalnızca karşılama), `SHIPPED → DELIVERED`,
-`PAID → CANCELLED`. İptal boş olmayan bir neden ister, ödemeyi harici API üzerinden iade eder ve fiziksel ürünleri
+`PAID → CANCELLED`. İptal boş olmayan bir neden ister (yoksa `missing reason`), ödemeyi harici API üzerinden iade eder ve fiziksel ürünleri
 stoğa geri koyar; iade başarısız olursa sonuç `refund failed` olur ve hiçbir şey değişmez. Diğer her şey
 `cannot cancel SHIPPED order`, `cannot deliver PAID order`, … ile reddedilir; bilinmeyen bir kimlik
 `unknown order: <id>` ile. İş sonuçları istisna değil, sonuçtur (sealed tipler).
@@ -120,7 +124,7 @@ stoğa geri koyar; iade başarısız olursa sonuç `refund failed` olur ve hiçb
 `OrderCancelled`, `StockLow`) yalnızca değişiklik kaydedildikten **sonra**, oluştukları sırayla dağıtılır; bu yüzden
 bir abone yeni durumu görür. Aboneler yalnızca kendi olay tiplerini alır (`ShopEvent` abonesi hepsini alır). İstisna
 fırlatan bir abone ortamın hata alıcısına bildirilir; diğer aboneler yine çalışır ve işlem yine başarılı olur.
-Müşteriler `Order order-1 confirmed` (ödemede), `Order order-1 shipped` (takip koduyla) ve `Order order-1 cancelled`
+Müşteriler (alıcı: müşteri kimliği) `Order order-1 confirmed` (ödemede), `Order order-1 shipped` (takip koduyla) ve `Order order-1 cancelled`
 (nedeniyle) konulu bildirimler alır. Bir ürünün stoğu en az 5'ten 5'in altına düştüğünde `StockLow` yayımlanır ve
 `ops` bilgilendirilir — her eşik geçişinde bir kez.
 
@@ -133,7 +137,7 @@ bittikten sonra çağıran iş parçacığında dağıtılan `OrderShipped` olay
 (`order-2`, `order-10`'dan önce). Çağrı ancak tüm iş bittiğinde döner.
 
 **Raporlar (F10).** Günlük satış (aralığın her günü, sipariş olmayan günler dahil; iptal edilen siparişler hariç),
-en çok satanlar (birime, sonra SKU'ya göre; liste fiyatlarıyla), müşteri ekstresi (tüm siparişler oluşturulma
+en çok satanlar (birime, sonra SKU'ya göre; liste fiyatlarıyla; iptal edilen siparişler hariç), müşteri ekstresi (tüm siparişler oluşturulma
 sırasıyla; harcanan toplam iptal edilenleri içermez), envanter (fiziksel ürünler SKU sırasıyla, stok < 5 ise `low`).
 İstekler ve raporlar sealed tiplerdir; her rapor metin ya da CSV olarak yazdırılır.
 
