@@ -18,3 +18,5 @@
 )
 #show raw.where(block: false): it => box(fill: luma(240), inset: (x: 2pt), outset: (y: 2pt), radius: 2pt, it)
 #show link: set text(fill: rgb("#1f5fa8"))
+// Long tables (capstone guide, rubric) may span pages instead of running over the footer.
+#show figure.where(kind: table): set block(breakable: true)

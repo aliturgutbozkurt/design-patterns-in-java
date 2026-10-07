@@ -104,6 +104,8 @@ def module_root(md: Path):
     for d in md.parents:
         if (d / "pom.xml").exists() and d != ROOT:
             return d
+        if d == ROOT / "capstone":
+            return d  # capstone/guide.*.md quotes both capstone modules (starter and reference)
         if d == ROOT:
             return None
     return None
